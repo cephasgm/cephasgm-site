@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services — Cephas GM</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Poppins',sans-serif;
+  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
+  color:#fff;
+}
+
+/* NAVIGATION */
+.nav{
+  background:rgba(0,0,0,0.6);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 30px;position:sticky;top:0;z-index:100;
+}
+.brand{font-weight:700;font-size:1.2rem;}
+.nav-links{display:flex;gap:16px;}
+.nav-links a{
+  color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;transition:0.3s;
+}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,0.15);}
+
+/* HEADER */
+header{
+  text-align:center;
+  background:rgba(0,0,0,0.55);
+  padding:3rem 1rem;
+}
+header h1{font-size:2.5rem;margin-bottom:.6rem;}
+header p{color:#ddd;font-size:1rem;}
+
+/* SERVICES GRID */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
+  padding:3rem 5%;
+}
+.card{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  height:340px;
+  background:rgba(0,0,0,0.4);
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  cursor:pointer;
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 35px rgba(0,0,0,0.45);
+}
+.card img{
+  width:100%;height:100%;
+  object-fit:cover;
+  position:absolute;top:0;left:0;
+  filter:brightness(0.55);
+}
+.card-content{
+  position:absolute;bottom:0;
+  padding:1.3rem;
+  background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+}
+.card-content h3{font-size:1.2rem;margin-bottom:.5rem;}
+.card-content p{font-size:.9rem;color:#ccc;}
+
+/* FOOTER */
+footer{
+  background:rgba(0,0,0,0.85);
+  text-align:center;
+  padding:1rem;
+  font-size:.9rem;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:200;
+  left:0;top:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  overflow:auto;
+  padding-top:60px;
+}
+.modal-content{
+  background:#fff;
+  margin:auto;
+  color:#000;
+  padding:25px;
+  border-radius:14px;
+  width:90%;
+  max-width:950px;
+  animation:fadeIn .5s;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.modal-content h2{color:#0b7a59;margin-bottom:1rem;}
+.modal-content p{line-height:1.6;color:#333;}
+.modal-gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;margin:1rem 0;
+}
+.modal-gallery img{
+  width:100%;border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+.testimonial{
+  background:#f3f3f3;
+  padding:1rem;
+  border-left:4px solid #0b7a59;
+  border-radius:6px;
+  margin-top:1.5rem;
+  color:#333;
+  font-style:italic;
+}
+.close{
+  color:#000;float:right;font-size:28px;font-weight:bold;
+}
+.close:hover{color:#0b7a59;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="brand">Cephas GM</div>
+  <div class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <h1>Our Services</h1>
+  <p>Empowering industries through smart innovation, cloud, AI, and sustainable technology.</p>
+</header>
+
+<!-- SERVICES GRID -->
+<section class="services">
+  <div class="card" onclick="openModal('modal1')">
+    <img src="https://info.engineering.vanderbilt.edu/hubfs/smart-city-visualization-1.jpg" alt="">
+    <div class="card-content">
+      <h3>Smart Infrastructure Design</h3>
+      <p>We develop IoT-driven, eco-friendly city frameworks built for safety, efficiency, and sustainability.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="openModal('modal2')">
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=900&q=80" alt="">
+    <div class="card-content">
+      <h3>Cloud & Digital Transformation</h3>
+      <p>Accelerating enterprise scalability through secure hybrid cloud systems and automation.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="openModal('modal3')">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80" alt="">
+    <div class="card-content">
+      <h3>AI & Machine Learning Integration</h3>
+      <p>Driving intelligent automation and analytics that shape the future of decision-making.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="openModal('modal4')">
+    <img src="https://renewableafricazim.com/wp-content/uploads/2024/03/RENEWABLE.png" alt="">
+    <div class="card-content">
+      <h3>Renewable Energy Solutions</h3>
+      <p>Creating a sustainable tomorrow with clean energy technologies and digital energy tools.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODALS -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h2>Smart Infrastructure Design</h2>
+    <p>Our Smart Infrastructure program focuses on building intelligent cities through connected sensors, automated data systems, and 5G-enabled monitoring platforms. From smart lighting to responsive traffic control, our goal is to create safe, adaptive, and energy-efficient environments.</p>
+    <div class="modal-gallery">
+      <img src="https://minnovation.com.au/wp-content/uploads/2024/07/image-1600x900-22-1.png?auto=format&fit=crop&w=800&q=80">
+      <img src="https://www.viasmartcities.com/wp-content/uploads/2023/05/data-driven.webp?auto=format&fit=crop&w=800&q=80">
+      <img src="https://i0.wp.com/aecbimsolutions.com/wp-content/uploads/2022/09/s1-1.jpeg?resize=1024%2C613&ssl=1?auto=format&fit=crop&w=800&q=80">
+    </div>
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h2>Cloud & Digital Transformation</h2>
+    <p>Our cloud services help organizations migrate seamlessly to secure hybrid systems. We provide architecture optimization, real-time backups, and AI-based cloud monitoring tools to ensure scalability and reliability for all digital operations.</p>
+    <div class="modal-gallery">
+      <img src="https://www.criticalriver.com/wp-content/uploads/2021/10/The-Today-Tomorrow-of-Cloud-in-Digital-Transformation-New.jpg?auto=format&fit=crop&w=800&q=80">
+      <img src="https://cdn1.expresscomputer.in/wp-content/uploads/2024/03/08132620/ec-cloud-technology-cloud-computing-750.jpg?auto=format&fit=crop&w=800&q=80">
+      <img src="https://seb-admin.com/wp-content/uploads/2024/06/Role-of-Cloud-Computing-in-Digital-Transformation.jpg?auto=format&fit=crop&w=800&q=80">
+    </div>
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal3')">&times;</span>
+    <h2>AI & Machine Learning Integration</h2>
+    <p>We design artificial intelligence solutions that turn data into insights. From predictive healthcare systems to logistics route optimization, our machine learning frameworks enable industries to automate and innovate at scale.</p>
+    <div class="modal-gallery">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStq5ryhHh4lfqxDZHTMUIrmQXoDAMvnxKKBg&s?auto=format&fit=crop&w=800&q=80">
+      <img src="https://bigdataanalyticsnews.com/wp-content/uploads/2015/12/machine-learning-tools.jpg?auto=format&fit=crop&w=800&q=80">
+      <img src="https://618media.com/wp-content/uploads/2025/02/the-role-of-qwen-in-developing-intelligent-chatbots.webp?auto=format&fit=crop&w=800&q=80">
+    </div>
+  </div>
+</div>
+
+<div id="modal4" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal4')">&times;</span>
+    <h2>Renewable Energy Solutions</h2>
+    <p>We’re revolutionizing clean energy through solar microgrids, IoT energy monitoring tools, and blockchain-based carbon tracking. Our technologies empower industries to reduce emissions, track sustainability goals, and achieve long-term efficiency.</p>
+    <div class="modal-gallery">
+      <img src="https://imageio.forbes.com/specials-images/dam/imageserve/1167822294/960x0.jpg?height=474&width=711&fit=bounds?auto=format&fit=crop&w=800&q=80">
+      <img src="https://www.moserbaersolar.com/wp-content/uploads/2025/02/blockchain-solar-integration.jpg?auto=format&fit=crop&w=800&q=80">
+      <img src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/10/shutterstockProxima-Studio_1932365063-696x392.jpg?auto=format&fit=crop&w=800&q=80">
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>Copyright © 2025 😀</footer>
+
+<script>
+function openModal(id){document.getElementById(id).style.display='block';}
+function closeModal(id){document.getElementById(id).style.display='none';}
+window.onclick=function(e){
+  document.querySelectorAll('.modal').forEach(m=>{
+    if(e.target==m){m.style.display='none';}
+  });
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About — Cephas GM</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{ margin:0; font-family:'Poppins',sans-serif; color:#222; background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=60') center/cover fixed; }
+  .nav{ background: rgba(0,0,0,0.55); display:flex; justify-content:space-between; padding:12px 28px; position:sticky; top:0; z-index:100 }
+  .nav-links a{ color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; }
+  .nav-links a.active, .nav-links a:hover{ background: rgba(255,255,255,0.08); }
+  header{ text-align:center; padding:28px 18px; background:rgba(0,0,0,0.5); color:#fff; }
+  main{ max-width:1100px; margin:28px auto; padding:16px; background:rgba(255,255,255,0.92); border-radius:12px; }
+  h2{ color:#0b7a59; margin-top:8px; }
+  .row{ display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start }
+  @media (max-width:900px){ .row{ grid-template-columns:1fr } }
+  .panel{ padding:12px; }
+  .team-card{ background:#f7f7f7; border-radius:10px; padding:12px; display:flex; gap:12px; align-items:center }
+  .team-card img{ width:64px; height:64px; object-fit:cover; border-radius:50% }
+  footer{ text-align:center; padding:18px; background:#222; color:#fff; margin-top:18px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand">Cephas GM</div>
+  <div class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header><h1>About Us</h1><p>Shaping the future through technology, sustainability and thoughtful design.</p></header>
+
+<main>
+  <section class="panel">
+    <h2>Mission</h2>
+    <p>To provide world-class, seamless connectivity that enables and inspires a more connected society.</p>
+
+    <h2>Vision</h2>
+    <p>Driving new ideas and technologies that create value and transform how people work and live.</p>
+
+    <h2>Plan</h2>
+    <ul>
+      <li>Develop smart city projects with IoT and 5G integration.</li>
+      <li>Expand cloud and AI-powered services to enhance digital ecosystems.</li>
+      <li>Build sustainable green energy solutions that drive environmental progress.</li>
+      <li>Scale globally through continuous research, learning, and innovation.</li>
+    </ul>
+
+    <p><strong>We are shaping the future by combining technology, sustainability, and innovation for a better tomorrow.</strong></p>
+  </section>
+
+  <aside style="margin-top:18px" class="panel">
+    <h2>Meet the Team</h2>
+    <div style="display:grid;gap:10px">
+      <div class="team-card"><img src="https://media.licdn.com/dms/image/v2/D4D03AQE7ou7jbpg75Q/profile-displayphoto-scale_400_400/B4DZlRbBTKGQAg-/0/1758007662531?e=1763596800&v=beta&t=lBYiHvX8h8_dw_iXNzUXo_2eo4id_eO39SaTrcyCvHc" alt=""><div><strong>Cephas Mkama</strong><div style="font-size:0.9rem;color:#555">Co-Founder</div></div></div>
+      <div class="team-card"><img src="https://www.uib.no/sites/w3.uib.no/files/styles/content_main/public/media/bfcb15c6-d582-49f9-9df3-62c934944fe3.jpg?itok=d1tLV4ka&timestamp=1719488225" alt=""><div><strong>Smart AI </strong><div style="font-size:0.9rem;color:#555">Online Virtual Support</div></div></div>
+    </div>
+  </aside>
+</main>
+
+<footer>Copyright © 2025 😀</footer>
+
+</body>
+</html>
