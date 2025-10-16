@@ -1,57 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Cephas GM</title>
+<meta name="description" content="Explore Cephas GM’s featured tech projects — Smart Cities, Cloud Transformation, AI Research, and Green Energy.">
+<link rel="icon" href="https://cephasgm.github.io/cephasgm-site/images/favicon.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:'Poppins',sans-serif;
-  background:url('https://cdn.thecoolist.com/wp-content/uploads/2021/03/Maletsunyane-Falls-Lesotho-Africa.jpg') center/cover fixed no-repeat;
   color:#fff;
+  background:url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1470&q=80') center/cover fixed no-repeat;
 }
-.nav{background:rgba(0,0,0,0.6);display:flex;justify-content:space-between;align-items:center;padding:14px 30px;position:sticky;top:0;z-index:100;}
+.nav{background:rgba(0,0,0,0.6);display:flex;justify-content:space-between;align-items:center;padding:14px 30px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.4);}
 .brand{font-weight:700;font-size:1.2rem;}
-.nav-links{display:flex;gap:16px;}
-.nav-links a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;transition:0.3s;}
-.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,0.15);}
-header{text-align:center;background:rgba(0,0,0,0.55);padding:3rem 1rem;}
-header h1{font-size:2.5rem;margin-bottom:.6rem;}
-header p{color:#ddd;font-size:1rem;}
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;padding:3rem 5%;}
-.card{position:relative;border-radius:16px;overflow:hidden;height:320px;background:rgba(0,0,0,0.4);box-shadow:0 8px 20px rgba(0,0,0,0.3);transition:transform .4s ease, box-shadow .4s ease;cursor:pointer;opacity:0;transform:translateY(40px);animation:fadeInUp 1s forwards;}
-.card:nth-child(1){animation-delay:0.2s;}
-.card:nth-child(2){animation-delay:0.4s;}
-.card:nth-child(3){animation-delay:0.6s;}
-.card:nth-child(4){animation-delay:0.8s;}
-@keyframes fadeInUp{
-  0%{opacity:0;transform:translateY(40px);}
-  100%{opacity:1;transform:translateY(0);}
-}
-.card:hover{transform:translateY(-8px);box-shadow:0 12px 35px rgba(0,0,0,0.45);}
-.card img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;filter:brightness(0.8);}
-.card-content{position:absolute;bottom:0;padding:1.3rem;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);}
-.card-content h3{font-size:1.3rem;margin-bottom:.4rem;}
-.card-content p{font-size:.9rem;color:#ccc;}
-.modal{display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.95);overflow-y:auto;padding-top:60px;}
-.modal-content{background:#fff;color:#000;margin:auto;padding:20px;border-radius:16px;width:95%;max-width:1200px;animation:fadeIn .5s;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-.close{color:#000;float:right;font-size:28px;font-weight:bold;}
-.close:hover{color:#0b7a59;cursor:pointer;}
-.modal header{text-align:center;background:none;color:#111;padding:0;margin-bottom:1rem;}
-.modal header h2{color:#0b7a59;margin-bottom:.5rem;}
-.swiper{width:100%;height:500px;border-radius:16px;margin:1rem 0;overflow:hidden;}
-.swiper-slide img{width:100%;height:100%;object-fit:cover;}
-.swiper-pagination-bullet-active{background:#0b7a59;}
-.swiper-button-next,.swiper-button-prev{color:#fff;}
-.content{padding:1rem 0;}
-.content h3{color:#0b7a59;margin-bottom:.5rem;}
-.content p{line-height:1.6;margin-bottom:1rem;}
-.highlights{background:#f4f4f4;padding:1rem;border-left:4px solid #0b7a59;border-radius:8px;margin-bottom:1rem;}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap;}
+.nav-links a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;border-bottom:3px solid transparent;transition:.3s;}
+.nav-links a:hover{background:rgba(255,255,255,0.15);}
+.nav-links a.active{border-bottom:3px solid #0b7a59;color:#0b7a59;text-shadow:0 0 6px rgba(11,122,89,0.8);}
+main{text-align:center;padding:3rem 1rem;background:rgba(0,0,0,0.55);}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;padding:2rem;}
+.card{background:rgba(255,255,255,0.1);border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.3);padding:1.5rem;}
+.card img{width:100%;border-radius:10px;margin-bottom:1rem;}
+.card h3{color:#0b7a59;margin-bottom:.5rem;}
+.card p{color:#ddd;font-size:.95rem;}
 footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
+#topBtn{position:fixed;bottom:30px;right:30px;background:#0b7a59;color:#fff;border:none;border-radius:50%;width:45px;height:45px;cursor:pointer;font-size:20px;box-shadow:0 4px 10px rgba(0,0,0,0.4);opacity:0;transition:opacity 0.4s ease;z-index:999;}
+#topBtn.show{opacity:1;}
+#topBtn:hover{background:#099268;}
 </style>
 </head>
 <body>
@@ -59,136 +37,50 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
 <nav class="nav">
   <div class="brand">Cephas GM</div>
   <div class="nav-links">
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="projects.html" class="active">Projects</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
+    <a href="impact.html">Impact</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn">🔒 Portal Access</a>
   </div>
 </nav>
 
-<header>
-  <h1>Our Projects</h1>
-  <p>Explore our flagship innovations driving smart, digital, and sustainable transformation.</p>
-</header>
+<main>
+  <h1>📰 Our Featured Projects</h1>
+  <div class="project-grid">
+    <div class="card">
+      <img src="https://source.unsplash.com/600x400/?city,smart" alt="Smart City">
+      <h3>AlphaLimaG01 — Smart City Infrastructure</h3>
+      <p>Building intelligent city systems integrating IoT, AI and data analytics to improve urban life.</p>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/600x400/?cloud,server" alt="Cloud">
+      <h3>DeltaYankee02 — Cloud Transformation Hub</h3>
+      <p>Empowering businesses to migrate securely into cloud ecosystems for faster innovation.</p>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/600x400/?ai,technology" alt="AI">
+      <h3>QubecLimaD07 — AI & Machine Learning Research</h3>
+      <p>Driving artificial intelligence breakthroughs that enhance smart decision-making systems.</p>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/600x400/?solar,energy" alt="Renewable">
+      <h3>TangoRomeaoK09 — Renewable Energy & GreenTech</h3>
+      <p>Harnessing solar and wind technologies for sustainable power solutions in Africa.</p>
+    </div>
+  </div>
+</main>
 
-<section class="projects">
-  <div class="card" onclick="openModal('alpha')">
-    <img src="https://magazine.wyfegypt.com/wp-content/uploads/2022/01/Paris_2050_No_Title.jpg" alt="">
-    <div class="card-content"><h3>AlphaLimaG01</h3><p>Smart City Infrastructure</p></div>
-  </div>
-  <div class="card" onclick="openModal('delta')">
-    <img src="https://cdn1.expresscomputer.in/wp-content/uploads/2024/03/08132620/ec-cloud-technology-cloud-computing-750.jpg" alt="">
-    <div class="card-content"><h3>DeltaYankee02</h3><p>Cloud Transformation Hub</p></div>
-  </div>
-  <div class="card" onclick="openModal('qubec')">
-    <img src="https://techvify-software.com/wp-content/uploads/2024/03/ai-and-data-science-scaled.webp" alt="">
-    <div class="card-content"><h3>QubecLimaD07</h3><p>AI & Machine Learning Research</p></div>
-  </div>
-  <div class="card" onclick="openModal('tango')">
-    <img src="https://media.istockphoto.com/id/1164502175/vector/innovative-green-technologies-smart-systems-and-recycling.jpg?s=612x612&w=0&k=20&c=TTxWtR-pIwnIS1EjHyHLeawN6GuRSOW14YicKqyN8Vg=" alt="">
-    <div class="card-content"><h3>TangoRomeaoK09</h3><p>Renewable Energy & GreenTech</p></div>
-  </div>
-</section>
+<button id="topBtn" onclick="scrollToTop()">↑</button>
+<footer>Copyright © 2025 😀 | </footer>
 
-<!-- MODALS -->
-<div id="alpha" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('alpha')">&times;</span>
-    <header><h2>AlphaLimaG01 — Smart City Infrastructure</h2></header>
-    <div class="swiper alphaSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://bunipress.wordpress.com/wp-content/uploads/2015/11/wpid-img-20151007-wa0006.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://ohmyfacts.com/wp-content/uploads/2024/10/32-facts-about-internet-of-things-1730368149.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://static.cloudsafaris.com/public/9eaba1d5-b21d-4ea5-8a9e-b073d6b2a021_Dar.jpg?action=get&host=true" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.southerntanzaniasafari.com/wp-content/uploads/2019/10/Dar-es-Salaam-Down-Town.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://5.imimg.com/data5/SELLER/Default/2023/8/338277389/DD/MI/MW/90734227/led-roadway-light-500x500.jpeg" alt=""></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>AlphaLimaG01 pioneers smart infrastructure powered by IoT and data analytics for real-time decision making.</p>
-      <div class="highlights"><ul><li>IoT-enabled lighting systems</li><li>Predictive traffic control</li><li>Renewable integration</li></ul></div>
-    </div>
-  </div>
-</div>
-
-<div id="delta" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('delta')">&times;</span>
-    <header><h2>DeltaYankee02 — Cloud Transformation Hub</h2></header>
-    <div class="swiper deltaSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://sptel.com/wp-content/uploads/2024/03/Data-Centre-Vs.-Cloud_-Whats-Right-for-Your-Business_.png" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.futurifysoft.696tech.com/assets/uploads/media-uploader/696tech-img-1271685165261.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://substackcdn.com/image/fetch/$s_!8Ndf!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fba69e598-5cbe-454e-9695-4a2725371b68_1792x1024.webp" alt=""></div>
-        <div class="swiper-slide"><img src="https://imageio.forbes.com/specials-images/imageserve/64b4bdecf8d20b23cae9bcfd/Big-data-technology-and-data-science--Data-scientist-querying--analysing-and/0x0.jpg?format=jpg&crop=2308,1299,x0,y73,safe&width=960" alt=""></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>DeltaYankee02 accelerates cloud migration using secure, flexible and scalable data infrastructure.</p>
-      <div class="highlights"><ul><li>Cloud-native frameworks</li><li>AI-driven monitoring</li><li>24/7 uptime</li></ul></div>
-    </div>
-  </div>
-</div>
-
-<div id="qubec" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('qubec')">&times;</span>
-    <header><h2>QubecLimaD07 — AI & Machine Learning Research</h2></header>
-    <div class="swiper qubecSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.stockcake.com/public/6/5/5/655f384c-7f1d-441c-96a8-0d22f506e3c2_large/robot-analyzing-data-stockcake.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://howtopython.org/wp-content/uploads/2020/04/laptops_python.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.bluefin.com/wp-content/uploads/2020/08/ai-future.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://img.freepik.com/premium-photo/neural-network-art-futuristic-science-lab_839035-22489.jpg" alt=""></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>QubecLimaD07 focuses on AI-driven systems for predictive analytics and intelligent automation.</p>
-      <div class="highlights"><ul><li>Deep learning R&D</li><li>Predictive modeling</li><li>Automation tools</li></ul></div>
-    </div>
-  </div>
-</div>
-
-<div id="tango" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('tango')">&times;</span>
-    <header><h2>TangoRomeaoK09 — Renewable Energy & GreenTech</h2></header>
-    <div class="swiper tangoSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://greenhomesystems.com/wp-content/uploads/2023/09/blog-cover-photo-98.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.ctfassets.net/gztkr1jaynk0/4Ze7V6ysVnxtVB6UKcDX7L/1c2dab4a2965cffd04316331d781cd74/wind-farm-field.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://setup.infiniqemarketing.online/uploads/2569ea34-f867-4c31-b71a-e87403eab196/blogs/cover/RE.webp" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.eurokidsindia.com/blog/wp-content/uploads/2023/10/renewable-energy.jpg" alt=""></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>TangoRomeaoK09 develops scalable renewable systems combining solar, wind, and AI-powered energy management.</p>
-      <div class="highlights"><ul><li>Microgrid deployment</li><li>Energy tracking</li><li>Carbon reduction initiatives</li></ul></div>
-    </div>
-  </div>
-</div>
-
-<footer>Copyright © 2025 😀</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-function openModal(id){document.getElementById(id).style.display='block';}
-function closeModal(id){document.getElementById(id).style.display='none';}
-window.onclick=function(e){document.querySelectorAll('.modal').forEach(m=>{if(e.target==m)m.style.display='none';});};
-new Swiper('.alphaSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.deltaSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.qubecSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.tangoSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+const topBtn=document.getElementById('topBtn');
+window.addEventListener('scroll',()=>{if(window.scrollY>300){topBtn.classList.add('show');}else{topBtn.classList.remove('show');}});
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
 </script>
 </body>
 </html>
