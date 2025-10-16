@@ -23,7 +23,7 @@ body{
   z-index:100;
 }
 .brand{font-weight:700;font-size:1.2rem;}
-.nav-links{display:flex;gap:16px;}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap;}
 .nav-links a{
   color:#fff;
   text-decoration:none;
@@ -109,6 +109,7 @@ footer{
     <a href="impact.html">Impact</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn">🔒 Portal Access</a>
   </div>
 </nav>
 
@@ -169,5 +170,6 @@ const observer=new IntersectionObserver((entries)=>{
 },options);
 counters.forEach(c=>observer.observe(c));
 </script>
+
 </body>
 </html>
