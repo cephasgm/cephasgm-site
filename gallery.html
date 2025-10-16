@@ -1,393 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Gallery — Cephas GM</title>
+<meta name="description" content="Visual gallery of Cephas GM projects, smart infrastructure, and renewable innovations.">
+<link rel="icon" href="https://cephasgm.github.io/cephasgm-site/images/favicon.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --accent:#0b7a59;
-    --muted:#6b6b6b;
-    --card-bg: rgba(255,255,255,0.96);
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    color:#111;
-    /* sunset / safari background */
-    background: linear-gradient(180deg, rgba(11,122,89,0.25), rgba(0,0,0,0.25)), url('https://i.dailymail.co.uk/i/pix/2016/05/27/10/34AD5CD000000578-0-image-a-17_1464341527935.jpg') center/cover no-repeat fixed;
-  }
-
-  /* NAVIGATION */
-  .nav{
-    background: rgba(0,0,0,0.55);
-    display:flex;justify-content:space-between;align-items:center;
-    padding:12px 28px;position:sticky;top:0;z-index:120;
-  }
-  .brand{ color:#fff; font-weight:700; letter-spacing:0.4px; }
-  .nav-links{ display:flex; gap:14px; }
-  .nav-links a{
-    color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; font-weight:600;
-  }
-  .nav-links a.active, .nav-links a:hover{ background: rgba(255,255,255,0.08); }
-
-  /* HERO */
-  header{
-    text-align:center; padding:56px 16px 34px; color:#fff;
-    background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
-  }
-  header h1{ font-size:2.6rem; margin:0 0 8px; font-weight:700; }
-  header p{ margin:0; color:#f0f0f0; max-width:900px; margin-left:auto;margin-right:auto; }
-
-  /* GALLERY CARDS */
-  .gallery-wrap{
-    max-width:1200px; margin:40px auto; padding:0 24px 64px;
-  }
-  .grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap:28px;
-  }
-  .card{
-    background: var(--card-bg);
-    border-radius:14px; overflow:hidden; box-shadow:0 8px 28px rgba(0,0,0,0.18);
-    transition: transform .32s ease, box-shadow .32s ease; cursor:pointer;
-  }
-  .card:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(0,0,0,0.25); }
-  .card-figure{ height:220px; overflow:hidden; }
-  .card-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .card-body{ padding:14px 18px; border-top:4px solid var(--accent); text-align:center; }
-  .card-body h3{ margin:6px 0; color:var(--accent); font-size:1.05rem; }
-  .card-body p{ margin:6px 0 0; color:var(--muted); font-size:0.95rem; }
-
-  /* FOOTER */
-  footer{
-    background: rgba(0,0,0,0.85);
-    color:#fff; text-align:center; padding:20px 12px; font-size:0.95rem;
-  }
-
-  /* MODAL / LIGHTBOX */
-  .modal{
-    display:none; position:fixed; z-index:300; left:0; top:0; width:100%; height:100%;
-    background:rgba(0,0,0,0.85); overflow:auto; padding:40px 20px;
-  }
-  .modal-inner{
-    max-width:1000px; margin:0 auto; background:#fff; border-radius:12px; overflow:hidden;
-    box-shadow:0 20px 60px rgba(0,0,0,0.4);
-  }
-  .modal-header{
-    display:flex; align-items:center; justify-content:space-between; padding:18px 22px;
-    border-bottom:1px solid #eee;
-  }
-  .modal-header h2{ margin:0; color:var(--accent); }
-  .modal-close{ font-size:22px; font-weight:700; color:#333; cursor:pointer; padding:6px 10px; border-radius:6px; }
-  .modal-close:hover{ background:#f5f5f5; color:var(--accent); }
-
-  .modal-body{
-    display:grid; grid-template-columns: 1fr 320px; gap:18px; padding:20px;
-  }
-  @media (max-width:920px){ .modal-body{ grid-template-columns:1fr; } }
-
-  /* slideshow area */
-  .slideshow{
-    position:relative;
-    background:#111;
-    border-radius:8px;
-    overflow:hidden;
-    min-height:420px;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .slideshow img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .slide-nav{
-    position:absolute; top:50%; transform:translateY(-50%); width:100%; display:flex; justify-content:space-between; padding:0 8px;
-  }
-  .btn-slide{
-    background:rgba(255,255,255,0.85); color:#111; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:700;
-    box-shadow:0 6px 16px rgba(0,0,0,0.2);
-  }
-  .btn-slide:hover{ background:#fff; transform:translateY(-1px) }
-
-  .slide-counter{
-    position:absolute; bottom:8px; left:10px; background:rgba(0,0,0,0.6); color:#fff; padding:6px 10px; border-radius:8px; font-weight:600;
-  }
-
-  /* right column: text + thumbnails + testimonial */
-  .meta{
-    padding:6px 2px 6px 6px;
-  }
-  .meta p{ color:#222; line-height:1.6; margin:0 0 10px; }
-  .thumbs{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:8px;
-  }
-  .thumbs img{ width:100%; height:60px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; }
-  .thumbs img.active{ border-color:var(--accent); box-shadow:0 6px 12px rgba(11,122,89,0.12) }
-
-  .testimonial{
-    margin-top:16px; background:#f5f5f5; padding:12px; border-left:4px solid var(--accent); border-radius:6px; color:#333; font-style:italic;
-  }
-
-  /* small screens adjustments */
-  @media (max-width:520px){
-    header h1{ font-size:1.6rem; }
-    .card-body h3{ font-size:0.98rem; }
-    .modal-body{ padding:12px; }
-    .slideshow{ min-height:260px; }
-    .thumbs{ grid-template-columns:repeat(4,1fr); gap:6px }
-    .thumbs img{ height:46px; }
-  }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;color:#fff;
+background:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1470&q=80') center/cover fixed no-repeat;}
+.nav{background:rgba(0,0,0,0.6);display:flex;justify-content:space-between;align-items:center;
+padding:14px 30px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.4);}
+.brand{font-weight:700;font-size:1.2rem;}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap;}
+.nav-links a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;border-bottom:3px solid transparent;transition:.3s;}
+.nav-links a:hover{background:rgba(255,255,255,0.15);}
+.nav-links a.active{border-bottom:3px solid #0b7a59;color:#0b7a59;text-shadow:0 0 6px rgba(11,122,89,0.8);}
+main{text-align:center;padding:3rem 1rem;background:rgba(0,0,0,0.55);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;padding:1rem;}
+.grid img{width:100%;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.5);transition:.4s;}
+.grid img:hover{transform:scale(1.05);}
+footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
+#topBtn{position:fixed;bottom:30px;right:30px;background:#0b7a59;color:#fff;border:none;border-radius:50%;width:45px;height:45px;cursor:pointer;font-size:20px;box-shadow:0 4px 10px rgba(0,0,0,0.4);opacity:0;transition:opacity .4s;z-index:999;}
+#topBtn.show{opacity:1;}
+#topBtn:hover{background:#099268;}
 </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" role="navigation">
-    <div class="brand">Cephas GM</div>
-    <div class="nav-links">
-      <a href="home.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="gallery.html" class="active">Gallery</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header>
-    <h1>Gallery</h1>
-    <p>Visual highlights from our projects and pilots — click any card to open a full-screen slideshow.</p>
-  </header>
-
-  <!-- CARDS -->
-  <div class="gallery-wrap">
-    <div class="grid">
-      <div class="card" role="button" onclick="openModal('smartcity')">
-        <figure class="card-figure"><img alt="Smart City Development" src="https://images.unsplash.com/photo-1509223197845-458d87318791?auto=format&fit=crop&w=1200&q=80"></figure>
-        <div class="card-body">
-          <h3>Smart City Development</h3>
-          <p>IoT, sensors, and connected infrastructure piloted to improve urban life.</p>
-        </div>
-      </div>
-
-      <div class="card" role="button" onclick="openModal('cloud')">
-        <figure class="card-figure"><img alt="Cloud Infrastructure" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80"></figure>
-        <div class="card-body">
-          <h3>Cloud Infrastructure</h3>
-          <p>Hybrid cloud, secure storage and automation for business continuity.</p>
-        </div>
-      </div>
-
-      <div class="card" role="button" onclick="openModal('ai')">
-        <figure class="card-figure"><img alt="AI Research" src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1200&q=80"></figure>
-        <div class="card-body">
-          <h3>AI Research</h3>
-          <p>Machine learning prototypes, predictive analytics, and model explainability.</p>
-        </div>
-      </div>
-
-      <div class="card" role="button" onclick="openModal('energy')">
-        <figure class="card-figure"><img alt="Renewable Energy Pilots" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=80"></figure>
-        <div class="card-body">
-          <h3>Renewable Energy Pilots</h3>
-          <p>Solar microgrids, IoT energy monitoring, and carbon tracking pilots.</p>
-        </div>
-      </div>
-    </div>
+<nav class="nav">
+  <div class="brand">Cephas GM</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="impact.html">Impact</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn">🔒 Portal Access</a>
   </div>
+</nav>
 
-  <!-- MODALS (one container, will be populated dynamically by JS with chosen images) -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-header">
-        <h2 id="modalTitle">Title</h2>
-        <div>
-          <button class="modal-close" aria-label="Close" onclick="closeModal()">&times;</button>
-        </div>
-      </div>
-
-      <div class="modal-body">
-        <!-- Slideshow column -->
-        <div>
-          <div class="slideshow" id="slideshow">
-            <img id="slideImage" src="" alt="Slide image">
-            <div class="slide-nav">
-              <button class="btn-slide" id="prevBtn" aria-label="Previous" onclick="prevSlide()">❮ Prev</button>
-              <button class="btn-slide" id="nextBtn" aria-label="Next" onclick="nextSlide()">Next ❯</button>
-            </div>
-            <div class="slide-counter" id="slideCounter">1 / 8</div>
-          </div>
-        </div>
-
-        <!-- Meta column -->
-        <aside class="meta">
-          <p id="modalText">Detailed description will appear here. Read about the project, outcomes, and use cases.</p>
-
-          <div style="margin-top:10px;">
-            <strong>Gallery</strong>
-            <div class="thumbs" id="thumbs"></div>
-          </div>
-
-          <div class="testimonial" id="testimonial">
-            “Short testimonial or impact quote will appear here to provide context and credibility.”
-          </div>
-        </aside>
-      </div>
-    </div>
+<main>
+  <h1>📸 Project Gallery</h1>
+  <div class="grid">
+    <img src="https://source.unsplash.com/600x400/?smartcity" alt="">
+    <img src="https://source.unsplash.com/600x400/?cloud" alt="">
+    <img src="https://source.unsplash.com/600x400/?ai,lab" alt="">
+    <img src="https://source.unsplash.com/600x400/?renewable,solar" alt="">
+    <img src="https://source.unsplash.com/600x400/?wind,turbine" alt="">
+    <img src="https://source.unsplash.com/600x400/?server,data" alt="">
+    <img src="https://source.unsplash.com/600x400/?infrastructure,bridge" alt="">
+    <img src="https://source.unsplash.com/600x400/?greenenergy" alt="">
   </div>
+</main>
 
-  <footer>Copyright © 2025 😀 | Designed by Cephas Mkama</footer>
+<button id="topBtn" onclick="scrollToTop()">↑</button>
+<footer>Copyright © 2025 😀 | </footer>
 
 <script>
-/* Data: 4 galleries, each with 8 images + text + testimonial */
-const GALLERIES = {
-  smartcity: {
-    title: 'Smart City Development',
-    text: 'AlphaLimaG01 pilots connected urban systems: IoT traffic sensing, adaptive lighting, public-safety dashboards, and real-time analytics that reduce congestion and energy use.',
-    testimonial: '“Smart sensors and adaptive lighting reduces peak congestion.”',
-    images: [
-      'https://eshop.se.com/in/media/shoptimize/blog/post/b/l/blog-3_2__1.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://iottysmarthome.com/cdn/shop/articles/Smart_Lighting_Systems.jpg?v=1713450257?auto=format&fit=crop&w=1400&q=80',
-      'https://www.ledlightingsupply.com/wp-content/uploads/2019/04/street-lighting-1024x682.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://tomorrowdesk.com/sites/default/files/styles/future_main_850x475/public/2025-04/Smart-Traffic-Light.jpg?itok=GwdeU5nz?auto=format&fit=crop&w=1400&q=80',
-      'https://hiretop.com/content/images/2024/11/DALL-E-2024-11-12-14.17.23---An-AI-powered-traffic-signal-control-system-in-an-urban-setting--with-smart-traffic-lights-and-real-time-data-visualizations.-The-scene-shows-a-busy-i.webp?auto=format&fit=crop&w=1400&q=80'
-
-    ]
-  },
-
-  cloud: {
-    title: 'Cloud Infrastructure',
-    text: 'DeltaYankee02 builds scalable hybrid-cloud solutions: encrypted storage, automated backups, containerized platforms, and AI-enabled monitoring to ensure uptime and security.',
-    testimonial: '“Hybrid cloud reduces downtime and operating costs significantly.”',
-    images: [
-      'https://www.secureye.com/uploads/images/1739354189_688f05249a9f85e8a8f0.jpeg?auto=format&fit=crop&w=1400&q=80',
-      'https://www.solarwinds.com/wp-content/uploads/2018/06/iStock-513118394-1024x576.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://blocksandfiles.com/wp-content/uploads/2022/09/swissbit_datacenter-image.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://www.shutterstock.com/image-photo/photo-artificial-intelligence-that-accomplished-600nw-2444205521.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://etimg.etb2bimg.com/thumb/msid-111768545,width-1200,height-900,resizemode-4/.jpg?auto=format&fit=crop&w=1400&q=80'
-    ]
-  },
-
-  ai: {
-    title: 'AI Research',
-    text: 'QubecLimaD07 develops ML models that power predictive analytics for healthcare, logistics, and finance — focused on accuracy, ethics, and real-world deployment.',
-    testimonial: '“AI-driven routing cuts delivery times.”',
-    images: [
-      'https://julienflorkin.com/wp-content/uploads/2023/10/AI-in-Healthcare-37.webp?auto=format&fit=crop&w=1400&q=80',
-      'https://easyvessel.com/wp-content/uploads/2023/05/Blog5-image.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://www.careerbright.com/wp-content/uploads/2024/01/AI-Supply-chain-and-logistics-1024x585.webp?auto=format&fit=crop&w=1400&q=80',
-      'https://kaplan.co.uk/images/default-source/insights-posts/ai-in-finance.jpg?sfvrsn=d303cc02_1?auto=format&fit=crop&w=1400&q=80',
-      'https://www.shutterstock.com/image-photo/stack-coins-jar-filled-both-600nw-2468047279.jpg?auto=format&fit=crop&w=1400&q=80'
-
-    ]
-  },
-
-  energy: {
-    title: 'Renewable Energy Pilots',
-    text: 'TangoRomeaoK09 pilots microgrids, solar arrays, and IoT energy monitoring. We combine hardware and data to reduce waste and enable verified carbon accounting.',
-    testimonial: '“Solar microgrid reduces fuel use in remote sites.”',
-    images: [
-      'https://static01.nyt.com/images/2023/08/20/multimedia/07MICROGRIDS-qhwj/07MICROGRIDS-qhwj-articleLarge.jpg?quality=75&auto=webp&disable=upscale?auto=format&fit=crop&w=1400&q=80',
-      'https://miro.medium.com/v2/resize:fit:720/format:webp/1*7NVEJHRbFJrL8Mbr7gAi_w.jpeg?auto=format&fit=crop&w=1400&q=80',
-      'https://5.imimg.com/data5/SELLER/Default/2022/5/GP/KC/BX/108170607/emporia-3-phase-vue-gen-2-smart-home-power-monitor-500x500.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://ecosustainexpo.in/wp-content/uploads/2023/09/The-Role-of-Renewable-Energy-in-Sustainability.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://news-images.dhan.co/india-to-rebid-40-gw-of-renewable-energy-projects-amid-falling-power-demand.jpg?auto=format&fit=crop&w=1400&q=80'
-    ]
-  }
-};
-
-/* modal state */
-let currentGallery = null;
-let currentIndex = 0;
-let autoplayTimer = null;
-
-const modal = document.getElementById('modal');
-const modalTitle = document.getElementById('modalTitle');
-const modalText = document.getElementById('modalText') || document.querySelector('#modal .meta p');
-const slideImage = document.getElementById('slideImage');
-const slideCounter = document.getElementById('slideCounter');
-const thumbs = document.getElementById('thumbs');
-const testimonialEl = document.getElementById('testimonial');
-
-function openModal(id){
-  const gallery = GALLERIES[id];
-  if(!gallery) return;
-  currentGallery = gallery;
-  currentIndex = 0;
-  modalTitle.textContent = gallery.title;
-  modal.querySelector('.meta p').textContent = gallery.text;
-  testimonialEl.textContent = gallery.testimonial;
-  buildThumbnails(gallery.images);
-  showSlide(0);
-  modal.style.display = 'block';
-  modal.setAttribute('aria-hidden','false');
-  startAutoplay();
-  // focus for keyboard navigation
-  document.addEventListener('keydown', modalKeyHandler);
-}
-
-function closeModal(){
-  modal.style.display = 'none';
-  modal.setAttribute('aria-hidden','true');
-  stopAutoplay();
-  document.removeEventListener('keydown', modalKeyHandler);
-}
-
-function showSlide(index){
-  if(!currentGallery) return;
-  const imgs = currentGallery.images;
-  if(index < 0) index = imgs.length - 1;
-  if(index >= imgs.length) index = 0;
-  currentIndex = index;
-  slideImage.src = imgs[currentIndex];
-  slideImage.alt = currentGallery.title + ' image ' + (currentIndex+1);
-  slideCounter.textContent = (currentIndex+1) + ' / ' + imgs.length;
-  // update active thumb border
-  document.querySelectorAll('#thumbs img').forEach((t,i) => t.classList.toggle('active', i===currentIndex));
-}
-
-function prevSlide(){ showSlide(currentIndex - 1); restartAutoplay(); }
-function nextSlide(){ showSlide(currentIndex + 1); restartAutoplay(); }
-
-function buildThumbnails(images){
-  thumbs.innerHTML = '';
-  images.forEach((src, i) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = 'Thumbnail ' + (i+1);
-    img.addEventListener('click', ()=> { showSlide(i); restartAutoplay(); });
-    thumbs.appendChild(img);
-  });
-}
-
-function modalKeyHandler(e){
-  if(e.key === 'Escape') closeModal();
-  if(e.key === 'ArrowLeft') prevSlide();
-  if(e.key === 'ArrowRight') nextSlide();
-}
-
-/* autoplay */
-function startAutoplay(){
-  stopAutoplay();
-  autoplayTimer = setInterval(()=>{ nextSlide(); }, 3500);
-}
-function stopAutoplay(){ if(autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
-function restartAutoplay(){ stopAutoplay(); startAutoplay(); }
-
-/* close modal when clicking outside content */
-window.addEventListener('click', (e)=>{
-  if(e.target === modal) closeModal();
-});
-
-/* make sure to stop autoplay when modal closed by other means */
-document.addEventListener('visibilitychange', ()=>{ if(document.hidden) stopAutoplay(); else if(modal.style.display==='block') startAutoplay(); });
-
-/* add small safety: pre-load first images for snappy UI */
-Object.values(GALLERIES).forEach(g=>{
-  const img = new Image();
-  img.src = g.images[0];
-});
+const b=document.getElementById('topBtn');
+window.addEventListener('scroll',()=>{b.classList.toggle('show',window.scrollY>300);});
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
 </script>
 </body>
 </html>
