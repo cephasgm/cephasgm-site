@@ -40,6 +40,8 @@ header p{color:#ddd;font-size:1rem;}
 .card:nth-child(2){animation-delay:.4s;}
 .card:nth-child(3){animation-delay:.6s;}
 .card:nth-child(4){animation-delay:.8s;}
+.card:nth-child(5){animation-delay:1.0s;}
+.card:nth-child(6){animation-delay:1.2s;}
 .card:hover{transform:translateY(-10px);box-shadow:0 12px 30px rgba(0,0,0,0.5);}
 .card h2{font-size:2.5rem;color:#0b7a59;margin-bottom:.3rem;}
 .card p{color:#ddd;font-size:1rem;}
@@ -67,123 +69,161 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
 <nav class="nav">
   <div class="brand">Cephas GM</div>
   <div class="nav-links">
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
+    <a href="impact.html" class="active">Impact</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
   </div>
 </nav>
 
 <header>
   <h1>Live Impact Dashboard</h1>
-  <p>Real-time insights into our growing achievements across Smart Cities, Cloud, AI, and Green Energy.</p>
+  <p>Real-time metrics from our deployed solutions and ongoing projects</p>
 </header>
 
 <section class="dashboard">
-  <div class="card" onclick="openModal('smart')">
-    <h2 class="counter" data-target="12">0</h2>
-    <p>Smart Cities Connected</p>
+  <div class="card" onclick="openModal('erp')">
+    <h2 class="counter" data-target="5">0</h2>
+    <p>Enterprise Solutions Deployed</p>
   </div>
-  <div class="card" onclick="openModal('cloud')">
-    <h2 class="counter" data-target="8">0</h2>
-    <p>Cloud Deployments (Regions)</p>
+  <div class="card" onclick="openModal('pwa')">
+    <h2 class="counter" data-target="3">0</h2>
+    <p>Industry-Specific PWAs</p>
   </div>
-  <div class="card" onclick="openModal('ai')">
-    <h2 class="counter" data-target="25">0</h2>
-    <p>AI Models Trained</p>
+  <div class="card" onclick="openModal('safety')">
+    <h2 class="counter" data-target="1250">0</h2>
+    <p>Safety Incidents Tracked</p>
   </div>
-  <div class="card" onclick="openModal('energy')">
-    <h2 class="counter" data-target="15">0</h2>
-    <p>Green Energy (MW Generated)</p>
+  <div class="card" onclick="openModal('assets')">
+    <h2 class="counter" data-target="850">0</h2>
+    <p>Assets Monitored</p>
+  </div>
+  <div class="card" onclick="openModal('users')">
+    <h2 class="counter" data-target="250">0</h2>
+    <p>Active Portal Users</p>
+  </div>
+  <div class="card" onclick="openModal('compliance')">
+    <h2 class="counter" data-target="98">0</h2>
+    <p>Compliance Rate (%)</p>
   </div>
 </section>
 
-<!-- SMART CITIES MODAL -->
-<div id="smart" class="modal">
+<!-- MODALS -->
+<div id="erp" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('smart')">&times;</span>
-    <header><h2>Smart Cities Connected</h2></header>
-    <div class="swiper smartSwiper">
+    <span class="close" onclick="closeModal('erp')">&times;</span>
+    <header><h2>Enterprise Solutions Deployed</h2></header>
+    <div class="swiper erpSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://bunipress.wordpress.com/wp-content/uploads/2015/11/wpid-img-20151007-wa0006.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://upwardlighting.com/wp-content/uploads/elementor/thumbs/led-road-street-light-q2219i3hjrmhwqzuk12b6rpjd0w8umff2p2lg2xevc.png" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.thecitizen.co.tz/resource/image/5209654/landscape_ratio3x2/1620/1080/d6b7f5c130c4de466d3e78c0bf794df1/tD/adsss.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt=""></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Cephas GM integrates data-driven technologies into city frameworks for safer, smarter, and more connected communities.</p>
+    <p>Cephas GM has deployed 5 enterprise solutions including the CephasGM-ERP system, serving businesses across multiple industries with integrated management tools.</p>
   </div>
 </div>
 
-<!-- CLOUD MODAL -->
-<div id="cloud" class="modal">
+<div id="pwa" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('cloud')">&times;</span>
-    <header><h2>Cloud Deployments</h2></header>
-    <div class="swiper cloudSwiper">
+    <span class="close" onclick="closeModal('pwa')">&times;</span>
+    <header><h2>Industry-Specific PWAs</h2></header>
+    <div class="swiper pwaSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://www.europeansprings.com/wp-content/uploads/2019/02/Data-warehouse-1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.stockcake.com/public/5/3/6/53625b81-8ee7-4aba-8c28-b10f0fa04f24_large/vast-data-center-stockcake.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://tecscience.tec.mx/en/wp-content/uploads/sites/9/2024/05/internet-history.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1200&q=80" alt=""></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Eight regional hubs ensure secure, scalable and high-speed cloud environments serving our partners across Africa.</p>
+    <p>Three specialized Progressive Web Apps have been developed for the metal management industry, health & safety compliance, and asset tracking.</p>
   </div>
 </div>
 
-<!-- AI MODAL -->
-<div id="ai" class="modal">
+<div id="safety" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('ai')">&times;</span>
-    <header><h2>AI Models Trained</h2></header>
-    <div class="swiper aiSwiper">
+    <span class="close" onclick="closeModal('safety')">&times;</span>
+    <header><h2>Safety Incidents Tracked</h2></header>
+    <div class="swiper safetySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_kzb_6j188hVsr5RHOjaG0geNq2tRqDwHH-bc60R1DRa-hjXzrLqQjP6Zr4dAixSqcnfsqKLuisOcvqDiFviKTpBM29IhGLpqpiF3mvqQ3GElJlik-VsfRRlROuStfzvFatiCVdUcPw8TxcmiMzwTWZGMPvDmZNkHtotcRhkz6H5CCAutlwDkxuHcotvB/s1024/Robotics%20and%20Artificial%20Intelligence%20(AI).webp" alt=""></div>
-        <div class="swiper-slide"><img src="https://d2nzy1qhita6w.cloudfront.net/media/magefan_blog/data-analysis-vs-data-science.jpeg" alt=""></div>
-        <div class="swiper-slide"><img src="https://itchronicles.com/wp-content/uploads/2019/05/bigstock-Doctor-With-Medical-Healthcare-287331085.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt=""></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Our AI lab has produced 25+ deep learning models applied in logistics optimization, safety monitoring, and energy forecasting.</p>
+    <p>Our Health & Safety PWA has tracked over 1,250 safety incidents, enabling proactive prevention and comprehensive compliance reporting.</p>
   </div>
 </div>
 
-<!-- ENERGY MODAL -->
-<div id="energy" class="modal">
+<div id="assets" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('energy')">&times;</span>
-    <header><h2>Green Energy Generation</h2></header>
-    <div class="swiper energySwiper">
+    <span class="close" onclick="closeModal('assets')">&times;</span>
+    <header><h2>Assets Monitored</h2></header>
+    <div class="swiper assetSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://www.worldbank.org/content/dam/photos/780x439/2023/nov/new-solar-park-central-african-republic.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://windinsider.com/wp-content/uploads/2021/06/MicrosoftTeams-image-scaled-1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://redington.solar/wp-content/uploads/2024/05/3.Maharashtras-Agri-Solar-Revolution-1024x683.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt=""></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Cephas GM’s renewable projects generate 15+ MW of clean power through hybrid solar-wind systems and AI-driven energy tracking.</p>
+    <p>The Smart Location Tracker currently monitors 850+ assets including vehicles, equipment, and personnel across multiple client operations.</p>
   </div>
 </div>
 
-<footer>Copyright © 2025 😀</footer>
+<div id="users" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('users')">&times;</span>
+    <header><h2>Active Portal Users</h2></header>
+    <div class="swiper userSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <p>Our secure client portal serves 250+ active users including clients and staff, providing personalized access to dashboards and service updates.</p>
+  </div>
+</div>
+
+<div id="compliance" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('compliance')">&times;</span>
+    <header><h2>Compliance Rate</h2></header>
+    <div class="swiper complianceSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <p>Our safety and compliance systems maintain a 98% regulatory compliance rate across all monitored facilities and operations.</p>
+  </div>
+</div>
+
+<footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// modal logic
 function openModal(id){document.getElementById(id).style.display='block';}
 function closeModal(id){document.getElementById(id).style.display='none';}
 window.onclick=function(e){document.querySelectorAll('.modal').forEach(m=>{if(e.target==m)m.style.display='none';});};
 
-// swiper sliders
-new Swiper('.smartSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.cloudSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.aiSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.energySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.erpSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.pwaSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.assetSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.userSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.complianceSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 
-// animated counters
 const counters=document.querySelectorAll('.counter');
 const options={threshold:0.5};
 const animate=(counter)=>{
