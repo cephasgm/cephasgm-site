@@ -11,7 +11,7 @@
     --muted:#6b6b6b;
     --card-bg: rgba(255,255,255,0.96);
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box; margin:0; padding:0;}
   body{
     margin:0;
     font-family:'Poppins',sans-serif;
@@ -22,15 +22,20 @@
   /* NAVIGATION */
   .nav{
     background: rgba(0,0,0,0.55);
-    display:flex;justify-content:space-between;align-items:center;
-    padding:12px 28px;position:sticky;top:0;z-index:120;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 28px; position:sticky; top:0; z-index:120;
   }
   .brand{ color:#fff; font-weight:700; letter-spacing:0.4px; }
-  .nav-links{ display:flex; gap:14px; }
+  .nav-links{ display:flex; gap:14px; flex-wrap:wrap; }
   .nav-links a{
-    color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; font-weight:600;
+    color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; font-weight:500;
   }
-  .nav-links a.active, .nav-links a:hover{ background: rgba(255,255,255,0.08); }
+  .nav-links a.active, .nav-links a:hover{ background: rgba(255,255,255,0.15); }
+  .nav-links .btn{
+    background:#0b7a59;
+    padding:8px 12px;
+  }
+  .nav-links .btn:hover{ background:#099268; }
 
   /* HERO */
   header{
@@ -38,7 +43,7 @@
     background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
   }
   header h1{ font-size:2.6rem; margin:0 0 8px; font-weight:700; }
-  header p{ margin:0; color:#f0f0f0; max-width:900px; margin-left:auto;margin-right:auto; }
+  header p{ margin:0; color:#f0f0f0; max-width:900px; margin-left:auto; margin-right:auto; }
 
   /* GALLERY CARDS */
   .gallery-wrap{
@@ -46,7 +51,7 @@
   }
   .grid{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
     gap:28px;
   }
   .card{
@@ -58,7 +63,7 @@
   .card-figure{ height:220px; overflow:hidden; }
   .card-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
   .card-body{ padding:14px 18px; border-top:4px solid var(--accent); text-align:center; }
-  .card-body h3{ margin:6px 0; color:var(--accent); font-size:1.05rem; }
+  .card-body h3{ margin:6px 0; color:var(--accent); font-size:1.1rem; }
   .card-body p{ margin:6px 0 0; color:var(--muted); font-size:0.95rem; }
 
   /* FOOTER */
@@ -70,22 +75,31 @@
   /* MODAL / LIGHTBOX */
   .modal{
     display:none; position:fixed; z-index:300; left:0; top:0; width:100%; height:100%;
-    background:rgba(0,0,0,0.85); overflow:auto; padding:40px 20px;
+    background:rgba(0,0,0,0.95); overflow:auto; padding:40px 20px;
   }
   .modal-inner{
-    max-width:1000px; margin:0 auto; background:#fff; border-radius:12px; overflow:hidden;
+    max-width:1100px; margin:0 auto; background:#fff; border-radius:12px; overflow:hidden;
     box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    animation:modalFadeIn 0.4s;
+  }
+  @keyframes modalFadeIn{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
   }
   .modal-header{
     display:flex; align-items:center; justify-content:space-between; padding:18px 22px;
     border-bottom:1px solid #eee;
   }
-  .modal-header h2{ margin:0; color:var(--accent); }
-  .modal-close{ font-size:22px; font-weight:700; color:#333; cursor:pointer; padding:6px 10px; border-radius:6px; }
-  .modal-close:hover{ background:#f5f5f5; color:var(--accent); }
+  .modal-header h2{ margin:0; color:var(--accent); font-size:1.5rem; }
+  .modal-close{ 
+    font-size:32px; font-weight:400; color:#666; cursor:pointer; line-height:1;
+    width:40px; height:40px; display:flex; align-items:center; justify-content:center;
+    border-radius:50%; transition:0.2s;
+  }
+  .modal-close:hover{ background:#f0f0f0; color:var(--accent); }
 
   .modal-body{
-    display:grid; grid-template-columns: 1fr 320px; gap:18px; padding:20px;
+    display:grid; grid-template-columns: 1fr 320px; gap:20px; padding:24px;
   }
   @media (max-width:920px){ .modal-body{ grid-template-columns:1fr; } }
 
@@ -94,44 +108,61 @@
     background:#111;
     border-radius:8px;
     overflow:hidden;
-    min-height:420px;
+    min-height:400px;
+    height:450px;
     display:flex; align-items:center; justify-content:center;
   }
-  .slideshow img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .slideshow img{ 
+    width:100%; height:100%; object-fit:contain; display:block;
+    background:#1a1a1a;
+  }
   .slide-nav{
-    position:absolute; top:50%; transform:translateY(-50%); width:100%; display:flex; justify-content:space-between; padding:0 8px;
+    position:absolute; top:50%; transform:translateY(-50%); width:100%; display:flex; justify-content:space-between; padding:0 15px;
   }
   .btn-slide{
-    background:rgba(255,255,255,0.85); color:#111; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:700;
-    box-shadow:0 6px 16px rgba(0,0,0,0.2);
+    background:rgba(255,255,255,0.9); color:#111; border:none; padding:10px 18px; border-radius:30px; cursor:pointer; font-weight:600;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3); transition:0.2s; font-size:0.95rem;
   }
-  .btn-slide:hover{ background:#fff; transform:translateY(-1px) }
+  .btn-slide:hover{ background:#fff; transform:scale(1.05); }
 
   .slide-counter{
-    position:absolute; bottom:8px; left:10px; background:rgba(0,0,0,0.6); color:#fff; padding:6px 10px; border-radius:8px; font-weight:600;
+    position:absolute; bottom:15px; right:15px; left:auto;
+    background:rgba(0,0,0,0.7); color:#fff; padding:6px 14px; border-radius:30px; font-weight:500; font-size:0.9rem;
   }
 
   .meta{
-    padding:6px 2px 6px 6px;
+    padding:5px;
   }
-  .meta p{ color:#222; line-height:1.6; margin:0 0 10px; }
+  .meta p{ color:#333; line-height:1.7; margin:0 0 20px; font-size:0.98rem; }
+  .thumbs-container{ margin-top:15px; }
+  .thumbs-container strong{ display:block; margin-bottom:10px; color:#0b7a59; }
   .thumbs{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:8px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
   }
-  .thumbs img{ width:100%; height:60px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; }
-  .thumbs img.active{ border-color:var(--accent); box-shadow:0 6px 12px rgba(11,122,89,0.12) }
+  .thumbs img{ 
+    width:100%; height:70px; object-fit:cover; border-radius:8px; cursor:pointer; 
+    border:2px solid transparent; transition:0.2s;
+  }
+  .thumbs img.active{ border-color:var(--accent); box-shadow:0 4px 10px rgba(11,122,89,0.3); }
+  .thumbs img:hover{ transform:scale(1.02); }
 
   .testimonial{
-    margin-top:16px; background:#f5f5f5; padding:12px; border-left:4px solid var(--accent); border-radius:6px; color:#333; font-style:italic;
+    margin-top:25px; background:#f8f8f8; padding:16px; border-left:4px solid var(--accent); 
+    border-radius:0 8px 8px 0; color:#444; font-style:italic; line-height:1.6;
   }
 
+  @media (max-width:720px){
+    header h1{ font-size:2rem; }
+    .slideshow{ min-height:280px; height:350px; }
+    .thumbs{ grid-template-columns:repeat(4,1fr); gap:6px; }
+    .thumbs img{ height:50px; }
+    .modal-header h2{ font-size:1.2rem; }
+    .btn-slide{ padding:6px 12px; font-size:0.85rem; }
+  }
   @media (max-width:520px){
-    header h1{ font-size:1.6rem; }
-    .card-body h3{ font-size:0.98rem; }
-    .modal-body{ padding:12px; }
-    .slideshow{ min-height:260px; }
-    .thumbs{ grid-template-columns:repeat(4,1fr); gap:6px }
-    .thumbs img{ height:46px; }
+    .slideshow{ height:250px; }
+    .nav-links{ gap:8px; }
+    .nav-links a{ padding:6px 8px; font-size:0.9rem; }
   }
 </style>
 </head>
@@ -148,7 +179,7 @@
       <a href="impact.html">Impact</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
+      <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal</a>
     </div>
   </nav>
 
@@ -158,35 +189,35 @@
     <p>Visual highlights from our enterprise solutions, safety systems, and digital transformation projects</p>
   </header>
 
-  <!-- CARDS -->
+  <!-- GALLERY CARDS -->
   <div class="gallery-wrap">
     <div class="grid">
-      <div class="card" role="button" onclick="openModal('erp')">
-        <figure class="card-figure"><img alt="ERP System" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"></figure>
+      <div class="card" onclick="openModal('erp')">
+        <figure class="card-figure"><img alt="ERP System" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"></figure>
         <div class="card-body">
           <h3>CephasGM-ERP</h3>
           <p>Enterprise Resource Planning system with integrated business modules.</p>
         </div>
       </div>
 
-      <div class="card" role="button" onclick="openModal('portal')">
-        <figure class="card-figure"><img alt="Client Portal" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"></figure>
+      <div class="card" onclick="openModal('portal')">
+        <figure class="card-figure"><img alt="Client Portal" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"></figure>
         <div class="card-body">
           <h3>Secure Client Portal</h3>
           <p>Private gateway for clients and staff with personalized dashboards.</p>
         </div>
       </div>
 
-      <div class="card" role="button" onclick="openModal('safety')">
-        <figure class="card-figure"><img alt="Safety PWA" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80"></figure>
+      <div class="card" onclick="openModal('safety')">
+        <figure class="card-figure"><img alt="Safety PWA" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80"></figure>
         <div class="card-body">
           <h3>Health & Safety PWA</h3>
           <p>Occupational safety system for metal management industry.</p>
         </div>
       </div>
 
-      <div class="card" role="button" onclick="openModal('tracker')">
-        <figure class="card-figure"><img alt="Location Tracker" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"></figure>
+      <div class="card" onclick="openModal('tracker')">
+        <figure class="card-figure"><img alt="Location Tracker" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"></figure>
         <div class="card-body">
           <h3>Smart Location Tracker</h3>
           <p>Real-time GPS tracking for assets, vehicles, and personnel.</p>
@@ -195,38 +226,40 @@
     </div>
   </div>
 
-  <!-- MODAL (dynamic) -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <!-- MODAL (Single modal that gets populated dynamically) -->
+  <div id="galleryModal" class="modal" onclick="closeModalOnBackground(event)">
+    <div class="modal-inner">
       <div class="modal-header">
-        <h2 id="modalTitle">Title</h2>
-        <div>
-          <button class="modal-close" aria-label="Close" onclick="closeModal()">&times;</button>
-        </div>
+        <h2 id="modalTitle">Project Title</h2>
+        <span class="modal-close" onclick="closeModal()">&times;</span>
       </div>
 
       <div class="modal-body">
-        <div>
+        <!-- Slideshow column -->
+        <div class="slideshow-container">
           <div class="slideshow" id="slideshow">
-            <img id="slideImage" src="" alt="Slide image">
+            <img id="slideImage" src="" alt="Project image">
             <div class="slide-nav">
-              <button class="btn-slide" id="prevBtn" aria-label="Previous" onclick="prevSlide()">❮ Prev</button>
-              <button class="btn-slide" id="nextBtn" aria-label="Next" onclick="nextSlide()">Next ❯</button>
+              <button class="btn-slide" onclick="prevSlide()">❮ Previous</button>
+              <button class="btn-slide" onclick="nextSlide()">Next ❯</button>
             </div>
-            <div class="slide-counter" id="slideCounter">1 / 8</div>
+            <div class="slide-counter" id="slideCounter">1 / 5</div>
           </div>
         </div>
 
-        <aside class="meta">
-          <p id="modalText">Detailed description will appear here.</p>
-          <div style="margin-top:10px;">
-            <strong>Project Gallery</strong>
-            <div class="thumbs" id="thumbs"></div>
+        <!-- Info column -->
+        <div class="meta">
+          <p id="modalDescription">Project description will appear here.</p>
+          
+          <div class="thumbs-container">
+            <strong>Gallery</strong>
+            <div class="thumbs" id="thumbnails"></div>
           </div>
+
           <div class="testimonial" id="testimonial">
-            “Click on any image to view full details about our projects and solutions.”
+            Click on any image to view full details about our projects and solutions.
           </div>
-        </aside>
+        </div>
       </div>
     </div>
   </div>
@@ -234,141 +267,223 @@
   <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script>
+// Gallery data
 const GALLERIES = {
   erp: {
     title: 'CephasGM-ERP System',
-    text: 'A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules including finance, HR, supply chain, and CRM.',
+    description: 'A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules including finance, HR, supply chain, and CRM.',
     testimonial: '“Streamlined operations and improved efficiency across all business departments.”',
     images: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80'
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80'
     ]
   },
   portal: {
     title: 'Secure Client & Staff Portal',
-    text: 'A secure, personalized gateway for clients and staff to access dashboards, downloads, and real-time updates related to Cephas GM\'s services and solutions with role-based access control.',
+    description: 'A secure, personalized gateway for clients and staff to access dashboards, downloads, and real-time updates related to Cephas GM\'s services and solutions with role-based access control.',
     testimonial: '“Secure access to documents and real-time service updates has transformed our client communication.”',
     images: [
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80'
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
     ]
   },
   safety: {
     title: 'Health & Safety PWA for Metal Management',
-    text: 'A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry to track incidents, manage safety checklists, and ensure regulatory compliance.',
+    description: 'A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry to track incidents, manage safety checklists, and ensure regulatory compliance.',
     testimonial: '“Reduced safety incidents by 40% through better tracking and preventive measures.”',
     images: [
-      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80'
+      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80'
     ]
   },
   tracker: {
     title: 'Smart Location Tracker',
-    text: 'An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions, featuring real-time positioning, geofencing, and movement history.',
+    description: 'An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions, featuring real-time positioning, geofencing, and movement history.',
     testimonial: '“Real-time asset tracking has optimized our logistics and reduced losses significantly.”',
     images: [
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80'
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80'
     ]
   }
 };
 
+// State variables
 let currentGallery = null;
 let currentIndex = 0;
 let autoplayTimer = null;
 
-const modal = document.getElementById('modal');
+// DOM elements
+const modal = document.getElementById('galleryModal');
 const modalTitle = document.getElementById('modalTitle');
-const modalText = document.querySelector('#modal .meta p');
+const modalDescription = document.getElementById('modalDescription');
 const slideImage = document.getElementById('slideImage');
 const slideCounter = document.getElementById('slideCounter');
-const thumbs = document.getElementById('thumbs');
+const thumbnails = document.getElementById('thumbnails');
 const testimonialEl = document.getElementById('testimonial');
 
-function openModal(id){
-  const gallery = GALLERIES[id];
-  if(!gallery) return;
+// Open modal with specific gallery
+function openModal(galleryId) {
+  const gallery = GALLERIES[galleryId];
+  if (!gallery) return;
+  
   currentGallery = gallery;
   currentIndex = 0;
+  
+  // Update content
   modalTitle.textContent = gallery.title;
-  modalText.textContent = gallery.text;
+  modalDescription.textContent = gallery.description;
   testimonialEl.textContent = gallery.testimonial;
+  
+  // Build thumbnails
   buildThumbnails(gallery.images);
+  
+  // Show first slide
   showSlide(0);
+  
+  // Display modal
   modal.style.display = 'block';
-  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  
+  // Start autoplay
   startAutoplay();
-  document.addEventListener('keydown', modalKeyHandler);
+  
+  // Add keyboard listener
+  document.addEventListener('keydown', handleKeyPress);
 }
 
-function closeModal(){
+// Close modal
+function closeModal() {
   modal.style.display = 'none';
-  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow = ''; // Restore scrolling
   stopAutoplay();
-  document.removeEventListener('keydown', modalKeyHandler);
+  document.removeEventListener('keydown', handleKeyPress);
 }
 
-function showSlide(index){
-  if(!currentGallery) return;
-  const imgs = currentGallery.images;
-  if(index < 0) index = imgs.length - 1;
-  if(index >= imgs.length) index = 0;
+// Close modal when clicking on background (but not modal content)
+function closeModalOnBackground(event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+}
+
+// Show specific slide by index
+function showSlide(index) {
+  if (!currentGallery) return;
+  
+  const images = currentGallery.images;
+  if (index < 0) index = images.length - 1;
+  if (index >= images.length) index = 0;
+  
   currentIndex = index;
-  slideImage.src = imgs[currentIndex];
-  slideImage.alt = currentGallery.title + ' image ' + (currentIndex+1);
-  slideCounter.textContent = (currentIndex+1) + ' / ' + imgs.length;
-  document.querySelectorAll('#thumbs img').forEach((t,i) => t.classList.toggle('active', i===currentIndex));
-}
-
-function prevSlide(){ showSlide(currentIndex - 1); restartAutoplay(); }
-function nextSlide(){ showSlide(currentIndex + 1); restartAutoplay(); }
-
-function buildThumbnails(images){
-  thumbs.innerHTML = '';
-  images.forEach((src, i) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = 'Thumbnail ' + (i+1);
-    img.addEventListener('click', ()=> { showSlide(i); restartAutoplay(); });
-    thumbs.appendChild(img);
+  
+  // Update main image
+  slideImage.src = images[currentIndex];
+  slideImage.alt = currentGallery.title + ' - Image ' + (currentIndex + 1);
+  
+  // Update counter
+  slideCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+  
+  // Update active thumbnail
+  const thumbImgs = document.querySelectorAll('#thumbnails img');
+  thumbImgs.forEach((img, i) => {
+    if (i === currentIndex) {
+      img.classList.add('active');
+    } else {
+      img.classList.remove('active');
+    }
   });
 }
 
-function modalKeyHandler(e){
-  if(e.key === 'Escape') closeModal();
-  if(e.key === 'ArrowLeft') prevSlide();
-  if(e.key === 'ArrowRight') nextSlide();
+// Previous slide
+function prevSlide() {
+  showSlide(currentIndex - 1);
+  restartAutoplay();
 }
 
-function startAutoplay(){
+// Next slide
+function nextSlide() {
+  showSlide(currentIndex + 1);
+  restartAutoplay();
+}
+
+// Build thumbnail grid
+function buildThumbnails(images) {
+  thumbnails.innerHTML = '';
+  
+  images.forEach((src, index) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = 'Thumbnail ' + (index + 1);
+    img.onclick = function() {
+      showSlide(index);
+      restartAutoplay();
+    };
+    thumbnails.appendChild(img);
+  });
+}
+
+// Keyboard navigation
+function handleKeyPress(e) {
+  if (modal.style.display !== 'block') return;
+  
+  if (e.key === 'Escape') {
+    closeModal();
+  } else if (e.key === 'ArrowLeft') {
+    prevSlide();
+  } else if (e.key === 'ArrowRight') {
+    nextSlide();
+  }
+}
+
+// Autoplay functions
+function startAutoplay() {
   stopAutoplay();
-  autoplayTimer = setInterval(()=>{ nextSlide(); }, 3500);
+  autoplayTimer = setInterval(() => {
+    nextSlide();
+  }, 4000);
 }
-function stopAutoplay(){ if(autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
-function restartAutoplay(){ stopAutoplay(); startAutoplay(); }
 
-window.addEventListener('click', (e)=>{
-  if(e.target === modal) closeModal();
+function stopAutoplay() {
+  if (autoplayTimer) {
+    clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  }
+}
+
+function restartAutoplay() {
+  stopAutoplay();
+  startAutoplay();
+}
+
+// Preload first images for better performance
+window.addEventListener('load', function() {
+  Object.values(GALLERIES).forEach(gallery => {
+    if (gallery.images && gallery.images.length > 0) {
+      const img = new Image();
+      img.src = gallery.images[0];
+    }
+  });
 });
 
-document.addEventListener('visibilitychange', ()=>{ if(document.hidden) stopAutoplay(); else if(modal.style.display==='block') startAutoplay(); });
-
-Object.values(GALLERIES).forEach(g=>{
-  const img = new Image();
-  img.src = g.images[0];
-});
+// Make functions global for onclick handlers
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.closeModalOnBackground = closeModalOnBackground;
+window.prevSlide = prevSlide;
+window.nextSlide = nextSlide;
 </script>
+
 </body>
 </html>
