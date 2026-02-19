@@ -21,19 +21,20 @@ body{
 header{text-align:center;background:rgba(0,0,0,0.55);padding:3rem 1rem;}
 header h1{font-size:2.5rem;margin-bottom:.6rem;}
 header p{color:#ddd;font-size:1rem;}
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;padding:3rem 5%;}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;padding:3rem 5%;}
 .card{position:relative;border-radius:16px;overflow:hidden;height:320px;background:rgba(0,0,0,0.4);box-shadow:0 8px 20px rgba(0,0,0,0.3);transition:transform .4s ease, box-shadow .4s ease;cursor:pointer;opacity:0;transform:translateY(40px);animation:fadeInUp 1s forwards;}
 .card:nth-child(1){animation-delay:0.2s;}
 .card:nth-child(2){animation-delay:0.4s;}
 .card:nth-child(3){animation-delay:0.6s;}
 .card:nth-child(4){animation-delay:0.8s;}
+.card:nth-child(5){animation-delay:1.0s;}
 @keyframes fadeInUp{
   0%{opacity:0;transform:translateY(40px);}
   100%{opacity:1;transform:translateY(0);}
 }
 .card:hover{transform:translateY(-8px);box-shadow:0 12px 35px rgba(0,0,0,0.45);}
 .card img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;filter:brightness(0.8);}
-.card-content{position:absolute;bottom:0;padding:1.3rem;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);}
+.card-content{position:absolute;bottom:0;padding:1.3rem;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);width:100%;}
 .card-content h3{font-size:1.3rem;margin-bottom:.4rem;}
 .card-content p{font-size:.9rem;color:#ccc;}
 .modal{display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.95);overflow-y:auto;padding-top:60px;}
@@ -51,6 +52,7 @@ header p{color:#ddd;font-size:1rem;}
 .content h3{color:#0b7a59;margin-bottom:.5rem;}
 .content p{line-height:1.6;margin-bottom:1rem;}
 .highlights{background:#f4f4f4;padding:1rem;border-left:4px solid #0b7a59;border-radius:8px;margin-bottom:1rem;}
+.demo-link{display:inline-block;background:#0b7a59;color:#fff;padding:.5rem 1rem;border-radius:6px;text-decoration:none;margin-top:1rem;}
 footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
 </style>
 </head>
@@ -59,136 +61,216 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
 <nav class="nav">
   <div class="brand">Cephas GM</div>
   <div class="nav-links">
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="projects.html" class="active">Projects</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
+    <a href="impact.html">Impact</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
   </div>
 </nav>
 
 <header>
-  <h1>Our Projects</h1>
-  <p>Explore our flagship innovations driving smart, digital, and sustainable transformation.</p>
+  <h1>Completed & Upcoming Projects</h1>
+  <p>Explore our portfolio of enterprise solutions, safety systems, and digital transformation tools.</p>
 </header>
 
 <section class="projects">
-  <div class="card" onclick="openModal('alpha')">
-    <img src="https://magazine.wyfegypt.com/wp-content/uploads/2022/01/Paris_2050_No_Title.jpg" alt="">
-    <div class="card-content"><h3>AlphaLimaG01</h3><p>Smart City Infrastructure</p></div>
+  <div class="card" onclick="openModal('erp')">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="ERP System">
+    <div class="card-content"><h3>CephasGM-ERP</h3><p>Enterprise Resource Planning System</p></div>
   </div>
-  <div class="card" onclick="openModal('delta')">
-    <img src="https://cdn1.expresscomputer.in/wp-content/uploads/2024/03/08132620/ec-cloud-technology-cloud-computing-750.jpg" alt="">
-    <div class="card-content"><h3>DeltaYankee02</h3><p>Cloud Transformation Hub</p></div>
+  <div class="card" onclick="openModal('site')">
+    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80" alt="Corporate Website">
+    <div class="card-content"><h3>cephasgm-site</h3><p>Corporate Website & Brand Identity</p></div>
   </div>
-  <div class="card" onclick="openModal('qubec')">
-    <img src="https://techvify-software.com/wp-content/uploads/2024/03/ai-and-data-science-scaled.webp" alt="">
-    <div class="card-content"><h3>QubecLimaD07</h3><p>AI & Machine Learning Research</p></div>
+  <div class="card" onclick="openModal('portal')">
+    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Client Portal">
+    <div class="card-content"><h3>cephasgm-portal</h3><p>Secure Client & Staff Portal</p></div>
   </div>
-  <div class="card" onclick="openModal('tango')">
-    <img src="https://media.istockphoto.com/id/1164502175/vector/innovative-green-technologies-smart-systems-and-recycling.jpg?s=612x612&w=0&k=20&c=TTxWtR-pIwnIS1EjHyHLeawN6GuRSOW14YicKqyN8Vg=" alt="">
-    <div class="card-content"><h3>TangoRomeaoK09</h3><p>Renewable Energy & GreenTech</p></div>
+  <div class="card" onclick="openModal('safety')">
+    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Health & Safety PWA">
+    <div class="card-content"><h3>Health-Safety-PWA</h3><p>Occupational Health & Safety System</p></div>
+  </div>
+  <div class="card" onclick="openModal('tracker')">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Smart Location Tracker">
+    <div class="card-content"><h3>smart-location-tracker</h3><p>Advanced Asset Tracking PWA</p></div>
   </div>
 </section>
 
 <!-- MODALS -->
-<div id="alpha" class="modal">
+<div id="erp" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('alpha')">&times;</span>
-    <header><h2>AlphaLimaG01 — Smart City Infrastructure</h2></header>
-    <div class="swiper alphaSwiper">
+    <span class="close" onclick="closeModal('erp')">&times;</span>
+    <header><h2>CephasGM-ERP — Enterprise Resource Planning</h2></header>
+    <div class="swiper erpSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://bunipress.wordpress.com/wp-content/uploads/2015/11/wpid-img-20151007-wa0006.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://ohmyfacts.com/wp-content/uploads/2024/10/32-facts-about-internet-of-things-1730368149.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://static.cloudsafaris.com/public/9eaba1d5-b21d-4ea5-8a9e-b073d6b2a021_Dar.jpg?action=get&host=true" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.southerntanzaniasafari.com/wp-content/uploads/2019/10/Dar-es-Salaam-Down-Town.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://5.imimg.com/data5/SELLER/Default/2023/8/338277389/DD/MI/MW/90734227/led-roadway-light-500x500.jpeg" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80" alt="ERP Dashboard"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Business Analytics"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Business Management"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Financial Module"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Analytics"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
     <div class="content">
       <h3>Overview</h3>
-      <p>AlphaLimaG01 pioneers smart infrastructure powered by IoT and data analytics for real-time decision making.</p>
-      <div class="highlights"><ul><li>IoT-enabled lighting systems</li><li>Predictive traffic control</li><li>Renewable integration</li></ul></div>
-    </div>
-  </div>
-</div>
-
-<div id="delta" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('delta')">&times;</span>
-    <header><h2>DeltaYankee02 — Cloud Transformation Hub</h2></header>
-    <div class="swiper deltaSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://sptel.com/wp-content/uploads/2024/03/Data-Centre-Vs.-Cloud_-Whats-Right-for-Your-Business_.png" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.futurifysoft.696tech.com/assets/uploads/media-uploader/696tech-img-1271685165261.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://substackcdn.com/image/fetch/$s_!8Ndf!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fba69e598-5cbe-454e-9695-4a2725371b68_1792x1024.webp" alt=""></div>
-        <div class="swiper-slide"><img src="https://imageio.forbes.com/specials-images/imageserve/64b4bdecf8d20b23cae9bcfd/Big-data-technology-and-data-science--Data-scientist-querying--analysing-and/0x0.jpg?format=jpg&crop=2308,1299,x0,y73,safe&width=960" alt=""></div>
+      <p>A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules. This solution streamlines business processes and enhances operational efficiency.</p>
+      <div class="highlights">
+        <h4>Key Modules:</h4>
+        <ul>
+          <li>Financial Management & Accounting</li>
+          <li>Human Resources Administration</li>
+          <li>Supply Chain & Inventory Control</li>
+          <li>Customer Relationship Management</li>
+          <li>Business Intelligence & Reporting</li>
+        </ul>
       </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>DeltaYankee02 accelerates cloud migration using secure, flexible and scalable data infrastructure.</p>
-      <div class="highlights"><ul><li>Cloud-native frameworks</li><li>AI-driven monitoring</li><li>24/7 uptime</li></ul></div>
+      <a href="https://cephasgm.github.io/CephasGM-ERP/" target="_blank" class="demo-link">View Live Demo →</a>
     </div>
   </div>
 </div>
 
-<div id="qubec" class="modal">
+<div id="site" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('qubec')">&times;</span>
-    <header><h2>QubecLimaD07 — AI & Machine Learning Research</h2></header>
-    <div class="swiper qubecSwiper">
+    <span class="close" onclick="closeModal('site')">&times;</span>
+    <header><h2>cephasgm-site — Corporate Website</h2></header>
+    <div class="swiper siteSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.stockcake.com/public/6/5/5/655f384c-7f1d-441c-96a8-0d22f506e3c2_large/robot-analyzing-data-stockcake.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://howtopython.org/wp-content/uploads/2020/04/laptops_python.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.bluefin.com/wp-content/uploads/2020/08/ai-future.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://img.freepik.com/premium-photo/neural-network-art-futuristic-science-lab_839035-22489.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80" alt="Website Design"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt="Mobile Responsive"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80" alt="Web Design"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80" alt="UI Design"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
     <div class="content">
       <h3>Overview</h3>
-      <p>QubecLimaD07 focuses on AI-driven systems for predictive analytics and intelligent automation.</p>
-      <div class="highlights"><ul><li>Deep learning R&D</li><li>Predictive modeling</li><li>Automation tools</li></ul></div>
+      <p>The company's main corporate website presenting Cephas GM as an innovator in technology fields including Enterprise Solutions, Smart Systems, and Digital Transformation. The site highlights our global impact and showcases our portfolio of solutions.</p>
+      <div class="highlights">
+        <h4>Key Features:</h4>
+        <ul>
+          <li>Responsive design across all devices</li>
+          <li>Project portfolio showcase</li>
+          <li>Impact metrics and analytics</li>
+          <li>Service offerings presentation</li>
+          <li>Integrated portal access</li>
+        </ul>
+      </div>
+      <a href="https://cephasgm.github.io/cephasgm-site/" target="_blank" class="demo-link">View Live Site →</a>
     </div>
   </div>
 </div>
 
-<div id="tango" class="modal">
+<div id="portal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('tango')">&times;</span>
-    <header><h2>TangoRomeaoK09 — Renewable Energy & GreenTech</h2></header>
-    <div class="swiper tangoSwiper">
+    <span class="close" onclick="closeModal('portal')">&times;</span>
+    <header><h2>cephasgm-portal — Secure Client Portal</h2></header>
+    <div class="swiper portalSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://greenhomesystems.com/wp-content/uploads/2023/09/blog-cover-photo-98.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.ctfassets.net/gztkr1jaynk0/4Ze7V6ysVnxtVB6UKcDX7L/1c2dab4a2965cffd04316331d781cd74/wind-farm-field.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="https://setup.infiniqemarketing.online/uploads/2569ea34-f867-4c31-b71a-e87403eab196/blogs/cover/RE.webp" alt=""></div>
-        <div class="swiper-slide"><img src="https://www.eurokidsindia.com/blog/wp-content/uploads/2023/10/renewable-energy.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Portal Dashboard"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Secure Access"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80" alt="Client Dashboard"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Analytics"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
     <div class="content">
       <h3>Overview</h3>
-      <p>TangoRomeaoK09 develops scalable renewable systems combining solar, wind, and AI-powered energy management.</p>
-      <div class="highlights"><ul><li>Microgrid deployment</li><li>Energy tracking</li><li>Carbon reduction initiatives</li></ul></div>
+      <p>A concept for a secure client and staff portal providing a private, personalized gateway for users to access dashboards, downloads, and real-time updates related to Cephas GM's services and solutions.</p>
+      <div class="highlights">
+        <h4>Portal Features:</h4>
+        <ul>
+          <li>Secure authentication & role-based access</li>
+          <li>Personalized client dashboards</li>
+          <li>Document management & downloads</li>
+          <li>Service updates & notifications</li>
+          <li>Support ticket system</li>
+        </ul>
+      </div>
+      <a href="https://cephasgm.github.io/cephasgm-portal/" target="_blank" class="demo-link">Access Portal →</a>
     </div>
   </div>
 </div>
 
-<footer>Copyright © 2025 😀</footer>
+<div id="safety" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('safety')">&times;</span>
+    <header><h2>Health & Safety PWA — Metal Management</h2></header>
+    <div class="swiper safetySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Safety Inspection"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt="Industrial Safety"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt="Safety Checklist"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80" alt="Compliance"></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <div class="content">
+      <h3>Overview</h3>
+      <p>A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry. This solution helps track incidents, manage safety checklists, and ensure regulatory compliance in industrial environments.</p>
+      <div class="highlights">
+        <h4>Safety Features:</h4>
+        <ul>
+          <li>Digital safety checklists & inspections</li>
+          <li>Incident reporting & tracking</li>
+          <li>Compliance documentation</li>
+          <li>Real-time safety alerts</li>
+          <li>Offline capability (PWA)</li>
+        </ul>
+      </div>
+      <a href="https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/" target="_blank" class="demo-link">View Safety App →</a>
+    </div>
+  </div>
+</div>
+
+<div id="tracker" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('tracker')">&times;</span>
+    <header><h2>Smart Location Tracker — Asset Management</h2></header>
+    <div class="swiper trackerSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Location Tracking"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="GPS Tracking"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt="Asset Management"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Fleet Tracking"></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <div class="content">
+      <h3>Overview</h3>
+      <p>An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions. This tool provides real-time positioning and movement history for operational visibility.</p>
+      <div class="highlights">
+        <h4>Tracking Capabilities:</h4>
+        <ul>
+          <li>Real-time GPS location tracking</li>
+          <li>Asset & vehicle fleet management</li>
+          <li>Geofencing & alert zones</li>
+          <li>Movement history & reporting</li>
+          <li>Offline data collection</li>
+        </ul>
+      </div>
+      <a href="https://cephasgm.github.io/smart-location-tracker/" target="_blank" class="demo-link">View Tracker Demo →</a>
+    </div>
+  </div>
+</div>
+
+<footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 function openModal(id){document.getElementById(id).style.display='block';}
 function closeModal(id){document.getElementById(id).style.display='none';}
 window.onclick=function(e){document.querySelectorAll('.modal').forEach(m=>{if(e.target==m)m.style.display='none';});};
-new Swiper('.alphaSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.deltaSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.qubecSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.tangoSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+
+// Initialize Swipers
+new Swiper('.erpSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.siteSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.portalSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.trackerSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 </script>
 </body>
 </html>
