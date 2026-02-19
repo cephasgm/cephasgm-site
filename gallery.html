@@ -16,7 +16,6 @@
     margin:0;
     font-family:'Poppins',sans-serif;
     color:#111;
-    /* sunset / safari background */
     background: linear-gradient(180deg, rgba(11,122,89,0.25), rgba(0,0,0,0.25)), url('https://i.dailymail.co.uk/i/pix/2016/05/27/10/34AD5CD000000578-0-image-a-17_1464341527935.jpg') center/cover no-repeat fixed;
   }
 
@@ -90,7 +89,6 @@
   }
   @media (max-width:920px){ .modal-body{ grid-template-columns:1fr; } }
 
-  /* slideshow area */
   .slideshow{
     position:relative;
     background:#111;
@@ -113,7 +111,6 @@
     position:absolute; bottom:8px; left:10px; background:rgba(0,0,0,0.6); color:#fff; padding:6px 10px; border-radius:8px; font-weight:600;
   }
 
-  /* right column: text + thumbnails + testimonial */
   .meta{
     padding:6px 2px 6px 6px;
   }
@@ -128,7 +125,6 @@
     margin-top:16px; background:#f5f5f5; padding:12px; border-left:4px solid var(--accent); border-radius:6px; color:#333; font-style:italic;
   }
 
-  /* small screens adjustments */
   @media (max-width:520px){
     header h1{ font-size:1.6rem; }
     .card-body h3{ font-size:0.98rem; }
@@ -145,59 +141,61 @@
   <nav class="nav" role="navigation">
     <div class="brand">Cephas GM</div>
     <div class="nav-links">
-      <a href="home.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="services.html">Services</a>
       <a href="gallery.html" class="active">Gallery</a>
+      <a href="impact.html">Impact</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <header>
-    <h1>Gallery</h1>
-    <p>Visual highlights from our projects and pilots — click any card to open a full-screen slideshow.</p>
+    <h1>Project Gallery</h1>
+    <p>Visual highlights from our enterprise solutions, safety systems, and digital transformation projects</p>
   </header>
 
   <!-- CARDS -->
   <div class="gallery-wrap">
     <div class="grid">
-      <div class="card" role="button" onclick="openModal('smartcity')">
-        <figure class="card-figure"><img alt="Smart City Development" src="https://images.unsplash.com/photo-1509223197845-458d87318791?auto=format&fit=crop&w=1200&q=80"></figure>
+      <div class="card" role="button" onclick="openModal('erp')">
+        <figure class="card-figure"><img alt="ERP System" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"></figure>
         <div class="card-body">
-          <h3>Smart City Development</h3>
-          <p>IoT, sensors, and connected infrastructure piloted to improve urban life.</p>
+          <h3>CephasGM-ERP</h3>
+          <p>Enterprise Resource Planning system with integrated business modules.</p>
         </div>
       </div>
 
-      <div class="card" role="button" onclick="openModal('cloud')">
-        <figure class="card-figure"><img alt="Cloud Infrastructure" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80"></figure>
+      <div class="card" role="button" onclick="openModal('portal')">
+        <figure class="card-figure"><img alt="Client Portal" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"></figure>
         <div class="card-body">
-          <h3>Cloud Infrastructure</h3>
-          <p>Hybrid cloud, secure storage and automation for business continuity.</p>
+          <h3>Secure Client Portal</h3>
+          <p>Private gateway for clients and staff with personalized dashboards.</p>
         </div>
       </div>
 
-      <div class="card" role="button" onclick="openModal('ai')">
-        <figure class="card-figure"><img alt="AI Research" src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1200&q=80"></figure>
+      <div class="card" role="button" onclick="openModal('safety')">
+        <figure class="card-figure"><img alt="Safety PWA" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80"></figure>
         <div class="card-body">
-          <h3>AI Research</h3>
-          <p>Machine learning prototypes, predictive analytics, and model explainability.</p>
+          <h3>Health & Safety PWA</h3>
+          <p>Occupational safety system for metal management industry.</p>
         </div>
       </div>
 
-      <div class="card" role="button" onclick="openModal('energy')">
-        <figure class="card-figure"><img alt="Renewable Energy Pilots" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=80"></figure>
+      <div class="card" role="button" onclick="openModal('tracker')">
+        <figure class="card-figure"><img alt="Location Tracker" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"></figure>
         <div class="card-body">
-          <h3>Renewable Energy Pilots</h3>
-          <p>Solar microgrids, IoT energy monitoring, and carbon tracking pilots.</p>
+          <h3>Smart Location Tracker</h3>
+          <p>Real-time GPS tracking for assets, vehicles, and personnel.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MODALS (one container, will be populated dynamically by JS with chosen images) -->
+  <!-- MODAL (dynamic) -->
   <div id="modal" class="modal" aria-hidden="true">
     <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-header">
@@ -208,7 +206,6 @@
       </div>
 
       <div class="modal-body">
-        <!-- Slideshow column -->
         <div>
           <div class="slideshow" id="slideshow">
             <img id="slideImage" src="" alt="Slide image">
@@ -220,91 +217,81 @@
           </div>
         </div>
 
-        <!-- Meta column -->
         <aside class="meta">
-          <p id="modalText">Detailed description will appear here. Read about the project, outcomes, and use cases.</p>
-
+          <p id="modalText">Detailed description will appear here.</p>
           <div style="margin-top:10px;">
-            <strong>Gallery</strong>
+            <strong>Project Gallery</strong>
             <div class="thumbs" id="thumbs"></div>
           </div>
-
           <div class="testimonial" id="testimonial">
-            “Short testimonial or impact quote will appear here to provide context and credibility.”
+            “Click on any image to view full details about our projects and solutions.”
           </div>
         </aside>
       </div>
     </div>
   </div>
 
-  <footer>Copyright © 2025 😀 | Designed by Cephas Mkama</footer>
+  <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script>
-/* Data: 4 galleries, each with 8 images + text + testimonial */
 const GALLERIES = {
-  smartcity: {
-    title: 'Smart City Development',
-    text: 'AlphaLimaG01 pilots connected urban systems: IoT traffic sensing, adaptive lighting, public-safety dashboards, and real-time analytics that reduce congestion and energy use.',
-    testimonial: '“Smart sensors and adaptive lighting reduces peak congestion.”',
+  erp: {
+    title: 'CephasGM-ERP System',
+    text: 'A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules including finance, HR, supply chain, and CRM.',
+    testimonial: '“Streamlined operations and improved efficiency across all business departments.”',
     images: [
-      'https://eshop.se.com/in/media/shoptimize/blog/post/b/l/blog-3_2__1.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://iottysmarthome.com/cdn/shop/articles/Smart_Lighting_Systems.jpg?v=1713450257?auto=format&fit=crop&w=1400&q=80',
-      'https://www.ledlightingsupply.com/wp-content/uploads/2019/04/street-lighting-1024x682.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://tomorrowdesk.com/sites/default/files/styles/future_main_850x475/public/2025-04/Smart-Traffic-Light.jpg?itok=GwdeU5nz?auto=format&fit=crop&w=1400&q=80',
-      'https://hiretop.com/content/images/2024/11/DALL-E-2024-11-12-14.17.23---An-AI-powered-traffic-signal-control-system-in-an-urban-setting--with-smart-traffic-lights-and-real-time-data-visualizations.-The-scene-shows-a-busy-i.webp?auto=format&fit=crop&w=1400&q=80'
-
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80'
     ]
   },
-
-  cloud: {
-    title: 'Cloud Infrastructure',
-    text: 'DeltaYankee02 builds scalable hybrid-cloud solutions: encrypted storage, automated backups, containerized platforms, and AI-enabled monitoring to ensure uptime and security.',
-    testimonial: '“Hybrid cloud reduces downtime and operating costs significantly.”',
+  portal: {
+    title: 'Secure Client & Staff Portal',
+    text: 'A secure, personalized gateway for clients and staff to access dashboards, downloads, and real-time updates related to Cephas GM\'s services and solutions with role-based access control.',
+    testimonial: '“Secure access to documents and real-time service updates has transformed our client communication.”',
     images: [
-      'https://www.secureye.com/uploads/images/1739354189_688f05249a9f85e8a8f0.jpeg?auto=format&fit=crop&w=1400&q=80',
-      'https://www.solarwinds.com/wp-content/uploads/2018/06/iStock-513118394-1024x576.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://blocksandfiles.com/wp-content/uploads/2022/09/swissbit_datacenter-image.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://www.shutterstock.com/image-photo/photo-artificial-intelligence-that-accomplished-600nw-2444205521.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://etimg.etb2bimg.com/thumb/msid-111768545,width-1200,height-900,resizemode-4/.jpg?auto=format&fit=crop&w=1400&q=80'
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80'
     ]
   },
-
-  ai: {
-    title: 'AI Research',
-    text: 'QubecLimaD07 develops ML models that power predictive analytics for healthcare, logistics, and finance — focused on accuracy, ethics, and real-world deployment.',
-    testimonial: '“AI-driven routing cuts delivery times.”',
+  safety: {
+    title: 'Health & Safety PWA for Metal Management',
+    text: 'A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry to track incidents, manage safety checklists, and ensure regulatory compliance.',
+    testimonial: '“Reduced safety incidents by 40% through better tracking and preventive measures.”',
     images: [
-      'https://julienflorkin.com/wp-content/uploads/2023/10/AI-in-Healthcare-37.webp?auto=format&fit=crop&w=1400&q=80',
-      'https://easyvessel.com/wp-content/uploads/2023/05/Blog5-image.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://www.careerbright.com/wp-content/uploads/2024/01/AI-Supply-chain-and-logistics-1024x585.webp?auto=format&fit=crop&w=1400&q=80',
-      'https://kaplan.co.uk/images/default-source/insights-posts/ai-in-finance.jpg?sfvrsn=d303cc02_1?auto=format&fit=crop&w=1400&q=80',
-      'https://www.shutterstock.com/image-photo/stack-coins-jar-filled-both-600nw-2468047279.jpg?auto=format&fit=crop&w=1400&q=80'
-
+      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80'
     ]
   },
-
-  energy: {
-    title: 'Renewable Energy Pilots',
-    text: 'TangoRomeaoK09 pilots microgrids, solar arrays, and IoT energy monitoring. We combine hardware and data to reduce waste and enable verified carbon accounting.',
-    testimonial: '“Solar microgrid reduces fuel use in remote sites.”',
+  tracker: {
+    title: 'Smart Location Tracker',
+    text: 'An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions, featuring real-time positioning, geofencing, and movement history.',
+    testimonial: '“Real-time asset tracking has optimized our logistics and reduced losses significantly.”',
     images: [
-      'https://static01.nyt.com/images/2023/08/20/multimedia/07MICROGRIDS-qhwj/07MICROGRIDS-qhwj-articleLarge.jpg?quality=75&auto=webp&disable=upscale?auto=format&fit=crop&w=1400&q=80',
-      'https://miro.medium.com/v2/resize:fit:720/format:webp/1*7NVEJHRbFJrL8Mbr7gAi_w.jpeg?auto=format&fit=crop&w=1400&q=80',
-      'https://5.imimg.com/data5/SELLER/Default/2022/5/GP/KC/BX/108170607/emporia-3-phase-vue-gen-2-smart-home-power-monitor-500x500.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://ecosustainexpo.in/wp-content/uploads/2023/09/The-Role-of-Renewable-Energy-in-Sustainability.jpg?auto=format&fit=crop&w=1400&q=80',
-      'https://news-images.dhan.co/india-to-rebid-40-gw-of-renewable-energy-projects-amid-falling-power-demand.jpg?auto=format&fit=crop&w=1400&q=80'
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80'
     ]
   }
 };
 
-/* modal state */
 let currentGallery = null;
 let currentIndex = 0;
 let autoplayTimer = null;
 
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modalTitle');
-const modalText = document.getElementById('modalText') || document.querySelector('#modal .meta p');
+const modalText = document.querySelector('#modal .meta p');
 const slideImage = document.getElementById('slideImage');
 const slideCounter = document.getElementById('slideCounter');
 const thumbs = document.getElementById('thumbs');
@@ -316,14 +303,13 @@ function openModal(id){
   currentGallery = gallery;
   currentIndex = 0;
   modalTitle.textContent = gallery.title;
-  modal.querySelector('.meta p').textContent = gallery.text;
+  modalText.textContent = gallery.text;
   testimonialEl.textContent = gallery.testimonial;
   buildThumbnails(gallery.images);
   showSlide(0);
   modal.style.display = 'block';
   modal.setAttribute('aria-hidden','false');
   startAutoplay();
-  // focus for keyboard navigation
   document.addEventListener('keydown', modalKeyHandler);
 }
 
@@ -343,7 +329,6 @@ function showSlide(index){
   slideImage.src = imgs[currentIndex];
   slideImage.alt = currentGallery.title + ' image ' + (currentIndex+1);
   slideCounter.textContent = (currentIndex+1) + ' / ' + imgs.length;
-  // update active thumb border
   document.querySelectorAll('#thumbs img').forEach((t,i) => t.classList.toggle('active', i===currentIndex));
 }
 
@@ -367,7 +352,6 @@ function modalKeyHandler(e){
   if(e.key === 'ArrowRight') nextSlide();
 }
 
-/* autoplay */
 function startAutoplay(){
   stopAutoplay();
   autoplayTimer = setInterval(()=>{ nextSlide(); }, 3500);
@@ -375,15 +359,12 @@ function startAutoplay(){
 function stopAutoplay(){ if(autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
 function restartAutoplay(){ stopAutoplay(); startAutoplay(); }
 
-/* close modal when clicking outside content */
 window.addEventListener('click', (e)=>{
   if(e.target === modal) closeModal();
 });
 
-/* make sure to stop autoplay when modal closed by other means */
 document.addEventListener('visibilitychange', ()=>{ if(document.hidden) stopAutoplay(); else if(modal.style.display==='block') startAutoplay(); });
 
-/* add small safety: pre-load first images for snappy UI */
 Object.values(GALLERIES).forEach(g=>{
   const img = new Image();
   img.src = g.images[0];
