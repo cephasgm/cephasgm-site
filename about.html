@@ -9,6 +9,8 @@
   *{box-sizing:border-box}
   body{ margin:0; font-family:'Poppins',sans-serif; color:#222; background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=60') center/cover fixed; }
   .nav{ background: rgba(0,0,0,0.55); display:flex; justify-content:space-between; padding:12px 28px; position:sticky; top:0; z-index:100 }
+  .brand{ color:#fff; font-weight:700; }
+  .nav-links{ display:flex; gap:14px; }
   .nav-links a{ color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; }
   .nav-links a.active, .nav-links a:hover{ background: rgba(255,255,255,0.08); }
   header{ text-align:center; padding:28px 18px; background:rgba(0,0,0,0.5); color:#fff; }
@@ -19,6 +21,9 @@
   .panel{ padding:12px; }
   .team-card{ background:#f7f7f7; border-radius:10px; padding:12px; display:flex; gap:12px; align-items:center }
   .team-card img{ width:64px; height:64px; object-fit:cover; border-radius:50% }
+  .btn{
+    display:inline-block; background:#0b7a59; color:#fff; padding:.5rem 1rem; border-radius:6px; text-decoration:none; margin-top:1rem;
+  }
   footer{ text-align:center; padding:18px; background:#222; color:#fff; margin-top:18px; }
 </style>
 </head>
@@ -27,46 +32,71 @@
 <nav class="nav">
   <div class="brand">Cephas GM</div>
   <div class="nav-links">
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
+    <a href="impact.html">Impact</a>
     <a href="about.html" class="active">About</a>
     <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
   </div>
 </nav>
 
-<header><h1>About Us</h1><p>Shaping the future through technology, sustainability and thoughtful design.</p></header>
+<header><h1>About Cephas GM</h1><p>Building innovative solutions for enterprise, safety, and digital transformation</p></header>
 
 <main>
   <section class="panel">
-    <h2>Mission</h2>
-    <p>To provide world-class, seamless connectivity that enables and inspires a more connected society.</p>
+    <h2>Our Mission</h2>
+    <p>To develop and deploy world-class enterprise solutions, safety systems, and digital tools that enable businesses to operate more efficiently, safely, and sustainably.</p>
 
-    <h2>Vision</h2>
-    <p>Driving new ideas and technologies that create value and transform how people work and live.</p>
+    <h2>Our Vision</h2>
+    <p>To become a leading provider of integrated business management solutions and industry-specific applications that transform how organizations work and grow.</p>
 
-    <h2>Plan</h2>
+    <h2>Current Projects & Focus</h2>
     <ul>
-      <li>Develop smart city projects with IoT and 5G integration.</li>
-      <li>Expand cloud and AI-powered services to enhance digital ecosystems.</li>
-      <li>Build sustainable green energy solutions that drive environmental progress.</li>
-      <li>Scale globally through continuous research, learning, and innovation.</li>
+      <li><strong>CephasGM-ERP:</strong> Comprehensive Enterprise Resource Planning system for business operations management.</li>
+      <li><strong>Health-Safety-PWA:</strong> Occupational health and safety system for the metal management industry.</li>
+      <li><strong>cephasgm-portal:</strong> Secure client and staff portal with personalized dashboards.</li>
+      <li><strong>smart-location-tracker:</strong> Advanced asset and personnel tracking PWA.</li>
+      <li><strong>cephasgm-site:</strong> Corporate digital presence and brand identity.</li>
     </ul>
 
-    <p><strong>We are shaping the future by combining technology, sustainability, and innovation for a better tomorrow.</strong></p>
+    <h2>Future Plans</h2>
+    <ul>
+      <li>Expand ERP modules to serve additional industries</li>
+      <li>Enhance safety systems with AI-powered predictive analytics</li>
+      <li>Develop mobile applications for field operations</li>
+      <li>Scale portal solutions for enterprise clients</li>
+      <li>Integrate IoT capabilities with tracking systems</li>
+    </ul>
+
+    <p><strong>We are committed to innovation, quality, and creating solutions that make a difference.</strong></p>
+    
+    <a href="projects.html" class="btn">View Our Projects</a>
+    <a href="contact.html" class="btn" style="margin-left:10px;background:#333;">Contact Us</a>
   </section>
 
   <aside style="margin-top:18px" class="panel">
     <h2>Meet the Team</h2>
     <div style="display:grid;gap:10px">
-      <div class="team-card"><img src="https://media.licdn.com/dms/image/v2/D4D03AQE7ou7jbpg75Q/profile-displayphoto-scale_400_400/B4DZlRbBTKGQAg-/0/1758007662531?e=1763596800&v=beta&t=lBYiHvX8h8_dw_iXNzUXo_2eo4id_eO39SaTrcyCvHc" alt=""><div><strong>Cephas Mkama</strong><div style="font-size:0.9rem;color:#555">Co-Founder</div></div></div>
-      <div class="team-card"><img src="https://www.uib.no/sites/w3.uib.no/files/styles/content_main/public/media/bfcb15c6-d582-49f9-9df3-62c934944fe3.jpg?itok=d1tLV4ka&timestamp=1719488225" alt=""><div><strong>Smart AI </strong><div style="font-size:0.9rem;color:#555">Online Virtual Support</div></div></div>
+      <div class="team-card"><img src="https://media.licdn.com/dms/image/v2/D4D03AQE7ou7jbpg75Q/profile-displayphoto-scale_400_400/B4DZlRbBTKGQAg-/0/1758007662531?e=1763596800&v=beta&t=lBYiHvX8h8_dw_iXNzUXo_2eo4id_eO39SaTrcyCvHc" alt=""><div><strong>Cephas Mkama</strong><div style="font-size:0.9rem;color:#555">Founder & Lead Developer</div></div></div>
+      <div class="team-card"><img src="https://www.uib.no/sites/w3.uib.no/files/styles/content_main/public/media/bfcb15c6-d582-49f9-9df3-62c934944fe3.jpg?itok=d1tLV4ka&timestamp=1719488225" alt=""><div><strong>AI Development Team</strong><div style="font-size:0.9rem;color:#555">Machine Learning & Automation</div></div></div>
     </div>
+    
+    <h3 style="margin-top:20px;">Core Expertise</h3>
+    <ul style="list-style:none;padding-left:0;">
+      <li>✓ Enterprise Software Development</li>
+      <li>✓ Progressive Web Applications (PWA)</li>
+      <li>✓ Health & Safety Systems</li>
+      <li>✓ Location Tracking Solutions</li>
+      <li>✓ Client Portal Development</li>
+      <li>✓ Digital Transformation</li>
+    </ul>
   </aside>
 </main>
 
-<footer>Copyright © 2025 😀</footer>
+<footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 </body>
 </html>
