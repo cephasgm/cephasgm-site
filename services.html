@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Services — Cephas GM</title>
+<title>Expertise — Cephas GM</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -35,10 +35,10 @@ header{
 header h1{font-size:2.5rem;margin-bottom:.6rem;}
 header p{color:#ddd;font-size:1rem;}
 
-/* SERVICES GRID */
+/* EXPERTISE GRID */
 .services{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:1.5rem;
   padding:3rem 5%;
 }
@@ -46,29 +46,63 @@ header p{color:#ddd;font-size:1rem;}
   position:relative;
   border-radius:16px;
   overflow:hidden;
-  height:340px;
-  background:rgba(0,0,0,0.4);
+  min-height:340px;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(2px);
   box-shadow:0 8px 20px rgba(0,0,0,0.3);
-  cursor:pointer;
   transition:transform .4s ease, box-shadow .4s ease;
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeInUp 1s forwards;
 }
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 12px 35px rgba(0,0,0,0.45);
+.card:nth-child(1){animation-delay:0.2s;}
+.card:nth-child(2){animation-delay:0.3s;}
+.card:nth-child(3){animation-delay:0.4s;}
+.card:nth-child(4){animation-delay:0.5s;}
+.card:nth-child(5){animation-delay:0.6s;}
+.card:nth-child(6){animation-delay:0.7s;}
+
+@keyframes fadeInUp{
+  0%{opacity:0;transform:translateY(40px);}
+  100%{opacity:1;transform:translateY(0);}
 }
-.card img{
-  width:100%;height:100%;
-  object-fit:cover;
-  position:absolute;top:0;left:0;
-  filter:brightness(0.55);
-}
+
+.card:hover{transform:translateY(-8px);box-shadow:0 12px 35px rgba(0,0,0,0.45);}
 .card-content{
-  position:absolute;bottom:0;
-  padding:1.3rem;
-  background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+  padding:2rem 1.5rem;
+  height:100%;
+  display:flex;
+  flex-direction:column;
 }
-.card-content h3{font-size:1.2rem;margin-bottom:.5rem;}
-.card-content p{font-size:.9rem;color:#ccc;}
+.card h3{font-size:1.5rem;color:#0b7a59;margin-bottom:1rem;}
+.card .skills{color:#ddd;margin-bottom:1.5rem;font-size:0.95rem;}
+.card .skill-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:auto;
+}
+.tag{
+  background:rgba(11,122,89,0.3);
+  color:#fff;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:0.8rem;
+  border:1px solid rgba(255,255,255,0.1);
+}
+.tools{
+  margin-top:1rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.tool-badge{
+  background:rgba(255,255,255,0.1);
+  color:#ddd;
+  padding:2px 8px;
+  border-radius:12px;
+  font-size:0.7rem;
+}
 
 /* FOOTER */
 footer{
@@ -104,22 +138,24 @@ footer{
 .modal-content p{line-height:1.6;color:#333;}
 .modal-gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:1rem;margin:1rem 0;
 }
 .modal-gallery img{
-  width:100%;border-radius:10px;
+  width:100%;height:150px;object-fit:cover;
+  border-radius:10px;
   box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
-.testimonial{
+.project-list{
   background:#f3f3f3;
   padding:1rem;
-  border-left:4px solid #0b7a59;
-  border-radius:6px;
+  border-radius:8px;
   margin-top:1.5rem;
-  color:#333;
-  font-style:italic;
 }
+.project-list h4{color:#0b7a59;margin-bottom:.5rem;}
+.project-list ul{list-style:none;padding-left:0;}
+.project-list li{padding:4px 0;border-bottom:1px solid #ddd;}
+.project-list li:last-child{border-bottom:none;}
 .close{
   color:#000;float:right;font-size:28px;font-weight:bold;
 }
@@ -132,52 +168,136 @@ footer{
 <nav class="nav">
   <div class="brand">Cephas GM</div>
   <div class="nav-links">
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="services.html" class="active">Services</a>
     <a href="gallery.html">Gallery</a>
+    <a href="impact.html">Impact</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
   </div>
 </nav>
 
 <!-- HEADER -->
 <header>
-  <h1>Our Services</h1>
-  <p>Empowering industries through smart innovation, cloud, AI, and sustainable technology.</p>
+  <h1>My Expertise & Capabilities</h1>
+  <p>Full-stack development, enterprise solutions, and specialized industry applications</p>
 </header>
 
-<!-- SERVICES GRID -->
+<!-- SERVICES/EXPERTISE GRID -->
 <section class="services">
   <div class="card" onclick="openModal('modal1')">
-    <img src="https://info.engineering.vanderbilt.edu/hubfs/smart-city-visualization-1.jpg" alt="">
     <div class="card-content">
-      <h3>Smart Infrastructure Design</h3>
-      <p>We develop IoT-driven, eco-friendly city frameworks built for safety, efficiency, and sustainability.</p>
+      <h3>Enterprise ERP Systems</h3>
+      <p class="skills">Comprehensive business management solutions integrating finance, HR, supply chain, and operations.</p>
+      <div class="skill-tags">
+        <span class="tag">Module Design</span>
+        <span class="tag">Integration</span>
+        <span class="tag">Workflow</span>
+        <span class="tag">Analytics</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">JavaScript</span>
+        <span class="tool-badge">Python</span>
+        <span class="tool-badge">SQL</span>
+        <span class="tool-badge">REST APIs</span>
+      </div>
     </div>
   </div>
 
   <div class="card" onclick="openModal('modal2')">
-    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=900&q=80" alt="">
     <div class="card-content">
-      <h3>Cloud & Digital Transformation</h3>
-      <p>Accelerating enterprise scalability through secure hybrid cloud systems and automation.</p>
+      <h3>Progressive Web Apps (PWA)</h3>
+      <p class="skills">Cross-platform applications with offline capability, push notifications, and native-like performance.</p>
+      <div class="skill-tags">
+        <span class="tag">Offline-first</span>
+        <span class="tag">Service Workers</span>
+        <span class="tag">Responsive</span>
+        <span class="tag">App-like UX</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">React</span>
+        <span class="tool-badge">Workbox</span>
+        <span class="tool-badge">IndexedDB</span>
+        <span class="tool-badge">Manifest</span>
+      </div>
     </div>
   </div>
 
   <div class="card" onclick="openModal('modal3')">
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80" alt="">
     <div class="card-content">
-      <h3>AI & Machine Learning Integration</h3>
-      <p>Driving intelligent automation and analytics that shape the future of decision-making.</p>
+      <h3>Health & Safety Systems</h3>
+      <p class="skills">Specialized applications for incident tracking, compliance management, and safety inspections.</p>
+      <div class="skill-tags">
+        <span class="tag">Incident Tracking</span>
+        <span class="tag">Compliance</span>
+        <span class="tag">Checklists</span>
+        <span class="tag">Reporting</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">PWA</span>
+        <span class="tool-badge">Real-time DB</span>
+        <span class="tool-badge">Forms</span>
+        <span class="tool-badge">Analytics</span>
+      </div>
     </div>
   </div>
 
   <div class="card" onclick="openModal('modal4')">
-    <img src="https://renewableafricazim.com/wp-content/uploads/2024/03/RENEWABLE.png" alt="">
     <div class="card-content">
-      <h3>Renewable Energy Solutions</h3>
-      <p>Creating a sustainable tomorrow with clean energy technologies and digital energy tools.</p>
+      <h3>Location Tracking Solutions</h3>
+      <p class="skills">Real-time GPS tracking for assets, vehicles, and personnel with geofencing capabilities.</p>
+      <div class="skill-tags">
+        <span class="tag">GPS Integration</span>
+        <span class="tag">Geofencing</span>
+        <span class="tag">Maps</span>
+        <span class="tag">Real-time</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">Leaflet</span>
+        <span class="tool-badge">Geolocation</span>
+        <span class="tool-badge">WebSockets</span>
+        <span class="tool-badge">OpenStreetMap</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="openModal('modal5')">
+    <div class="card-content">
+      <h3>Client & Staff Portals</h3>
+      <p class="skills">Secure, personalized gateways for client access, document management, and service updates.</p>
+      <div class="skill-tags">
+        <span class="tag">Authentication</span>
+        <span class="tag">Role-based Access</span>
+        <span class="tag">Dashboards</span>
+        <span class="tag">Document Mgmt</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">JWT</span>
+        <span class="tool-badge">OAuth</span>
+        <span class="tool-badge">Charts.js</span>
+        <span class="tool-badge">PDF Generation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="openModal('modal6')">
+    <div class="card-content">
+      <h3>Digital Transformation</h3>
+      <p class="skills">Modernizing business processes through custom software, automation, and cloud integration.</p>
+      <div class="skill-tags">
+        <span class="tag">Process Automation</span>
+        <span class="tag">Cloud Integration</span>
+        <span class="tag">Data Migration</span>
+        <span class="tag">Workflow Optimization</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">Cloud APIs</span>
+        <span class="tool-badge">ETL</span>
+        <span class="tool-badge">DevOps</span>
+        <span class="tool-badge">CI/CD</span>
+      </div>
     </div>
   </div>
 </section>
@@ -186,12 +306,20 @@ footer{
 <div id="modal1" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal1')">&times;</span>
-    <h2>Smart Infrastructure Design</h2>
-    <p>Our Smart Infrastructure program focuses on building intelligent cities through connected sensors, automated data systems, and 5G-enabled monitoring platforms. From smart lighting to responsive traffic control, our goal is to create safe, adaptive, and energy-efficient environments.</p>
+    <h2>Enterprise ERP Systems</h2>
+    <p>I design and develop comprehensive Enterprise Resource Planning (ERP) systems that help businesses manage daily operations, administration, and support services through integrated software modules.</p>
     <div class="modal-gallery">
-      <img src="https://minnovation.com.au/wp-content/uploads/2024/07/image-1600x900-22-1.png?auto=format&fit=crop&w=800&q=80">
-      <img src="https://www.viasmartcities.com/wp-content/uploads/2023/05/data-driven.webp?auto=format&fit=crop&w=800&q=80">
-      <img src="https://i0.wp.com/aecbimsolutions.com/wp-content/uploads/2022/09/s1-1.jpeg?resize=1024%2C613&ssl=1?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=80" alt="ERP Dashboard">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Business Analytics">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Financial Reports">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>CephasGM-ERP</strong> - Comprehensive business management solution</li>
+        <li><strong>Financial Management Module</strong> - Accounting & reporting system</li>
+        <li><strong>HR Administration Suite</strong> - Employee management & payroll</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -199,12 +327,20 @@ footer{
 <div id="modal2" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal2')">&times;</span>
-    <h2>Cloud & Digital Transformation</h2>
-    <p>Our cloud services help organizations migrate seamlessly to secure hybrid systems. We provide architecture optimization, real-time backups, and AI-based cloud monitoring tools to ensure scalability and reliability for all digital operations.</p>
+    <h2>Progressive Web Apps (PWA)</h2>
+    <p>I build Progressive Web Applications that work offline, load instantly, and provide a native app-like experience across all devices and platforms.</p>
     <div class="modal-gallery">
-      <img src="https://www.criticalriver.com/wp-content/uploads/2021/10/The-Today-Tomorrow-of-Cloud-in-Digital-Transformation-New.jpg?auto=format&fit=crop&w=800&q=80">
-      <img src="https://cdn1.expresscomputer.in/wp-content/uploads/2024/03/08132620/ec-cloud-technology-cloud-computing-750.jpg?auto=format&fit=crop&w=800&q=80">
-      <img src="https://seb-admin.com/wp-content/uploads/2024/06/Role-of-Cloud-Computing-in-Digital-Transformation.jpg?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile App">
+      <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="Responsive Design">
+      <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=80" alt="Cross Platform">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>Health-Safety-PWA</strong> - Occupational health & safety system</li>
+        <li><strong>smart-location-tracker</strong> - Asset tracking PWA</li>
+        <li><strong>cephasgm-portal</strong> - Secure client portal</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -212,12 +348,20 @@ footer{
 <div id="modal3" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal3')">&times;</span>
-    <h2>AI & Machine Learning Integration</h2>
-    <p>We design artificial intelligence solutions that turn data into insights. From predictive healthcare systems to logistics route optimization, our machine learning frameworks enable industries to automate and innovate at scale.</p>
+    <h2>Health & Safety Systems</h2>
+    <p>Specialized applications for Occupational Health & Safety management, tailored for industrial environments to track incidents, manage safety checklists, and ensure compliance.</p>
     <div class="modal-gallery">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStq5ryhHh4lfqxDZHTMUIrmQXoDAMvnxKKBg&s?auto=format&fit=crop&w=800&q=80">
-      <img src="https://bigdataanalyticsnews.com/wp-content/uploads/2015/12/machine-learning-tools.jpg?auto=format&fit=crop&w=800&q=80">
-      <img src="https://618media.com/wp-content/uploads/2025/02/the-role-of-qwen-in-developing-intelligent-chatbots.webp?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80" alt="Safety Inspection">
+      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" alt="Safety Checklist">
+      <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80" alt="Industrial Safety">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>Health-Safety-PWA-for-Metal-Management</strong> - Metal industry safety system</li>
+        <li><strong>Incident Tracking Module</strong> - Safety incident management</li>
+        <li><strong>Compliance Checklist System</strong> - Regulatory compliance tools</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -225,18 +369,68 @@ footer{
 <div id="modal4" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal4')">&times;</span>
-    <h2>Renewable Energy Solutions</h2>
-    <p>We’re revolutionizing clean energy through solar microgrids, IoT energy monitoring tools, and blockchain-based carbon tracking. Our technologies empower industries to reduce emissions, track sustainability goals, and achieve long-term efficiency.</p>
+    <h2>Location Tracking Solutions</h2>
+    <p>Advanced location-tracking applications for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions with real-time positioning and geofencing.</p>
     <div class="modal-gallery">
-      <img src="https://imageio.forbes.com/specials-images/dam/imageserve/1167822294/960x0.jpg?height=474&width=711&fit=bounds?auto=format&fit=crop&w=800&q=80">
-      <img src="https://www.moserbaersolar.com/wp-content/uploads/2025/02/blockchain-solar-integration.jpg?auto=format&fit=crop&w=800&q=80">
-      <img src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/10/shutterstockProxima-Studio_1932365063-696x392.jpg?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="GPS Tracking">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Asset Tracking">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Fleet Management">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>smart-location-tracker</strong> - Asset & vehicle tracking PWA</li>
+        <li><strong>Fleet Management Dashboard</strong> - Real-time fleet monitoring</li>
+        <li><strong>Geofencing Alert System</strong> - Boundary monitoring</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="modal5" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal5')">&times;</span>
+    <h2>Client & Staff Portals</h2>
+    <p>Secure, personalized gateways for clients and staff to access dashboards, downloads, and real-time updates related to services and solutions with role-based access control.</p>
+    <div class="modal-gallery">
+      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Client Portal">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard">
+      <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=800&q=80" alt="User Portal">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>cephasgm-portal</strong> - Secure client and staff portal</li>
+        <li><strong>Document Management System</strong> - File sharing & collaboration</li>
+        <li><strong>Service Update Dashboard</strong> - Real-time notifications</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="modal6" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal6')">&times;</span>
+    <h2>Digital Transformation</h2>
+    <p>Modernizing business processes through custom software solutions, automation, and cloud integration to improve efficiency, reduce costs, and enable data-driven decision making.</p>
+    <div class="modal-gallery">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Digital Transformation">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Process Automation">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Business Consulting">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>cephasgm-site</strong> - Corporate digital presence</li>
+        <li><strong>Workflow Automation Suite</strong> - Process optimization</li>
+        <li><strong>Data Migration Tools</strong> - Legacy system modernization</li>
+      </ul>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer>Copyright © 2025 😀</footer>
+<footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script>
 function openModal(id){document.getElementById(id).style.display='block';}
