@@ -223,6 +223,15 @@
           <p>Real-time GPS tracking for assets, vehicles, and personnel.</p>
         </div>
       </div>
+
+      <!-- NEW CARD: CephasGM-AI -->
+      <div class="card" onclick="openModal('ai')">
+        <figure class="card-figure"><img alt="CephasGM AI Assistant" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"></figure>
+        <div class="card-body">
+          <h3>CephasGM-AI</h3>
+          <p>Intelligent AI Assistant & Chatbot for automation and insights.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -267,7 +276,7 @@
   <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script>
-// Gallery data
+// Gallery data (added 'ai' entry for the recently completed project)
 const GALLERIES = {
   erp: {
     title: 'CephasGM-ERP System',
@@ -315,6 +324,19 @@ const GALLERIES = {
       'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80'
+    ]
+  },
+  // Newly added AI project gallery
+  ai: {
+    title: 'CephasGM-AI — Intelligent AI Assistant',
+    description: 'CephasGM-AI is a next‑generation intelligent assistant and chatbot platform, designed to automate customer interactions, provide smart insights, and enhance decision‑making. Built with modern AI capabilities, it offers natural language understanding, context‑aware conversations, and seamless integration into business workflows. The project is live on Render and GitHub Pages, demonstrating enterprise‑ready conversational AI.',
+    testimonial: '“Deploying CephasGM-AI has streamlined our customer support and reduced response times by over 60%.”',
+    images: [
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80'
     ]
   }
 };
