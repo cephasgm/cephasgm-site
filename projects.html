@@ -28,6 +28,7 @@ header p{color:#ddd;font-size:1rem;}
 .card:nth-child(3){animation-delay:0.6s;}
 .card:nth-child(4){animation-delay:0.8s;}
 .card:nth-child(5){animation-delay:1.0s;}
+.card:nth-child(6){animation-delay:1.2s;}
 @keyframes fadeInUp{
   0%{opacity:0;transform:translateY(40px);}
   100%{opacity:1;transform:translateY(0);}
@@ -52,7 +53,7 @@ header p{color:#ddd;font-size:1rem;}
 .content h3{color:#0b7a59;margin-bottom:.5rem;}
 .content p{line-height:1.6;margin-bottom:1rem;}
 .highlights{background:#f4f4f4;padding:1rem;border-left:4px solid #0b7a59;border-radius:8px;margin-bottom:1rem;}
-.demo-link{display:inline-block;background:#0b7a59;color:#fff;padding:.5rem 1rem;border-radius:6px;text-decoration:none;margin-top:1rem;}
+.demo-link{display:inline-block;background:#0b7a59;color:#fff;padding:.5rem 1rem;border-radius:6px;text-decoration:none;margin-top:1rem;margin-right:0.8rem;}
 footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
 </style>
 </head>
@@ -97,6 +98,11 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
   <div class="card" onclick="openModal('tracker')">
     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Smart Location Tracker">
     <div class="card-content"><h3>smart-location-tracker</h3><p>Advanced Asset Tracking PWA</p></div>
+  </div>
+  <!-- NEW PROJECT: CephasGM-AI -->
+  <div class="card" onclick="openModal('ai')">
+    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Assistant">
+    <div class="card-content"><h3>CephasGM-AI</h3><p>Intelligent AI Assistant & Chatbot</p></div>
   </div>
 </section>
 
@@ -257,6 +263,40 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
   </div>
 </div>
 
+<!-- NEW MODAL: CephasGM-AI -->
+<div id="ai" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('ai')">&times;</span>
+    <header><h2>CephasGM-AI — Intelligent AI Assistant</h2></header>
+    <div class="swiper aiSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Chat Interface"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" alt="AI Brain"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="AI Automation"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80" alt="Machine Learning"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80" alt="AI Robotics"></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <div class="content">
+      <h3>Overview</h3>
+      <p>CephasGM-AI is a next-generation intelligent assistant and chatbot platform, designed to automate customer interactions, provide smart insights, and enhance decision-making. Built with modern AI capabilities, it offers natural language understanding and seamless integration into business workflows.</p>
+      <div class="highlights">
+        <h4>Key Features:</h4>
+        <ul>
+          <li>Natural Language Processing (NLP) chatbot</li>
+          <li>Context-aware conversations & memory</li>
+          <li>Custom knowledge base integration</li>
+          <li>Multi-platform deployment (web & mobile)</li>
+          <li>Analytics dashboard for conversation insights</li>
+        </ul>
+      </div>
+      <a href="https://cephasgm-ai.onrender.com" target="_blank" class="demo-link">🚀 Live on Render</a>
+      <a href="https://cephasgm.github.io/CephasGM-AI/" target="_blank" class="demo-link">💻 GitHub Pages Demo</a>
+    </div>
+  </div>
+</div>
+
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -271,6 +311,7 @@ new Swiper('.siteSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swipe
 new Swiper('.portalSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 new Swiper('.trackerSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.aiSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 </script>
 </body>
 </html>
