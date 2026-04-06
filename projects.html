@@ -29,6 +29,8 @@ header p{color:#ddd;font-size:1rem;}
 .card:nth-child(4){animation-delay:0.8s;}
 .card:nth-child(5){animation-delay:1.0s;}
 .card:nth-child(6){animation-delay:1.2s;}
+.card:nth-child(7){animation-delay:1.4s;}
+.card:nth-child(8){animation-delay:1.6s;}
 @keyframes fadeInUp{
   0%{opacity:0;transform:translateY(40px);}
   100%{opacity:1;transform:translateY(0);}
@@ -99,10 +101,17 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Smart Location Tracker">
     <div class="card-content"><h3>smart-location-tracker</h3><p>Advanced Asset Tracking PWA</p></div>
   </div>
-  <!-- NEW PROJECT: CephasGM-AI -->
   <div class="card" onclick="openModal('ai')">
     <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Assistant">
-    <div class="card-content"><h3>CephasGM-AI</h3><p>Intelligent AI Assistant & Chatbot</p></div>
+    <div class="card-content"><h3>CephasGM-AI</h3><p>Multimodal AI Platform</p></div>
+  </div>
+  <div class="card" onclick="openModal('vpn')">
+    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80" alt="VPN Service">
+    <div class="card-content"><h3>CephasGM-VPN</h3><p>Next‑Gen WireGuard & Anti‑DPI VPN</p></div>
+  </div>
+  <div class="card" onclick="openModal('signaid')">
+    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80" alt="Sign Language AI">
+    <div class="card-content"><h3>SignAid</h3><p>Universal Sign Language Translation</p></div>
   </div>
 </section>
 
@@ -263,11 +272,10 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
   </div>
 </div>
 
-<!-- NEW MODAL: CephasGM-AI -->
 <div id="ai" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('ai')">&times;</span>
-    <header><h2>CephasGM-AI — Intelligent AI Assistant</h2></header>
+    <header><h2>CephasGM-AI — Multimodal AI Platform</h2></header>
     <div class="swiper aiSwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Chat Interface"></div>
@@ -280,19 +288,84 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     </div>
     <div class="content">
       <h3>Overview</h3>
-      <p>CephasGM-AI is a next-generation intelligent assistant and chatbot platform, designed to automate customer interactions, provide smart insights, and enhance decision-making. Built with modern AI capabilities, it offers natural language understanding and seamless integration into business workflows.</p>
+      <p>A complete fully functional multimodal AI platform that combines natural language understanding, image recognition, and voice interaction. Designed for enterprise automation, customer support, and intelligent decision-making.</p>
       <div class="highlights">
         <h4>Key Features:</h4>
         <ul>
-          <li>Natural Language Processing (NLP) chatbot</li>
-          <li>Context-aware conversations & memory</li>
+          <li>Multimodal AI (text, image, voice)</li>
+          <li>Natural Language Processing & Understanding</li>
+          <li>Context-aware conversations with memory</li>
           <li>Custom knowledge base integration</li>
-          <li>Multi-platform deployment (web & mobile)</li>
-          <li>Analytics dashboard for conversation insights</li>
+          <li>Real-time analytics & insights dashboard</li>
         </ul>
       </div>
-      <a href="https://cephasgm-ai.onrender.com" target="_blank" class="demo-link">🚀 Live on Render</a>
-      <a href="https://cephasgm.github.io/CephasGM-AI/" target="_blank" class="demo-link">💻 GitHub Pages Demo</a>
+      <a href="https://cephasgm-ai.onrender.com" target="_blank" class="demo-link">🚀 Live Demo (Render)</a>
+      <a href="https://cephasgm.github.io/CephasGM-AI/" target="_blank" class="demo-link">📦 Open Source (GitHub)</a>
+    </div>
+  </div>
+</div>
+
+<div id="vpn" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('vpn')">&times;</span>
+    <header><h2>CephasGM-VPN — Next‑Gen WireGuard & Anti‑DPI VPN</h2></header>
+    <div class="swiper vpnSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80" alt="VPN Security"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" alt="Network Encryption"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Privacy Protection"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Secure Connection"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Cyber Security"></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <div class="content">
+      <h3>Overview</h3>
+      <p>Bypass censorship, hide your IP, and encrypt your traffic with next‑gen WireGuard & anti‑DPI technology. Enterprise-grade VPN solution for privacy, security, and unrestricted access.</p>
+      <div class="highlights">
+        <h4>Key Features:</h4>
+        <ul>
+          <li>WireGuard protocol with ultra-fast speeds</li>
+          <li>Anti‑DPI (Deep Packet Inspection) bypass</li>
+          <li>No-logs policy & complete privacy protection</li>
+          <li>Multi-platform support (Windows, Mac, Linux, iOS, Android)</li>
+          <li>Kill switch & DNS leak protection</li>
+        </ul>
+      </div>
+      <a href="https://vpn.cephasgm.com" target="_blank" class="demo-link">🔗 Live Demo</a>
+      <a href="https://lnkd.in/d52nSFmZ" target="_blank" class="demo-link">📦 Open Source</a>
+    </div>
+  </div>
+</div>
+
+<div id="signaid" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('signaid')">&times;</span>
+    <header><h2>SignAid — Universal Sign Language Translation</h2></header>
+    <div class="swiper signaidSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80" alt="Sign Language"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80" alt="Communication"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Inclusion"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Assistive Technology"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80" alt="Breaking Barriers"></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <div class="content">
+      <h3>Overview</h3>
+      <p>SignAid is an innovative AI-powered platform under development that provides universal translation for sign languages, helping to break communication barriers between hearing and deaf communities worldwide.</p>
+      <div class="highlights">
+        <h4>Features (In Development):</h4>
+        <ul>
+          <li>Real-time sign language recognition</li>
+          <li>Multi-language sign translation support</li>
+          <li>Text-to-sign and sign-to-text conversion</li>
+          <li>Machine learning model for gesture detection</li>
+          <li>Accessible web interface for all users</li>
+        </ul>
+      </div>
+      <a href="https://cephasgm.github.io/signaid/" target="_blank" class="demo-link">🔗 View Development Preview</a>
     </div>
   </div>
 </div>
@@ -312,6 +385,8 @@ new Swiper('.portalSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swi
 new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 new Swiper('.trackerSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 new Swiper('.aiSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.vpnSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+new Swiper('.signaidSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 </script>
 </body>
 </html>
