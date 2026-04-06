@@ -151,6 +151,28 @@
     border-radius:0 8px 8px 0; color:#444; font-style:italic; line-height:1.6;
   }
 
+  .project-links{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .project-link{
+    display:inline-block;
+    background:#0b7a59;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:0.85rem;
+    font-weight:500;
+    transition:0.2s;
+  }
+  .project-link:hover{
+    background:#099268;
+    transform:translateY(-2px);
+  }
+
   @media (max-width:720px){
     header h1{ font-size:2rem; }
     .slideshow{ min-height:280px; height:350px; }
@@ -275,6 +297,9 @@
         <div class="meta">
           <p id="modalDescription">Project description will appear here.</p>
           
+          <!-- Project Links Container -->
+          <div id="projectLinks" class="project-links"></div>
+
           <div class="thumbs-container">
             <strong>Gallery</strong>
             <div class="thumbs" id="thumbnails"></div>
@@ -291,12 +316,15 @@
   <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script>
-// Gallery data (added ai, vpn, signaid entries)
+// Gallery data with links for each project
 const GALLERIES = {
   erp: {
     title: 'CephasGM-ERP System',
     description: 'A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules including finance, HR, supply chain, and CRM.',
     testimonial: '“Streamlined operations and improved efficiency across all business departments.”',
+    links: [
+      { text: 'View Live Demo →', url: 'https://cephasgm.github.io/CephasGM-ERP/' }
+    ],
     images: [
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80',
@@ -309,6 +337,9 @@ const GALLERIES = {
     title: 'Secure Client & Staff Portal',
     description: 'A secure, personalized gateway for clients and staff to access dashboards, downloads, and real-time updates related to Cephas GM\'s services and solutions with role-based access control.',
     testimonial: '“Secure access to documents and real-time service updates has transformed our client communication.”',
+    links: [
+      { text: 'Access Portal →', url: 'https://cephasgm.github.io/cephasgm-portal/' }
+    ],
     images: [
       'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
@@ -321,6 +352,9 @@ const GALLERIES = {
     title: 'Health & Safety PWA for Metal Management',
     description: 'A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry to track incidents, manage safety checklists, and ensure regulatory compliance.',
     testimonial: '“Reduced safety incidents by 40% through better tracking and preventive measures.”',
+    links: [
+      { text: 'View Safety App →', url: 'https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/' }
+    ],
     images: [
       'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80',
@@ -333,6 +367,9 @@ const GALLERIES = {
     title: 'Smart Location Tracker',
     description: 'An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions, featuring real-time positioning, geofencing, and movement history.',
     testimonial: '“Real-time asset tracking has optimized our logistics and reduced losses significantly.”',
+    links: [
+      { text: 'View Tracker Demo →', url: 'https://cephasgm.github.io/smart-location-tracker/' }
+    ],
     images: [
       'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
@@ -345,6 +382,10 @@ const GALLERIES = {
     title: 'CephasGM-AI — Multimodal AI Platform',
     description: 'A complete fully functional multimodal AI platform that combines natural language understanding, image recognition, and voice interaction. Designed for enterprise automation, customer support, and intelligent decision-making.',
     testimonial: '“Deploying CephasGM-AI has streamlined our customer support and reduced response times by over 60%.”',
+    links: [
+      { text: '🚀 Live Demo (Render)', url: 'https://cephasgm-ai.onrender.com' },
+      { text: '📦 Open Source (GitHub)', url: 'https://cephasgm.github.io/CephasGM-AI/' }
+    ],
     images: [
       'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
@@ -357,6 +398,10 @@ const GALLERIES = {
     title: 'CephasGM-VPN — Next‑Gen WireGuard & Anti‑DPI VPN',
     description: 'Bypass censorship, hide your IP, and encrypt your traffic with next‑gen WireGuard & anti‑DPI technology. Enterprise-grade VPN solution for privacy, security, and unrestricted access.',
     testimonial: '“The fastest and most reliable VPN I have used. Anti-DPI works perfectly in restricted regions.”',
+    links: [
+      { text: '🔗 Live Demo', url: 'https://vpn.cephasgm.com' },
+      { text: '📦 Open Source', url: 'https://lnkd.in/d52nSFmZ' }
+    ],
     images: [
       'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
@@ -369,6 +414,9 @@ const GALLERIES = {
     title: 'SignAid — Universal Sign Language Translation',
     description: 'SignAid is an innovative AI-powered platform under development that provides universal translation for sign languages, helping to break communication barriers between hearing and deaf communities worldwide.',
     testimonial: '“This project has the potential to transform accessibility for millions of deaf and hard-of-hearing individuals.”',
+    links: [
+      { text: '🔗 View Development Preview', url: 'https://cephasgm.github.io/signaid/' }
+    ],
     images: [
       'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80',
@@ -392,6 +440,7 @@ const slideImage = document.getElementById('slideImage');
 const slideCounter = document.getElementById('slideCounter');
 const thumbnails = document.getElementById('thumbnails');
 const testimonialEl = document.getElementById('testimonial');
+const projectLinksContainer = document.getElementById('projectLinks');
 
 // Open modal with specific gallery
 function openModal(galleryId) {
@@ -405,6 +454,9 @@ function openModal(galleryId) {
   modalTitle.textContent = gallery.title;
   modalDescription.textContent = gallery.description;
   testimonialEl.textContent = gallery.testimonial;
+  
+  // Build project links
+  buildProjectLinks(gallery.links);
   
   // Build thumbnails
   buildThumbnails(gallery.images);
@@ -421,6 +473,21 @@ function openModal(galleryId) {
   
   // Add keyboard listener
   document.addEventListener('keydown', handleKeyPress);
+}
+
+// Build project links dynamically
+function buildProjectLinks(links) {
+  projectLinksContainer.innerHTML = '';
+  if (links && links.length > 0) {
+    links.forEach(link => {
+      const a = document.createElement('a');
+      a.href = link.url;
+      a.target = '_blank';
+      a.className = 'project-link';
+      a.textContent = link.text;
+      projectLinksContainer.appendChild(a);
+    });
+  }
 }
 
 // Close modal
