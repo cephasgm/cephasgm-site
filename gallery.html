@@ -224,12 +224,27 @@
         </div>
       </div>
 
-      <!-- NEW CARD: CephasGM-AI -->
       <div class="card" onclick="openModal('ai')">
         <figure class="card-figure"><img alt="CephasGM AI Assistant" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"></figure>
         <div class="card-body">
           <h3>CephasGM-AI</h3>
-          <p>Intelligent AI Assistant & Chatbot for automation and insights.</p>
+          <p>Multimodal AI platform for automation and insights.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('vpn')">
+        <figure class="card-figure"><img alt="CephasGM VPN" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80"></figure>
+        <div class="card-body">
+          <h3>CephasGM-VPN</h3>
+          <p>Next‑Gen WireGuard & Anti‑DPI VPN service.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('signaid')">
+        <figure class="card-figure"><img alt="SignAid" src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80"></figure>
+        <div class="card-body">
+          <h3>SignAid</h3>
+          <p>Universal Sign Language Translation (In Development).</p>
         </div>
       </div>
     </div>
@@ -276,7 +291,7 @@
   <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script>
-// Gallery data (added 'ai' entry for the recently completed project)
+// Gallery data (added ai, vpn, signaid entries)
 const GALLERIES = {
   erp: {
     title: 'CephasGM-ERP System',
@@ -326,10 +341,9 @@ const GALLERIES = {
       'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80'
     ]
   },
-  // Newly added AI project gallery
   ai: {
-    title: 'CephasGM-AI — Intelligent AI Assistant',
-    description: 'CephasGM-AI is a next‑generation intelligent assistant and chatbot platform, designed to automate customer interactions, provide smart insights, and enhance decision‑making. Built with modern AI capabilities, it offers natural language understanding, context‑aware conversations, and seamless integration into business workflows. The project is live on Render and GitHub Pages, demonstrating enterprise‑ready conversational AI.',
+    title: 'CephasGM-AI — Multimodal AI Platform',
+    description: 'A complete fully functional multimodal AI platform that combines natural language understanding, image recognition, and voice interaction. Designed for enterprise automation, customer support, and intelligent decision-making.',
     testimonial: '“Deploying CephasGM-AI has streamlined our customer support and reduced response times by over 60%.”',
     images: [
       'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80',
@@ -337,6 +351,30 @@ const GALLERIES = {
       'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80'
+    ]
+  },
+  vpn: {
+    title: 'CephasGM-VPN — Next‑Gen WireGuard & Anti‑DPI VPN',
+    description: 'Bypass censorship, hide your IP, and encrypt your traffic with next‑gen WireGuard & anti‑DPI technology. Enterprise-grade VPN solution for privacy, security, and unrestricted access.',
+    testimonial: '“The fastest and most reliable VPN I have used. Anti-DPI works perfectly in restricted regions.”',
+    images: [
+      'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80'
+    ]
+  },
+  signaid: {
+    title: 'SignAid — Universal Sign Language Translation',
+    description: 'SignAid is an innovative AI-powered platform under development that provides universal translation for sign languages, helping to break communication barriers between hearing and deaf communities worldwide.',
+    testimonial: '“This project has the potential to transform accessibility for millions of deaf and hard-of-hearing individuals.”',
+    images: [
+      'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80'
     ]
   }
 };
@@ -376,7 +414,7 @@ function openModal(galleryId) {
   
   // Display modal
   modal.style.display = 'block';
-  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  document.body.style.overflow = 'hidden';
   
   // Start autoplay
   startAutoplay();
@@ -388,12 +426,12 @@ function openModal(galleryId) {
 // Close modal
 function closeModal() {
   modal.style.display = 'none';
-  document.body.style.overflow = ''; // Restore scrolling
+  document.body.style.overflow = '';
   stopAutoplay();
   document.removeEventListener('keydown', handleKeyPress);
 }
 
-// Close modal when clicking on background (but not modal content)
+// Close modal when clicking on background
 function closeModalOnBackground(event) {
   if (event.target === modal) {
     closeModal();
@@ -410,14 +448,11 @@ function showSlide(index) {
   
   currentIndex = index;
   
-  // Update main image
   slideImage.src = images[currentIndex];
   slideImage.alt = currentGallery.title + ' - Image ' + (currentIndex + 1);
   
-  // Update counter
   slideCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
   
-  // Update active thumbnail
   const thumbImgs = document.querySelectorAll('#thumbnails img');
   thumbImgs.forEach((img, i) => {
     if (i === currentIndex) {
@@ -428,19 +463,16 @@ function showSlide(index) {
   });
 }
 
-// Previous slide
 function prevSlide() {
   showSlide(currentIndex - 1);
   restartAutoplay();
 }
 
-// Next slide
 function nextSlide() {
   showSlide(currentIndex + 1);
   restartAutoplay();
 }
 
-// Build thumbnail grid
 function buildThumbnails(images) {
   thumbnails.innerHTML = '';
   
@@ -456,7 +488,6 @@ function buildThumbnails(images) {
   });
 }
 
-// Keyboard navigation
 function handleKeyPress(e) {
   if (modal.style.display !== 'block') return;
   
@@ -469,7 +500,6 @@ function handleKeyPress(e) {
   }
 }
 
-// Autoplay functions
 function startAutoplay() {
   stopAutoplay();
   autoplayTimer = setInterval(() => {
