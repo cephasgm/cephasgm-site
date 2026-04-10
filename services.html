@@ -61,6 +61,8 @@ header p{color:#ddd;font-size:1rem;}
 .card:nth-child(4){animation-delay:0.5s;}
 .card:nth-child(5){animation-delay:0.6s;}
 .card:nth-child(6){animation-delay:0.7s;}
+.card:nth-child(7){animation-delay:0.8s;}
+.card:nth-child(8){animation-delay:0.9s;}
 
 @keyframes fadeInUp{
   0%{opacity:0;transform:translateY(40px);}
@@ -182,7 +184,7 @@ footer{
 <!-- HEADER -->
 <header>
   <h1>My Expertise & Capabilities</h1>
-  <p>Full-stack development, enterprise solutions, and specialized industry applications</p>
+  <p>Full-stack development, enterprise solutions, AI, VPN, and specialized industry applications</p>
 </header>
 
 <!-- SERVICES/EXPERTISE GRID -->
@@ -300,9 +302,50 @@ footer{
       </div>
     </div>
   </div>
+
+  <!-- NEW CARD: Multimodal AI Platforms -->
+  <div class="card" onclick="openModal('modal7')">
+    <div class="card-content">
+      <h3>Multimodal AI Platforms</h3>
+      <p class="skills">Conversational AI, image/video generation, voice search, text-to-speech, and coding assistants.</p>
+      <div class="skill-tags">
+        <span class="tag">LLMs</span>
+        <span class="tag">Image/Video Gen</span>
+        <span class="tag">Voice AI</span>
+        <span class="tag">Specialized Agents</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">OpenAI</span>
+        <span class="tool-badge">DeepSeek</span>
+        <span class="tool-badge">Ollama</span>
+        <span class="tool-badge">ElevenLabs</span>
+        <span class="tool-badge">Replicate</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW CARD: VPN & Network Security -->
+  <div class="card" onclick="openModal('modal8')">
+    <div class="card-content">
+      <h3>VPN & Network Security</h3>
+      <p class="skills">Next‑gen WireGuard, anti‑DPI technology, traffic encryption, and censorship bypass.</p>
+      <div class="skill-tags">
+        <span class="tag">WireGuard</span>
+        <span class="tag">Anti‑DPI</span>
+        <span class="tag">Privacy</span>
+        <span class="tag">Multi‑platform</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">WireGuard</span>
+        <span class="tool-badge">OpenVPN</span>
+        <span class="tool-badge">DNS</span>
+        <span class="tool-badge">Firewall</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- MODALS -->
+<!-- MODALS (existing ones + new) -->
 <div id="modal1" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal1')">&times;</span>
@@ -424,6 +467,51 @@ footer{
         <li><strong>cephasgm-site</strong> - Corporate digital presence</li>
         <li><strong>Workflow Automation Suite</strong> - Process optimization</li>
         <li><strong>Data Migration Tools</strong> - Legacy system modernization</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- NEW MODAL: Multimodal AI Platforms -->
+<div id="modal7" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal7')">&times;</span>
+    <h2>Multimodal AI Platforms</h2>
+    <p>I build fully functional multimodal AI platforms that combine conversational AI, image/video generation, voice search, text-to-speech, coding assistance, and specialized agents. These systems are designed for enterprise automation, customer support, and intelligent decision-making.</p>
+    <div class="modal-gallery">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Chat">
+      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="AI Brain">
+      <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=80" alt="Machine Learning">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>CephasGM-AI</strong> - Multimodal AI platform (<a href="https://ai.cephasgm.org/" target="_blank">ai.cephasgm.org</a>)</li>
+        <li><strong>Conversational AI Agents</strong> - Customer support & automation</li>
+        <li><strong>Voice & Audio Studio</strong> - Speech-to-text & ElevenLabs TTS</li>
+        <li><strong>Coding Assistant</strong> - Read, debug, and assist with programming</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- NEW MODAL: VPN & Network Security -->
+<div id="modal8" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal8')">&times;</span>
+    <h2>VPN & Network Security</h2>
+    <p>I develop next‑gen VPN solutions using WireGuard and anti‑DPI technology to bypass censorship, hide IP addresses, and encrypt traffic. These enterprise-grade systems ensure privacy, security, and unrestricted access across multiple platforms.</p>
+    <div class="modal-gallery">
+      <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt="VPN Security">
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Network Encryption">
+      <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Cyber Security">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>CephasGM-VPN</strong> - WireGuard & anti‑DPI VPN (<a href="https://vpn.cephasgm.org/" target="_blank">vpn.cephasgm.org</a>)</li>
+        <li><strong>Multi‑platform VPN clients</strong> - Windows, Mac, Linux, iOS, Android</li>
+        <li><strong>Privacy & no‑logs infrastructure</strong> - Complete anonymity</li>
       </ul>
     </div>
   </div>
