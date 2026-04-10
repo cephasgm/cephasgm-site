@@ -46,12 +46,13 @@
   </div>
 </nav>
 
-<header><h1>Contact Us</h1><p>Interested in our enterprise solutions, safety systems, or tracking platforms? Let's talk.</p></header>
+<header><h1>Contact Us</h1><p>Interested in our enterprise solutions, AI platforms, VPN services, safety systems, or tracking platforms? Let's talk.</p></header>
 
 <main>
   <div class="card">
     <h2>Get in Touch</h2>
-    <p><strong>Email:</strong> <a href="mailto:cephasmkama@gmail.com">cephasmkama@gmail.com</a></p>
+    <p><strong>General Inquiries:</strong> <a href="mailto:info@cephasgm.org">info@cephasgm.org</a></p>
+    <p><strong>Corporate / Executive:</strong> <a href="mailto:admin@cephasgm.org">admin@cephasgm.org</a></p>
     <p><strong>Phone:</strong> +255 657 888 893</p>
     <p><strong>Address:</strong> Dar es Salaam, Tanzania</p>
     <p><strong>Hours:</strong> Mon–Fri 9:00–17:00 (EAT)</p>
@@ -63,24 +64,34 @@
         <a href="https://cephasgm.github.io/cephasgm-portal/" target="_blank" class="project-tag">Client Portal</a>
         <a href="https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/" target="_blank" class="project-tag">Safety PWA</a>
         <a href="https://cephasgm.github.io/smart-location-tracker/" target="_blank" class="project-tag">Location Tracker</a>
-        <a href="https://cephasgm.github.io/cephasgm-site/" target="_blank" class="project-tag">Corporate Site</a>
+        <a href="https://cephasgm.org/" target="_blank" class="project-tag">Corporate Site</a>
+        <a href="https://ai.cephasgm.org/" target="_blank" class="project-tag">CephasGM-AI</a>
+        <a href="https://vpn.cephasgm.org/" target="_blank" class="project-tag">CephasGM-VPN</a>
+        <a href="https://cephasgm.github.io/signaid/" target="_blank" class="project-tag">SignAid</a>
       </div>
     </div>
     
     <div style="margin-top:20px">
       <h3>Send us a message</h3>
-      <form onsubmit="alert('Thank you for your message. This is a demo form - for actual inquiries, please email directly.'); return false;">
-        <input required placeholder="Your name">
-        <input type="email" required placeholder="Your email">
-        <select required>
+      <form id="contactForm" onsubmit="sendMessage(event);">
+        <input type="text" id="userName" required placeholder="Your name">
+        <input type="email" id="userEmail" required placeholder="Your email">
+        <select id="recipient" required>
+          <option value="">Select recipient</option>
+          <option value="info@cephasgm.org">General Queries (info@cephasgm.org)</option>
+          <option value="admin@cephasgm.org">Corporate / Executive / Admin (admin@cephasgm.org)</option>
+        </select>
+        <select id="reason" required>
           <option value="">Reason for contact</option>
           <option>Enterprise Solutions Inquiry</option>
+          <option>AI Platform Consultation</option>
+          <option>VPN Service Demo</option>
           <option>Safety System Consultation</option>
           <option>Tracking Platform Demo</option>
           <option>Partnership Opportunity</option>
           <option>General Question</option>
         </select>
-        <textarea rows="5" required placeholder="Tell us about your project or requirements"></textarea>
+        <textarea id="message" rows="5" required placeholder="Tell us about your project or requirements"></textarea>
         <button type="submit">Send Message</button>
       </form>
     </div>
@@ -98,11 +109,11 @@
       <h4 style="margin:0 0 8px; color:#0b7a59;">Looking for specific solutions?</h4>
       <ul style="margin:0; padding-left:20px;">
         <li>Enterprise ERP implementation</li>
+        <li>Multimodal AI platforms (conversational AI, image/video generation, voice)</li>
+        <li>VPN & network security (WireGuard, anti‑DPI)</li>
         <li>Health & Safety compliance systems</li>
         <li>Asset tracking & fleet management</li>
         <li>Client portal development</li>
-        <li>Artificial Intelligence AI</li>
-
       </ul>
     </div>
   </aside>
@@ -110,5 +121,35 @@
 
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
+<script>
+function sendMessage(event) {
+  event.preventDefault();
+  
+  // Get form values
+  const name = document.getElementById('userName').value.trim();
+  const email = document.getElementById('userEmail').value.trim();
+  const recipient = document.getElementById('recipient').value;
+  const reason = document.getElementById('reason').value;
+  const messageText = document.getElementById('message').value.trim();
+  
+  if (!recipient) {
+    alert('Please select a recipient (General or Corporate).');
+    return;
+  }
+  
+  // Build email subject and body
+  const subject = `Contact from ${name} - ${reason}`;
+  const body = `Name: ${name}\nEmail: ${email}\nReason: ${reason}\n\nMessage:\n${messageText}\n\n--\nSent from Cephas GM contact form`;
+  
+  // Create mailto link
+  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+  // Open default email client
+  window.location.href = mailtoLink;
+  
+  // Optional: show a confirmation
+  alert(`Your message has been prepared. Your email client will open so you can review and send it to ${recipient}.`);
+}
+</script>
 </body>
 </html>
