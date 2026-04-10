@@ -19,7 +19,6 @@
     background: linear-gradient(180deg, rgba(11,122,89,0.25), rgba(0,0,0,0.25)), url('https://i.dailymail.co.uk/i/pix/2016/05/27/10/34AD5CD000000578-0-image-a-17_1464341527935.jpg') center/cover no-repeat fixed;
   }
 
-  /* NAVIGATION */
   .nav{
     background: rgba(0,0,0,0.55);
     display:flex; justify-content:space-between; align-items:center;
@@ -37,7 +36,6 @@
   }
   .nav-links .btn:hover{ background:#099268; }
 
-  /* HERO */
   header{
     text-align:center; padding:56px 16px 34px; color:#fff;
     background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
@@ -45,7 +43,6 @@
   header h1{ font-size:2.6rem; margin:0 0 8px; font-weight:700; }
   header p{ margin:0; color:#f0f0f0; max-width:900px; margin-left:auto; margin-right:auto; }
 
-  /* GALLERY CARDS */
   .gallery-wrap{
     max-width:1200px; margin:40px auto; padding:0 24px 64px;
   }
@@ -66,13 +63,11 @@
   .card-body h3{ margin:6px 0; color:var(--accent); font-size:1.1rem; }
   .card-body p{ margin:6px 0 0; color:var(--muted); font-size:0.95rem; }
 
-  /* FOOTER */
   footer{
     background: rgba(0,0,0,0.85);
     color:#fff; text-align:center; padding:20px 12px; font-size:0.95rem;
   }
 
-  /* MODAL / LIGHTBOX */
   .modal{
     display:none; position:fixed; z-index:300; left:0; top:0; width:100%; height:100%;
     background:rgba(0,0,0,0.95); overflow:auto; padding:40px 20px;
@@ -190,7 +185,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav" role="navigation">
     <div class="brand">Cephas GM</div>
     <div class="nav-links">
@@ -205,13 +199,11 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <header>
     <h1>Project Gallery</h1>
     <p>Visual highlights from our enterprise solutions, safety systems, and digital transformation projects</p>
   </header>
 
-  <!-- GALLERY CARDS -->
   <div class="gallery-wrap">
     <div class="grid">
       <div class="card" onclick="openModal('erp')">
@@ -272,7 +264,6 @@
     </div>
   </div>
 
-  <!-- MODAL (Single modal that gets populated dynamically) -->
   <div id="galleryModal" class="modal" onclick="closeModalOnBackground(event)">
     <div class="modal-inner">
       <div class="modal-header">
@@ -281,7 +272,6 @@
       </div>
 
       <div class="modal-body">
-        <!-- Slideshow column -->
         <div class="slideshow-container">
           <div class="slideshow" id="slideshow">
             <img id="slideImage" src="" alt="Project image">
@@ -293,11 +283,9 @@
           </div>
         </div>
 
-        <!-- Info column -->
         <div class="meta">
           <p id="modalDescription">Project description will appear here.</p>
           
-          <!-- Project Links Container -->
           <div id="projectLinks" class="project-links"></div>
 
           <div class="thumbs-container">
@@ -316,7 +304,6 @@
   <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
 <script>
-// Gallery data with links for each project
 const GALLERIES = {
   erp: {
     title: 'CephasGM-ERP System',
@@ -378,12 +365,27 @@ const GALLERIES = {
       'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80'
     ]
   },
+  site: {
+    title: 'CephasGM Corporate Website',
+    description: 'The official corporate website of Cephas GM, showcasing our enterprise solutions, smart systems, digital transformation services, and global impact.',
+    testimonial: '“A modern, responsive platform that perfectly represents our brand and capabilities.”',
+    links: [
+      { text: 'Visit Main Site →', url: 'https://cephasgm.org/' }
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
+    ]
+  },
   ai: {
     title: 'CephasGM-AI — Multimodal AI Platform',
     description: 'A complete fully functional multimodal AI platform that combines natural language understanding, image recognition, and voice interaction. Designed for enterprise automation, customer support, and intelligent decision-making.',
     testimonial: '“Deploying CephasGM-AI has streamlined our customer support and reduced response times by over 60%.”',
     links: [
-      { text: '🚀 Live Demo (Render)', url: 'https://cephasgm-ai.onrender.com' },
+      { text: '🚀 Live Demo', url: 'https://ai.cephasgm.org/' },
       { text: '📦 Open Source (GitHub)', url: 'https://cephasgm.github.io/CephasGM-AI/' }
     ],
     images: [
@@ -399,7 +401,7 @@ const GALLERIES = {
     description: 'Bypass censorship, hide your IP, and encrypt your traffic with next‑gen WireGuard & anti‑DPI technology. Enterprise-grade VPN solution for privacy, security, and unrestricted access.',
     testimonial: '“The fastest and most reliable VPN I have used. Anti-DPI works perfectly in restricted regions.”',
     links: [
-      { text: '🔗 Live Demo', url: 'https://vpn.cephasgm.com' },
+      { text: '🔗 Live Demo', url: 'https://vpn.cephasgm.org/' },
       { text: '📦 Open Source', url: 'https://lnkd.in/d52nSFmZ' }
     ],
     images: [
@@ -427,12 +429,10 @@ const GALLERIES = {
   }
 };
 
-// State variables
 let currentGallery = null;
 let currentIndex = 0;
 let autoplayTimer = null;
 
-// DOM elements
 const modal = document.getElementById('galleryModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
@@ -442,7 +442,6 @@ const thumbnails = document.getElementById('thumbnails');
 const testimonialEl = document.getElementById('testimonial');
 const projectLinksContainer = document.getElementById('projectLinks');
 
-// Open modal with specific gallery
 function openModal(galleryId) {
   const gallery = GALLERIES[galleryId];
   if (!gallery) return;
@@ -450,32 +449,20 @@ function openModal(galleryId) {
   currentGallery = gallery;
   currentIndex = 0;
   
-  // Update content
   modalTitle.textContent = gallery.title;
   modalDescription.textContent = gallery.description;
   testimonialEl.textContent = gallery.testimonial;
   
-  // Build project links
   buildProjectLinks(gallery.links);
-  
-  // Build thumbnails
   buildThumbnails(gallery.images);
-  
-  // Show first slide
   showSlide(0);
   
-  // Display modal
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
-  
-  // Start autoplay
   startAutoplay();
-  
-  // Add keyboard listener
   document.addEventListener('keydown', handleKeyPress);
 }
 
-// Build project links dynamically
 function buildProjectLinks(links) {
   projectLinksContainer.innerHTML = '';
   if (links && links.length > 0) {
@@ -490,7 +477,6 @@ function buildProjectLinks(links) {
   }
 }
 
-// Close modal
 function closeModal() {
   modal.style.display = 'none';
   document.body.style.overflow = '';
@@ -498,111 +484,62 @@ function closeModal() {
   document.removeEventListener('keydown', handleKeyPress);
 }
 
-// Close modal when clicking on background
 function closeModalOnBackground(event) {
-  if (event.target === modal) {
-    closeModal();
-  }
+  if (event.target === modal) closeModal();
 }
 
-// Show specific slide by index
 function showSlide(index) {
   if (!currentGallery) return;
-  
   const images = currentGallery.images;
   if (index < 0) index = images.length - 1;
   if (index >= images.length) index = 0;
-  
   currentIndex = index;
-  
   slideImage.src = images[currentIndex];
   slideImage.alt = currentGallery.title + ' - Image ' + (currentIndex + 1);
-  
   slideCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
-  
   const thumbImgs = document.querySelectorAll('#thumbnails img');
   thumbImgs.forEach((img, i) => {
-    if (i === currentIndex) {
-      img.classList.add('active');
-    } else {
-      img.classList.remove('active');
-    }
+    if (i === currentIndex) img.classList.add('active');
+    else img.classList.remove('active');
   });
 }
 
-function prevSlide() {
-  showSlide(currentIndex - 1);
-  restartAutoplay();
-}
-
-function nextSlide() {
-  showSlide(currentIndex + 1);
-  restartAutoplay();
-}
+function prevSlide() { showSlide(currentIndex - 1); restartAutoplay(); }
+function nextSlide() { showSlide(currentIndex + 1); restartAutoplay(); }
 
 function buildThumbnails(images) {
   thumbnails.innerHTML = '';
-  
   images.forEach((src, index) => {
     const img = document.createElement('img');
     img.src = src;
     img.alt = 'Thumbnail ' + (index + 1);
-    img.onclick = function() {
-      showSlide(index);
-      restartAutoplay();
-    };
+    img.onclick = function() { showSlide(index); restartAutoplay(); };
     thumbnails.appendChild(img);
   });
 }
 
 function handleKeyPress(e) {
   if (modal.style.display !== 'block') return;
-  
-  if (e.key === 'Escape') {
-    closeModal();
-  } else if (e.key === 'ArrowLeft') {
-    prevSlide();
-  } else if (e.key === 'ArrowRight') {
-    nextSlide();
-  }
+  if (e.key === 'Escape') closeModal();
+  else if (e.key === 'ArrowLeft') prevSlide();
+  else if (e.key === 'ArrowRight') nextSlide();
 }
 
-function startAutoplay() {
-  stopAutoplay();
-  autoplayTimer = setInterval(() => {
-    nextSlide();
-  }, 4000);
-}
+function startAutoplay() { stopAutoplay(); autoplayTimer = setInterval(() => nextSlide(), 4000); }
+function stopAutoplay() { if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
+function restartAutoplay() { stopAutoplay(); startAutoplay(); }
 
-function stopAutoplay() {
-  if (autoplayTimer) {
-    clearInterval(autoplayTimer);
-    autoplayTimer = null;
-  }
-}
-
-function restartAutoplay() {
-  stopAutoplay();
-  startAutoplay();
-}
-
-// Preload first images for better performance
 window.addEventListener('load', function() {
   Object.values(GALLERIES).forEach(gallery => {
-    if (gallery.images && gallery.images.length > 0) {
-      const img = new Image();
-      img.src = gallery.images[0];
-    }
+    if (gallery.images && gallery.images.length > 0) new Image().src = gallery.images[0];
   });
 });
 
-// Make functions global for onclick handlers
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.closeModalOnBackground = closeModalOnBackground;
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
 </script>
-
 </body>
 </html>
