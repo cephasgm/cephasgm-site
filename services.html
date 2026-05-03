@@ -4,164 +4,294 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Expertise — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="Cephas GM expertise: enterprise ERP, PWA, health & safety, location tracking, client portals, digital transformation, multimodal AI, VPN security, and water-energy IoT management.">
+<meta property="og:title" content="Expertise — Cephas GM">
+<meta property="og:description" content="Full-stack development, enterprise solutions, AI, VPN, IoT, and specialised industry applications.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org/services.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM Expertise">
+<meta name="twitter:description" content="Enterprise ERP, AI, VPN, safety systems, tracking, portals, digital transformation, and water-energy IoT.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Poppins',sans-serif;
-  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
-  color:#fff;
-}
+  /* CSS Variables for Light/Dark Mode */
+  :root {
+    --bg-overlay-light: rgba(0,0,0,0.55);
+    --card-bg-light: rgba(0,0,0,0.7);
+    --text-light: #fff;
+    --text-dark: #ddd;
+    --accent: #0b7a59;
+    --accent-hover: #099268;
+    --shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  body.dark {
+    --bg-overlay-light: rgba(0,0,0,0.8);
+    --card-bg-light: rgba(0,0,0,0.85);
+    --text-light: #f5f5f5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
+    color:var(--text-light);
+    transition: background-color 0.3s, color 0.2s;
+    position: relative;
+  }
+  /* Liquid crystal overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .nav{
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 30px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter: blur(4px);
+  }
+  .brand{font-weight:700;font-size:1.2rem;}
+  .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:.3s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active{background:rgba(255,255,255,0.15);}
+  
+  /* Dark mode toggle button */
+  .theme-toggle {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+  }
 
-/* NAVIGATION */
-.nav{
-  background:rgba(0,0,0,0.6);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 30px;position:sticky;top:0;z-index:100;
-}
-.brand{font-weight:700;font-size:1.2rem;}
-.nav-links{display:flex;gap:16px;}
-.nav-links a{
-  color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;transition:0.3s;
-}
-.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,0.15);}
+  header{
+    text-align:center;
+    background:var(--bg-overlay-light);
+    padding:3rem 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  header h1{font-size:2.5rem;margin-bottom:.6rem;}
+  header p{color:var(--text-dark);font-size:1rem;}
 
-/* HEADER */
-header{
-  text-align:center;
-  background:rgba(0,0,0,0.55);
-  padding:3rem 1rem;
-}
-header h1{font-size:2.5rem;margin-bottom:.6rem;}
-header p{color:#ddd;font-size:1rem;}
+  /* EXPERTISE GRID */
+  .services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:1.5rem;
+    padding:3rem 5%;
+    position: relative;
+    z-index: 1;
+  }
+  .card{
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    min-height:340px;
+    background:var(--card-bg-light);
+    backdrop-filter:blur(2px);
+    box-shadow:var(--shadow);
+    transition:transform 0.4s ease, box-shadow 0.4s ease, border 0.2s;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeInUp 1s forwards;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .card:nth-child(1){animation-delay:0.2s;}
+  .card:nth-child(2){animation-delay:0.3s;}
+  .card:nth-child(3){animation-delay:0.4s;}
+  .card:nth-child(4){animation-delay:0.5s;}
+  .card:nth-child(5){animation-delay:0.6s;}
+  .card:nth-child(6){animation-delay:0.7s;}
+  .card:nth-child(7){animation-delay:0.8s;}
+  .card:nth-child(8){animation-delay:0.9s;}
+  .card:nth-child(9){animation-delay:1.0s;}
 
-/* EXPERTISE GRID */
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:1.5rem;
-  padding:3rem 5%;
-}
-.card{
-  position:relative;
-  border-radius:16px;
-  overflow:hidden;
-  min-height:340px;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(2px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.3);
-  transition:transform .4s ease, box-shadow .4s ease;
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeInUp 1s forwards;
-}
-.card:nth-child(1){animation-delay:0.2s;}
-.card:nth-child(2){animation-delay:0.3s;}
-.card:nth-child(3){animation-delay:0.4s;}
-.card:nth-child(4){animation-delay:0.5s;}
-.card:nth-child(5){animation-delay:0.6s;}
-.card:nth-child(6){animation-delay:0.7s;}
-.card:nth-child(7){animation-delay:0.8s;}
-.card:nth-child(8){animation-delay:0.9s;}
+  @keyframes fadeInUp{
+    0%{opacity:0;transform:translateY(40px);}
+    100%{opacity:1;transform:translateY(0);}
+  }
 
-@keyframes fadeInUp{
-  0%{opacity:0;transform:translateY(40px);}
-  100%{opacity:1;transform:translateY(0);}
-}
+  .card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 20px 30px rgba(0,0,0,0.5);
+    border-color: var(--accent);
+  }
+  .card-content{
+    padding:2rem 1.5rem;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+  }
+  .card h3{font-size:1.5rem;color:var(--accent);margin-bottom:1rem;}
+  .card .skills{color:var(--text-dark);margin-bottom:1.5rem;font-size:0.95rem;}
+  .card .skill-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:auto;
+  }
+  .tag{
+    background:rgba(11,122,89,0.3);
+    color:#fff;
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:0.8rem;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .tools{
+    margin-top:1rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .tool-badge{
+    background:rgba(255,255,255,0.1);
+    color:#ddd;
+    padding:2px 8px;
+    border-radius:12px;
+    font-size:0.7rem;
+  }
 
-.card:hover{transform:translateY(-8px);box-shadow:0 12px 35px rgba(0,0,0,0.45);}
-.card-content{
-  padding:2rem 1.5rem;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-}
-.card h3{font-size:1.5rem;color:#0b7a59;margin-bottom:1rem;}
-.card .skills{color:#ddd;margin-bottom:1.5rem;font-size:0.95rem;}
-.card .skill-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:auto;
-}
-.tag{
-  background:rgba(11,122,89,0.3);
-  color:#fff;
-  padding:4px 12px;
-  border-radius:20px;
-  font-size:0.8rem;
-  border:1px solid rgba(255,255,255,0.1);
-}
-.tools{
-  margin-top:1rem;
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-}
-.tool-badge{
-  background:rgba(255,255,255,0.1);
-  color:#ddd;
-  padding:2px 8px;
-  border-radius:12px;
-  font-size:0.7rem;
-}
+  /* FOOTER */
+  footer{
+    background:rgba(0,0,0,0.85);
+    text-align:center;
+    padding:1rem;
+    font-size:.9rem;
+    margin-top:2rem;
+    position: relative;
+    z-index: 1;
+  }
 
-/* FOOTER */
-footer{
-  background:rgba(0,0,0,0.85);
-  text-align:center;
-  padding:1rem;
-  font-size:.9rem;
-}
+  /* MODAL */
+  .modal{
+    display:none;
+    position:fixed;
+    z-index:200;
+    left:0;top:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.95);
+    overflow:auto;
+    padding-top:60px;
+  }
+  .modal-content{
+    background:#fff;
+    margin:auto;
+    color:#000;
+    padding:25px;
+    border-radius:14px;
+    width:90%;
+    max-width:950px;
+    animation:fadeIn .5s;
+  }
+  body.dark .modal-content{background:#1e1e2a;color:#eee;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  .modal-content h2{color:var(--accent);margin-bottom:1rem;}
+  .modal-content p{line-height:1.6;color:#333;}
+  body.dark .modal-content p{color:#ccc;}
+  .modal-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:1rem;margin:1rem 0;
+  }
+  .modal-gallery img{
+    width:100%;height:150px;object-fit:cover;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+  }
+  .project-list{
+    background:#f3f3f3;
+    padding:1rem;
+    border-radius:8px;
+    margin-top:1.5rem;
+  }
+  body.dark .project-list{background:#2a2a35;}
+  .project-list h4{color:var(--accent);margin-bottom:.5rem;}
+  .project-list ul{list-style:none;padding-left:0;}
+  .project-list li{padding:4px 0;border-bottom:1px solid #ddd;}
+  body.dark .project-list li{border-bottom-color:#444;}
+  .project-list li:last-child{border-bottom:none;}
+  .close{
+    color:#000;float:right;font-size:28px;font-weight:bold;
+  }
+  .close:hover{color:var(--accent);cursor:pointer;}
+  body.dark .close{color:#aaa;}
 
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  z-index:200;
-  left:0;top:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.85);
-  overflow:auto;
-  padding-top:60px;
-}
-.modal-content{
-  background:#fff;
-  margin:auto;
-  color:#000;
-  padding:25px;
-  border-radius:14px;
-  width:90%;
-  max-width:950px;
-  animation:fadeIn .5s;
-}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-.modal-content h2{color:#0b7a59;margin-bottom:1rem;}
-.modal-content p{line-height:1.6;color:#333;}
-.modal-gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:1rem;margin:1rem 0;
-}
-.modal-gallery img{
-  width:100%;height:150px;object-fit:cover;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.15);
-}
-.project-list{
-  background:#f3f3f3;
-  padding:1rem;
-  border-radius:8px;
-  margin-top:1.5rem;
-}
-.project-list h4{color:#0b7a59;margin-bottom:.5rem;}
-.project-list ul{list-style:none;padding-left:0;}
-.project-list li{padding:4px 0;border-bottom:1px solid #ddd;}
-.project-list li:last-child{border-bottom:none;}
-.close{
-  color:#000;float:right;font-size:28px;font-weight:bold;
-}
-.close:hover{color:#0b7a59;cursor:pointer;}
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .back-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    .services { gap: 1rem; padding: 2rem 4%; }
+    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
+  }
 </style>
 </head>
 <body>
@@ -178,13 +308,14 @@ footer{
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
   </div>
 </nav>
 
 <!-- HEADER -->
 <header>
   <h1>My Expertise & Capabilities</h1>
-  <p>Full-stack development, enterprise solutions, AI, VPN, and specialized industry applications</p>
+  <p>Full-stack development, enterprise solutions, AI, VPN, IoT, and specialised industry applications</p>
 </header>
 
 <!-- SERVICES/EXPERTISE GRID -->
@@ -303,7 +434,6 @@ footer{
     </div>
   </div>
 
-  <!-- NEW CARD: Multimodal AI Platforms -->
   <div class="card" onclick="openModal('modal7')">
     <div class="card-content">
       <h3>Multimodal AI Platforms</h3>
@@ -324,7 +454,6 @@ footer{
     </div>
   </div>
 
-  <!-- NEW CARD: VPN & Network Security -->
   <div class="card" onclick="openModal('modal8')">
     <div class="card-content">
       <h3>VPN & Network Security</h3>
@@ -343,6 +472,27 @@ footer{
       </div>
     </div>
   </div>
+
+  <!-- NEW CARD: Water-Energy IoT System -->
+  <div class="card" onclick="openModal('modal9')">
+    <div class="card-content">
+      <h3>Water‑Energy IoT System</h3>
+      <p class="skills">Real‑time water pumping optimisation, tariff‑aware control, leak detection, and energy monitoring.</p>
+      <div class="skill-tags">
+        <span class="tag">IoT</span>
+        <span class="tag">ESP32</span>
+        <span class="tag">Tariff Optimisation</span>
+        <span class="tag">Leak Detection</span>
+      </div>
+      <div class="tools">
+        <span class="tool-badge">ESP32</span>
+        <span class="tool-badge">Flask</span>
+        <span class="tool-badge">MySQL</span>
+        <span class="tool-badge">Chart.js</span>
+        <span class="tool-badge">PWA</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- MODALS (existing ones + new) -->
@@ -352,9 +502,9 @@ footer{
     <h2>Enterprise ERP Systems</h2>
     <p>I design and develop comprehensive Enterprise Resource Planning (ERP) systems that help businesses manage daily operations, administration, and support services through integrated software modules.</p>
     <div class="modal-gallery">
-      <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=80" alt="ERP Dashboard">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Business Analytics">
-      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Financial Reports">
+      <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=80" alt="ERP Dashboard" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Business Analytics" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Financial Reports" loading="lazy">
     </div>
     <div class="project-list">
       <h4>Related Projects:</h4>
@@ -373,9 +523,9 @@ footer{
     <h2>Progressive Web Apps (PWA)</h2>
     <p>I build Progressive Web Applications that work offline, load instantly, and provide a native app-like experience across all devices and platforms.</p>
     <div class="modal-gallery">
-      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile App">
-      <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="Responsive Design">
-      <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=80" alt="Cross Platform">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile App" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="Responsive Design" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=80" alt="Cross Platform" loading="lazy">
     </div>
     <div class="project-list">
       <h4>Related Projects:</h4>
@@ -394,9 +544,9 @@ footer{
     <h2>Health & Safety Systems</h2>
     <p>Specialized applications for Occupational Health & Safety management, tailored for industrial environments to track incidents, manage safety checklists, and ensure compliance.</p>
     <div class="modal-gallery">
-      <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80" alt="Safety Inspection">
-      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" alt="Safety Checklist">
-      <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80" alt="Industrial Safety">
+      <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80" alt="Safety Inspection" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" alt="Safety Checklist" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80" alt="Industrial Safety" loading="lazy">
     </div>
     <div class="project-list">
       <h4>Related Projects:</h4>
@@ -415,9 +565,9 @@ footer{
     <h2>Location Tracking Solutions</h2>
     <p>Advanced location-tracking applications for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions with real-time positioning and geofencing.</p>
     <div class="modal-gallery">
-      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="GPS Tracking">
-      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Asset Tracking">
-      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Fleet Management">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="GPS Tracking" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Asset Tracking" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Fleet Management" loading="lazy">
     </div>
     <div class="project-list">
       <h4>Related Projects:</h4>
@@ -436,9 +586,9 @@ footer{
     <h2>Client & Staff Portals</h2>
     <p>Secure, personalized gateways for clients and staff to access dashboards, downloads, and real-time updates related to services and solutions with role-based access control.</p>
     <div class="modal-gallery">
-      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Client Portal">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard">
-      <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=800&q=80" alt="User Portal">
+      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Client Portal" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=800&q=80" alt="User Portal" loading="lazy">
     </div>
     <div class="project-list">
       <h4>Related Projects:</h4>
@@ -457,9 +607,9 @@ footer{
     <h2>Digital Transformation</h2>
     <p>Modernizing business processes through custom software solutions, automation, and cloud integration to improve efficiency, reduce costs, and enable data-driven decision making.</p>
     <div class="modal-gallery">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Digital Transformation">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Process Automation">
-      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Business Consulting">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Digital Transformation" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Process Automation" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Business Consulting" loading="lazy">
     </div>
     <div class="project-list">
       <h4>Related Projects:</h4>
@@ -472,16 +622,15 @@ footer{
   </div>
 </div>
 
-<!-- NEW MODAL: Multimodal AI Platforms -->
 <div id="modal7" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal7')">&times;</span>
     <h2>Multimodal AI Platforms</h2>
-    <p>I build fully functional multimodal AI platforms that combine conversational AI, image/video generation, voice search, text-to-speech, coding assistance, and specialized agents. These systems are designed for enterprise automation, customer support, and intelligent decision-making.</p>
+    <p>I build fully functional multimodal AI platforms that combine conversational AI, image/video generation, voice search, text-to-speech, coding assistance, and specialised agents. These systems are designed for enterprise automation, customer support, and intelligent decision-making.</p>
     <div class="modal-gallery">
-      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Chat">
-      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="AI Brain">
-      <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=80" alt="Machine Learning">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Chat" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="AI Brain" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=80" alt="Machine Learning" loading="lazy">
     </div>
     <div class="project-list">
       <h4>Related Projects:</h4>
@@ -495,16 +644,15 @@ footer{
   </div>
 </div>
 
-<!-- NEW MODAL: VPN & Network Security -->
 <div id="modal8" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal8')">&times;</span>
     <h2>VPN & Network Security</h2>
     <p>I develop next‑gen VPN solutions using WireGuard and anti‑DPI technology to bypass censorship, hide IP addresses, and encrypt traffic. These enterprise-grade systems ensure privacy, security, and unrestricted access across multiple platforms.</p>
     <div class="modal-gallery">
-      <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt="VPN Security">
-      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Network Encryption">
-      <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Cyber Security">
+      <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt="VPN Security" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Network Encryption" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Cyber Security" loading="lazy">
     </div>
     <div class="project-list">
       <h4>Related Projects:</h4>
@@ -517,17 +665,84 @@ footer{
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- NEW MODAL: Water-Energy IoT System -->
+<div id="modal9" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal9')">&times;</span>
+    <h2>Water‑Energy IoT System</h2>
+    <p>I build intelligent IoT systems that optimise water pumping using real‑time electricity tariff data, water levels, and leak detection. The system uses an ESP32 microcontroller with ultrasonic sensor, current/energy sensors, and a cloud backend (Flask, MySQL) to automate pumps during off‑peak hours, saving up to 30% energy and preventing water waste. Includes a reactive dashboard, manual override, email alerts, CSV reports, and PWA.</p>
+    <div class="modal-gallery">
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="IoT Dashboard" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1581092335871-4b6a6d6f6f5a?auto=format&fit=crop&w=800&q=80" alt="ESP32 Hardware" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1504912516456-961ad7e6e5e5?auto=format&fit=crop&w=800&q=80" alt="Water Tank" loading="lazy">
+    </div>
+    <div class="project-list">
+      <h4>Related Projects:</h4>
+      <ul>
+        <li><strong>CephasGM Water‑Energy Management</strong> - Live system at <a href="https://water.cephasgm.org" target="_blank">water.cephasgm.org</a></li>
+        <li><strong>ESP32 firmware & Flask API</strong> - Open source (available on request)</li>
+        <li><strong>Tariff‑aware pump controller</strong> - Up to 30% energy savings</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
 <script>
-function openModal(id){document.getElementById(id).style.display='block';}
-function closeModal(id){document.getElementById(id).style.display='none';}
-window.onclick=function(e){
-  document.querySelectorAll('.modal').forEach(m=>{
-    if(e.target==m){m.style.display='none';}
+  // Dark/Light Mode Toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') document.body.classList.add('dark');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
   });
-};
+
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Modal functions with focus trapping
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'block';
+    const previousFocus = document.activeElement;
+    modal.setAttribute('data-previous-focus', previousFocus.id || '');
+    const focusable = modal.querySelector('button, [href], .close');
+    if (focusable) focusable.focus();
+    modal.addEventListener('keydown', trapFocus);
+  }
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'none';
+    const prevId = modal.getAttribute('data-previous-focus');
+    if (prevId) document.getElementById(prevId)?.focus();
+    modal.removeEventListener('keydown', trapFocus);
+  }
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const modal = e.currentTarget;
+    const focusable = modal.querySelectorAll('button, [href], .close');
+    const first = focusable[0], last = focusable[focusable.length-1];
+    if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+  }
+  window.onclick = function(e) {
+    document.querySelectorAll('.modal').forEach(m => { if (e.target == m) closeModal(m.id); });
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal').forEach(m => { if (m.style.display === 'block') closeModal(m.id); });
+  });
 </script>
 </body>
 </html>
