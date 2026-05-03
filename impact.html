@@ -4,64 +4,200 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Impact Dashboard — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="Live impact metrics from Cephas GM: enterprise solutions, PWAs, safety incidents, assets monitored, portal users, compliance rate, and water‑energy savings.">
+<meta property="og:title" content="Impact Dashboard — Cephas GM">
+<meta property="og:description" content="Real-time metrics from our deployed solutions, AI platforms, VPN services, IoT water‑energy, and ongoing projects.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org/impact.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM Impact Dashboard">
+<meta name="twitter:description" content="Live metrics: 6 enterprise solutions, 4 PWAs, 1250+ safety incidents, 850+ assets, 250+ users, 98% compliance, 30% energy savings.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Poppins',sans-serif;
-  background:url('https://i0.wp.com/travelawaits.com/wp-content/uploads/2021/04/aerial-view-of-robben-islandb4f574.jpg?resize=1024%2C657&ssl=1') center/cover fixed no-repeat;
-  color:#fff;
-  overflow-x:hidden;
-}
-.nav{background:rgba(0,0,0,0.6);display:flex;justify-content:space-between;align-items:center;padding:14px 30px;position:sticky;top:0;z-index:100;}
-.brand{font-weight:700;font-size:1.2rem;}
-.nav-links{display:flex;gap:16px;}
-.nav-links a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;transition:.3s;}
-.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,0.15);}
-header{text-align:center;background:rgba(0,0,0,0.55);padding:3rem 1rem;}
-header h1{font-size:2.5rem;margin-bottom:.6rem;}
-header p{color:#ddd;font-size:1rem;}
-.dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;padding:3rem 5%;}
-.card{
-  background:rgba(0,0,0,0.6);
-  border-radius:16px;
-  padding:2rem 1rem;
-  text-align:center;
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
-  transition:transform .4s ease, box-shadow .4s ease;
-  cursor:pointer;
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp 1s forwards;
-}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-.card:nth-child(1){animation-delay:.2s;}
-.card:nth-child(2){animation-delay:.4s;}
-.card:nth-child(3){animation-delay:.6s;}
-.card:nth-child(4){animation-delay:.8s;}
-.card:nth-child(5){animation-delay:1.0s;}
-.card:nth-child(6){animation-delay:1.2s;}
-.card:hover{transform:translateY(-10px);box-shadow:0 12px 30px rgba(0,0,0,0.5);}
-.card h2{font-size:2.5rem;color:#0b7a59;margin-bottom:.3rem;}
-.card p{color:#ddd;font-size:1rem;}
-.modal{
-  display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.95);overflow-y:auto;padding-top:60px;
-}
-.modal-content{
-  background:#fff;color:#000;margin:auto;padding:20px;border-radius:16px;width:95%;max-width:1200px;animation:fadeIn .5s;
-}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-.close{color:#000;float:right;font-size:28px;font-weight:bold;}
-.close:hover{color:#0b7a59;cursor:pointer;}
-.modal header{text-align:center;background:none;color:#111;padding:0;margin-bottom:1rem;}
-.modal header h2{color:#0b7a59;margin-bottom:.5rem;}
-.swiper{width:100%;height:450px;border-radius:16px;margin:1rem 0;}
-.swiper-slide img{width:100%;height:100%;object-fit:cover;}
-.swiper-pagination-bullet-active{background:#0b7a59;}
-.swiper-button-next,.swiper-button-prev{color:#fff;}
-footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
+  /* CSS Variables for Light/Dark Mode */
+  :root {
+    --card-bg-light: rgba(0,0,0,0.6);
+    --text-light: #fff;
+    --text-dark: #ddd;
+    --accent: #0b7a59;
+    --accent-hover: #099268;
+    --shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+  body.dark {
+    --card-bg-light: rgba(0,0,0,0.8);
+    --text-light: #f5f5f5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:url('https://i0.wp.com/travelawaits.com/wp-content/uploads/2021/04/aerial-view-of-robben-islandb4f574.jpg?resize=1024%2C657&ssl=1') center/cover fixed no-repeat;
+    color:var(--text-light);
+    transition: background-color 0.3s, color 0.2s;
+    overflow-x:hidden;
+    position: relative;
+  }
+  /* Liquid crystal overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .nav{
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 30px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter: blur(4px);
+  }
+  .brand{font-weight:700;font-size:1.2rem;}
+  .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:.3s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active{background:rgba(255,255,255,0.15);}
+  .theme-toggle {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+  }
+  header{text-align:center;background:rgba(0,0,0,0.55);padding:3rem 1rem;position:relative;z-index:1;}
+  header h1{font-size:2.5rem;margin-bottom:.6rem;}
+  header p{color:var(--text-dark);font-size:1rem;}
+  .dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:1.5rem;
+    padding:3rem 5%;
+    position: relative;
+    z-index: 1;
+  }
+  .card{
+    background:var(--card-bg-light);
+    border-radius:16px;
+    padding:2rem 1rem;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:transform 0.4s ease, box-shadow 0.4s ease, border 0.2s;
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s forwards;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+  .card:nth-child(1){animation-delay:.2s;}
+  .card:nth-child(2){animation-delay:.4s;}
+  .card:nth-child(3){animation-delay:.6s;}
+  .card:nth-child(4){animation-delay:.8s;}
+  .card:nth-child(5){animation-delay:1.0s;}
+  .card:nth-child(6){animation-delay:1.2s;}
+  .card:nth-child(7){animation-delay:1.4s;}
+  .card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 20px 30px rgba(0,0,0,0.5);
+    border-color: var(--accent);
+  }
+  .card h2{font-size:2.5rem;color:var(--accent);margin-bottom:.3rem;}
+  .card p{color:var(--text-dark);font-size:1rem;}
+
+  /* Modal styles */
+  .modal{
+    display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.95);overflow-y:auto;padding-top:60px;
+  }
+  .modal-content{
+    background:#fff;color:#000;margin:auto;padding:20px;border-radius:16px;width:95%;max-width:1200px;animation:fadeIn .5s;
+  }
+  body.dark .modal-content{background:#1e1e2a;color:#eee;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  .close{color:#000;float:right;font-size:28px;font-weight:bold;}
+  .close:hover{color:var(--accent);cursor:pointer;}
+  body.dark .close{color:#aaa;}
+  .modal header{text-align:center;background:none;color:#111;padding:0;margin-bottom:1rem;}
+  body.dark .modal header{color:#eee;}
+  .modal header h2{color:var(--accent);margin-bottom:.5rem;}
+  .swiper{width:100%;height:450px;border-radius:16px;margin:1rem 0;}
+  .swiper-slide img{width:100%;height:100%;object-fit:cover;}
+  .swiper-pagination-bullet-active{background:var(--accent);}
+  .swiper-button-next,.swiper-button-prev{color:#fff;}
+  footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;position:relative;z-index:1;}
+
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .back-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    .dashboard { gap: 1rem; padding: 2rem 4%; }
+    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
+    .card h2 { font-size: 2rem; }
+  }
 </style>
 </head>
 <body>
@@ -77,12 +213,13 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
   </div>
 </nav>
 
 <header>
   <h1>Live Impact Dashboard</h1>
-  <p>Real-time metrics from our deployed solutions, AI platforms, VPN services, and ongoing projects</p>
+  <p>Real-time metrics from our deployed solutions, AI platforms, VPN services, IoT water‑energy, and ongoing projects</p>
 </header>
 
 <section class="dashboard">
@@ -110,18 +247,23 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <h2 class="counter" data-target="98">0</h2>
     <p>Compliance Rate (%)</p>
   </div>
+  <!-- NEW: Water-Energy Savings -->
+  <div class="card" onclick="openModal('energy')">
+    <h2 class="counter" data-target="30">0</h2>
+    <p>Energy Savings (%)</p>
+  </div>
 </section>
 
-<!-- MODALS -->
+<!-- Existing MODALS (unchanged, but added lazy loading) -->
 <div id="erp" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('erp')">&times;</span>
     <header><h2>Enterprise Solutions Deployed</h2></header>
     <div class="swiper erpSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="ERP Dashboard" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80" alt="Business Analytics" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Business Reports" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
@@ -135,9 +277,9 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <header><h2>Industry-Specific PWAs</h2></header>
     <div class="swiper pwaSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" alt="Mobile App" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt="Responsive Design" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1200&q=80" alt="Cross Platform" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
@@ -151,9 +293,9 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <header><h2>Safety Incidents Tracked</h2></header>
     <div class="swiper safetySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Safety Inspection" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt="Safety Checklist" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt="Industrial Safety" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
@@ -167,9 +309,9 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <header><h2>Assets Monitored</h2></header>
     <div class="swiper assetSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="GPS Tracking" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Fleet Management" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt="Asset Tracking" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
@@ -183,9 +325,9 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <header><h2>Active Portal Users</h2></header>
     <div class="swiper userSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Client Portal" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Dashboard" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80" alt="User Portal" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
@@ -199,9 +341,9 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <header><h2>Compliance Rate</h2></header>
     <div class="swiper complianceSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt=""></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80" alt="Compliance Document" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt="Safety Audit" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt="Regulatory Compliance" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
@@ -209,40 +351,117 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
   </div>
 </div>
 
+<!-- NEW MODAL: Water-Energy Savings -->
+<div id="energy" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('energy')">&times;</span>
+    <header><h2>Water‑Energy Savings</h2></header>
+    <div class="swiper energySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="IoT Dashboard" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092335871-4b6a6d6f6f5a?auto=format&fit=crop&w=1200&q=80" alt="ESP32 Hardware" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1504912516456-961ad7e6e5e5?auto=format&fit=crop&w=1200&q=80" alt="Water Tank" loading="lazy"></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <p>Our <strong>CephasGM Water‑Energy Management System</strong> achieves <strong>up to 30% energy savings</strong> by shifting water pumping to off‑peak electricity tariff hours, combined with real‑time water level monitoring and AI‑based leak detection. The system also reduces water waste and extends pump life. <a href="https://water.cephasgm.org" target="_blank" style="color:var(--accent);">Launch live dashboard →</a></p>
+  </div>
+</div>
+
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
+
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-function openModal(id){document.getElementById(id).style.display='block';}
-function closeModal(id){document.getElementById(id).style.display='none';}
-window.onclick=function(e){document.querySelectorAll('.modal').forEach(m=>{if(e.target==m)m.style.display='none';});};
+  // Dark/Light Mode Toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') document.body.classList.add('dark');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
 
-new Swiper('.erpSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.pwaSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.assetSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.userSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.complianceSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-const counters=document.querySelectorAll('.counter');
-const options={threshold:0.5};
-const animate=(counter)=>{
-  const target=+counter.getAttribute('data-target');
-  const speed=200;
-  const update=()=>{
-    const val=+counter.innerText;
-    const inc=target/speed;
-    if(val<target){
-      counter.innerText=Math.ceil(val+inc);
-      setTimeout(update,20);
-    }else{counter.innerText=target;}
+  // Modal functions with focus trapping
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'block';
+    const previousFocus = document.activeElement;
+    modal.setAttribute('data-previous-focus', previousFocus.id || '');
+    const focusable = modal.querySelector('button, [href], .close');
+    if (focusable) focusable.focus();
+    modal.addEventListener('keydown', trapFocus);
+  }
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'none';
+    const prevId = modal.getAttribute('data-previous-focus');
+    if (prevId) document.getElementById(prevId)?.focus();
+    modal.removeEventListener('keydown', trapFocus);
+  }
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const modal = e.currentTarget;
+    const focusable = modal.querySelectorAll('button, [href], .close');
+    const first = focusable[0], last = focusable[focusable.length-1];
+    if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+  }
+  window.onclick = function(e) {
+    document.querySelectorAll('.modal').forEach(m => { if (e.target == m) closeModal(m.id); });
   };
-  update();
-};
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{if(entry.isIntersecting){animate(entry.target);observer.unobserve(entry.target);}});
-},options);
-counters.forEach(c=>observer.observe(c));
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal').forEach(m => { if (m.style.display === 'block') closeModal(m.id); });
+  });
+
+  // Initialize Swipers (including new energySwiper)
+  new Swiper('.erpSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.pwaSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.assetSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.userSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.complianceSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.energySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+
+  // Counter animation
+  const counters = document.querySelectorAll('.counter');
+  const options = { threshold: 0.5 };
+  const animate = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const speed = 200;
+    const update = () => {
+      const val = +counter.innerText;
+      const inc = target / speed;
+      if (val < target) {
+        counter.innerText = Math.ceil(val + inc);
+        setTimeout(update, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+  counters.forEach(c => observer.observe(c));
 </script>
 </body>
 </html>
