@@ -4,27 +4,199 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>About — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="Cephas GM builds enterprise ERP, multimodal AI platforms, VPN services, safety systems, tracking solutions, digital transformation tools, and IoT water‑energy optimisation. Based in Tanzania.">
+<meta property="og:title" content="About — Cephas GM">
+<meta property="og:description" content="Innovating for a smarter future: enterprise solutions, AI, VPN, safety systems, digital transformation, and water‑energy IoT.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org/about.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM — About">
+<meta name="twitter:description" content="Enterprise solutions, AI, VPN, safety systems, digital transformation, and water‑energy IoT.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
+  /* CSS Variables for Light/Dark Mode */
+  :root {
+    --bg-overlay-light: rgba(0,0,0,0.5);
+    --card-bg-light: rgba(255,255,255,0.92);
+    --text-light: #222;
+    --text-dark: #333;
+    --accent: #0b7a59;
+    --accent-hover: #099268;
+    --shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  body.dark {
+    --bg-overlay-light: rgba(0,0,0,0.7);
+    --card-bg-light: rgba(20,20,30,0.95);
+    --text-light: #eee;
+    --text-dark: #ccc;
+  }
   *{box-sizing:border-box}
-  body{ margin:0; font-family:'Poppins',sans-serif; color:#222; background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=60') center/cover fixed; }
-  .nav{ background: rgba(0,0,0,0.55); display:flex; justify-content:space-between; padding:12px 28px; position:sticky; top:0; z-index:100 }
+  body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    color:var(--text-light);
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=60') center/cover fixed;
+    transition: background-color 0.3s, color 0.2s;
+    position: relative;
+  }
+  /* Liquid crystal overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .nav{
+    background: rgba(0,0,0,0.55);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 28px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter: blur(4px);
+  }
   .brand{ color:#fff; font-weight:700; }
-  .nav-links{ display:flex; gap:14px; }
-  .nav-links a{ color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; }
+  .nav-links{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 10px;
+    border-radius:6px;
+    transition:.3s;
+  }
   .nav-links a.active, .nav-links a:hover{ background: rgba(255,255,255,0.08); }
-  header{ text-align:center; padding:28px 18px; background:rgba(0,0,0,0.5); color:#fff; }
-  main{ max-width:1100px; margin:28px auto; padding:16px; background:rgba(255,255,255,0.92); border-radius:12px; }
-  h2{ color:#0b7a59; margin-top:8px; }
+  .theme-toggle {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+  }
+  header{
+    text-align:center;
+    padding:28px 18px;
+    background:var(--bg-overlay-light);
+    color:#fff;
+    position: relative;
+    z-index: 1;
+  }
+  main{
+    max-width:1100px;
+    margin:28px auto;
+    padding:16px;
+    background:var(--card-bg-light);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s;
+  }
+  h2{ color:var(--accent); margin-top:8px; }
   .row{ display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start }
   @media (max-width:900px){ .row{ grid-template-columns:1fr } }
   .panel{ padding:12px; }
-  .team-card{ background:#f7f7f7; border-radius:10px; padding:12px; display:flex; gap:12px; align-items:center }
-  .team-card img{ width:64px; height:64px; object-fit:cover; border-radius:50% }
-  .btn{
-    display:inline-block; background:#0b7a59; color:#fff; padding:.5rem 1rem; border-radius:6px; text-decoration:none; margin-top:1rem;
+  .team-card{
+    background:#f7f7f7;
+    border-radius:10px;
+    padding:12px;
+    display:flex;
+    gap:12px;
+    align-items:center;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.2s;
+    border:1px solid transparent;
   }
-  footer{ text-align:center; padding:18px; background:#222; color:#fff; margin-top:18px; }
+  body.dark .team-card { background:#2a2a35; color:#eee; }
+  .team-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    border-color: var(--accent);
+  }
+  .team-card img{ width:64px; height:64px; object-fit:cover; border-radius:50%; }
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:.5rem 1rem;
+    border-radius:6px;
+    text-decoration:none;
+    margin-top:1rem;
+    transition: 0.3s;
+  }
+  .btn:hover{
+    background:var(--accent-hover);
+    transform:translateY(-2px);
+  }
+  footer{
+    text-align:center;
+    padding:18px;
+    background:#222;
+    color:#fff;
+    margin-top:18px;
+    position: relative;
+    z-index: 1;
+  }
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .back-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-5px);
+  }
+  @media (max-width: 768px) {
+    header h1 { font-size: 1.8rem; }
+    .team-card { flex-direction: column; text-align: center; }
+    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
+  }
 </style>
 </head>
 <body>
@@ -40,28 +212,30 @@
     <a href="about.html" class="active">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
   </div>
 </nav>
 
-<header><h1>About Cephas GM</h1><p>Building innovative solutions for enterprise, safety, AI, and digital transformation</p></header>
+<header><h1>About Cephas GM</h1><p>Building innovative solutions for enterprise, safety, AI, IoT, and digital transformation</p></header>
 
 <main>
   <section class="panel">
     <h2>Our Mission</h2>
-    <p>To develop and deploy world-class enterprise solutions, AI platforms, safety systems, and digital tools that enable businesses and individuals to operate more efficiently, safely, and sustainably.</p>
+    <p>To develop and deploy world-class enterprise solutions, AI platforms, safety systems, IoT water‑energy optimisation, and digital tools that enable businesses and individuals to operate more efficiently, safely, and sustainably.</p>
 
     <h2>Our Vision</h2>
-    <p>To become a leading provider of integrated business management solutions, multimodal AI platforms, and industry-specific applications that transform how organizations work and grow.</p>
+    <p>To become a leading provider of integrated business management solutions, multimodal AI platforms, industry-specific IoT systems, and digital transformation tools that transform how organisations work and grow.</p>
 
     <h2>Current Projects & Focus</h2>
     <ul>
-      <li><strong>CephasGM-ERP:</strong> Comprehensive Enterprise Resource Planning system for business operations management.</li>
+      <li><strong>CephasGM-ERP:</strong> Comprehensive Enterprise Resource Planning system for business operations management. (<a href="https://cephasgm.github.io/CephasGM-ERP/" target="_blank">Demo</a>)</li>
       <li><strong>CephasGM-AI:</strong> Fully functional multimodal AI platform (conversational AI, image/video generation, voice search, text-to-speech, coding assistant). <a href="https://ai.cephasgm.org/" target="_blank">ai.cephasgm.org</a></li>
       <li><strong>CephasGM-VPN:</strong> Next‑gen WireGuard & anti‑DPI VPN service for privacy and censorship bypass. <a href="https://vpn.cephasgm.org/" target="_blank">vpn.cephasgm.org</a></li>
-      <li><strong>Health-Safety-PWA:</strong> Occupational health and safety system for the metal management industry.</li>
-      <li><strong>cephasgm-portal:</strong> Secure client and staff portal with personalized dashboards.</li>
-      <li><strong>smart-location-tracker:</strong> Advanced asset and personnel tracking PWA.</li>
+      <li><strong>Health-Safety-PWA:</strong> Occupational health and safety system for the metal management industry. (<a href="https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/" target="_blank">Live App</a>)</li>
+      <li><strong>cephasgm-portal:</strong> Secure client and staff portal with personalised dashboards. (<a href="https://cephasgm.github.io/cephasgm-portal/" target="_blank">Portal Access</a>)</li>
+      <li><strong>smart-location-tracker:</strong> Advanced asset and personnel tracking PWA. (<a href="https://cephasgm.github.io/smart-location-tracker/" target="_blank">Tracker Demo</a>)</li>
       <li><strong>SignAid:</strong> Universal sign language translation platform (in development). <a href="https://cephasgm.github.io/signaid/" target="_blank">Preview</a></li>
+      <li><strong>CephasGM Water‑Energy Management System:</strong> IoT‑based optimisation for water pumping using real‑time tariff data, leak detection, and energy monitoring. Saves up to 30% on electricity bills. <a href="https://water.cephasgm.org/" target="_blank">water.cephasgm.org</a></li>
       <li><strong>cephasgm-site:</strong> Corporate digital presence at <a href="https://cephasgm.org/" target="_blank">cephasgm.org</a>.</li>
     </ul>
 
@@ -72,7 +246,8 @@
       <li>Release iOS version of the AI platform and push notifications</li>
       <li>Scale VPN infrastructure for global coverage</li>
       <li>Complete SignAid with full sign language recognition</li>
-      <li>Integrate IoT capabilities with tracking systems</li>
+      <li>Deploy water‑energy systems to community water schemes and farms</li>
+      <li>Integrate IoT capabilities with solar and predictive maintenance</li>
     </ul>
 
     <p><strong>We are committed to innovation, quality, and creating solutions that make a difference — built entirely from Tanzania.</strong></p>
@@ -84,8 +259,14 @@
   <aside style="margin-top:18px" class="panel">
     <h2>Meet the Team</h2>
     <div style="display:grid;gap:10px">
-      <div class="team-card"><img src="https://media.licdn.com/dms/image/v2/D4D03AQE7ou7jbpg75Q/profile-displayphoto-scale_400_400/B4DZlRbBTKGQAg-/0/1758007662531?e=2147483647&v=beta&t=aMUrajwsEVjrlSnvNkYTzqZ9dkM1lzxhM-alMvX0TCo" alt=""><div><strong>CephasGM</strong><div style="font-size:0.9rem;color:#555">Founder & Lead Developer</div></div></div>
-      <div class="team-card"><img src="https://www.uib.no/sites/w3.uib.no/files/styles/content_main/public/media/bfcb15c6-d582-49f9-9df3-62c934944fe3.jpg?itok=d1tLV4ka&timestamp=1719488225" alt=""><div><strong>AI & Security Team</strong><div style="font-size:0.9rem;color:#555">Machine Learning, VPN & Automation</div></div></div>
+      <div class="team-card">
+        <img loading="lazy" src="https://media.licdn.com/dms/image/v2/D4D03AQE7ou7jbpg75Q/profile-displayphoto-scale_400_400/B4DZlRbBTKGQAg-/0/1758007662531?e=2147483647&v=beta&t=aMUrajwsEVjrlSnvNkYTzqZ9dkM1lzxhM-alMvX0TCo" alt="Cephas Mkama">
+        <div><strong>Cephas Mkama</strong><div style="font-size:0.9rem;color:var(--text-dark)">Founder & Lead Developer</div></div>
+      </div>
+      <div class="team-card">
+        <img loading="lazy" src="https://www.uib.no/sites/w3.uib.no/files/styles/content_main/public/media/bfcb15c6-d582-49f9-9df3-62c934944fe3.jpg?itok=d1tLV4ka&timestamp=1719488225" alt="AI Team">
+        <div><strong>AI & Security Team</strong><div style="font-size:0.9rem;color:var(--text-dark)">Machine Learning, VPN & Automation</div></div>
+      </div>
     </div>
     
     <h3 style="margin-top:20px;">Core Expertise</h3>
@@ -97,6 +278,7 @@
       <li>✓ Health & Safety Systems</li>
       <li>✓ Location Tracking Solutions</li>
       <li>✓ Client Portal Development</li>
+      <li>✓ IoT & Water‑Energy Optimisation</li>
       <li>✓ Digital Transformation</li>
     </ul>
   </aside>
@@ -104,5 +286,28 @@
 
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+<script>
+  // Dark/Light Mode Toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') document.body.classList.add('dark');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
