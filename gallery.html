@@ -4,12 +4,35 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Gallery — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="Visual portfolio of Cephas GM projects: enterprise ERP, AI platform, VPN, safety PWA, asset tracking, secure portal, SignAid, and Water-Energy Management System.">
+<meta property="og:title" content="Gallery — Cephas GM">
+<meta property="og:description" content="Explore project galleries showcasing enterprise solutions, AI, VPN, safety systems, IoT water-energy optimisation, and more.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org/gallery.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM Gallery">
+<meta name="twitter:description" content="Project galleries: ERP, AI, VPN, safety PWA, asset tracking, portal, SignAid, water-energy IoT.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --accent:#0b7a59;
+    --accent-hover:#099268;
     --muted:#6b6b6b;
     --card-bg: rgba(255,255,255,0.96);
+    --shadow:0 8px 28px rgba(0,0,0,0.18);
+  }
+  body.dark {
+    --card-bg: rgba(30,30,40,0.96);
+    --muted: #aaa;
+    color: #eee;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{
@@ -17,15 +40,36 @@
     font-family:'Poppins',sans-serif;
     color:#111;
     background: linear-gradient(180deg, rgba(11,122,89,0.25), rgba(0,0,0,0.25)), url('https://i.dailymail.co.uk/i/pix/2016/05/27/10/34AD5CD000000578-0-image-a-17_1464341527935.jpg') center/cover no-repeat fixed;
+    transition: background-color 0.3s, color 0.2s;
+    position: relative;
   }
-
+  /* Liquid crystal overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
   .nav{
     background: rgba(0,0,0,0.55);
     display:flex; justify-content:space-between; align-items:center;
     padding:12px 28px; position:sticky; top:0; z-index:120;
+    backdrop-filter: blur(4px);
   }
   .brand{ color:#fff; font-weight:700; letter-spacing:0.4px; }
-  .nav-links{ display:flex; gap:14px; flex-wrap:wrap; }
+  .nav-links{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
   .nav-links a{
     color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; font-weight:500;
   }
@@ -35,16 +79,30 @@
     padding:8px 12px;
   }
   .nav-links .btn:hover{ background:#099268; }
-
+  .theme-toggle {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+  }
   header{
     text-align:center; padding:56px 16px 34px; color:#fff;
     background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+    position: relative; z-index: 1;
   }
   header h1{ font-size:2.6rem; margin:0 0 8px; font-weight:700; }
   header p{ margin:0; color:#f0f0f0; max-width:900px; margin-left:auto; margin-right:auto; }
-
   .gallery-wrap{
     max-width:1200px; margin:40px auto; padding:0 24px 64px;
+    position: relative; z-index: 1;
   }
   .grid{
     display:grid;
@@ -53,21 +111,27 @@
   }
   .card{
     background: var(--card-bg);
-    border-radius:14px; overflow:hidden; box-shadow:0 8px 28px rgba(0,0,0,0.18);
-    transition: transform .32s ease, box-shadow .32s ease; cursor:pointer;
+    border-radius:14px; overflow:hidden; box-shadow:var(--shadow);
+    transition: transform 0.32s ease, box-shadow 0.32s ease, border 0.2s;
+    cursor:pointer;
+    border:1px solid transparent;
   }
-  .card:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(0,0,0,0.25); }
+  .card:hover{ 
+    transform:translateY(-10px) scale(1.02); 
+    box-shadow:0 20px 35px rgba(0,0,0,0.3);
+    border-color: var(--accent);
+  }
   .card-figure{ height:220px; overflow:hidden; }
   .card-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
   .card-body{ padding:14px 18px; border-top:4px solid var(--accent); text-align:center; }
   .card-body h3{ margin:6px 0; color:var(--accent); font-size:1.1rem; }
   .card-body p{ margin:6px 0 0; color:var(--muted); font-size:0.95rem; }
-
   footer{
     background: rgba(0,0,0,0.85);
     color:#fff; text-align:center; padding:20px 12px; font-size:0.95rem;
+    margin-top:2rem;
+    position: relative; z-index: 1;
   }
-
   .modal{
     display:none; position:fixed; z-index:300; left:0; top:0; width:100%; height:100%;
     background:rgba(0,0,0,0.95); overflow:auto; padding:40px 20px;
@@ -77,6 +141,7 @@
     box-shadow:0 20px 60px rgba(0,0,0,0.4);
     animation:modalFadeIn 0.4s;
   }
+  body.dark .modal-inner { background:#1e1e2a; color:#eee; }
   @keyframes modalFadeIn{
     from{opacity:0; transform:translateY(-30px);}
     to{opacity:1; transform:translateY(0);}
@@ -85,6 +150,7 @@
     display:flex; align-items:center; justify-content:space-between; padding:18px 22px;
     border-bottom:1px solid #eee;
   }
+  body.dark .modal-header { border-bottom-color: #333; }
   .modal-header h2{ margin:0; color:var(--accent); font-size:1.5rem; }
   .modal-close{ 
     font-size:32px; font-weight:400; color:#666; cursor:pointer; line-height:1;
@@ -92,12 +158,12 @@
     border-radius:50%; transition:0.2s;
   }
   .modal-close:hover{ background:#f0f0f0; color:var(--accent); }
-
+  body.dark .modal-close { color:#aaa; }
+  body.dark .modal-close:hover { background:#333; color:var(--accent); }
   .modal-body{
     display:grid; grid-template-columns: 1fr 320px; gap:20px; padding:24px;
   }
   @media (max-width:920px){ .modal-body{ grid-template-columns:1fr; } }
-
   .slideshow{
     position:relative;
     background:#111;
@@ -119,18 +185,17 @@
     box-shadow:0 4px 12px rgba(0,0,0,0.3); transition:0.2s; font-size:0.95rem;
   }
   .btn-slide:hover{ background:#fff; transform:scale(1.05); }
-
+  body.dark .btn-slide { background:#333; color:#fff; }
+  body.dark .btn-slide:hover { background:#444; }
   .slide-counter{
     position:absolute; bottom:15px; right:15px; left:auto;
     background:rgba(0,0,0,0.7); color:#fff; padding:6px 14px; border-radius:30px; font-weight:500; font-size:0.9rem;
   }
-
-  .meta{
-    padding:5px;
-  }
-  .meta p{ color:#333; line-height:1.7; margin:0 0 20px; font-size:0.98rem; }
+  .meta{ padding:5px; }
+  .meta p{ line-height:1.7; margin:0 0 20px; font-size:0.98rem; }
+  body.dark .meta p { color:#ccc; }
   .thumbs-container{ margin-top:15px; }
-  .thumbs-container strong{ display:block; margin-bottom:10px; color:#0b7a59; }
+  .thumbs-container strong{ display:block; margin-bottom:10px; color:var(--accent); }
   .thumbs{
     display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
   }
@@ -140,12 +205,11 @@
   }
   .thumbs img.active{ border-color:var(--accent); box-shadow:0 4px 10px rgba(11,122,89,0.3); }
   .thumbs img:hover{ transform:scale(1.02); }
-
   .testimonial{
     margin-top:25px; background:#f8f8f8; padding:16px; border-left:4px solid var(--accent); 
-    border-radius:0 8px 8px 0; color:#444; font-style:italic; line-height:1.6;
+    border-radius:0 8px 8px 0; font-style:italic; line-height:1.6;
   }
-
+  body.dark .testimonial { background:#2a2a35; color:#ddd; }
   .project-links{
     margin-top:20px;
     display:flex;
@@ -154,7 +218,7 @@
   }
   .project-link{
     display:inline-block;
-    background:#0b7a59;
+    background:var(--accent);
     color:#fff;
     padding:8px 16px;
     border-radius:6px;
@@ -164,10 +228,37 @@
     transition:0.2s;
   }
   .project-link:hover{
-    background:#099268;
+    background:var(--accent-hover);
     transform:translateY(-2px);
   }
-
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .back-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-5px);
+  }
   @media (max-width:720px){
     header h1{ font-size:2rem; }
     .slideshow{ min-height:280px; height:350px; }
@@ -175,6 +266,7 @@
     .thumbs img{ height:50px; }
     .modal-header h2{ font-size:1.2rem; }
     .btn-slide{ padding:6px 12px; font-size:0.85rem; }
+    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
   }
   @media (max-width:520px){
     .slideshow{ height:250px; }
@@ -185,361 +277,357 @@
 </head>
 <body>
 
-  <nav class="nav" role="navigation">
-    <div class="brand">Cephas GM</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="gallery.html" class="active">Gallery</a>
-      <a href="impact.html">Impact</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal</a>
+<nav class="nav" role="navigation">
+  <div class="brand">Cephas GM</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="impact.html">Impact</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
+  </div>
+</nav>
+
+<header>
+  <h1>Project Gallery</h1>
+  <p>Visual highlights from our enterprise solutions, safety systems, AI, IoT, and digital transformation projects</p>
+</header>
+
+<div class="gallery-wrap">
+  <div class="grid">
+    <div class="card" onclick="openModal('erp')">
+      <figure class="card-figure"><img loading="lazy" alt="ERP System" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"></figure>
+      <div class="card-body"><h3>CephasGM-ERP</h3><p>Enterprise Resource Planning system with integrated business modules.</p></div>
     </div>
-  </nav>
+    <div class="card" onclick="openModal('portal')">
+      <figure class="card-figure"><img loading="lazy" alt="Client Portal" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"></figure>
+      <div class="card-body"><h3>Secure Client Portal</h3><p>Private gateway for clients and staff with personalized dashboards.</p></div>
+    </div>
+    <div class="card" onclick="openModal('safety')">
+      <figure class="card-figure"><img loading="lazy" alt="Safety PWA" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80"></figure>
+      <div class="card-body"><h3>Health & Safety PWA</h3><p>Occupational safety system for metal management industry.</p></div>
+    </div>
+    <div class="card" onclick="openModal('tracker')">
+      <figure class="card-figure"><img loading="lazy" alt="Location Tracker" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"></figure>
+      <div class="card-body"><h3>Smart Location Tracker</h3><p>Real-time GPS tracking for assets, vehicles, and personnel.</p></div>
+    </div>
+    <div class="card" onclick="openModal('ai')">
+      <figure class="card-figure"><img loading="lazy" alt="CephasGM AI Assistant" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"></figure>
+      <div class="card-body"><h3>CephasGM-AI</h3><p>Multimodal AI platform for automation and insights.</p></div>
+    </div>
+    <div class="card" onclick="openModal('vpn')">
+      <figure class="card-figure"><img loading="lazy" alt="CephasGM VPN" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80"></figure>
+      <div class="card-body"><h3>CephasGM-VPN</h3><p>Next‑Gen WireGuard & Anti‑DPI VPN service.</p></div>
+    </div>
+    <div class="card" onclick="openModal('signaid')">
+      <figure class="card-figure"><img loading="lazy" alt="SignAid" src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80"></figure>
+      <div class="card-body"><h3>SignAid</h3><p>Universal Sign Language Translation (In Development).</p></div>
+    </div>
+    <!-- NEW: Water-Energy Management System -->
+    <div class="card" onclick="openModal('waterenergy')">
+      <figure class="card-figure"><img loading="lazy" alt="Water-Energy System" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80"></figure>
+      <div class="card-body"><h3>Water-Energy Mgmt</h3><p>Smart pumping, tariff optimisation & leak detection.</p></div>
+    </div>
+  </div>
+</div>
 
-  <header>
-    <h1>Project Gallery</h1>
-    <p>Visual highlights from our enterprise solutions, safety systems, and digital transformation projects</p>
-  </header>
-
-  <div class="gallery-wrap">
-    <div class="grid">
-      <div class="card" onclick="openModal('erp')">
-        <figure class="card-figure"><img alt="ERP System" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"></figure>
-        <div class="card-body">
-          <h3>CephasGM-ERP</h3>
-          <p>Enterprise Resource Planning system with integrated business modules.</p>
+<div id="galleryModal" class="modal" onclick="closeModalOnBackground(event)">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <h2 id="modalTitle">Project Title</h2>
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div class="slideshow-container">
+        <div class="slideshow" id="slideshow">
+          <img id="slideImage" src="" alt="Project image" loading="lazy">
+          <div class="slide-nav">
+            <button class="btn-slide" onclick="prevSlide()">❮ Previous</button>
+            <button class="btn-slide" onclick="nextSlide()">Next ❯</button>
+          </div>
+          <div class="slide-counter" id="slideCounter">1 / 5</div>
         </div>
       </div>
-
-      <div class="card" onclick="openModal('portal')">
-        <figure class="card-figure"><img alt="Client Portal" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"></figure>
-        <div class="card-body">
-          <h3>Secure Client Portal</h3>
-          <p>Private gateway for clients and staff with personalized dashboards.</p>
+      <div class="meta">
+        <p id="modalDescription">Project description will appear here.</p>
+        <div id="projectLinks" class="project-links"></div>
+        <div class="thumbs-container">
+          <strong>Gallery</strong>
+          <div class="thumbs" id="thumbnails"></div>
         </div>
-      </div>
-
-      <div class="card" onclick="openModal('safety')">
-        <figure class="card-figure"><img alt="Safety PWA" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80"></figure>
-        <div class="card-body">
-          <h3>Health & Safety PWA</h3>
-          <p>Occupational safety system for metal management industry.</p>
-        </div>
-      </div>
-
-      <div class="card" onclick="openModal('tracker')">
-        <figure class="card-figure"><img alt="Location Tracker" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"></figure>
-        <div class="card-body">
-          <h3>Smart Location Tracker</h3>
-          <p>Real-time GPS tracking for assets, vehicles, and personnel.</p>
-        </div>
-      </div>
-
-      <div class="card" onclick="openModal('ai')">
-        <figure class="card-figure"><img alt="CephasGM AI Assistant" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"></figure>
-        <div class="card-body">
-          <h3>CephasGM-AI</h3>
-          <p>Multimodal AI platform for automation and insights.</p>
-        </div>
-      </div>
-
-      <div class="card" onclick="openModal('vpn')">
-        <figure class="card-figure"><img alt="CephasGM VPN" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80"></figure>
-        <div class="card-body">
-          <h3>CephasGM-VPN</h3>
-          <p>Next‑Gen WireGuard & Anti‑DPI VPN service.</p>
-        </div>
-      </div>
-
-      <div class="card" onclick="openModal('signaid')">
-        <figure class="card-figure"><img alt="SignAid" src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80"></figure>
-        <div class="card-body">
-          <h3>SignAid</h3>
-          <p>Universal Sign Language Translation (In Development).</p>
-        </div>
+        <div class="testimonial" id="testimonial">Click on any image to view full details about our projects and solutions.</div>
       </div>
     </div>
   </div>
+</div>
 
-  <div id="galleryModal" class="modal" onclick="closeModalOnBackground(event)">
-    <div class="modal-inner">
-      <div class="modal-header">
-        <h2 id="modalTitle">Project Title</h2>
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-      </div>
-
-      <div class="modal-body">
-        <div class="slideshow-container">
-          <div class="slideshow" id="slideshow">
-            <img id="slideImage" src="" alt="Project image">
-            <div class="slide-nav">
-              <button class="btn-slide" onclick="prevSlide()">❮ Previous</button>
-              <button class="btn-slide" onclick="nextSlide()">Next ❯</button>
-            </div>
-            <div class="slide-counter" id="slideCounter">1 / 5</div>
-          </div>
-        </div>
-
-        <div class="meta">
-          <p id="modalDescription">Project description will appear here.</p>
-          
-          <div id="projectLinks" class="project-links"></div>
-
-          <div class="thumbs-container">
-            <strong>Gallery</strong>
-            <div class="thumbs" id="thumbnails"></div>
-          </div>
-
-          <div class="testimonial" id="testimonial">
-            Click on any image to view full details about our projects and solutions.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
+<footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script>
-const GALLERIES = {
-  erp: {
-    title: 'CephasGM-ERP System',
-    description: 'A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules including finance, HR, supply chain, and CRM.',
-    testimonial: '“Streamlined operations and improved efficiency across all business departments.”',
-    links: [
-      { text: 'View Live Demo →', url: 'https://cephasgm.github.io/CephasGM-ERP/' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80'
-    ]
-  },
-  portal: {
-    title: 'Secure Client & Staff Portal',
-    description: 'A secure, personalized gateway for clients and staff to access dashboards, downloads, and real-time updates related to Cephas GM\'s services and solutions with role-based access control.',
-    testimonial: '“Secure access to documents and real-time service updates has transformed our client communication.”',
-    links: [
-      { text: 'Access Portal →', url: 'https://cephasgm.github.io/cephasgm-portal/' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
-    ]
-  },
-  safety: {
-    title: 'Health & Safety PWA for Metal Management',
-    description: 'A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry to track incidents, manage safety checklists, and ensure regulatory compliance.',
-    testimonial: '“Reduced safety incidents by 40% through better tracking and preventive measures.”',
-    links: [
-      { text: 'View Safety App →', url: 'https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80'
-    ]
-  },
-  tracker: {
-    title: 'Smart Location Tracker',
-    description: 'An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions, featuring real-time positioning, geofencing, and movement history.',
-    testimonial: '“Real-time asset tracking has optimized our logistics and reduced losses significantly.”',
-    links: [
-      { text: 'View Tracker Demo →', url: 'https://cephasgm.github.io/smart-location-tracker/' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80'
-    ]
-  },
-  site: {
-    title: 'CephasGM Corporate Website',
-    description: 'The official corporate website of Cephas GM, showcasing our enterprise solutions, smart systems, digital transformation services, and global impact.',
-    testimonial: '“A modern, responsive platform that perfectly represents our brand and capabilities.”',
-    links: [
-      { text: 'Visit Main Site →', url: 'https://cephasgm.org/' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
-    ]
-  },
-  ai: {
-    title: 'CephasGM-AI — Multimodal AI Platform',
-    description: 'A complete fully functional multimodal AI platform that combines natural language understanding, image recognition, and voice interaction. Designed for enterprise automation, customer support, and intelligent decision-making.',
-    testimonial: '“Deploying CephasGM-AI has streamlined our customer support and reduced response times by over 60%.”',
-    links: [
-      { text: '🚀 Live Demo', url: 'https://ai.cephasgm.org/' },
-      { text: '📦 Open Source (GitHub)', url: 'https://cephasgm.github.io/CephasGM-AI/' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80'
-    ]
-  },
-  vpn: {
-    title: 'CephasGM-VPN — Next‑Gen WireGuard & Anti‑DPI VPN',
-    description: 'Bypass censorship, hide your IP, and encrypt your traffic with next‑gen WireGuard & anti‑DPI technology. Enterprise-grade VPN solution for privacy, security, and unrestricted access.',
-    testimonial: '“The fastest and most reliable VPN I have used. Anti-DPI works perfectly in restricted regions.”',
-    links: [
-      { text: '🔗 Live Demo', url: 'https://vpn.cephasgm.org/' },
-      { text: '📦 Open Source', url: 'https://lnkd.in/d52nSFmZ' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80'
-    ]
-  },
-  signaid: {
-    title: 'SignAid — Universal Sign Language Translation',
-    description: 'SignAid is an innovative AI-powered platform under development that provides universal translation for sign languages, helping to break communication barriers between hearing and deaf communities worldwide.',
-    testimonial: '“This project has the potential to transform accessibility for millions of deaf and hard-of-hearing individuals.”',
-    links: [
-      { text: '🔗 View Development Preview', url: 'https://cephasgm.github.io/signaid/' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80'
-    ]
+  // Dark/Light Mode Toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') document.body.classList.add('dark');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Gallery data with waterenergy entry
+  const GALLERIES = {
+    erp: {
+      title: 'CephasGM-ERP System',
+      description: 'A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules including finance, HR, supply chain, and CRM.',
+      testimonial: '“Streamlined operations and improved efficiency across all business departments.”',
+      links: [{ text: 'View Live Demo →', url: 'https://cephasgm.github.io/CephasGM-ERP/' }],
+      images: [
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80'
+      ]
+    },
+    portal: {
+      title: 'Secure Client & Staff Portal',
+      description: 'A secure, personalized gateway for clients and staff to access dashboards, downloads, and real-time updates related to Cephas GM\'s services and solutions with role-based access control.',
+      testimonial: '“Secure access to documents and real-time service updates has transformed our client communication.”',
+      links: [{ text: 'Access Portal →', url: 'https://cephasgm.github.io/cephasgm-portal/' }],
+      images: [
+        'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
+      ]
+    },
+    safety: {
+      title: 'Health & Safety PWA for Metal Management',
+      description: 'A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry to track incidents, manage safety checklists, and ensure regulatory compliance.',
+      testimonial: '“Reduced safety incidents by 40% through better tracking and preventive measures.”',
+      links: [{ text: 'View Safety App →', url: 'https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/' }],
+      images: [
+        'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80'
+      ]
+    },
+    tracker: {
+      title: 'Smart Location Tracker',
+      description: 'An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions, featuring real-time positioning, geofencing, and movement history.',
+      testimonial: '“Real-time asset tracking has optimized our logistics and reduced losses significantly.”',
+      links: [{ text: 'View Tracker Demo →', url: 'https://cephasgm.github.io/smart-location-tracker/' }],
+      images: [
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80'
+      ]
+    },
+    site: {
+      title: 'CephasGM Corporate Website',
+      description: 'The official corporate website of Cephas GM, showcasing our enterprise solutions, smart systems, digital transformation services, and global impact.',
+      testimonial: '“A modern, responsive platform that perfectly represents our brand and capabilities.”',
+      links: [{ text: 'Visit Main Site →', url: 'https://cephasgm.org/' }],
+      images: [
+        'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
+      ]
+    },
+    ai: {
+      title: 'CephasGM-AI — Multimodal AI Platform',
+      description: 'A complete fully functional multimodal AI platform that combines natural language understanding, image recognition, and voice interaction. Designed for enterprise automation, customer support, and intelligent decision-making.',
+      testimonial: '“Deploying CephasGM-AI has streamlined our customer support and reduced response times by over 60%.”',
+      links: [
+        { text: '🚀 Live Demo', url: 'https://ai.cephasgm.org/' },
+        { text: '📦 Open Source (GitHub)', url: 'https://cephasgm.github.io/CephasGM-AI/' }
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80'
+      ]
+    },
+    vpn: {
+      title: 'CephasGM-VPN — Next‑Gen WireGuard & Anti‑DPI VPN',
+      description: 'Bypass censorship, hide your IP, and encrypt your traffic with next‑gen WireGuard & anti‑DPI technology. Enterprise-grade VPN solution for privacy, security, and unrestricted access.',
+      testimonial: '“The fastest and most reliable VPN I have used. Anti-DPI works perfectly in restricted regions.”',
+      links: [
+        { text: '🔗 Live Demo', url: 'https://vpn.cephasgm.org/' },
+        { text: '📦 Open Source', url: 'https://lnkd.in/d52nSFmZ' }
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80'
+      ]
+    },
+    signaid: {
+      title: 'SignAid — Universal Sign Language Translation',
+      description: 'SignAid is an innovative AI-powered platform under development that provides universal translation for sign languages, helping to break communication barriers between hearing and deaf communities worldwide.',
+      testimonial: '“This project has the potential to transform accessibility for millions of deaf and hard-of-hearing individuals.”',
+      links: [{ text: '🔗 View Development Preview', url: 'https://cephasgm.github.io/signaid/' }],
+      images: [
+        'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80'
+      ]
+    },
+    waterenergy: {
+      title: 'CephasGM Water‑Energy Management System',
+      description: 'An intelligent IoT system that optimises water pumping using real‑time electricity tariff data, water level, and leak detection. Built on ESP32, Flask, MySQL, and a reactive dashboard. Saves up to 30% energy by pumping only during off‑peak hours. Supports two hardware modes: Basic (current sensors) and Modern (flow meter + whole‑house energy meter). Includes AI assistant, manual remote control, billing reports, and PWA.',
+      testimonial: '“Reduced energy bills by 28% and eliminated dry tank issues in the first month.”',
+      links: [{ text: '🌊 Launch Dashboard', url: 'https://water.cephasgm.org/' }],
+      images: [
+        'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1581092335871-4b6a6d6f6f5a?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1504912516456-961ad7e6e5e5?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80'
+      ]
+    }
+  };
+
+  let currentGallery = null;
+  let currentIndex = 0;
+  let autoplayTimer = null;
+  const modal = document.getElementById('galleryModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+  const slideImage = document.getElementById('slideImage');
+  const slideCounter = document.getElementById('slideCounter');
+  const thumbnails = document.getElementById('thumbnails');
+  const testimonialEl = document.getElementById('testimonial');
+  const projectLinksContainer = document.getElementById('projectLinks');
+
+  function openModal(galleryId) {
+    const gallery = GALLERIES[galleryId];
+    if (!gallery) return;
+    currentGallery = gallery;
+    currentIndex = 0;
+    modalTitle.textContent = gallery.title;
+    modalDescription.textContent = gallery.description;
+    testimonialEl.textContent = gallery.testimonial;
+    buildProjectLinks(gallery.links);
+    buildThumbnails(gallery.images);
+    showSlide(0);
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    startAutoplay();
+    document.addEventListener('keydown', handleKeyPress);
+    const modalInner = modal.querySelector('.modal-inner');
+    if (modalInner) modalInner.focus();
+    modal.addEventListener('keydown', trapFocus);
   }
-};
-
-let currentGallery = null;
-let currentIndex = 0;
-let autoplayTimer = null;
-
-const modal = document.getElementById('galleryModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalDescription = document.getElementById('modalDescription');
-const slideImage = document.getElementById('slideImage');
-const slideCounter = document.getElementById('slideCounter');
-const thumbnails = document.getElementById('thumbnails');
-const testimonialEl = document.getElementById('testimonial');
-const projectLinksContainer = document.getElementById('projectLinks');
-
-function openModal(galleryId) {
-  const gallery = GALLERIES[galleryId];
-  if (!gallery) return;
-  
-  currentGallery = gallery;
-  currentIndex = 0;
-  
-  modalTitle.textContent = gallery.title;
-  modalDescription.textContent = gallery.description;
-  testimonialEl.textContent = gallery.testimonial;
-  
-  buildProjectLinks(gallery.links);
-  buildThumbnails(gallery.images);
-  showSlide(0);
-  
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-  startAutoplay();
-  document.addEventListener('keydown', handleKeyPress);
-}
-
-function buildProjectLinks(links) {
-  projectLinksContainer.innerHTML = '';
-  if (links && links.length > 0) {
-    links.forEach(link => {
-      const a = document.createElement('a');
-      a.href = link.url;
-      a.target = '_blank';
-      a.className = 'project-link';
-      a.textContent = link.text;
-      projectLinksContainer.appendChild(a);
+  function buildProjectLinks(links) {
+    projectLinksContainer.innerHTML = '';
+    if (links && links.length) {
+      links.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.url;
+        a.target = '_blank';
+        a.className = 'project-link';
+        a.textContent = link.text;
+        projectLinksContainer.appendChild(a);
+      });
+    }
+  }
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+    stopAutoplay();
+    document.removeEventListener('keydown', handleKeyPress);
+    modal.removeEventListener('keydown', trapFocus);
+  }
+  function closeModalOnBackground(event) { if (event.target === modal) closeModal(); }
+  function showSlide(index) {
+    if (!currentGallery) return;
+    const images = currentGallery.images;
+    if (index < 0) index = images.length - 1;
+    if (index >= images.length) index = 0;
+    currentIndex = index;
+    slideImage.src = images[currentIndex];
+    slideImage.alt = currentGallery.title + ' - Image ' + (currentIndex + 1);
+    slideCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+    const thumbImgs = document.querySelectorAll('#thumbnails img');
+    thumbImgs.forEach((img, i) => {
+      if (i === currentIndex) img.classList.add('active');
+      else img.classList.remove('active');
     });
   }
-}
-
-function closeModal() {
-  modal.style.display = 'none';
-  document.body.style.overflow = '';
-  stopAutoplay();
-  document.removeEventListener('keydown', handleKeyPress);
-}
-
-function closeModalOnBackground(event) {
-  if (event.target === modal) closeModal();
-}
-
-function showSlide(index) {
-  if (!currentGallery) return;
-  const images = currentGallery.images;
-  if (index < 0) index = images.length - 1;
-  if (index >= images.length) index = 0;
-  currentIndex = index;
-  slideImage.src = images[currentIndex];
-  slideImage.alt = currentGallery.title + ' - Image ' + (currentIndex + 1);
-  slideCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
-  const thumbImgs = document.querySelectorAll('#thumbnails img');
-  thumbImgs.forEach((img, i) => {
-    if (i === currentIndex) img.classList.add('active');
-    else img.classList.remove('active');
+  function prevSlide() { showSlide(currentIndex - 1); restartAutoplay(); }
+  function nextSlide() { showSlide(currentIndex + 1); restartAutoplay(); }
+  function buildThumbnails(images) {
+    thumbnails.innerHTML = '';
+    images.forEach((src, index) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Thumbnail ' + (index + 1);
+      img.loading = 'lazy';
+      img.onclick = () => { showSlide(index); restartAutoplay(); };
+      thumbnails.appendChild(img);
+    });
+  }
+  function handleKeyPress(e) {
+    if (modal.style.display !== 'block') return;
+    if (e.key === 'Escape') closeModal();
+    else if (e.key === 'ArrowLeft') prevSlide();
+    else if (e.key === 'ArrowRight') nextSlide();
+  }
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const focusable = modal.querySelectorAll('button, [href], .project-link, .btn-slide, .modal-close');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      last.focus();
+      e.preventDefault();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      first.focus();
+      e.preventDefault();
+    }
+  }
+  function startAutoplay() { stopAutoplay(); autoplayTimer = setInterval(() => nextSlide(), 4000); }
+  function stopAutoplay() { if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
+  function restartAutoplay() { stopAutoplay(); startAutoplay(); }
+  window.addEventListener('load', () => {
+    Object.values(GALLERIES).forEach(gallery => {
+      if (gallery.images && gallery.images[0]) new Image().src = gallery.images[0];
+    });
   });
-}
-
-function prevSlide() { showSlide(currentIndex - 1); restartAutoplay(); }
-function nextSlide() { showSlide(currentIndex + 1); restartAutoplay(); }
-
-function buildThumbnails(images) {
-  thumbnails.innerHTML = '';
-  images.forEach((src, index) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = 'Thumbnail ' + (index + 1);
-    img.onclick = function() { showSlide(index); restartAutoplay(); };
-    thumbnails.appendChild(img);
-  });
-}
-
-function handleKeyPress(e) {
-  if (modal.style.display !== 'block') return;
-  if (e.key === 'Escape') closeModal();
-  else if (e.key === 'ArrowLeft') prevSlide();
-  else if (e.key === 'ArrowRight') nextSlide();
-}
-
-function startAutoplay() { stopAutoplay(); autoplayTimer = setInterval(() => nextSlide(), 4000); }
-function stopAutoplay() { if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
-function restartAutoplay() { stopAutoplay(); startAutoplay(); }
-
-window.addEventListener('load', function() {
-  Object.values(GALLERIES).forEach(gallery => {
-    if (gallery.images && gallery.images.length > 0) new Image().src = gallery.images[0];
-  });
-});
-
-window.openModal = openModal;
-window.closeModal = closeModal;
-window.closeModalOnBackground = closeModalOnBackground;
-window.prevSlide = prevSlide;
-window.nextSlide = nextSlide;
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+  window.closeModalOnBackground = closeModalOnBackground;
+  window.prevSlide = prevSlide;
+  window.nextSlide = nextSlide;
 </script>
 </body>
 </html>
