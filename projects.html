@@ -4,59 +4,216 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projects — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="Explore Cephas GM's portfolio: enterprise ERP, multimodal AI platform, VPN service, safety PWA, asset tracking, secure portal, SignAid, and Water-Energy Management System.">
+<meta property="og:title" content="Projects — Cephas GM">
+<meta property="og:description" content="Real-world enterprise solutions, AI platforms, VPN, safety systems, tracking tools, and IoT water-energy optimisation.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org/projects.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM Projects">
+<meta name="twitter:description" content="Enterprise solutions, AI, VPN, safety PWA, asset tracking, water-energy IoT, and more.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Poppins',sans-serif;
-  background:url('https://cdn.thecoolist.com/wp-content/uploads/2021/03/Maletsunyane-Falls-Lesotho-Africa.jpg') center/cover fixed no-repeat;
-  color:#fff;
-}
-.nav{background:rgba(0,0,0,0.6);display:flex;justify-content:space-between;align-items:center;padding:14px 30px;position:sticky;top:0;z-index:100;}
-.brand{font-weight:700;font-size:1.2rem;}
-.nav-links{display:flex;gap:16px;}
-.nav-links a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;transition:0.3s;}
-.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,0.15);}
-header{text-align:center;background:rgba(0,0,0,0.55);padding:3rem 1rem;}
-header h1{font-size:2.5rem;margin-bottom:.6rem;}
-header p{color:#ddd;font-size:1rem;}
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;padding:3rem 5%;}
-.card{position:relative;border-radius:16px;overflow:hidden;height:320px;background:rgba(0,0,0,0.4);box-shadow:0 8px 20px rgba(0,0,0,0.3);transition:transform .4s ease, box-shadow .4s ease;cursor:pointer;opacity:0;transform:translateY(40px);animation:fadeInUp 1s forwards;}
-.card:nth-child(1){animation-delay:0.2s;}
-.card:nth-child(2){animation-delay:0.4s;}
-.card:nth-child(3){animation-delay:0.6s;}
-.card:nth-child(4){animation-delay:0.8s;}
-.card:nth-child(5){animation-delay:1.0s;}
-.card:nth-child(6){animation-delay:1.2s;}
-.card:nth-child(7){animation-delay:1.4s;}
-.card:nth-child(8){animation-delay:1.6s;}
-@keyframes fadeInUp{
-  0%{opacity:0;transform:translateY(40px);}
-  100%{opacity:1;transform:translateY(0);}
-}
-.card:hover{transform:translateY(-8px);box-shadow:0 12px 35px rgba(0,0,0,0.45);}
-.card img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;filter:brightness(0.8);}
-.card-content{position:absolute;bottom:0;padding:1.3rem;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);width:100%;}
-.card-content h3{font-size:1.3rem;margin-bottom:.4rem;}
-.card-content p{font-size:.9rem;color:#ccc;}
-.modal{display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.95);overflow-y:auto;padding-top:60px;}
-.modal-content{background:#fff;color:#000;margin:auto;padding:20px;border-radius:16px;width:95%;max-width:1200px;animation:fadeIn .5s;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-.close{color:#000;float:right;font-size:28px;font-weight:bold;}
-.close:hover{color:#0b7a59;cursor:pointer;}
-.modal header{text-align:center;background:none;color:#111;padding:0;margin-bottom:1rem;}
-.modal header h2{color:#0b7a59;margin-bottom:.5rem;}
-.swiper{width:100%;height:500px;border-radius:16px;margin:1rem 0;overflow:hidden;}
-.swiper-slide img{width:100%;height:100%;object-fit:cover;}
-.swiper-pagination-bullet-active{background:#0b7a59;}
-.swiper-button-next,.swiper-button-prev{color:#fff;}
-.content{padding:1rem 0;}
-.content h3{color:#0b7a59;margin-bottom:.5rem;}
-.content p{line-height:1.6;margin-bottom:1rem;}
-.highlights{background:#f4f4f4;padding:1rem;border-left:4px solid #0b7a59;border-radius:8px;margin-bottom:1rem;}
-.demo-link{display:inline-block;background:#0b7a59;color:#fff;padding:.5rem 1rem;border-radius:6px;text-decoration:none;margin-top:1rem;margin-right:0.8rem;}
-footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
+  /* CSS Variables for Light/Dark Mode */
+  :root {
+    --bg-overlay-light: rgba(0,0,0,0.55);
+    --card-bg-light: rgba(0,0,0,0.4);
+    --text-light: #fff;
+    --text-dark: #ddd;
+    --accent: #0b7a59;
+    --accent-hover: #099268;
+    --shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  body.dark {
+    --bg-overlay-light: rgba(0,0,0,0.8);
+    --card-bg-light: rgba(0,0,0,0.6);
+    --text-light: #f5f5f5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:url('https://cdn.thecoolist.com/wp-content/uploads/2021/03/Maletsunyane-Falls-Lesotho-Africa.jpg') center/cover fixed no-repeat;
+    color:var(--text-light);
+    transition: background-color 0.3s, color 0.2s;
+    position: relative;
+  }
+  /* Liquid crystal overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .nav{
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 30px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter: blur(4px);
+  }
+  .brand{font-weight:700;font-size:1.2rem;}
+  .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:.3s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active{background:rgba(255,255,255,0.15);}
+  
+  /* Dark mode toggle button */
+  .theme-toggle {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+  }
+
+  header{text-align:center;background:var(--bg-overlay-light);padding:3rem 1rem;position:relative;z-index:1;}
+  header h1{font-size:2.5rem;margin-bottom:.6rem;}
+  header p{color:var(--text-dark);font-size:1rem;}
+  
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;padding:3rem 5%;position:relative;z-index:1;}
+  .card{
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    height:320px;
+    background:var(--card-bg-light);
+    box-shadow:var(--shadow);
+    transition:transform 0.4s ease, box-shadow 0.4s ease, border 0.2s;
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeInUp 1s forwards;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .card:nth-child(1){animation-delay:0.2s;}
+  .card:nth-child(2){animation-delay:0.4s;}
+  .card:nth-child(3){animation-delay:0.6s;}
+  .card:nth-child(4){animation-delay:0.8s;}
+  .card:nth-child(5){animation-delay:1.0s;}
+  .card:nth-child(6){animation-delay:1.2s;}
+  .card:nth-child(7){animation-delay:1.4s;}
+  .card:nth-child(8){animation-delay:1.6s;}
+  .card:nth-child(9){animation-delay:1.8s;}
+  @keyframes fadeInUp{
+    0%{opacity:0;transform:translateY(40px);}
+    100%{opacity:1;transform:translateY(0);}
+  }
+  .card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 20px 30px rgba(0,0,0,0.5);
+    border-color: var(--accent);
+  }
+  .card img{
+    width:100%;height:100%;object-fit:cover;
+    position:absolute;top:0;left:0;
+    filter:brightness(0.8);
+  }
+  .card-content{
+    position:absolute;bottom:0;padding:1.3rem;
+    background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
+    width:100%;
+  }
+  .card-content h3{font-size:1.3rem;margin-bottom:.4rem;}
+  .card-content p{font-size:.9rem;color:#ccc;}
+
+  /* Modal styles */
+  .modal{display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.95);overflow-y:auto;padding-top:60px;}
+  .modal-content{background:#fff;color:#000;margin:auto;padding:20px;border-radius:16px;width:95%;max-width:1200px;animation:fadeIn .5s;}
+  body.dark .modal-content{background:#1e1e2a;color:#eee;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  .close{color:#000;float:right;font-size:28px;font-weight:bold;}
+  .close:hover{color:var(--accent);cursor:pointer;}
+  body.dark .close{color:#aaa;}
+  .modal header{text-align:center;background:none;color:#111;padding:0;margin-bottom:1rem;}
+  body.dark .modal header{color:#eee;}
+  .modal header h2{color:var(--accent);margin-bottom:.5rem;}
+  .swiper{width:100%;height:500px;border-radius:16px;margin:1rem 0;overflow:hidden;}
+  .swiper-slide img{width:100%;height:100%;object-fit:cover;}
+  .swiper-pagination-bullet-active{background:var(--accent);}
+  .swiper-button-next,.swiper-button-prev{color:#fff;}
+  .content{padding:1rem 0;}
+  .content h3{color:var(--accent);margin-bottom:.5rem;}
+  .content p{line-height:1.6;margin-bottom:1rem;}
+  .highlights{background:#f4f4f4;padding:1rem;border-left:4px solid var(--accent);border-radius:8px;margin-bottom:1rem;}
+  body.dark .highlights{background:#2a2a35;color:#ddd;}
+  .demo-link{display:inline-block;background:var(--accent);color:#fff;padding:.5rem 1rem;border-radius:6px;text-decoration:none;margin-top:1rem;margin-right:0.8rem;transition:0.3s;}
+  .demo-link:hover{background:var(--accent-hover);transform:translateY(-2px);}
+  
+  footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;position:relative;z-index:1;}
+
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .back-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    .projects { gap: 1rem; padding: 2rem 4%; }
+    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
+  }
 </style>
 </head>
 <body>
@@ -72,320 +229,173 @@ footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9re
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
   </div>
 </nav>
 
 <header>
   <h1>Completed & Upcoming Projects</h1>
-  <p>Explore our portfolio of enterprise solutions, safety systems, and digital transformation tools.</p>
+  <p>Explore our portfolio of enterprise solutions, safety systems, AI, IoT, and digital transformation tools.</p>
 </header>
 
 <section class="projects">
   <div class="card" onclick="openModal('erp')">
-    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="ERP System">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="ERP System" loading="lazy">
     <div class="card-content"><h3>CephasGM-ERP</h3><p>Enterprise Resource Planning System</p></div>
   </div>
   <div class="card" onclick="openModal('site')">
-    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80" alt="Corporate Website">
+    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80" alt="Corporate Website" loading="lazy">
     <div class="card-content"><h3>cephasgm-site</h3><p>Corporate Website & Brand Identity</p></div>
   </div>
   <div class="card" onclick="openModal('portal')">
-    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Client Portal">
+    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Client Portal" loading="lazy">
     <div class="card-content"><h3>cephasgm-portal</h3><p>Secure Client & Staff Portal</p></div>
   </div>
   <div class="card" onclick="openModal('safety')">
-    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Health & Safety PWA">
+    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Health & Safety PWA" loading="lazy">
     <div class="card-content"><h3>Health-Safety-PWA</h3><p>Occupational Health & Safety System</p></div>
   </div>
   <div class="card" onclick="openModal('tracker')">
-    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Smart Location Tracker">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Smart Location Tracker" loading="lazy">
     <div class="card-content"><h3>smart-location-tracker</h3><p>Advanced Asset Tracking PWA</p></div>
   </div>
   <div class="card" onclick="openModal('ai')">
-    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Assistant">
+    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Assistant" loading="lazy">
     <div class="card-content"><h3>CephasGM-AI</h3><p>Multimodal AI Platform</p></div>
   </div>
   <div class="card" onclick="openModal('vpn')">
-    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80" alt="VPN Service">
+    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80" alt="VPN Service" loading="lazy">
     <div class="card-content"><h3>CephasGM-VPN</h3><p>Next‑Gen WireGuard & Anti‑DPI VPN</p></div>
   </div>
   <div class="card" onclick="openModal('signaid')">
-    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80" alt="Sign Language AI">
+    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80" alt="Sign Language AI" loading="lazy">
     <div class="card-content"><h3>SignAid</h3><p>Universal Sign Language Translation</p></div>
+  </div>
+  <!-- NEW: Water-Energy Management System -->
+  <div class="card" onclick="openModal('waterenergy')">
+    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="Water-Energy Management" loading="lazy">
+    <div class="card-content"><h3>Water-Energy Mgmt</h3><p>Smart pumping + tariff optimisation & leak detection</p></div>
   </div>
 </section>
 
 <!-- MODALS -->
-<div id="erp" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('erp')">&times;</span>
-    <header><h2>CephasGM-ERP — Enterprise Resource Planning</h2></header>
-    <div class="swiper erpSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80" alt="ERP Dashboard"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Business Analytics"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Business Management"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Financial Module"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Analytics"></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules. This solution streamlines business processes and enhances operational efficiency.</p>
-      <div class="highlights">
-        <h4>Key Modules:</h4>
-        <ul>
-          <li>Financial Management & Accounting</li>
-          <li>Human Resources Administration</li>
-          <li>Supply Chain & Inventory Control</li>
-          <li>Customer Relationship Management</li>
-          <li>Business Intelligence & Reporting</li>
-        </ul>
-      </div>
-      <a href="https://cephasgm.github.io/CephasGM-ERP/" target="_blank" class="demo-link">View Live Demo →</a>
-    </div>
-  </div>
-</div>
+<div id="erp" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('erp')">&times;</span><header><h2>CephasGM-ERP — Enterprise Resource Planning</h2></header><div class="swiper erpSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&q=80" alt="ERP Dashboard" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Business Analytics" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Business Management" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Financial Module" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Analytics" loading="lazy"></div></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div><div class="content"><h3>Overview</h3><p>A comprehensive Enterprise Resource Planning (ERP) system designed to help businesses manage daily operations, administration, and support services through integrated software modules. This solution streamlines business processes and enhances operational efficiency.</p><div class="highlights"><h4>Key Modules:</h4><ul><li>Financial Management & Accounting</li><li>Human Resources Administration</li><li>Supply Chain & Inventory Control</li><li>Customer Relationship Management</li><li>Business Intelligence & Reporting</li></ul></div><a href="https://cephasgm.github.io/CephasGM-ERP/" target="_blank" class="demo-link">View Live Demo →</a></div></div></div>
 
-<div id="site" class="modal">
+<div id="site" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('site')">&times;</span><header><h2>cephasgm-site — Corporate Website</h2></header><div class="swiper siteSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80" alt="Website Design" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt="Mobile Responsive" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80" alt="Web Design" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80" alt="UI Design" loading="lazy"></div></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div><div class="content"><h3>Overview</h3><p>The company's main corporate website presenting Cephas GM as an innovator in technology fields including Enterprise Solutions, Smart Systems, and Digital Transformation. The site highlights our global impact and showcases our portfolio of solutions.</p><div class="highlights"><h4>Key Features:</h4><ul><li>Responsive design across all devices</li><li>Project portfolio showcase</li><li>Impact metrics and analytics</li><li>Service offerings presentation</li><li>Integrated portal access</li></ul></div><a href="https://cephasgm.org/" target="_blank" class="demo-link">Visit Main Site →</a></div></div></div>
+
+<div id="portal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('portal')">&times;</span><header><h2>cephasgm-portal — Secure Client Portal</h2></header><div class="swiper portalSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Portal Dashboard" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Secure Access" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80" alt="Client Dashboard" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Analytics" loading="lazy"></div></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div><div class="content"><h3>Overview</h3><p>A concept for a secure client and staff portal providing a private, personalized gateway for users to access dashboards, downloads, and real-time updates related to Cephas GM's services and solutions.</p><div class="highlights"><h4>Portal Features:</h4><ul><li>Secure authentication & role-based access</li><li>Personalized client dashboards</li><li>Document management & downloads</li><li>Service updates & notifications</li><li>Support ticket system</li></ul></div><a href="https://cephasgm.github.io/cephasgm-portal/" target="_blank" class="demo-link">Access Portal →</a></div></div></div>
+
+<div id="safety" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('safety')">&times;</span><header><h2>Health & Safety PWA — Metal Management</h2></header><div class="swiper safetySwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Safety Inspection" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt="Industrial Safety" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt="Safety Checklist" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80" alt="Compliance" loading="lazy"></div></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div><div class="content"><h3>Overview</h3><p>A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry. This solution helps track incidents, manage safety checklists, and ensure regulatory compliance in industrial environments.</p><div class="highlights"><h4>Safety Features:</h4><ul><li>Digital safety checklists & inspections</li><li>Incident reporting & tracking</li><li>Compliance documentation</li><li>Real-time safety alerts</li><li>Offline capability (PWA)</li></ul></div><a href="https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/" target="_blank" class="demo-link">View Safety App →</a></div></div></div>
+
+<div id="tracker" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('tracker')">&times;</span><header><h2>Smart Location Tracker — Asset Management</h2></header><div class="swiper trackerSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Location Tracking" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="GPS Tracking" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt="Asset Management" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Fleet Tracking" loading="lazy"></div></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div><div class="content"><h3>Overview</h3><p>An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions. This tool provides real-time positioning and movement history for operational visibility.</p><div class="highlights"><h4>Tracking Capabilities:</h4><ul><li>Real-time GPS location tracking</li><li>Asset & vehicle fleet management</li><li>Geofencing & alert zones</li><li>Movement history & reporting</li><li>Offline data collection</li></ul></div><a href="https://cephasgm.github.io/smart-location-tracker/" target="_blank" class="demo-link">View Tracker Demo →</a></div></div></div>
+
+<div id="ai" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('ai')">&times;</span><header><h2>CephasGM-AI — Multimodal AI Platform</h2></header><div class="swiper aiSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Chat Interface" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" alt="AI Brain" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="AI Automation" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80" alt="Machine Learning" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80" alt="AI Robotics" loading="lazy"></div></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div><div class="content"><h3>Overview</h3><p>A complete fully functional multimodal AI platform that combines natural language understanding, image recognition, and voice interaction. Designed for enterprise automation, customer support, and intelligent decision-making.</p><div class="highlights"><h4>Key Features:</h4><ul><li>Multimodal AI (text, image, voice)</li><li>Natural Language Processing & Understanding</li><li>Context-aware conversations with memory</li><li>Custom knowledge base integration</li><li>Real-time analytics & insights dashboard</li></ul></div><a href="https://ai.cephasgm.org/" target="_blank" class="demo-link">🚀 Live Demo</a><a href="https://cephasgm.github.io/CephasGM-AI/" target="_blank" class="demo-link">📦 Open Source (GitHub)</a></div></div></div>
+
+<div id="vpn" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('vpn')">&times;</span><header><h2>CephasGM-VPN — Next‑Gen WireGuard & Anti‑DPI VPN</h2></header><div class="swiper vpnSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80" alt="VPN Security" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" alt="Network Encryption" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Privacy Protection" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Secure Connection" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Cyber Security" loading="lazy"></div></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div><div class="content"><h3>Overview</h3><p>Bypass censorship, hide your IP, and encrypt your traffic with next‑gen WireGuard & anti‑DPI technology. Enterprise-grade VPN solution for privacy, security, and unrestricted access.</p><div class="highlights"><h4>Key Features:</h4><ul><li>WireGuard protocol with ultra-fast speeds</li><li>Anti‑DPI (Deep Packet Inspection) bypass</li><li>No-logs policy & complete privacy protection</li><li>Multi-platform support (Windows, Mac, Linux, iOS, Android)</li><li>Kill switch & DNS leak protection</li></ul></div><a href="https://vpn.cephasgm.org/" target="_blank" class="demo-link">🔗 Live Demo</a><a href="https://lnkd.in/d52nSFmZ" target="_blank" class="demo-link">📦 Open Source</a></div></div></div>
+
+<div id="signaid" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('signaid')">&times;</span><header><h2>SignAid — Universal Sign Language Translation</h2></header><div class="swiper signaidSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80" alt="Sign Language" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80" alt="Communication" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Inclusion" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Assistive Technology" loading="lazy"></div><div class="swiper-slide"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80" alt="Breaking Barriers" loading="lazy"></div></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div><div class="content"><h3>Overview</h3><p>SignAid is an innovative AI-powered platform under development that provides universal translation for sign languages, helping to break communication barriers between hearing and deaf communities worldwide.</p><div class="highlights"><h4>Features (In Development):</h4><ul><li>Real-time sign language recognition</li><li>Multi-language sign translation support</li><li>Text-to-sign and sign-to-text conversion</li><li>Machine learning model for gesture detection</li><li>Accessible web interface for all users</li></ul></div><a href="https://cephasgm.github.io/signaid/" target="_blank" class="demo-link">🔗 View Development Preview</a></div></div></div>
+
+<!-- NEW MODAL: Water-Energy Management System -->
+<div id="waterenergy" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('site')">&times;</span>
-    <header><h2>cephasgm-site — Corporate Website</h2></header>
-    <div class="swiper siteSwiper">
+    <span class="close" onclick="closeModal('waterenergy')">&times;</span>
+    <header><h2>CephasGM Water‑Energy Management System</h2></header>
+    <div class="swiper waterenergySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80" alt="Website Design"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt="Mobile Responsive"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80" alt="Web Design"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80" alt="UI Design"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="IoT Dashboard" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092335871-4b6a6d6f6f5a?auto=format&fit=crop&w=1200&q=80" alt="ESP32 Hardware" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1504912516456-961ad7e6e5e5?auto=format&fit=crop&w=1200&q=80" alt="Water Tank" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Energy Savings" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80" alt="Real-time Charts" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
     <div class="content">
       <h3>Overview</h3>
-      <p>The company's main corporate website presenting Cephas GM as an innovator in technology fields including Enterprise Solutions, Smart Systems, and Digital Transformation. The site highlights our global impact and showcases our portfolio of solutions.</p>
+      <p>An intelligent IoT system that optimises water pumping using real‑time electricity tariff data, water level, and leak detection. Built on ESP32, Flask, MySQL, and a reactive JavaScript dashboard. Saves up to 30% energy by pumping only during off‑peak hours. Supports two hardware modes: Basic (current sensors) and Modern (flow meter + whole‑house energy meter). Includes AI assistant, manual remote control, billing reports, and PWA.</p>
       <div class="highlights">
         <h4>Key Features:</h4>
         <ul>
-          <li>Responsive design across all devices</li>
-          <li>Project portfolio showcase</li>
-          <li>Impact metrics and analytics</li>
-          <li>Service offerings presentation</li>
-          <li>Integrated portal access</li>
+          <li>Real‑time water level, flow, pressure & energy analytics</li>
+          <li>Tariff‑based pump automation (off‑peak optimisation)</li>
+          <li>AI‑based leak detection & email alerts</li>
+          <li>Manual override & historical trends (last 60 records)</li>
+          <li>CSV report export & simulation speed control</li>
         </ul>
       </div>
-      <a href="https://cephasgm.org/" target="_blank" class="demo-link">Visit Main Site →</a>
-    </div>
-  </div>
-</div>
-
-<div id="portal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('portal')">&times;</span>
-    <header><h2>cephasgm-portal — Secure Client Portal</h2></header>
-    <div class="swiper portalSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Portal Dashboard"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Secure Access"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1200&q=80" alt="Client Dashboard"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Analytics"></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>A concept for a secure client and staff portal providing a private, personalized gateway for users to access dashboards, downloads, and real-time updates related to Cephas GM's services and solutions.</p>
-      <div class="highlights">
-        <h4>Portal Features:</h4>
-        <ul>
-          <li>Secure authentication & role-based access</li>
-          <li>Personalized client dashboards</li>
-          <li>Document management & downloads</li>
-          <li>Service updates & notifications</li>
-          <li>Support ticket system</li>
-        </ul>
-      </div>
-      <a href="https://cephasgm.github.io/cephasgm-portal/" target="_blank" class="demo-link">Access Portal →</a>
-    </div>
-  </div>
-</div>
-
-<div id="safety" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('safety')">&times;</span>
-    <header><h2>Health & Safety PWA — Metal Management</h2></header>
-    <div class="swiper safetySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Safety Inspection"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80" alt="Industrial Safety"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt="Safety Checklist"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e6c33f?auto=format&fit=crop&w=1200&q=80" alt="Compliance"></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>A specialized Progressive Web App (PWA) focused on Occupational Health & Safety, tailored for the metal management industry. This solution helps track incidents, manage safety checklists, and ensure regulatory compliance in industrial environments.</p>
-      <div class="highlights">
-        <h4>Safety Features:</h4>
-        <ul>
-          <li>Digital safety checklists & inspections</li>
-          <li>Incident reporting & tracking</li>
-          <li>Compliance documentation</li>
-          <li>Real-time safety alerts</li>
-          <li>Offline capability (PWA)</li>
-        </ul>
-      </div>
-      <a href="https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/" target="_blank" class="demo-link">View Safety App →</a>
-    </div>
-  </div>
-</div>
-
-<div id="tracker" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('tracker')">&times;</span>
-    <header><h2>Smart Location Tracker — Asset Management</h2></header>
-    <div class="swiper trackerSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Location Tracking"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="GPS Tracking"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt="Asset Management"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Fleet Tracking"></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>An advanced location-tracking PWA designed for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions. This tool provides real-time positioning and movement history for operational visibility.</p>
-      <div class="highlights">
-        <h4>Tracking Capabilities:</h4>
-        <ul>
-          <li>Real-time GPS location tracking</li>
-          <li>Asset & vehicle fleet management</li>
-          <li>Geofencing & alert zones</li>
-          <li>Movement history & reporting</li>
-          <li>Offline data collection</li>
-        </ul>
-      </div>
-      <a href="https://cephasgm.github.io/smart-location-tracker/" target="_blank" class="demo-link">View Tracker Demo →</a>
-    </div>
-  </div>
-</div>
-
-<div id="ai" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('ai')">&times;</span>
-    <header><h2>CephasGM-AI — Multimodal AI Platform</h2></header>
-    <div class="swiper aiSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Chat Interface"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" alt="AI Brain"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="AI Automation"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80" alt="Machine Learning"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80" alt="AI Robotics"></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>A complete fully functional multimodal AI platform that combines natural language understanding, image recognition, and voice interaction. Designed for enterprise automation, customer support, and intelligent decision-making.</p>
-      <div class="highlights">
-        <h4>Key Features:</h4>
-        <ul>
-          <li>Multimodal AI (text, image, voice)</li>
-          <li>Natural Language Processing & Understanding</li>
-          <li>Context-aware conversations with memory</li>
-          <li>Custom knowledge base integration</li>
-          <li>Real-time analytics & insights dashboard</li>
-        </ul>
-      </div>
-      <a href="https://ai.cephasgm.org/" target="_blank" class="demo-link">🚀 Live Demo</a>
-      <a href="https://cephasgm.github.io/CephasGM-AI/" target="_blank" class="demo-link">📦 Open Source (GitHub)</a>
-    </div>
-  </div>
-</div>
-
-<div id="vpn" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('vpn')">&times;</span>
-    <header><h2>CephasGM-VPN — Next‑Gen WireGuard & Anti‑DPI VPN</h2></header>
-    <div class="swiper vpnSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80" alt="VPN Security"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" alt="Network Encryption"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Privacy Protection"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Secure Connection"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Cyber Security"></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>Bypass censorship, hide your IP, and encrypt your traffic with next‑gen WireGuard & anti‑DPI technology. Enterprise-grade VPN solution for privacy, security, and unrestricted access.</p>
-      <div class="highlights">
-        <h4>Key Features:</h4>
-        <ul>
-          <li>WireGuard protocol with ultra-fast speeds</li>
-          <li>Anti‑DPI (Deep Packet Inspection) bypass</li>
-          <li>No-logs policy & complete privacy protection</li>
-          <li>Multi-platform support (Windows, Mac, Linux, iOS, Android)</li>
-          <li>Kill switch & DNS leak protection</li>
-        </ul>
-      </div>
-      <a href="https://vpn.cephasgm.org/" target="_blank" class="demo-link">🔗 Live Demo</a>
-      <a href="https://lnkd.in/d52nSFmZ" target="_blank" class="demo-link">📦 Open Source</a>
-    </div>
-  </div>
-</div>
-
-<div id="signaid" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('signaid')">&times;</span>
-    <header><h2>SignAid — Universal Sign Language Translation</h2></header>
-    <div class="swiper signaidSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80" alt="Sign Language"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80" alt="Communication"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Inclusion"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Assistive Technology"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80" alt="Breaking Barriers"></div>
-      </div>
-      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
-    </div>
-    <div class="content">
-      <h3>Overview</h3>
-      <p>SignAid is an innovative AI-powered platform under development that provides universal translation for sign languages, helping to break communication barriers between hearing and deaf communities worldwide.</p>
-      <div class="highlights">
-        <h4>Features (In Development):</h4>
-        <ul>
-          <li>Real-time sign language recognition</li>
-          <li>Multi-language sign translation support</li>
-          <li>Text-to-sign and sign-to-text conversion</li>
-          <li>Machine learning model for gesture detection</li>
-          <li>Accessible web interface for all users</li>
-        </ul>
-      </div>
-      <a href="https://cephasgm.github.io/signaid/" target="_blank" class="demo-link">🔗 View Development Preview</a>
+      <a href="https://water.cephasgm.org" target="_blank" class="demo-link">🌊 Launch Dashboard →</a>
     </div>
   </div>
 </div>
 
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-function openModal(id){document.getElementById(id).style.display='block';}
-function closeModal(id){document.getElementById(id).style.display='none';}
-window.onclick=function(e){document.querySelectorAll('.modal').forEach(m=>{if(e.target==m)m.style.display='none';});};
+  // Dark/Light Mode Toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') document.body.classList.add('dark');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
 
-new Swiper('.erpSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.siteSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.portalSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.trackerSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.aiSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.vpnSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-new Swiper('.signaidSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  // Back to Top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Modal functions with focus trapping
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'block';
+    const previousFocus = document.activeElement;
+    modal.setAttribute('data-previous-focus', previousFocus.id || '');
+    const focusable = modal.querySelector('button, [href], .close');
+    if (focusable) focusable.focus();
+    modal.addEventListener('keydown', trapFocus);
+  }
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'none';
+    const prevId = modal.getAttribute('data-previous-focus');
+    if (prevId) document.getElementById(prevId)?.focus();
+    modal.removeEventListener('keydown', trapFocus);
+  }
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const modal = e.currentTarget;
+    const focusable = modal.querySelectorAll('button, [href], .close');
+    const first = focusable[0], last = focusable[focusable.length-1];
+    if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+  }
+  window.onclick = function(e) {
+    document.querySelectorAll('.modal').forEach(m => { if (e.target == m) closeModal(m.id); });
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal').forEach(m => { if (m.style.display === 'block') closeModal(m.id); });
+  });
+
+  // Initialize Swipers (existing + new)
+  new Swiper('.erpSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.siteSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.portalSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.trackerSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.aiSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.vpnSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.signaidSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  new Swiper('.waterenergySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
 </script>
 </body>
 </html>
