@@ -4,97 +4,214 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="Cephas GM – Enterprise solutions, multimodal AI, VPN, safety systems, IoT water‑energy optimisation, and digital transformation. Built from Tanzania.">
+<meta property="og:title" content="Cephas GM – Innovation for a Smarter Future">
+<meta property="og:description" content="Explore enterprise ERP, AI platform, VPN, safety PWA, asset tracking, and water‑energy IoT. Live impact metrics and real projects.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM – Innovation for a Smarter Future">
+<meta name="twitter:description" content="Enterprise solutions, AI, VPN, safety systems, IoT water‑energy, and digital transformation.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Poppins',sans-serif;
-  background:url('https://images.trailfinders.com/asset/34508f/TF3428494/shutterstock_1766609975_960x960.jpg?width=600') center/cover fixed no-repeat;
-  color:#fff;
-}
-.nav{
-  background:rgba(0,0,0,0.6);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 30px;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-.brand{font-weight:700;font-size:1.2rem;}
-.nav-links{display:flex;gap:16px;flex-wrap:wrap;}
-.nav-links a{
-  color:#fff;
-  text-decoration:none;
-  padding:8px 12px;
-  border-radius:6px;
-  transition:.3s;
-}
-.nav-links a:hover,
-.nav-links a.active{background:rgba(255,255,255,0.15);}
-header{
-  text-align:center;
-  background:rgba(0,0,0,0.55);
-  padding:4rem 1rem;
-}
-header h1{font-size:2.5rem;margin-bottom:1rem;}
-header p{color:#ddd;font-size:1rem;}
+  /* CSS Variables for Light/Dark Mode */
+  :root {
+    --bg-overlay-light: rgba(0,0,0,0.55);
+    --card-bg-light: rgba(0,0,0,0.6);
+    --text-light: #fff;
+    --text-dark: #ddd;
+    --accent: #0b7a59;
+    --accent-hover: #099268;
+    --shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  body.dark {
+    --bg-overlay-light: rgba(0,0,0,0.7);
+    --card-bg-light: rgba(0,0,0,0.7);
+    --text-light: #f5f5f5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:url('https://images.trailfinders.com/asset/34508f/TF3428494/shutterstock_1766609975_960x960.jpg?width=600') center/cover fixed no-repeat;
+    color:var(--text-light);
+    transition: background-color 0.3s, color 0.2s;
+    position: relative;
+  }
+  /* Liquid crystal overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .nav{
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 30px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter: blur(4px);
+  }
+  .brand{font-weight:700;font-size:1.2rem;}
+  .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:.3s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active{background:rgba(255,255,255,0.15);}
+  .theme-toggle {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+  }
+  header{
+    text-align:center;
+    background:var(--bg-overlay-light);
+    padding:4rem 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  header h1{font-size:2.5rem;margin-bottom:1rem;}
+  header p{color:var(--text-dark);font-size:1rem;max-width:900px;margin:0 auto;}
 
-/* Impact section */
-.impact{
-  text-align:center;
-  background:rgba(0,0,0,0.6);
-  padding:3rem 1rem;
-  margin:3rem 0;
-}
-.impact h2{font-size:2rem;color:#0b7a59;margin-bottom:2rem;}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:2rem;
-  justify-content:center;
-  align-items:center;
-  padding:0 10%;
-}
-.stat{
-  background:rgba(255,255,255,0.1);
-  border-radius:14px;
-  padding:2rem 1rem;
-  box-shadow:0 6px 20px rgba(0,0,0,0.3);
-  transition:transform .4s ease, box-shadow .4s ease;
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp 1s forwards;
-}
-.stat:nth-child(1){animation-delay:.2s;}
-.stat:nth-child(2){animation-delay:.4s;}
-.stat:nth-child(3){animation-delay:.6s;}
-.stat:nth-child(4){animation-delay:.8s;}
-.stat:hover{transform:translateY(-8px);box-shadow:0 10px 25px rgba(0,0,0,0.45);}
-.stat h3{font-size:2.5rem;color:#0b7a59;margin-bottom:.5rem;}
-.stat p{color:#ddd;font-size:1rem;}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+  /* Impact section */
+  .impact{
+    text-align:center;
+    background:rgba(0,0,0,0.6);
+    padding:3rem 1rem;
+    margin:3rem 0;
+    position: relative;
+    z-index: 1;
+  }
+  .impact h2{font-size:2rem;color:var(--accent);margin-bottom:2rem;}
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:2rem;
+    justify-content:center;
+    align-items:center;
+    padding:0 10%;
+  }
+  .stat{
+    background:var(--card-bg-light);
+    border-radius:20px;
+    padding:2rem 1rem;
+    box-shadow:var(--shadow);
+    transition:transform 0.4s ease, box-shadow 0.4s ease, border 0.2s;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s forwards;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .stat:nth-child(1){animation-delay:.2s;}
+  .stat:nth-child(2){animation-delay:.4s;}
+  .stat:nth-child(3){animation-delay:.6s;}
+  .stat:nth-child(4){animation-delay:.8s;}
+  .stat:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 20px 30px rgba(0,0,0,0.5);
+    border-color: var(--accent);
+  }
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+  .stat h3{font-size:2.8rem;color:var(--accent);margin-bottom:.5rem;font-weight:700;}
+  .stat p{color:var(--text-dark);font-size:1rem;font-weight:500;}
 
-.btn{
-  display:inline-block;
-  background:#0b7a59;
-  color:#fff;
-  padding:.8rem 1.5rem;
-  margin-top:2rem;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:500;
-  transition:0.3s;
-}
-.btn:hover{background:#099268;}
-footer{
-  background:rgba(0,0,0,0.85);
-  text-align:center;
-  padding:1rem;
-  font-size:.9rem;
-  margin-top:2rem;
-}
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:.8rem 2rem;
+    margin-top:2rem;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  }
+  .btn:hover{
+    background:var(--accent-hover);
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  }
+  footer{
+    background:rgba(0,0,0,0.85);
+    text-align:center;
+    padding:1rem;
+    font-size:.9rem;
+    margin-top:2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .back-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-5px);
+  }
+  @media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    .stat h3 { font-size: 2rem; }
+    .stats { gap: 1rem; padding: 0 5%; }
+    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
+  }
 </style>
 </head>
 <body>
@@ -110,23 +227,24 @@ footer{
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
   </div>
 </nav>
 
 <header>
   <h1>Welcome to Cephas GM</h1>
-  <p>Innovating for a smarter, sustainable and connected future across Enterprise Solutions, Multimodal AI Platforms, VPN Services, Safety Systems, and Digital Transformation.</p>
+  <p>Innovating for a smarter, sustainable and connected future across Enterprise Solutions, Multimodal AI Platforms, VPN Services, Safety Systems, IoT Water‑Energy Optimisation, and Digital Transformation.</p>
 </header>
 
 <section class="impact">
   <h2>🌍 Cephas GM Global Impact</h2>
   <div class="stats">
     <div class="stat">
-      <h3 class="counter" data-target="6">0</h3>
+      <h3 class="counter" data-target="7">0</h3>
       <p>Enterprise Solutions Deployed</p>
     </div>
     <div class="stat">
-      <h3 class="counter" data-target="4">0</h3>
+      <h3 class="counter" data-target="5">0</h3>
       <p>Industry-Specific PWAs</p>
     </div>
     <div class="stat">
@@ -143,33 +261,56 @@ footer{
 
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
 
-<script>
-// Counter animation logic
-const counters=document.querySelectorAll('.counter');
-const options={threshold:0.5};
-const animate=(counter)=>{
-  const target=+counter.getAttribute('data-target');
-  const speed=200;
-  const update=()=>{
-    const val=+counter.innerText;
-    const inc=target/speed;
-    if(val<target){
-      counter.innerText=Math.ceil(val+inc);
-      setTimeout(update,20);
-    }else{counter.innerText=target;}
-  };
-  update();
-};
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      animate(entry.target);
-      observer.unobserve(entry.target);
-    }
-  });
-},options);
-counters.forEach(c=>observer.observe(c));
-</script>
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
+<script>
+  // Dark/Light Mode Toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') document.body.classList.add('dark');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Counter animation logic (updated counters)
+  const counters = document.querySelectorAll('.counter');
+  const options = { threshold: 0.5 };
+  const animate = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const speed = 200;
+    const update = () => {
+      const val = +counter.innerText;
+      const inc = target / speed;
+      if (val < target) {
+        counter.innerText = Math.ceil(val + inc);
+        setTimeout(update, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+  counters.forEach(c => observer.observe(c));
+</script>
 </body>
 </html>
