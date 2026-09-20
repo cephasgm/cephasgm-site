@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Changelog &amp; Roadmap — Cephas GM</title>
+<title>Pricing — Cephas GM</title>
 
 <!-- SEO & Social Meta Tags -->
-<meta name="description" content="Public changelog and roadmap for Cephas GM — every release, security update, and upcoming milestone documented for clients, partners, and investors.">
-<meta property="og:title" content="Changelog &amp; Roadmap — Cephas GM">
-<meta property="og:description" content="What we've shipped and what's next — documented in the open.">
+<meta name="description" content="Cephas GM SaaS pricing — Basic, Professional, and Enterprise tiers for enterprise platforms, AI systems, and infrastructure optimisation. White-labeling available on Enterprise.">
+<meta property="og:title" content="Pricing — Cephas GM">
+<meta property="og:description" content="Transparent pricing for teams that need enterprise software, AI, and infrastructure platforms. Basic to Enterprise, with white-labeling.">
 <meta property="og:image" content="https://cephasgm.org/og-image.jpg">
-<meta property="og:url" content="https://cephasgm.org/changelog.html">
+<meta property="og:url" content="https://cephasgm.org/pricing.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cephas GM Changelog">
-<meta name="twitter:description" content="Every release, every security update, every milestone — documented in the open.">
+<meta name="twitter:title" content="Cephas GM Pricing">
+<meta name="twitter:description" content="Basic, Professional, and Enterprise tiers — transparent pricing, no hidden fees.">
 <meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
 
 <!-- Favicon -->
@@ -33,19 +33,18 @@
     --accent-light: #34d399;
     --info: #3498db;
     --warning: #f39c12;
-    --danger: #e74c3c;
+    --gold: #f5c66a;
     --border: rgba(255,255,255,0.12);
     --shadow: 0 8px 24px rgba(0,0,0,0.3);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
     font-family:'Poppins',sans-serif;
-    background:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
+    background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
     color:var(--text-light);
     position: relative;
     min-height: 100vh;
   }
-  /* Liquid crystal overlay — consistent with all pages */
   body::before {
     content: '';
     position: fixed;
@@ -65,7 +64,6 @@
     100% { background-position: 0% 50%; }
   }
 
-  /* ---------- Accessibility: Skip Link ---------- */
   .skip-link {
     position: absolute;
     top: -100px;
@@ -86,7 +84,6 @@
     outline-offset: 2px;
   }
 
-  /* ---------- Navigation ---------- */
   .nav{
     background:rgba(0,0,0,0.6);
     display:flex;
@@ -132,11 +129,10 @@
   }
   .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
 
-  /* ---------- Header ---------- */
   header{
     text-align:center;
     background:var(--bg-overlay-light);
-    padding:4rem 1.5rem 3.5rem;
+    padding:4rem 1.5rem 3rem;
     position: relative;
     z-index: 1;
   }
@@ -165,50 +161,70 @@
   header p{
     color:var(--text-dark);
     font-size:1.05rem;
-    max-width:780px;
-    margin:0 auto 1.6rem;
+    max-width:760px;
+    margin:0 auto 2rem;
     line-height:1.7;
   }
-  .header-actions{
-    display:flex;
-    gap:12px;
-    justify-content:center;
-    flex-wrap:wrap;
+
+  .billing-toggle{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 5px;
+    margin: 0 auto;
+    position: relative;
   }
-  .header-chip{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid var(--border);
-    color:#ddd;
-    padding:7px 16px;
-    border-radius:30px;
-    font-size:.82rem;
-    text-decoration:none;
-    transition:.3s;
+  .billing-toggle button{
+    background: transparent;
+    border: none;
+    color: var(--text-dark);
+    padding: 9px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .header-chip:hover{
-    background:rgba(11,122,89,0.3);
-    border-color:var(--accent);
-    color:#fff;
+  .billing-toggle button:hover{
+    color: #fff;
   }
-  .header-chip .chip-dot{
-    width:8px; height:8px;
-    border-radius:50%;
-    background:var(--accent-light);
-    display:inline-block;
+  .billing-toggle button.active{
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(11,122,89,0.35);
+  }
+  .billing-toggle .save-badge{
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    background: rgba(52,211,153,0.25);
+    color: var(--accent-light);
+    padding: 2px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(52,211,153,0.4);
+  }
+  .billing-toggle button.active .save-badge{
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border-color: rgba(255,255,255,0.4);
   }
 
-  /* ---------- Section shell ---------- */
   section.block{
     position:relative;
     z-index:1;
-    padding:4rem 8%;
+    padding:3rem 5% 4rem;
   }
   .section-head{
     text-align:center;
-    margin-bottom:3rem;
+    margin-bottom:2.5rem;
   }
   .section-head h2{
     font-size:2rem;
@@ -224,294 +240,448 @@
     line-height:1.65;
   }
 
-  /* ---------- Changelog ---------- */
-  .changelog{
-    max-width: 900px;
+  .pricing-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
     margin: 0 auto;
-    position: relative;
+    align-items: start;
   }
-  .changelog::before{
-    content: '';
-    position: absolute;
-    left: 22px;
-    top: 10px;
-    bottom: 10px;
-    width: 2px;
-    background: linear-gradient(to bottom,
-      rgba(11,122,89,0.8),
-      rgba(52,211,153,0.4) 40%,
-      rgba(52,211,153,0.15) 80%,
-      transparent);
-  }
-  .release{
-    position: relative;
-    padding-left: 70px;
-    margin-bottom: 2.4rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp .8s ease forwards;
-  }
-  .release:nth-child(1){ animation-delay: .1s; }
-  .release:nth-child(2){ animation-delay: .2s; }
-  .release:nth-child(3){ animation-delay: .3s; }
-  .release:nth-child(4){ animation-delay: .4s; }
-  .release:nth-child(5){ animation-delay: .5s; }
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .release::before{
-    content: '';
-    position: absolute;
-    left: 14px;
-    top: 12px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 3px solid rgba(11,122,89,0.25);
-    box-shadow: 0 0 0 4px rgba(11,122,89,0.12);
-    z-index: 2;
-  }
-  .release.current::before{
-    background: var(--accent-light);
-    box-shadow: 0 0 0 4px rgba(52,211,153,0.25);
-    animation: pulse 2.4s ease infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(52,211,153,0.25); }
-    50% { box-shadow: 0 0 0 8px rgba(52,211,153,0.08); }
-  }
-  .release-card{
+  .tier{
     background: var(--card-bg-light);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 22px 24px;
+    border-radius: 18px;
+    padding: 32px 26px;
     box-shadow: var(--shadow);
-    transition: transform .3s, border-color .3s;
-  }
-  .release-card:hover{
-    transform: translateX(6px);
-    border-color: var(--accent);
-  }
-  .release-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .release-title-group{
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    transition: transform .3s, border-color .3s;
   }
-  .release-version{
-    font-size: .72rem;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: var(--accent-light);
-    font-weight: 700;
+  .tier:hover{
+    transform: translateY(-6px);
+    border-color: var(--accent);
   }
-  .release-title{
-    font-size: 1.15rem;
+  .tier.featured{
+    border: 2px solid var(--accent);
+    box-shadow: 0 12px 40px rgba(11,122,89,0.35);
+    transform: translateY(-8px);
+  }
+  .tier.featured:hover{
+    transform: translateY(-14px);
+  }
+  .tier.featured::before{
+    content: 'Most Popular';
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
     color: #fff;
-    font-weight: 600;
-    line-height: 1.3;
-  }
-  .release-date{
-    font-size: .82rem;
-    color: var(--text-muted);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .release-badge{
-    display: inline-block;
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .8px;
-    text-transform: uppercase;
-    padding: 3px 10px;
+    padding: 5px 18px;
     border-radius: 20px;
-    background: rgba(52,211,153,0.15);
-    color: var(--accent-light);
-    border: 1px solid rgba(52,211,153,0.35);
-    margin-left: 8px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(11,122,89,0.5);
+  }
+  .tier.enterprise-tier{
+    border-color: rgba(245,198,106,0.35);
+  }
+  .tier.enterprise-tier::before{
+    content: 'White-Label';
+    background: linear-gradient(135deg, var(--gold), #d4a247);
+    color: #1a1a1a;
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(245,198,106,0.4);
   }
 
-  .change-group{
-    margin-bottom: 14px;
+  .tier-header{
+    text-align: center;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--border);
   }
-  .change-group:last-child{
-    margin-bottom: 0;
-  }
-  .change-label{
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: .74rem;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
+  .tier-name{
+    font-size: 1.1rem;
+    color: #fff;
     font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
     margin-bottom: 8px;
   }
-  .change-label.added{ color: var(--accent-light); }
-  .change-label.changed{ color: #7fc4f5; }
-  .change-label.fixed{ color: #f5c66a; }
-  .change-label.security{ color: #f5a5a0; }
-  .change-label.removed{ color: #c9a7e8; }
-
-  .change-list{
-    list-style: none;
-    padding-left: 0;
+  .tier.enterprise-tier .tier-name{
+    color: var(--gold);
   }
-  .change-list li{
-    position: relative;
-    padding: 5px 0 5px 20px;
+  .tier-description{
+    font-size: .85rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    min-height: 2.8em;
+  }
+  .tier-price{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .tier-price .currency{
+    font-size: 1.2rem;
+    color: var(--accent-light);
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+  .tier-price .amount{
+    font-size: 3rem;
+    color: var(--accent-light);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .tier.enterprise-tier .tier-price .amount,
+  .tier.enterprise-tier .tier-price .currency{
+    color: var(--gold);
+  }
+  .tier-price .period{
     font-size: .9rem;
-    color: var(--text-dark);
-    line-height: 1.6;
+    color: var(--text-muted);
   }
-  .change-list li::before{
-    content: '›';
+  .tier-billing-note{
+    text-align: center;
+    font-size: .8rem;
+    color: var(--text-muted);
+    margin-bottom: 22px;
+    min-height: 1.2em;
+  }
+  .tier-billing-note strong{
+    color: var(--accent-light);
+    font-weight: 600;
+  }
+
+  .tier-cta{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+    transition: .3s;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--border);
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .tier-cta:hover{
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+  .tier.featured .tier-cta{
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(11,122,89,0.35);
+  }
+  .tier.featured .tier-cta:hover{
+    background: var(--accent-hover);
+    box-shadow: 0 8px 20px rgba(11,122,89,0.5);
+  }
+  .tier.enterprise-tier .tier-cta{
+    background: linear-gradient(135deg, var(--gold), #d4a247);
+    border-color: var(--gold);
+    color: #1a1a1a;
+  }
+  .tier.enterprise-tier .tier-cta:hover{
+    background: linear-gradient(135deg, #f7d27f, #e0b155);
+  }
+
+  .tier-features-label{
+    font-size: .72rem;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .tier-features{
+    list-style: none;
+    padding: 0;
+    flex: 1;
+  }
+  .tier-features li{
+    padding: 8px 0 8px 26px;
+    position: relative;
+    font-size: .88rem;
+    color: var(--text-dark);
+    line-height: 1.55;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .tier-features li:last-child{
+    border-bottom: none;
+  }
+  .tier-features li::before{
+    content: '✓';
     position: absolute;
     left: 0;
-    color: var(--accent);
+    top: 7px;
+    color: var(--accent-light);
     font-weight: 700;
-    font-size: 1.1rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(52,211,153,0.15);
+    border-radius: 50%;
+    font-size: .7rem;
   }
-  .change-list strong{
+  .tier.enterprise-tier .tier-features li::before{
+    color: var(--gold);
+    background: rgba(245,198,106,0.15);
+  }
+  .tier-features li.no-feature{
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+  .tier-features li.no-feature::before{
+    content: '–';
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+  }
+  .tier-features li strong{
     color: #fff;
     font-weight: 600;
   }
 
-  /* ---------- Roadmap ---------- */
-  .roadmap{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .roadmap-column{
-    background: var(--card-bg-light);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: var(--shadow);
-    transition: transform .3s, border-color .3s;
+  .whitelabel-panel{
+    max-width: 1000px;
+    margin: 3.5rem auto 0;
+    background: linear-gradient(135deg, rgba(245,198,106,0.08), rgba(212,162,71,0.04));
+    border: 1px solid rgba(245,198,106,0.3);
+    border-radius: 18px;
+    padding: 34px 30px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     position: relative;
     overflow: hidden;
   }
-  .roadmap-column::after{
+  .whitelabel-panel::before{
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
-  .roadmap-column.now::after{ background: var(--accent-light); }
-  .roadmap-column.next::after{ background: var(--info); }
-  .roadmap-column.later::after{ background: var(--warning); }
-
-  .roadmap-column:hover{
-    transform: translateY(-6px);
-    border-color: var(--accent);
-  }
-  .roadmap-label{
-    display: inline-block;
-    font-size: .72rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
+  .whitelabel-panel .wl-icon{
+    font-size: 2rem;
     margin-bottom: 12px;
+    display: block;
   }
-  .roadmap-column.now .roadmap-label{
-    background: rgba(52,211,153,0.15);
-    color: var(--accent-light);
-    border: 1px solid rgba(52,211,153,0.35);
-  }
-  .roadmap-column.next .roadmap-label{
-    background: rgba(52,152,219,0.15);
-    color: #7fc4f5;
-    border: 1px solid rgba(52,152,219,0.35);
-  }
-  .roadmap-column.later .roadmap-label{
-    background: rgba(243,156,18,0.15);
-    color: #f5c66a;
-    border: 1px solid rgba(243,156,18,0.35);
-  }
-  .roadmap-column h3{
-    font-size: 1.2rem;
-    color: #fff;
-    margin-bottom: 8px;
+  .whitelabel-panel h3{
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 10px;
     line-height: 1.3;
   }
-  .roadmap-column .roadmap-desc{
-    font-size: .85rem;
+  .whitelabel-panel .wl-lead{
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: .96rem;
+    margin-bottom: 22px;
+    max-width: 720px;
+  }
+  .whitelabel-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .wl-feature{
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(245,198,106,0.15);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .wl-feature h4{
+    font-size: .92rem;
+    color: #fff;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .wl-feature h4 .wl-dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .wl-feature p{
+    font-size: .82rem;
     color: var(--text-muted);
     line-height: 1.55;
-    margin-bottom: 18px;
   }
-  .roadmap-list{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .wl-target{
+    padding-top: 18px;
+    border-top: 1px solid rgba(245,198,106,0.15);
+    font-size: .88rem;
+    color: var(--text-dark);
+    line-height: 1.65;
   }
-  .roadmap-list li{
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: .9rem;
-    line-height: 1.5;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+  .wl-target strong{
+    color: var(--gold);
   }
-  .roadmap-list li:last-child{
+
+  .comparison-wrap{
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--card-bg-light);
+    box-shadow: var(--shadow);
+  }
+  table.comparison{
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+  table.comparison th,
+  table.comparison td{
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: .88rem;
+    color: var(--text-dark);
+  }
+  table.comparison thead th{
+    background: rgba(11,122,89,0.15);
+    color: var(--accent-light);
+    font-weight: 700;
+    font-size: .78rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  table.comparison thead th:first-child{
+    text-align: left;
+  }
+  table.comparison tbody td{
+    text-align: center;
+  }
+  table.comparison tbody td:first-child{
+    text-align: left;
+    font-weight: 500;
+    color: #fff;
+  }
+  table.comparison tbody tr:hover{
+    background: rgba(255,255,255,0.03);
+  }
+  table.comparison tbody tr:last-child td{
     border-bottom: none;
   }
-  .roadmap-list .item-icon{
-    font-size: 1rem;
-    flex-shrink: 0;
-    margin-top: 2px;
+  table.comparison .cell-yes{
+    color: var(--accent-light);
+    font-weight: 700;
+    font-size: 1.05rem;
   }
-  .roadmap-list .item-content{
-    color: var(--text-dark);
-    flex: 1;
+  table.comparison .cell-no{
+    color: var(--text-muted);
+    opacity: 0.5;
   }
-  .roadmap-list .item-content strong{
-    display: block;
-    color: #fff;
+  table.comparison .cell-highlight{
+    background: rgba(245,198,106,0.06);
+  }
+  .category-row td{
+    background: rgba(11,122,89,0.08) !important;
+    color: var(--accent-light) !important;
+    font-weight: 700 !important;
+    font-size: .72rem !important;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    text-align: left !important;
+  }
+
+  .faq{
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .faq-item{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .faq-item summary{
+    padding: 18px 22px;
+    cursor: pointer;
     font-weight: 600;
-    margin-bottom: 2px;
+    font-size: .98rem;
+    color: #fff;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    transition: background .2s;
   }
-  .roadmap-list .item-content span{
-    display: block;
-    color: var(--text-muted);
-    font-size: .82rem;
-    line-height: 1.5;
+  .faq-item summary:hover{
+    background: rgba(255,255,255,0.04);
   }
-
-  .roadmap-note{
-    max-width: 1100px;
-    margin: 2rem auto 0;
-    text-align: center;
-    font-size: .85rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    padding: 0 1rem;
+  .faq-item summary::-webkit-details-marker{
+    display: none;
   }
-  .roadmap-note strong{
+  .faq-item summary::after{
+    content: '+';
+    color: var(--accent-light);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform .3s;
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after{
+    transform: rotate(45deg);
+  }
+  .faq-answer{
+    padding: 0 22px 20px;
     color: var(--text-dark);
+    font-size: .9rem;
+    line-height: 1.7;
+  }
+  .faq-answer a{
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .faq-answer a:hover{
+    text-decoration: underline;
   }
 
-  /* ---------- CTA ---------- */
   .cta{
     text-align: center;
     background: var(--bg-overlay-light);
@@ -557,7 +727,6 @@
     border-color:#fff;
   }
 
-  /* ---------- Footer ---------- */
   footer{
     background: rgba(0,0,0,0.85);
     text-align: center;
@@ -568,7 +737,6 @@
     color: var(--text-dark);
   }
 
-  /* ---------- Back to top ---------- */
   .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -597,15 +765,29 @@
     header p{ font-size: .98rem; }
     .nav{ padding: 12px 16px; }
     .nav-links a{ font-size: .85rem; padding: 6px 9px; }
-    section.block{ padding: 3rem 5%; }
+    section.block{ padding: 2.5rem 5% 3rem; }
     .section-head h2{ font-size: 1.6rem; }
-    .changelog::before{ left: 14px; }
-    .release{ padding-left: 50px; }
-    .release::before{ left: 6px; width: 16px; height: 16px; }
-    .release-card{ padding: 18px; }
-    .release-title{ font-size: 1.05rem; }
-    .roadmap-column{ padding: 20px; }
+    .tier{ padding: 26px 20px; }
+    .tier-price .amount{ font-size: 2.5rem; }
+    .tier.featured{ transform: none; }
+    .tier.featured:hover{ transform: translateY(-6px); }
+    .billing-toggle button{ padding: 8px 16px; font-size: .82rem; }
+    .whitelabel-panel{ padding: 26px 20px; }
     .cta h2{ font-size: 1.5rem; }
+  }
+  @media (max-width: 480px){
+    .billing-toggle{
+      flex-direction: row;
+      gap: 2px;
+    }
+    .billing-toggle button{
+      padding: 7px 12px;
+      font-size: .78rem;
+    }
+    .billing-toggle .save-badge{
+      font-size: .6rem;
+      padding: 1px 6px;
+    }
   }
 </style>
 </head>
@@ -621,7 +803,9 @@
     <a href="gallery.html">Gallery</a>
     <a href="impact.html">Impact</a>
     <a href="architecture.html">Architecture</a>
-    <a href="changelog.html" class="active">Changelog</a>
+    <a href="pricing.html" class="active">Pricing</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="investors.html">Investors</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
@@ -629,300 +813,278 @@
 </nav>
 
 <header id="main-content">
-  <span class="eyebrow">What We've Shipped · What's Next</span>
-  <h1>Changelog &amp; Roadmap</h1>
-  <p>Every release, security update, and upcoming milestone — documented in the open. No marketing spin, no hidden changes. Just what shipped, when, and what's coming.</p>
-  <div class="header-actions">
-    <a href="#changelog" class="header-chip"><span class="chip-dot"></span>Recent Releases</a>
-    <a href="#roadmap" class="header-chip"><span class="chip-dot" style="background:#7fc4f5;"></span>Roadmap</a>
-    <a href="https://github.com/cephasgm" target="_blank" rel="noopener" class="header-chip"><span class="chip-dot" style="background:#f5c66a;"></span>GitHub</a>
+  <span class="eyebrow">Transparent Pricing · No Hidden Fees</span>
+  <h1>Simple pricing for teams that run critical systems.</h1>
+  <p>Three tiers. No seat-based surprises, no feature gates on security, no contracts you can't cancel. Start on Basic, upgrade as you grow, white-label when your firm needs its own brand.</p>
+
+  <div class="billing-toggle" role="tablist" aria-label="Billing period">
+    <button type="button" class="active" id="btnMonthly" role="tab" aria-selected="true">Monthly</button>
+    <button type="button" id="btnAnnual" role="tab" aria-selected="false">Annual <span class="save-badge">Save 17%</span></button>
   </div>
 </header>
 
-<!-- ================= CHANGELOG ================= -->
-<section class="block" id="changelog">
-  <div class="section-head">
-    <h2>Recent <span>releases</span></h2>
-    <p>Reverse chronological. Each entry documents what changed, why it matters, and what it unlocks.</p>
+<section class="block">
+  <div class="pricing-grid">
+
+    <div class="tier">
+      <div class="tier-header">
+        <div class="tier-name">Basic</div>
+        <p class="tier-description">For individual consultants and small teams exploring the platform.</p>
+        <div class="tier-price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="19" data-annual="16">19</span>
+          <span class="period">/ month</span>
+        </div>
+        <div class="tier-billing-note" data-monthly="Billed monthly · cancel anytime" data-annual="Billed annually · save $36/year">
+          Billed monthly · cancel anytime
+        </div>
+      </div>
+      <a href="contact.html" class="tier-cta">Start 14-Day Free Trial</a>
+      <span class="tier-features-label">Included</span>
+      <ul class="tier-features">
+        <li><strong>3 active projects</strong> with full tracking</li>
+        <li><strong>2 users</strong> per organisation</li>
+        <li><strong>5 GB</strong> file storage</li>
+        <li>Client dashboard &amp; downloads center</li>
+        <li>Accounting &amp; budget tracking</li>
+        <li>AI Assistant — 100 queries/month</li>
+        <li>Email support (48h response)</li>
+        <li class="no-feature">API access</li>
+        <li class="no-feature">White-labeling</li>
+        <li class="no-feature">Dedicated support manager</li>
+      </ul>
+    </div>
+
+    <div class="tier featured">
+      <div class="tier-header">
+        <div class="tier-name">Professional</div>
+        <p class="tier-description">For growing teams that need real project depth and API access.</p>
+        <div class="tier-price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="99" data-annual="82">99</span>
+          <span class="period">/ month</span>
+        </div>
+        <div class="tier-billing-note" data-monthly="Billed monthly · cancel anytime" data-annual="Billed annually · save $204/year">
+          Billed monthly · cancel anytime
+        </div>
+      </div>
+      <a href="contact.html" class="tier-cta">Start 14-Day Free Trial</a>
+      <span class="tier-features-label">Everything in Basic, plus</span>
+      <ul class="tier-features">
+        <li><strong>25 active projects</strong> with full tracking</li>
+        <li><strong>10 users</strong> per organisation</li>
+        <li><strong>50 GB</strong> file storage</li>
+        <li>Full API access (REST endpoints)</li>
+        <li>AI Assistant — unlimited queries</li>
+        <li>Advanced analytics &amp; exports</li>
+        <li>Priority support (4h response)</li>
+        <li>99.5% uptime SLA</li>
+        <li class="no-feature">White-labeling</li>
+        <li class="no-feature">Dedicated support manager</li>
+      </ul>
+    </div>
+
+    <div class="tier enterprise-tier">
+      <div class="tier-header">
+        <div class="tier-name">Enterprise</div>
+        <p class="tier-description">For engineering and consulting firms that need white-labeling and unlimited scale.</p>
+        <div class="tier-price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="299" data-annual="249">299</span>
+          <span class="period">/ month</span>
+        </div>
+        <div class="tier-billing-note" data-monthly="Billed monthly · cancel anytime" data-annual="Billed annually · save $600/year">
+          Billed monthly · cancel anytime
+        </div>
+      </div>
+      <a href="contact.html" class="tier-cta">Talk to Sales</a>
+      <span class="tier-features-label">Everything in Professional, plus</span>
+      <ul class="tier-features">
+        <li><strong>Unlimited projects</strong></li>
+        <li><strong>Unlimited users</strong></li>
+        <li><strong>500 GB</strong> file storage</li>
+        <li><strong>White-labeling</strong> — your logo, your domain, your brand</li>
+        <li>Custom domain with HTTPS</li>
+        <li>Full API + webhook access</li>
+        <li>Audit logging &amp; compliance exports</li>
+        <li>24/7 support + dedicated success manager</li>
+        <li>99.9% uptime SLA</li>
+        <li>Custom onboarding &amp; training</li>
+      </ul>
+    </div>
+
   </div>
 
-  <div class="changelog">
+  <div class="whitelabel-panel">
+    <span class="wl-icon">🎨</span>
+    <h3>White-labeling — run the portal as your own product.</h3>
+    <p class="wl-lead">Engineering and consulting firms can deliver Cephas GM's unified portal to their own clients under their own brand. Your domain, your logo, your colours. We handle the infrastructure, security, and updates behind the scenes.</p>
 
-    <!-- Latest release -->
-    <div class="release current">
-      <div class="release-card">
-        <div class="release-header">
-          <div class="release-title-group">
-            <span class="release-version">Release 2026.09 · Security Hardening</span>
-            <span class="release-title">Role-based access control across the entire portal<span class="release-badge">Current</span></span>
-          </div>
-          <span class="release-date">September 2026</span>
-        </div>
-
-        <div class="change-group">
-          <span class="change-label added">✓ Added</span>
-          <ul class="change-list">
-            <li><strong>Firestore Security Rules</strong> — server-side enforcement of admin and client access, with immutable audit logging collection ready</li>
-            <li><strong>Storage Security Rules</strong> — file upload/download access control, ready to activate when Cloud Storage is enabled</li>
-            <li><strong>Public Architecture page</strong> — full engineering stack documented with links to official documentation</li>
-            <li><strong>Public Changelog page</strong> — this page, for transparent release tracking</li>
-            <li><strong>Skip-to-content links</strong> — WCAG 2.1 Level A compliance on all site pages</li>
-            <li><strong>Organization schema (JSON-LD)</strong> — structured data for search engines and AI systems</li>
-            <li><strong>sitemap.xml and robots.txt</strong> — explicit crawler guidance with AI bot permissions</li>
-          </ul>
-        </div>
-
-        <div class="change-group">
-          <span class="change-label changed">◆ Changed</span>
-          <ul class="change-list">
-            <li><strong>Admin Dashboard</strong> — now shows the full portfolio of projects across all users, not just the admin's own</li>
-            <li><strong>Client Dashboard</strong> — role-aware heading and scope labels clarify what each user is seeing</li>
-            <li><strong>Main site navigation</strong> — brand mark now serves as home; Home link removed for cleaner hierarchy</li>
-            <li><strong>Water-Energy system</strong> — reframed for global deployment; no longer limited to any region</li>
-          </ul>
-        </div>
-
-        <div class="change-group">
-          <span class="change-label fixed">◎ Fixed</span>
-          <ul class="change-list">
-            <li><strong>Admin visibility bug</strong> — admin was only seeing their own projects because the query was filtered to their UID. Now correctly shows all projects via role-based query</li>
-            <li><strong>Login redirect loop</strong> — authenticated users landing on the login page are now auto-routed to their correct destination</li>
-            <li><strong>Modal focus trapping</strong> — keyboard users can no longer tab outside an open modal</li>
-          </ul>
-        </div>
-
-        <div class="change-group">
-          <span class="change-label security">⚠ Security</span>
-          <ul class="change-list">
-            <li><strong>Credentials removed from public login page</strong> — demo credentials are no longer shown to visitors</li>
-            <li><strong>Search engine de-indexing</strong> — login page marked with noindex, nofollow</li>
-            <li><strong>Hardened HTML escaping</strong> — extended sanitisation across dashboard, downloads, and accounting pages</li>
-          </ul>
-        </div>
+    <div class="whitelabel-grid">
+      <div class="wl-feature">
+        <h4><span class="wl-dot"></span> Custom Domain</h4>
+        <p>Serve the portal from your own branded domain with HTTPS.</p>
+      </div>
+      <div class="wl-feature">
+        <h4><span class="wl-dot"></span> Logo &amp; Branding</h4>
+        <p>Upload your logo, favicon, and brand colours — applied across every page.</p>
+      </div>
+      <div class="wl-feature">
+        <h4><span class="wl-dot"></span> Branded Emails</h4>
+        <p>Password resets, invites, and notifications sent from your address via custom SMTP.</p>
+      </div>
+      <div class="wl-feature">
+        <h4><span class="wl-dot"></span> No "Powered By" Badge</h4>
+        <p>Remove all Cephas GM references from the client-facing experience.</p>
       </div>
     </div>
 
-    <!-- Previous release -->
-    <div class="release">
-      <div class="release-card">
-        <div class="release-header">
-          <div class="release-title-group">
-            <span class="release-version">Release 2026.08 · Portfolio Reframe</span>
-            <span class="release-title">Problem-first positioning across the entire site</span>
-          </div>
-          <span class="release-date">August 2026</span>
-        </div>
+    <p class="wl-target"><strong>Who it's for:</strong> engineering consultancies, OHS consultancies, infrastructure advisory firms, and any organisation that wants to deliver a professional client portal without building one from scratch. Sold as part of the Enterprise tier, with custom volume pricing available.</p>
+  </div>
 
-        <div class="change-group">
-          <span class="change-label changed">◆ Changed</span>
-          <ul class="change-list">
-            <li><strong>Homepage hero</strong> — reframed from services offered to problems solved: "Engineering the systems that keep critical infrastructure running"</li>
-            <li><strong>Capabilities page</strong> — renamed from Services; each card now leads with an operational problem statement</li>
-            <li><strong>Projects page</strong> — all 12 systems surfaced with Live / Beta / R&amp;D status badges</li>
-            <li><strong>Impact Dashboard</strong> — sample metrics documented for future real-data replacement</li>
-          </ul>
-        </div>
+</section>
 
-        <div class="change-group">
-          <span class="change-label removed">✕ Removed</span>
-          <ul class="change-list">
-            <li><strong>Dark/light theme toggle</strong> — simplified to a single consistent theme across all pages</li>
-            <li><strong>Tanzania-only positioning</strong> — scope expanded globally; no region is excluded by default</li>
-          </ul>
-        </div>
+<section class="block">
+  <div class="section-head">
+    <h2>Compare <span>plans</span></h2>
+    <p>Every feature, side by side. No hidden tiers, no misleading "contact us" gaps.</p>
+  </div>
+
+  <div class="comparison-wrap">
+    <table class="comparison">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Basic</th>
+          <th>Professional</th>
+          <th>Enterprise</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="category-row"><td colspan="4">Capacity</td></tr>
+        <tr><td>Active projects</td><td>3</td><td>25</td><td>Unlimited</td></tr>
+        <tr><td>Users per organisation</td><td>2</td><td>10</td><td>Unlimited</td></tr>
+        <tr><td>File storage</td><td>5 GB</td><td>50 GB</td><td>500 GB</td></tr>
+
+        <tr class="category-row"><td colspan="4">Core Platform</td></tr>
+        <tr><td>Client dashboard</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td></tr>
+        <tr><td>Accounting &amp; budgets</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td></tr>
+        <tr><td>Downloads center</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td></tr>
+        <tr><td>Admin analytics</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td></tr>
+        <tr><td>AI Assistant</td><td>100/mo</td><td>Unlimited</td><td>Unlimited</td></tr>
+
+        <tr class="category-row"><td colspan="4">Integration &amp; API</td></tr>
+        <tr><td>REST API access</td><td class="cell-no">—</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td></tr>
+        <tr><td>Webhook notifications</td><td class="cell-no">—</td><td class="cell-no">—</td><td class="cell-yes">✓</td></tr>
+        <tr><td>Advanced exports (CSV, PDF)</td><td class="cell-no">—</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td></tr>
+
+        <tr class="category-row"><td colspan="4">Branding &amp; White-Label</td></tr>
+        <tr><td>Custom logo &amp; colours</td><td class="cell-no">—</td><td class="cell-no">—</td><td class="cell-highlight cell-yes">✓</td></tr>
+        <tr><td>Custom domain + HTTPS</td><td class="cell-no">—</td><td class="cell-no">—</td><td class="cell-highlight cell-yes">✓</td></tr>
+        <tr><td>Branded email (SMTP)</td><td class="cell-no">—</td><td class="cell-no">—</td><td class="cell-highlight cell-yes">✓</td></tr>
+        <tr><td>Remove "Powered by" badge</td><td class="cell-no">—</td><td class="cell-no">—</td><td class="cell-highlight cell-yes">✓</td></tr>
+
+        <tr class="category-row"><td colspan="4">Security &amp; Compliance</td></tr>
+        <tr><td>Role-based access control</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td><td class="cell-yes">✓</td></tr>
+        <tr><td>Audit logging</td><td class="cell-no">—</td><td>30 days</td><td>Unlimited</td></tr>
+        <tr><td>SSO (SAML, OIDC)</td><td class="cell-no">—</td><td class="cell-no">—</td><td class="cell-yes">✓</td></tr>
+
+        <tr class="category-row"><td colspan="4">Support &amp; SLA</td></tr>
+        <tr><td>Response time</td><td>48 hours</td><td>4 hours</td><td>24/7 priority</td></tr>
+        <tr><td>Dedicated success manager</td><td class="cell-no">—</td><td class="cell-no">—</td><td class="cell-yes">✓</td></tr>
+        <tr><td>Uptime SLA</td><td class="cell-no">—</td><td>99.5%</td><td>99.9%</td></tr>
+        <tr><td>Onboarding &amp; training</td><td>Self-serve</td><td>Group session</td><td>Custom programme</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block">
+  <div class="section-head">
+    <h2>Frequently asked <span>questions</span></h2>
+    <p>If your question isn't here, ask us directly — we answer every one.</p>
+  </div>
+
+  <div class="faq">
+
+    <details class="faq-item">
+      <summary>What happens after the 14-day free trial?</summary>
+      <div class="faq-answer">
+        Your account converts to your chosen tier at the end of the trial. No payment is required upfront — we'll email you three days before the trial ends with a link to add billing. If you do nothing, your account reverts to read-only mode rather than being deleted, so you never lose your data.
       </div>
-    </div>
+    </details>
 
-    <!-- Earlier release -->
-    <div class="release">
-      <div class="release-card">
-        <div class="release-header">
-          <div class="release-title-group">
-            <span class="release-version">Release 2026.07 · Portal Launch</span>
-            <span class="release-title">Client and admin portal goes live with Firebase</span>
-          </div>
-          <span class="release-date">July 2026</span>
-        </div>
-
-        <div class="change-group">
-          <span class="change-label added">✓ Added</span>
-          <ul class="change-list">
-            <li><strong>Client Dashboard</strong> — project tracking, budget summaries, download counters</li>
-            <li><strong>Accounting module</strong> — full CRUD for projects with Chart.js budget vs actual visualisation</li>
-            <li><strong>Downloads Center</strong> — admin-only file upload with public download links for authenticated users</li>
-            <li><strong>AI Assistant</strong> — natural-language interface over project, file, and portfolio data</li>
-            <li><strong>Admin Analytics</strong> — 8 portfolio-wide metrics, dual charts, and project/files tables</li>
-            <li><strong>Firebase Authentication</strong> — email/password with role-based redirects</li>
-            <li><strong>PWA support</strong> — installable on mobile with service worker registration</li>
-          </ul>
-        </div>
+    <details class="faq-item">
+      <summary>Can I switch plans later?</summary>
+      <div class="faq-answer">
+        Yes, at any time. Upgrades take effect immediately with prorated billing. Downgrades take effect at the end of your current billing period. You never pay for a plan you're not using.
       </div>
-    </div>
+    </details>
 
-    <!-- Founding -->
-    <div class="release">
-      <div class="release-card">
-        <div class="release-header">
-          <div class="release-title-group">
-            <span class="release-version">Release 2026.01 · Foundation</span>
-            <span class="release-title">Cephas GM goes live across nine systems</span>
-          </div>
-          <span class="release-date">January 2026</span>
-        </div>
-
-        <div class="change-group">
-          <span class="change-label added">✓ Added</span>
-          <ul class="change-list">
-            <li><strong>Corporate platform</strong> — cephasgm.org with initial portfolio</li>
-            <li><strong>Sports Betting prototype</strong> — full-stack live odds engine</li>
-            <li><strong>Secure VPN Service</strong> — WireGuard with anti-DPI</li>
-            <li><strong>OHS System</strong> — Occupational Health &amp; Safety PWA</li>
-            <li><strong>Multimodal AI Platform</strong> — text, image, and voice</li>
-            <li><strong>Smart Location Tracker</strong> — offline-capable GPS PWA</li>
-            <li><strong>Cephas GM ERP</strong> — 31-module enterprise platform</li>
-            <li><strong>Water-Energy Management System</strong> — ESP32-based tariff optimisation</li>
-            <li><strong>SIGNAID</strong> — sign language bridge</li>
-          </ul>
-        </div>
+    <details class="faq-item">
+      <summary>What counts as an "active project"?</summary>
+      <div class="faq-answer">
+        Any project you've created that hasn't been archived. Archived projects don't count toward your limit — you can archive freely and restore later without losing data.
       </div>
-    </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is my data secure?</summary>
+      <div class="faq-answer">
+        Yes. Every read and write is validated server-side through Firebase Security Rules with role-based access control. Client data is isolated per organisation — a client can only access their own projects. Audit logs record every change immutably. See our <a href="architecture.html">Architecture page</a> for the full technical detail.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How does white-labeling work?</summary>
+      <div class="faq-answer">
+        White-labeling is included in the Enterprise tier. You provide your logo, brand colours, and custom domain, and we configure the portal to serve entirely under your brand. Your clients never see the Cephas GM name. Setup takes 3–5 business days.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I pay annually?</summary>
+      <div class="faq-answer">
+        Yes — annual billing saves you 17%, equivalent to two months free. Toggle the billing switch at the top of the page to see annual pricing. We accept all major credit cards and can arrange wire transfer for Enterprise customers.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Do you offer discounts for non-profits or education?</summary>
+      <div class="faq-answer">
+        Yes. Non-profit organisations, educational institutions, and registered social enterprises receive 30% off any tier. Email <a href="mailto:info@cephasgm.org">info@cephasgm.org</a> with proof of status and we'll apply the discount.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What if I need a feature that isn't listed?</summary>
+      <div class="faq-answer">
+        Tell us. Custom modules, industry-specific workflows, and integrations are available on Enterprise. We've built bespoke systems for water-energy, OHS, ERP, and hardware-AI use cases — chances are we can adapt the platform to yours. Check our <a href="changelog.html">roadmap</a> first to see if it's already planned.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I cancel at any time?</summary>
+      <div class="faq-answer">
+        Yes. No contracts, no cancellation fees. When you cancel, your account stays active until the end of your paid period, then reverts to read-only. You can export all your data as CSV at any point before or after cancellation.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Do you offer volume pricing for consultancies?</summary>
+      <div class="faq-answer">
+        Yes. If you're white-labeling the portal for multiple clients, we offer volume pricing starting at 10 organisations. Email <a href="mailto:admin@cephasgm.org">admin@cephasgm.org</a> with your expected client count and we'll send a custom quote within 48 hours.
+      </div>
+    </details>
 
   </div>
 </section>
 
-<!-- ================= ROADMAP ================= -->
-<section class="block" id="roadmap">
-  <div class="section-head">
-    <h2>Where we're <span>going</span></h2>
-    <p>Three horizons. No false precision. Each item is customer value, not internal tasks.</p>
-  </div>
-
-  <div class="roadmap">
-
-    <!-- NOW -->
-    <div class="roadmap-column now">
-      <span class="roadmap-label">Now</span>
-      <h3>In Progress</h3>
-      <p class="roadmap-desc">Currently being built or shipped this quarter.</p>
-      <ul class="roadmap-list">
-        <li>
-          <span class="item-icon">📄</span>
-          <span class="item-content">
-            <strong>Public Architecture page</strong>
-            <span>Full engineering stack documented for technical partners</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">📋</span>
-          <span class="item-content">
-            <strong>Public Changelog page</strong>
-            <span>Every release documented for transparency and due diligence</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">💳</span>
-          <span class="item-content">
-            <strong>SaaS pricing tiers</strong>
-            <span>Basic / Professional / Enterprise with white-labeling for the top tier</span>
-          </span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- NEXT -->
-    <div class="roadmap-column next">
-      <span class="roadmap-label">Next</span>
-      <h3>Committed, Not Started</h3>
-      <p class="roadmap-desc">Definite plans, engineering-ready, awaiting schedule slot.</p>
-      <ul class="roadmap-list">
-        <li>
-          <span class="item-icon">🤝</span>
-          <span class="item-content">
-            <strong>Investors / Partners page</strong>
-            <span>Clear ask, use of funds, and milestone timeline</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">🔐</span>
-          <span class="item-content">
-            <strong>Audit logging live</strong>
-            <span>Cloud Function writing immutable entries on every project action</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">💰</span>
-          <span class="item-content">
-            <strong>Billing module</strong>
-            <span>Stripe + Paystack integration for self-serve upgrades</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">📦</span>
-          <span class="item-content">
-            <strong>Cloud Storage enabled</strong>
-            <span>File upload and download live in the portal</span>
-          </span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- LATER -->
-    <div class="roadmap-column later">
-      <span class="roadmap-label">Later</span>
-      <h3>Planned, Not Committed</h3>
-      <p class="roadmap-desc">Strategic direction. Activating based on customer demand.</p>
-      <ul class="roadmap-list">
-        <li>
-          <span class="item-icon">🏢</span>
-          <span class="item-content">
-            <strong>Multi-tenancy</strong>
-            <span>Each client organisation gets its own isolated workspace</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">🎨</span>
-          <span class="item-content">
-            <strong>White-label configuration</strong>
-            <span>Engineering firms run the portal under their own brand</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">🔌</span>
-          <span class="item-content">
-            <strong>Enterprise API access</strong>
-            <span>REST/GraphQL endpoints for ERP module integration</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">📱</span>
-          <span class="item-content">
-            <strong>iOS AI platform</strong>
-            <span>Native mobile app with push notifications</span>
-          </span>
-        </li>
-        <li>
-          <span class="item-icon">🌍</span>
-          <span class="item-content">
-            <strong>Regional deployments</strong>
-            <span>Data residency options for regulated enterprise clients</span>
-          </span>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-
-  <p class="roadmap-note">
-    <strong>A note on timelines.</strong> We don't publish dates on roadmap items. Priorities shift as customer needs evolve, and publishing fixed dates creates false precision that helps no one. What matters is that each item unlocks real customer value — and we ship as fast as that allows.
-  </p>
-</section>
-
-<!-- ================= CTA ================= -->
 <section class="cta">
-  <h2>Something on the roadmap you need sooner?</h2>
-  <p>If an upcoming item is blocking a decision you're trying to make, we'd like to hear about it. Customer demand is the strongest signal for what we build next.</p>
-  <a href="contact.html" class="btn">Start a Conversation</a>
-  <a href="architecture.html" class="btn ghost">View Engineering Stack</a>
+  <h2>Not sure which tier fits?</h2>
+  <p>Tell us what you're building and we'll recommend the right plan — or design a custom one. Every conversation is with a human engineer, not a sales bot.</p>
+  <a href="contact.html" class="btn">Talk to Us</a>
+  <a href="architecture.html" class="btn ghost">See the Stack</a>
 </section>
 
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
@@ -930,7 +1092,31 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script>
-  // Back to Top Button
+  const btnMonthly = document.getElementById('btnMonthly');
+  const btnAnnual = document.getElementById('btnAnnual');
+  const amounts = document.querySelectorAll('.tier-price .amount');
+  const billingNotes = document.querySelectorAll('.tier-billing-note');
+
+  function setBillingMode(mode) {
+    const isAnnual = mode === 'annual';
+
+    btnMonthly.classList.toggle('active', !isAnnual);
+    btnAnnual.classList.toggle('active', isAnnual);
+    btnMonthly.setAttribute('aria-selected', !isAnnual);
+    btnAnnual.setAttribute('aria-selected', isAnnual);
+
+    amounts.forEach(el => {
+      el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
+    });
+
+    billingNotes.forEach(el => {
+      el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
+    });
+  }
+
+  btnMonthly.addEventListener('click', () => setBillingMode('monthly'));
+  btnAnnual.addEventListener('click', () => setBillingMode('annual'));
+
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) backToTop.classList.add('show');
@@ -941,13 +1127,13 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Smooth scroll for header chip links
-  document.querySelectorAll('.header-chip[href^="#"]').forEach(chip => {
-    chip.addEventListener('click', (e) => {
-      const target = document.querySelector(chip.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        faqItems.forEach(other => {
+          if (other !== item) other.open = false;
+        });
       }
     });
   });
