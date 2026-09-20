@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Impact Dashboard — Cephas GM</title>
 
-<!-- SEO & Social Meta Tags -->
 <meta name="description" content="Live impact metrics from Cephas GM: 12 systems deployed, 31 ERP modules, safety incidents tracked, assets monitored, portal users, compliance rate, and water-energy savings — deployed worldwide.">
 <meta property="og:title" content="Impact Dashboard — Cephas GM">
 <meta property="og:description" content="Real-time metrics from deployed enterprise platforms, AI systems, secure connectivity, hardware-integrated solutions, and infrastructure optimisation.">
@@ -17,7 +16,6 @@
 <meta name="twitter:description" content="Twelve systems, 31 ERP modules, six industry domains, three hardware-AI integrations — deployed worldwide.">
 <meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -39,7 +37,6 @@
     overflow-x:hidden;
     position: relative;
   }
-  /* Liquid crystal overlay — unchanged */
   body::before {
     content: '';
     position: fixed;
@@ -58,8 +55,6 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-
-  /* ---------- Accessibility: Skip Link ---------- */
   .skip-link {
     position: absolute;
     top: -100px;
@@ -79,8 +74,6 @@
     outline: 2px solid #34d399;
     outline-offset: 2px;
   }
-
-  /* ---------- Navigation ---------- */
   .nav{
     background:rgba(0,0,0,0.6);
     display:flex;
@@ -125,8 +118,6 @@
     box-shadow:0 4px 10px rgba(0,0,0,0.25);
   }
   .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
-
-  /* ---------- Header ---------- */
   header{
     text-align:center;
     background:rgba(0,0,0,0.55);
@@ -149,8 +140,6 @@
   }
   header h1{font-size:2.4rem;margin-bottom:.7rem;line-height:1.25;}
   header p{color:var(--text-dark);font-size:1rem;max-width:720px;margin:0 auto;line-height:1.65;}
-
-  /* ---------- Dashboard ---------- */
   .dashboard{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -198,8 +187,6 @@
   }
   .card h2{font-size:2.5rem;color:var(--accent);margin-bottom:.4rem;}
   .card p{color:var(--text-dark);font-size:.98rem;line-height:1.4;}
-
-  /* ---------- Modal ---------- */
   .modal{
     display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;
     background:rgba(0,0,0,0.95);overflow-y:auto;padding-top:60px;
@@ -219,11 +206,7 @@
   .modal-content p{line-height:1.7;color:#333;}
   .modal-content a{color:var(--accent);text-decoration:none;font-weight:600;}
   .modal-content a:hover{text-decoration:underline;}
-
-  /* ---------- Footer ---------- */
   footer{background:rgba(0,0,0,0.85);text-align:center;padding:1.2rem;font-size:.9rem;margin-top:2rem;position:relative;z-index:1;color:var(--text-dark);}
-
-  /* ---------- Back to top ---------- */
   .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -246,7 +229,6 @@
   }
   .back-to-top.show { opacity: 1; visibility: visible; }
   .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
-
   @media (max-width: 768px) {
     header h1 { font-size: 1.9rem; }
     .dashboard { gap: 1rem; padding: 2rem 4%; }
@@ -268,6 +250,10 @@
     <a href="services.html">Capabilities</a>
     <a href="gallery.html">Gallery</a>
     <a href="impact.html" class="active">Impact</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="investors.html">Investors</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
@@ -510,7 +496,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  // Back to Top Button
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) backToTop.classList.add('show');
@@ -521,7 +506,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Modal functions with focus trapping
   function openModal(id) {
     const modal = document.getElementById(id);
     modal.style.display = 'block';
@@ -553,7 +537,6 @@
     if (e.key === 'Escape') document.querySelectorAll('.modal').forEach(m => { if (m.style.display === 'block') closeModal(m.id); });
   });
 
-  // Swiper init
   const swiperOpts = {loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}};
   new Swiper('.systemsSwiper',swiperOpts);
   new Swiper('.erpSwiper',swiperOpts);
@@ -565,7 +548,6 @@
   new Swiper('.complianceSwiper',swiperOpts);
   new Swiper('.energySwiper',swiperOpts);
 
-  // Counter animation
   const counters = document.querySelectorAll('.counter');
   const options = { threshold: 0.5 };
   const animate = (counter) => {
