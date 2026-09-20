@@ -20,6 +20,50 @@
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
 
+<!-- Structured Data — Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Cephas GM",
+  "alternateName": ["CephasGM", "Cephas GM Engineering"],
+  "url": "https://cephasgm.org",
+  "logo": "https://cephasgm.org/og-image.jpg",
+  "image": "https://cephasgm.org/og-image.jpg",
+  "description": "Engineering firm building enterprise software, multimodal AI platforms, and hardware-integrated systems for water-energy optimisation, industrial safety, secure connectivity, and digital transformation.",
+  "foundingDate": "2024",
+  "sameAs": [
+    "https://github.com/cephasgm"
+  ],
+  "email": "info@cephasgm.org",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "General Inquiries",
+    "email": "info@cephasgm.org",
+    "availableLanguage": ["English", "Swahili"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dar es Salaam",
+    "addressCountry": "TZ"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Worldwide"
+  },
+  "knowsAbout": [
+    "Enterprise Resource Planning",
+    "Multimodal AI Systems",
+    "Water-Energy Optimisation",
+    "Occupational Health and Safety",
+    "WireGuard VPN Technology",
+    "IoT Sensor Integration",
+    "Drone Detection Systems",
+    "Satellite Ground Terminals"
+  ]
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
   /* CSS Variables — background & overlay untouched */
@@ -60,6 +104,27 @@
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+  }
+
+  /* ---------- Accessibility: Skip Link ---------- */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: #0b7a59;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .9rem;
+    z-index: 9999;
+    transition: top .2s ease;
+  }
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
   }
 
   /* ---------- Navigation ---------- */
@@ -286,11 +351,13 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <nav class="nav">
   <a href="index.html" class="brand active" aria-current="page">Cephas GM</a>
   <div class="nav-links">
     <a href="projects.html">Projects</a>
-    <a href="services.html">Services</a>
+    <a href="services.html">Capabilities</a>
     <a href="gallery.html">Gallery</a>
     <a href="impact.html">Impact</a>
     <a href="about.html">About</a>
@@ -299,7 +366,7 @@
   </div>
 </nav>
 
-<header>
+<header id="main-content">
   <span class="eyebrow">Enterprise · AI · Hardware-Integrated</span>
   <h1>Engineering the systems that keep critical infrastructure running.</h1>
   <p>
