@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog &amp; Roadmap — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="Public changelog and roadmap for Cephas GM — every release, security update, and upcoming milestone documented for clients, partners, and investors.">
+<meta property="og:title" content="Changelog &amp; Roadmap — Cephas GM">
+<meta property="og:description" content="What we've shipped and what's next — documented in the open.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org/changelog.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM Changelog">
+<meta name="twitter:description" content="Every release, every security update, every milestone — documented in the open.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-overlay-light: rgba(0,0,0,0.55);
+    --card-bg-light: rgba(0,0,0,0.6);
+    --text-light: #fff;
+    --text-dark: #ddd;
+    --text-muted: #999;
+    --accent: #0b7a59;
+    --accent-hover: #099268;
+    --accent-light: #34d399;
+    --info: #3498db;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --border: rgba(255,255,255,0.12);
+    --shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
+    color:var(--text-light);
+    position: relative;
+    min-height: 100vh;
+  }
+  /* Liquid crystal overlay — consistent with all pages */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* ---------- Accessibility: Skip Link ---------- */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: #0b7a59;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .9rem;
+    z-index: 9999;
+    transition: top .2s ease;
+  }
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
+  }
+
+  /* ---------- Navigation ---------- */
+  .nav{
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 30px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter: blur(4px);
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-weight:700;
+    font-size:1.2rem;
+    color:#fff;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.15);
+    letter-spacing:.3px;
+    transition:.3s;
+    display:inline-block;
+  }
+  .brand:hover{background:rgba(255,255,255,0.28);}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:.3s;
+    font-size:.95rem;
+  }
+  .nav-links a:hover{background:rgba(255,255,255,0.15);}
+  .nav-links a.active{background:rgba(255,255,255,0.2);}
+  .nav-links .portal-btn{
+    background:var(--accent);
+    padding:8px 16px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+  }
+  .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
+
+  /* ---------- Header ---------- */
+  header{
+    text-align:center;
+    background:var(--bg-overlay-light);
+    padding:4rem 1.5rem 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  header .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#34d399;
+    font-weight:700;
+    margin-bottom:1.1rem;
+    background:rgba(11,122,89,0.18);
+    padding:6px 16px;
+    border-radius:30px;
+    border:1px solid rgba(52,211,153,0.3);
+  }
+  header h1{
+    font-size:2.5rem;
+    margin-bottom:1rem;
+    line-height:1.25;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:700;
+  }
+  header p{
+    color:var(--text-dark);
+    font-size:1.05rem;
+    max-width:780px;
+    margin:0 auto 1.6rem;
+    line-height:1.7;
+  }
+  .header-actions{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .header-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--border);
+    color:#ddd;
+    padding:7px 16px;
+    border-radius:30px;
+    font-size:.82rem;
+    text-decoration:none;
+    transition:.3s;
+  }
+  .header-chip:hover{
+    background:rgba(11,122,89,0.3);
+    border-color:var(--accent);
+    color:#fff;
+  }
+  .header-chip .chip-dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--accent-light);
+    display:inline-block;
+  }
+
+  /* ---------- Section shell ---------- */
+  section.block{
+    position:relative;
+    z-index:1;
+    padding:4rem 8%;
+  }
+  .section-head{
+    text-align:center;
+    margin-bottom:3rem;
+  }
+  .section-head h2{
+    font-size:2rem;
+    color:#fff;
+    margin-bottom:.7rem;
+  }
+  .section-head h2 span{color:var(--accent-light);}
+  .section-head p{
+    color:var(--text-dark);
+    max-width:720px;
+    margin:0 auto;
+    font-size:1rem;
+    line-height:1.65;
+  }
+
+  /* ---------- Changelog ---------- */
+  .changelog{
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .changelog::before{
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: linear-gradient(to bottom,
+      rgba(11,122,89,0.8),
+      rgba(52,211,153,0.4) 40%,
+      rgba(52,211,153,0.15) 80%,
+      transparent);
+  }
+  .release{
+    position: relative;
+    padding-left: 70px;
+    margin-bottom: 2.4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .8s ease forwards;
+  }
+  .release:nth-child(1){ animation-delay: .1s; }
+  .release:nth-child(2){ animation-delay: .2s; }
+  .release:nth-child(3){ animation-delay: .3s; }
+  .release:nth-child(4){ animation-delay: .4s; }
+  .release:nth-child(5){ animation-delay: .5s; }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .release::before{
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid rgba(11,122,89,0.25);
+    box-shadow: 0 0 0 4px rgba(11,122,89,0.12);
+    z-index: 2;
+  }
+  .release.current::before{
+    background: var(--accent-light);
+    box-shadow: 0 0 0 4px rgba(52,211,153,0.25);
+    animation: pulse 2.4s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(52,211,153,0.25); }
+    50% { box-shadow: 0 0 0 8px rgba(52,211,153,0.08); }
+  }
+  .release-card{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+    transition: transform .3s, border-color .3s;
+  }
+  .release-card:hover{
+    transform: translateX(6px);
+    border-color: var(--accent);
+  }
+  .release-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .release-title-group{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .release-version{
+    font-size: .72rem;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 700;
+  }
+  .release-title{
+    font-size: 1.15rem;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .release-date{
+    font-size: .82rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .release-badge{
+    display: inline-block;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(52,211,153,0.15);
+    color: var(--accent-light);
+    border: 1px solid rgba(52,211,153,0.35);
+    margin-left: 8px;
+  }
+
+  .change-group{
+    margin-bottom: 14px;
+  }
+  .change-group:last-child{
+    margin-bottom: 0;
+  }
+  .change-label{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .74rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .change-label.added{ color: var(--accent-light); }
+  .change-label.changed{ color: #7fc4f5; }
+  .change-label.fixed{ color: #f5c66a; }
+  .change-label.security{ color: #f5a5a0; }
+  .change-label.removed{ color: #c9a7e8; }
+
+  .change-list{
+    list-style: none;
+    padding-left: 0;
+  }
+  .change-list li{
+    position: relative;
+    padding: 5px 0 5px 20px;
+    font-size: .9rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  .change-list li::before{
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  .change-list strong{
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* ---------- Roadmap ---------- */
+  .roadmap{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .roadmap-column{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: transform .3s, border-color .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .roadmap-column::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+  }
+  .roadmap-column.now::after{ background: var(--accent-light); }
+  .roadmap-column.next::after{ background: var(--info); }
+  .roadmap-column.later::after{ background: var(--warning); }
+
+  .roadmap-column:hover{
+    transform: translateY(-6px);
+    border-color: var(--accent);
+  }
+  .roadmap-label{
+    display: inline-block;
+    font-size: .72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .roadmap-column.now .roadmap-label{
+    background: rgba(52,211,153,0.15);
+    color: var(--accent-light);
+    border: 1px solid rgba(52,211,153,0.35);
+  }
+  .roadmap-column.next .roadmap-label{
+    background: rgba(52,152,219,0.15);
+    color: #7fc4f5;
+    border: 1px solid rgba(52,152,219,0.35);
+  }
+  .roadmap-column.later .roadmap-label{
+    background: rgba(243,156,18,0.15);
+    color: #f5c66a;
+    border: 1px solid rgba(243,156,18,0.35);
+  }
+  .roadmap-column h3{
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .roadmap-column .roadmap-desc{
+    font-size: .85rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  .roadmap-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .roadmap-list li{
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: .9rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .roadmap-list li:last-child{
+    border-bottom: none;
+  }
+  .roadmap-list .item-icon{
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .roadmap-list .item-content{
+    color: var(--text-dark);
+    flex: 1;
+  }
+  .roadmap-list .item-content strong{
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .roadmap-list .item-content span{
+    display: block;
+    color: var(--text-muted);
+    font-size: .82rem;
+    line-height: 1.5;
+  }
+
+  .roadmap-note{
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    text-align: center;
+    font-size: .85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding: 0 1rem;
+  }
+  .roadmap-note strong{
+    color: var(--text-dark);
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    text-align: center;
+    background: var(--bg-overlay-light);
+    padding: 3.5rem 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cta h2{
+    font-size: 1.9rem;
+    margin-bottom: .9rem;
+  }
+  .cta p{
+    color: var(--text-dark);
+    max-width: 640px;
+    margin: 0 auto 1.8rem;
+    line-height: 1.65;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:.8rem 2rem;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    font-size:.95rem;
+    margin: 6px;
+  }
+  .btn:hover{
+    background:var(--accent-hover);
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  }
+  .btn.ghost{
+    background:transparent;
+    border:1.5px solid rgba(255,255,255,0.5);
+    box-shadow:none;
+  }
+  .btn.ghost:hover{
+    background:rgba(255,255,255,0.12);
+    border-color:#fff;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: rgba(0,0,0,0.85);
+    text-align: center;
+    padding: 1.2rem;
+    font-size: .9rem;
+    position: relative;
+    z-index: 1;
+    color: var(--text-dark);
+  }
+
+  /* ---------- Back to top ---------- */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show { opacity: 1; visibility: visible; }
+  .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
+
+  @media (max-width: 768px){
+    header h1{ font-size: 1.85rem; }
+    header p{ font-size: .98rem; }
+    .nav{ padding: 12px 16px; }
+    .nav-links a{ font-size: .85rem; padding: 6px 9px; }
+    section.block{ padding: 3rem 5%; }
+    .section-head h2{ font-size: 1.6rem; }
+    .changelog::before{ left: 14px; }
+    .release{ padding-left: 50px; }
+    .release::before{ left: 6px; width: 16px; height: 16px; }
+    .release-card{ padding: 18px; }
+    .release-title{ font-size: 1.05rem; }
+    .roadmap-column{ padding: 20px; }
+    .cta h2{ font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="nav">
+  <a href="index.html" class="brand">Cephas GM</a>
+  <div class="nav-links">
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Capabilities</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="impact.html">Impact</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="changelog.html" class="active">Changelog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
+  </div>
+</nav>
+
+<header id="main-content">
+  <span class="eyebrow">What We've Shipped · What's Next</span>
+  <h1>Changelog &amp; Roadmap</h1>
+  <p>Every release, security update, and upcoming milestone — documented in the open. No marketing spin, no hidden changes. Just what shipped, when, and what's coming.</p>
+  <div class="header-actions">
+    <a href="#changelog" class="header-chip"><span class="chip-dot"></span>Recent Releases</a>
+    <a href="#roadmap" class="header-chip"><span class="chip-dot" style="background:#7fc4f5;"></span>Roadmap</a>
+    <a href="https://github.com/cephasgm" target="_blank" rel="noopener" class="header-chip"><span class="chip-dot" style="background:#f5c66a;"></span>GitHub</a>
+  </div>
+</header>
+
+<!-- ================= CHANGELOG ================= -->
+<section class="block" id="changelog">
+  <div class="section-head">
+    <h2>Recent <span>releases</span></h2>
+    <p>Reverse chronological. Each entry documents what changed, why it matters, and what it unlocks.</p>
+  </div>
+
+  <div class="changelog">
+
+    <!-- Latest release -->
+    <div class="release current">
+      <div class="release-card">
+        <div class="release-header">
+          <div class="release-title-group">
+            <span class="release-version">Release 2026.09 · Security Hardening</span>
+            <span class="release-title">Role-based access control across the entire portal<span class="release-badge">Current</span></span>
+          </div>
+          <span class="release-date">September 2026</span>
+        </div>
+
+        <div class="change-group">
+          <span class="change-label added">✓ Added</span>
+          <ul class="change-list">
+            <li><strong>Firestore Security Rules</strong> — server-side enforcement of admin and client access, with immutable audit logging collection ready</li>
+            <li><strong>Storage Security Rules</strong> — file upload/download access control, ready to activate when Cloud Storage is enabled</li>
+            <li><strong>Public Architecture page</strong> — full engineering stack documented with links to official documentation</li>
+            <li><strong>Public Changelog page</strong> — this page, for transparent release tracking</li>
+            <li><strong>Skip-to-content links</strong> — WCAG 2.1 Level A compliance on all site pages</li>
+            <li><strong>Organization schema (JSON-LD)</strong> — structured data for search engines and AI systems</li>
+            <li><strong>sitemap.xml and robots.txt</strong> — explicit crawler guidance with AI bot permissions</li>
+          </ul>
+        </div>
+
+        <div class="change-group">
+          <span class="change-label changed">◆ Changed</span>
+          <ul class="change-list">
+            <li><strong>Admin Dashboard</strong> — now shows the full portfolio of projects across all users, not just the admin's own</li>
+            <li><strong>Client Dashboard</strong> — role-aware heading and scope labels clarify what each user is seeing</li>
+            <li><strong>Main site navigation</strong> — brand mark now serves as home; Home link removed for cleaner hierarchy</li>
+            <li><strong>Water-Energy system</strong> — reframed for global deployment; no longer limited to any region</li>
+          </ul>
+        </div>
+
+        <div class="change-group">
+          <span class="change-label fixed">◎ Fixed</span>
+          <ul class="change-list">
+            <li><strong>Admin visibility bug</strong> — admin was only seeing their own projects because the query was filtered to their UID. Now correctly shows all projects via role-based query</li>
+            <li><strong>Login redirect loop</strong> — authenticated users landing on the login page are now auto-routed to their correct destination</li>
+            <li><strong>Modal focus trapping</strong> — keyboard users can no longer tab outside an open modal</li>
+          </ul>
+        </div>
+
+        <div class="change-group">
+          <span class="change-label security">⚠ Security</span>
+          <ul class="change-list">
+            <li><strong>Credentials removed from public login page</strong> — demo credentials are no longer shown to visitors</li>
+            <li><strong>Search engine de-indexing</strong> — login page marked with noindex, nofollow</li>
+            <li><strong>Hardened HTML escaping</strong> — extended sanitisation across dashboard, downloads, and accounting pages</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Previous release -->
+    <div class="release">
+      <div class="release-card">
+        <div class="release-header">
+          <div class="release-title-group">
+            <span class="release-version">Release 2026.08 · Portfolio Reframe</span>
+            <span class="release-title">Problem-first positioning across the entire site</span>
+          </div>
+          <span class="release-date">August 2026</span>
+        </div>
+
+        <div class="change-group">
+          <span class="change-label changed">◆ Changed</span>
+          <ul class="change-list">
+            <li><strong>Homepage hero</strong> — reframed from services offered to problems solved: "Engineering the systems that keep critical infrastructure running"</li>
+            <li><strong>Capabilities page</strong> — renamed from Services; each card now leads with an operational problem statement</li>
+            <li><strong>Projects page</strong> — all 12 systems surfaced with Live / Beta / R&amp;D status badges</li>
+            <li><strong>Impact Dashboard</strong> — sample metrics documented for future real-data replacement</li>
+          </ul>
+        </div>
+
+        <div class="change-group">
+          <span class="change-label removed">✕ Removed</span>
+          <ul class="change-list">
+            <li><strong>Dark/light theme toggle</strong> — simplified to a single consistent theme across all pages</li>
+            <li><strong>Tanzania-only positioning</strong> — scope expanded globally; no region is excluded by default</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Earlier release -->
+    <div class="release">
+      <div class="release-card">
+        <div class="release-header">
+          <div class="release-title-group">
+            <span class="release-version">Release 2026.07 · Portal Launch</span>
+            <span class="release-title">Client and admin portal goes live with Firebase</span>
+          </div>
+          <span class="release-date">July 2026</span>
+        </div>
+
+        <div class="change-group">
+          <span class="change-label added">✓ Added</span>
+          <ul class="change-list">
+            <li><strong>Client Dashboard</strong> — project tracking, budget summaries, download counters</li>
+            <li><strong>Accounting module</strong> — full CRUD for projects with Chart.js budget vs actual visualisation</li>
+            <li><strong>Downloads Center</strong> — admin-only file upload with public download links for authenticated users</li>
+            <li><strong>AI Assistant</strong> — natural-language interface over project, file, and portfolio data</li>
+            <li><strong>Admin Analytics</strong> — 8 portfolio-wide metrics, dual charts, and project/files tables</li>
+            <li><strong>Firebase Authentication</strong> — email/password with role-based redirects</li>
+            <li><strong>PWA support</strong> — installable on mobile with service worker registration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Founding -->
+    <div class="release">
+      <div class="release-card">
+        <div class="release-header">
+          <div class="release-title-group">
+            <span class="release-version">Release 2026.01 · Foundation</span>
+            <span class="release-title">Cephas GM goes live across nine systems</span>
+          </div>
+          <span class="release-date">January 2026</span>
+        </div>
+
+        <div class="change-group">
+          <span class="change-label added">✓ Added</span>
+          <ul class="change-list">
+            <li><strong>Corporate platform</strong> — cephasgm.org with initial portfolio</li>
+            <li><strong>Sports Betting prototype</strong> — full-stack live odds engine</li>
+            <li><strong>Secure VPN Service</strong> — WireGuard with anti-DPI</li>
+            <li><strong>OHS System</strong> — Occupational Health &amp; Safety PWA</li>
+            <li><strong>Multimodal AI Platform</strong> — text, image, and voice</li>
+            <li><strong>Smart Location Tracker</strong> — offline-capable GPS PWA</li>
+            <li><strong>Cephas GM ERP</strong> — 31-module enterprise platform</li>
+            <li><strong>Water-Energy Management System</strong> — ESP32-based tariff optimisation</li>
+            <li><strong>SIGNAID</strong> — sign language bridge</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ROADMAP ================= -->
+<section class="block" id="roadmap">
+  <div class="section-head">
+    <h2>Where we're <span>going</span></h2>
+    <p>Three horizons. No false precision. Each item is customer value, not internal tasks.</p>
+  </div>
+
+  <div class="roadmap">
+
+    <!-- NOW -->
+    <div class="roadmap-column now">
+      <span class="roadmap-label">Now</span>
+      <h3>In Progress</h3>
+      <p class="roadmap-desc">Currently being built or shipped this quarter.</p>
+      <ul class="roadmap-list">
+        <li>
+          <span class="item-icon">📄</span>
+          <span class="item-content">
+            <strong>Public Architecture page</strong>
+            <span>Full engineering stack documented for technical partners</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">📋</span>
+          <span class="item-content">
+            <strong>Public Changelog page</strong>
+            <span>Every release documented for transparency and due diligence</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">💳</span>
+          <span class="item-content">
+            <strong>SaaS pricing tiers</strong>
+            <span>Basic / Professional / Enterprise with white-labeling for the top tier</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- NEXT -->
+    <div class="roadmap-column next">
+      <span class="roadmap-label">Next</span>
+      <h3>Committed, Not Started</h3>
+      <p class="roadmap-desc">Definite plans, engineering-ready, awaiting schedule slot.</p>
+      <ul class="roadmap-list">
+        <li>
+          <span class="item-icon">🤝</span>
+          <span class="item-content">
+            <strong>Investors / Partners page</strong>
+            <span>Clear ask, use of funds, and milestone timeline</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">🔐</span>
+          <span class="item-content">
+            <strong>Audit logging live</strong>
+            <span>Cloud Function writing immutable entries on every project action</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">💰</span>
+          <span class="item-content">
+            <strong>Billing module</strong>
+            <span>Stripe + Paystack integration for self-serve upgrades</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">📦</span>
+          <span class="item-content">
+            <strong>Cloud Storage enabled</strong>
+            <span>File upload and download live in the portal</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- LATER -->
+    <div class="roadmap-column later">
+      <span class="roadmap-label">Later</span>
+      <h3>Planned, Not Committed</h3>
+      <p class="roadmap-desc">Strategic direction. Activating based on customer demand.</p>
+      <ul class="roadmap-list">
+        <li>
+          <span class="item-icon">🏢</span>
+          <span class="item-content">
+            <strong>Multi-tenancy</strong>
+            <span>Each client organisation gets its own isolated workspace</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">🎨</span>
+          <span class="item-content">
+            <strong>White-label configuration</strong>
+            <span>Engineering firms run the portal under their own brand</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">🔌</span>
+          <span class="item-content">
+            <strong>Enterprise API access</strong>
+            <span>REST/GraphQL endpoints for ERP module integration</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">📱</span>
+          <span class="item-content">
+            <strong>iOS AI platform</strong>
+            <span>Native mobile app with push notifications</span>
+          </span>
+        </li>
+        <li>
+          <span class="item-icon">🌍</span>
+          <span class="item-content">
+            <strong>Regional deployments</strong>
+            <span>Data residency options for regulated enterprise clients</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p class="roadmap-note">
+    <strong>A note on timelines.</strong> We don't publish dates on roadmap items. Priorities shift as customer needs evolve, and publishing fixed dates creates false precision that helps no one. What matters is that each item unlocks real customer value — and we ship as fast as that allows.
+  </p>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <h2>Something on the roadmap you need sooner?</h2>
+  <p>If an upcoming item is blocking a decision you're trying to make, we'd like to hear about it. Customer demand is the strongest signal for what we build next.</p>
+  <a href="contact.html" class="btn">Start a Conversation</a>
+  <a href="architecture.html" class="btn ghost">View Engineering Stack</a>
+</section>
+
+<footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
+
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+<script>
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Smooth scroll for header chip links
+  document.querySelectorAll('.header-chip[href^="#"]').forEach(chip => {
+    chip.addEventListener('click', (e) => {
+      const target = document.querySelector(chip.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
