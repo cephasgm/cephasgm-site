@@ -45,7 +45,6 @@
     position: relative;
     min-height: 100vh;
   }
-  /* Liquid crystal overlay — consistent with all pages */
   body::before {
     content: '';
     position: fixed;
@@ -65,7 +64,6 @@
     100% { background-position: 0% 50%; }
   }
 
-  /* ---------- Accessibility: Skip Link ---------- */
   .skip-link {
     position: absolute;
     top: -100px;
@@ -86,7 +84,6 @@
     outline-offset: 2px;
   }
 
-  /* ---------- Navigation ---------- */
   .nav{
     background:rgba(0,0,0,0.6);
     display:flex;
@@ -132,7 +129,6 @@
   }
   .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
 
-  /* ---------- Header ---------- */
   header{
     text-align:center;
     background:var(--bg-overlay-light);
@@ -170,7 +166,6 @@
     line-height:1.7;
   }
 
-  /* ---------- Billing toggle ---------- */
   .billing-toggle{
     display: inline-flex;
     align-items: center;
@@ -222,7 +217,6 @@
     border-color: rgba(255,255,255,0.4);
   }
 
-  /* ---------- Section shell ---------- */
   section.block{
     position:relative;
     z-index:1;
@@ -246,7 +240,6 @@
     line-height:1.65;
   }
 
-  /* ---------- Pricing grid ---------- */
   .pricing-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -479,7 +472,6 @@
     font-weight: 600;
   }
 
-  /* ---------- White-label panel ---------- */
   .whitelabel-panel{
     max-width: 1000px;
     margin: 3.5rem auto 0;
@@ -562,7 +554,6 @@
     color: var(--gold);
   }
 
-  /* ---------- Feature comparison table ---------- */
   .comparison-wrap{
     max-width: 1000px;
     margin: 0 auto;
@@ -633,7 +624,6 @@
     text-align: left !important;
   }
 
-  /* ---------- FAQ ---------- */
   .faq{
     max-width: 820px;
     margin: 0 auto;
@@ -692,7 +682,6 @@
     text-decoration: underline;
   }
 
-  /* ---------- CTA ---------- */
   .cta{
     text-align: center;
     background: var(--bg-overlay-light);
@@ -738,7 +727,6 @@
     border-color:#fff;
   }
 
-  /* ---------- Footer ---------- */
   footer{
     background: rgba(0,0,0,0.85);
     text-align: center;
@@ -749,7 +737,6 @@
     color: var(--text-dark);
   }
 
-  /* ---------- Back to top ---------- */
   .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -818,6 +805,7 @@
     <a href="architecture.html">Architecture</a>
     <a href="pricing.html" class="active">Pricing</a>
     <a href="changelog.html">Changelog</a>
+    <a href="investors.html">Investors</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
@@ -829,18 +817,15 @@
   <h1>Simple pricing for teams that run critical systems.</h1>
   <p>Three tiers. No seat-based surprises, no feature gates on security, no contracts you can't cancel. Start on Basic, upgrade as you grow, white-label when your firm needs its own brand.</p>
 
-  <!-- Billing toggle -->
   <div class="billing-toggle" role="tablist" aria-label="Billing period">
     <button type="button" class="active" id="btnMonthly" role="tab" aria-selected="true">Monthly</button>
     <button type="button" id="btnAnnual" role="tab" aria-selected="false">Annual <span class="save-badge">Save 17%</span></button>
   </div>
 </header>
 
-<!-- ================= PRICING TIERS ================= -->
 <section class="block">
   <div class="pricing-grid">
 
-    <!-- BASIC -->
     <div class="tier">
       <div class="tier-header">
         <div class="tier-name">Basic</div>
@@ -870,7 +855,6 @@
       </ul>
     </div>
 
-    <!-- PROFESSIONAL -->
     <div class="tier featured">
       <div class="tier-header">
         <div class="tier-name">Professional</div>
@@ -900,7 +884,6 @@
       </ul>
     </div>
 
-    <!-- ENTERPRISE -->
     <div class="tier enterprise-tier">
       <div class="tier-header">
         <div class="tier-name">Enterprise</div>
@@ -932,7 +915,6 @@
 
   </div>
 
-  <!-- ================= WHITE-LABEL PANEL ================= -->
   <div class="whitelabel-panel">
     <span class="wl-icon">🎨</span>
     <h3>White-labeling — run the portal as your own product.</h3>
@@ -962,7 +944,6 @@
 
 </section>
 
-<!-- ================= FEATURE COMPARISON ================= -->
 <section class="block">
   <div class="section-head">
     <h2>Compare <span>plans</span></h2>
@@ -1018,7 +999,6 @@
   </div>
 </section>
 
-<!-- ================= FAQ ================= -->
 <section class="block">
   <div class="section-head">
     <h2>Frequently asked <span>questions</span></h2>
@@ -1100,7 +1080,6 @@
   </div>
 </section>
 
-<!-- ================= CTA ================= -->
 <section class="cta">
   <h2>Not sure which tier fits?</h2>
   <p>Tell us what you're building and we'll recommend the right plan — or design a custom one. Every conversation is with a human engineer, not a sales bot.</p>
@@ -1113,9 +1092,6 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script>
-  // ============================================================
-  // Billing toggle — swap prices between monthly and annual
-  // ============================================================
   const btnMonthly = document.getElementById('btnMonthly');
   const btnAnnual = document.getElementById('btnAnnual');
   const amounts = document.querySelectorAll('.tier-price .amount');
@@ -1124,18 +1100,15 @@
   function setBillingMode(mode) {
     const isAnnual = mode === 'annual';
 
-    // Toggle button active state
     btnMonthly.classList.toggle('active', !isAnnual);
     btnAnnual.classList.toggle('active', isAnnual);
     btnMonthly.setAttribute('aria-selected', !isAnnual);
     btnAnnual.setAttribute('aria-selected', isAnnual);
 
-    // Swap prices
     amounts.forEach(el => {
       el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
     });
 
-    // Swap billing notes
     billingNotes.forEach(el => {
       el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
     });
@@ -1144,9 +1117,6 @@
   btnMonthly.addEventListener('click', () => setBillingMode('monthly'));
   btnAnnual.addEventListener('click', () => setBillingMode('annual'));
 
-  // ============================================================
-  // Back to Top
-  // ============================================================
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) backToTop.classList.add('show');
@@ -1157,9 +1127,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // ============================================================
-  // FAQ — only one open at a time (accordion behaviour)
-  // ============================================================
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     item.addEventListener('toggle', () => {
