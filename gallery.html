@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Gallery — Cephas GM</title>
 
-<!-- SEO & Social Meta Tags -->
 <meta name="description" content="Visual portfolio of Cephas GM systems: enterprise ERP, multimodal AI, secure VPN, OHS safety, asset tracking, satellite tracking, drone defence, water-energy IoT, and accessibility platforms — deployed globally.">
 <meta property="og:title" content="Gallery — Cephas GM">
 <meta property="og:description" content="Twelve working systems across enterprise software, AI platforms, hardware-integrated solutions, and digital transformation.">
@@ -17,7 +16,6 @@
 <meta name="twitter:description" content="Enterprise software, AI platforms, hardware-integrated systems, and secure connectivity — deployed globally.">
 <meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -37,7 +35,6 @@
     background: linear-gradient(180deg, rgba(11,122,89,0.25), rgba(0,0,0,0.25)), url('https://i.dailymail.co.uk/i/pix/2016/05/27/10/34AD5CD000000578-0-image-a-17_1464341527935.jpg') center/cover no-repeat fixed;
     position: relative;
   }
-  /* Liquid crystal overlay — unchanged */
   body::before {
     content: '';
     position: fixed;
@@ -56,8 +53,6 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-
-  /* ---------- Accessibility: Skip Link ---------- */
   .skip-link {
     position: absolute;
     top: -100px;
@@ -77,8 +72,6 @@
     outline: 2px solid #34d399;
     outline-offset: 2px;
   }
-
-  /* ---------- Navigation ---------- */
   .nav{
     background: rgba(0,0,0,0.6);
     display:flex; justify-content:space-between; align-items:center;
@@ -113,8 +106,6 @@
     box-shadow:0 4px 10px rgba(0,0,0,0.25);
   }
   .nav-links .portal-btn:hover{ background:var(--accent-hover); transform:translateY(-2px); }
-
-  /* ---------- Header ---------- */
   header{
     text-align:center; padding:56px 16px 34px; color:#fff;
     background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
@@ -135,7 +126,6 @@
   }
   header h1{ font-size:2.5rem; margin:0 0 8px; font-weight:700; }
   header p{ margin:0; color:#f0f0f0; max-width:900px; margin-left:auto; margin-right:auto; line-height:1.65; }
-
   .gallery-wrap{
     max-width:1200px; margin:40px auto; padding:0 24px 64px;
     position: relative; z-index: 1;
@@ -159,8 +149,6 @@
     border-color: var(--accent);
   }
   .card-figure{ height:220px; overflow:hidden; }
-
-  /* Status badges */
   .card-badge{
     position:absolute;
     top:14px;
@@ -177,21 +165,16 @@
   .card-badge.live{background:rgba(16,185,129,0.9); color:#fff; border:1px solid rgba(52,211,153,0.6);}
   .card-badge.beta{background:rgba(245,158,11,0.9); color:#fff; border:1px solid rgba(251,191,36,0.6);}
   .card-badge.rnd {background:rgba(139,92,246,0.9); color:#fff; border:1px solid rgba(167,139,250,0.6);}
-
   .card-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
   .card-body{ padding:14px 18px; border-top:4px solid var(--accent); text-align:center; }
   .card-body h3{ margin:6px 0; color:var(--accent); font-size:1.1rem; }
   .card-body p{ margin:6px 0 0; color:var(--muted); font-size:0.92rem; line-height:1.5; }
-
-  /* ---------- Footer ---------- */
   footer{
     background: rgba(0,0,0,0.85);
     color:#fff; text-align:center; padding:20px 12px; font-size:0.95rem;
     margin-top:2rem;
     position: relative; z-index: 1;
   }
-
-  /* ---------- Modal ---------- */
   .modal{
     display:none; position:fixed; z-index:300; left:0; top:0; width:100%; height:100%;
     background:rgba(0,0,0,0.95); overflow:auto; padding:40px 20px;
@@ -236,12 +219,10 @@
     flex-shrink:0;
   }
   .modal-close:hover{ background:#f0f0f0; color:var(--accent); }
-
   .modal-body{
     display:grid; grid-template-columns: 1fr 320px; gap:20px; padding:24px;
   }
   @media (max-width:920px){ .modal-body{ grid-template-columns:1fr; } }
-
   .slideshow{
     position:relative;
     background:#111;
@@ -306,7 +287,6 @@
     background:var(--accent-hover);
     transform:translateY(-2px);
   }
-
   .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -329,7 +309,6 @@
   }
   .back-to-top.show { opacity: 1; visibility: visible; }
   .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
-
   @media (max-width:720px){
     header h1{ font-size:1.9rem; }
     .slideshow{ min-height:280px; height:350px; }
@@ -356,6 +335,10 @@
     <a href="services.html">Capabilities</a>
     <a href="gallery.html" class="active">Gallery</a>
     <a href="impact.html">Impact</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="investors.html">Investors</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
@@ -371,84 +354,72 @@
 <div class="gallery-wrap" id="main-content">
   <div class="grid">
 
-    <!-- 1. Main Site -->
     <div class="card" onclick="openModal('site')">
       <span class="card-badge live">Live</span>
       <figure class="card-figure"><img loading="lazy" alt="Cephas GM Platform" src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>Cephas GM Platform</h3><p>Central company platform unifying portfolio showcase, capability docs, and impact metrics.</p></div>
     </div>
 
-    <!-- 2. Sports Betting -->
     <div class="card" onclick="openModal('betting')">
       <span class="card-badge live">Live</span>
       <figure class="card-figure"><img loading="lazy" alt="Sports Betting Platform" src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>Sports Betting Platform</h3><p>Full-stack wagering system with live odds, promotions, and transaction feeds.</p></div>
     </div>
 
-    <!-- 3. VPN -->
     <div class="card" onclick="openModal('vpn')">
       <span class="card-badge live">Live</span>
       <figure class="card-figure"><img loading="lazy" alt="CephasGM VPN" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>Secure VPN Service</h3><p>Next-gen WireGuard &amp; anti-DPI VPN — bypasses censorship, encrypts traffic.</p></div>
     </div>
 
-    <!-- 4. Portal -->
     <div class="card" onclick="openModal('portal')">
       <span class="card-badge beta">Beta</span>
       <figure class="card-figure"><img loading="lazy" alt="Client Portal" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>Client Portal &amp; Admin Dashboard</h3><p>Unified control plane — projects, accounting, downloads, analytics.</p></div>
     </div>
 
-    <!-- 5. OHS System -->
     <div class="card" onclick="openModal('ohs')">
       <span class="card-badge beta">Beta</span>
       <figure class="card-figure"><img loading="lazy" alt="OHS System" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>OHS System</h3><p>Occupational Health &amp; Safety PWA — incidents, risk, PPE, audits, compliance.</p></div>
     </div>
 
-    <!-- 6. Multimodal AI -->
     <div class="card" onclick="openModal('ai')">
       <span class="card-badge beta">Beta</span>
       <figure class="card-figure"><img loading="lazy" alt="Multimodal AI Platform" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>Multimodal AI Platform</h3><p>Text, image, and voice AI — accessible to enterprises worldwide.</p></div>
     </div>
 
-    <!-- 7. Location Tracker -->
     <div class="card" onclick="openModal('tracker')">
       <span class="card-badge beta">Beta</span>
       <figure class="card-figure"><img loading="lazy" alt="Smart Location Tracker" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>Smart Location Tracker</h3><p>GPS tracking PWA with offline queuing, geofencing, multi-channel sharing.</p></div>
     </div>
 
-    <!-- 8. ERP -->
     <div class="card" onclick="openModal('erp')">
       <span class="card-badge beta">Beta</span>
       <figure class="card-figure"><img loading="lazy" alt="Cephas GM ERP" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>Cephas GM ERP</h3><p>31-module enterprise resource planning across finance, HR, operations.</p></div>
     </div>
 
-    <!-- 9. Water-Energy -->
     <div class="card" onclick="openModal('waterenergy')">
       <span class="card-badge beta">Beta</span>
       <figure class="card-figure"><img loading="lazy" alt="Water-Energy System" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>Smart Integrated Water-Energy</h3><p>Tariff-optimised pump automation &amp; AI leak detection — global.</p></div>
     </div>
 
-    <!-- 10. SIGNAID -->
     <div class="card" onclick="openModal('signaid')">
       <span class="card-badge beta">Beta</span>
       <figure class="card-figure"><img loading="lazy" alt="SIGNAID" src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>SIGNAID</h3><p>Global Sign Language Bridge — real-time recognition &amp; AI grammar correction.</p></div>
     </div>
 
-    <!-- 11. SatTrack -->
     <div class="card" onclick="openModal('sattrack')">
       <span class="card-badge rnd">R&amp;D</span>
       <figure class="card-figure"><img loading="lazy" alt="SatTrack" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80"></figure>
       <div class="card-body"><h3>SatTrack</h3><p>Satellite ground terminal prototype — tracking, alignment, link diagnostics.</p></div>
     </div>
 
-    <!-- 12. EchoShield -->
     <div class="card" onclick="openModal('echoshield')">
       <span class="card-badge rnd">R&amp;D</span>
       <figure class="card-figure"><img loading="lazy" alt="EchoShield" src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80"></figure>
@@ -458,7 +429,6 @@
   </div>
 </div>
 
-<!-- ================= MODAL ================= -->
 <div id="galleryModal" class="modal" onclick="closeModalOnBackground(event)">
   <div class="modal-inner">
     <div class="modal-header">
@@ -496,7 +466,6 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script>
-  // Back to Top Button
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) backToTop.classList.add('show');
@@ -507,7 +476,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Gallery data — all 12 systems
   const GALLERIES = {
     site: {
       status: 'live',
@@ -700,7 +668,6 @@
     modalTitle.innerHTML = gallery.title;
     modalDescription.textContent = gallery.description;
     testimonialEl.textContent = gallery.testimonial;
-    // Status badge
     modalBadge.className = 'modal-badge ' + gallery.status;
     modalBadge.textContent = gallery.status === 'rnd' ? 'R&D' : gallery.status.charAt(0).toUpperCase() + gallery.status.slice(1);
     buildProjectLinks(gallery.links);
@@ -787,7 +754,6 @@
   function stopAutoplay() { if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
   function restartAutoplay() { stopAutoplay(); startAutoplay(); }
 
-  // Preload first images
   window.addEventListener('load', () => {
     Object.values(GALLERIES).forEach(gallery => {
       if (gallery.images && gallery.images[0]) new Image().src = gallery.images[0];
