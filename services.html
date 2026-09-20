@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Expertise — Cephas GM</title>
+<title>Capabilities — Cephas GM</title>
 
 <!-- SEO & Social Meta Tags -->
-<meta name="description" content="Cephas GM expertise: enterprise ERP, PWA, health & safety, location tracking, client portals, digital transformation, multimodal AI, VPN security, and water-energy IoT management.">
-<meta property="og:title" content="Expertise — Cephas GM">
-<meta property="og:description" content="Full-stack development, enterprise solutions, AI, VPN, IoT, and specialised industry applications.">
+<meta name="description" content="Cephas GM capabilities: enterprise ERP, PWA engineering, OHS systems, location tracking, client portals, digital transformation, multimodal AI, secure VPN, and water-energy IoT systems — deployed globally.">
+<meta property="og:title" content="Capabilities — Cephas GM">
+<meta property="og:description" content="Full-stack engineering, enterprise platforms, AI systems, secure connectivity, and hardware-integrated IoT — deployed worldwide.">
 <meta property="og:image" content="https://cephasgm.org/og-image.jpg">
 <meta property="og:url" content="https://cephasgm.org/services.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cephas GM Expertise">
-<meta name="twitter:description" content="Enterprise ERP, AI, VPN, safety systems, tracking, portals, digital transformation, and water-energy IoT.">
+<meta name="twitter:title" content="Cephas GM Capabilities">
+<meta name="twitter:description" content="Enterprise ERP, AI platforms, secure connectivity, OHS systems, and water-energy IoT — deployed globally.">
 <meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
 
 <!-- Favicon -->
@@ -22,7 +22,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-  /* CSS Variables for Light/Dark Mode */
   :root {
     --bg-overlay-light: rgba(0,0,0,0.55);
     --card-bg-light: rgba(0,0,0,0.7);
@@ -32,20 +31,14 @@
     --accent-hover: #099268;
     --shadow: 0 8px 20px rgba(0,0,0,0.3);
   }
-  body.dark {
-    --bg-overlay-light: rgba(0,0,0,0.8);
-    --card-bg-light: rgba(0,0,0,0.85);
-    --text-light: #f5f5f5;
-  }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
     font-family:'Poppins',sans-serif;
     background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
     color:var(--text-light);
-    transition: background-color 0.3s, color 0.2s;
     position: relative;
   }
-  /* Liquid crystal overlay */
+  /* Liquid crystal overlay — unchanged */
   body::before {
     content: '';
     position: fixed;
@@ -64,6 +57,8 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
+
+  /* ---------- Navigation ---------- */
   .nav{
     background:rgba(0,0,0,0.6);
     display:flex;
@@ -74,46 +69,66 @@
     top:0;
     z-index:100;
     backdrop-filter: blur(4px);
+    gap:16px;
+    flex-wrap:wrap;
   }
-  .brand{font-weight:700;font-size:1.2rem;}
-  .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .brand{
+    font-weight:700;
+    font-size:1.2rem;
+    color:#fff;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.15);
+    letter-spacing:.3px;
+    transition:.3s;
+    display:inline-block;
+  }
+  .brand:hover{background:rgba(255,255,255,0.28);}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
   .nav-links a{
     color:#fff;
     text-decoration:none;
     padding:8px 12px;
     border-radius:6px;
     transition:.3s;
+    font-size:.95rem;
   }
-  .nav-links a:hover,
-  .nav-links a.active{background:rgba(255,255,255,0.15);}
-  
-  /* Dark mode toggle button */
-  .theme-toggle {
-    background: rgba(255,255,255,0.2);
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 30px;
-    transition: 0.3s;
+  .nav-links a:hover{background:rgba(255,255,255,0.15);}
+  .nav-links a.active{background:rgba(255,255,255,0.2);}
+  .nav-links .portal-btn{
+    background:var(--accent);
+    padding:8px 16px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
   }
-  .theme-toggle:hover {
-    background: rgba(255,255,255,0.4);
-    transform: scale(1.05);
-  }
+  .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
 
+  /* ---------- Header ---------- */
   header{
     text-align:center;
     background:var(--bg-overlay-light);
-    padding:3rem 1rem;
+    padding:3.5rem 1.5rem;
     position: relative;
     z-index: 1;
   }
-  header h1{font-size:2.5rem;margin-bottom:.6rem;}
-  header p{color:var(--text-dark);font-size:1rem;}
+  header .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#34d399;
+    font-weight:700;
+    margin-bottom:1rem;
+    background:rgba(11,122,89,0.18);
+    padding:6px 16px;
+    border-radius:30px;
+    border:1px solid rgba(52,211,153,0.3);
+  }
+  header h1{font-size:2.4rem;margin-bottom:.7rem;line-height:1.25;}
+  header p{color:var(--text-dark);font-size:1rem;max-width:720px;margin:0 auto;line-height:1.65;}
 
-  /* EXPERTISE GRID */
+  /* ---------- Capability grid ---------- */
   .services{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -135,16 +150,17 @@
     transform:translateY(40px);
     animation:fadeInUp 1s forwards;
     border:1px solid rgba(255,255,255,0.1);
+    cursor:pointer;
   }
-  .card:nth-child(1){animation-delay:0.2s;}
-  .card:nth-child(2){animation-delay:0.3s;}
-  .card:nth-child(3){animation-delay:0.4s;}
-  .card:nth-child(4){animation-delay:0.5s;}
-  .card:nth-child(5){animation-delay:0.6s;}
-  .card:nth-child(6){animation-delay:0.7s;}
-  .card:nth-child(7){animation-delay:0.8s;}
-  .card:nth-child(8){animation-delay:0.9s;}
-  .card:nth-child(9){animation-delay:1.0s;}
+  .card:nth-child(1){animation-delay:0.15s;}
+  .card:nth-child(2){animation-delay:0.25s;}
+  .card:nth-child(3){animation-delay:0.35s;}
+  .card:nth-child(4){animation-delay:0.45s;}
+  .card:nth-child(5){animation-delay:0.55s;}
+  .card:nth-child(6){animation-delay:0.65s;}
+  .card:nth-child(7){animation-delay:0.75s;}
+  .card:nth-child(8){animation-delay:0.85s;}
+  .card:nth-child(9){animation-delay:0.95s;}
 
   @keyframes fadeInUp{
     0%{opacity:0;transform:translateY(40px);}
@@ -162,8 +178,17 @@
     display:flex;
     flex-direction:column;
   }
-  .card h3{font-size:1.5rem;color:var(--accent);margin-bottom:1rem;}
-  .card .skills{color:var(--text-dark);margin-bottom:1.5rem;font-size:0.95rem;}
+  .card .problem-label{
+    display:block;
+    font-size:.7rem;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    color:#34d399;
+    font-weight:700;
+    margin-bottom:.6rem;
+  }
+  .card h3{font-size:1.35rem;color:#fff;margin-bottom:.9rem;line-height:1.3;}
+  .card .skills{color:var(--text-dark);margin-bottom:1.5rem;font-size:0.92rem;line-height:1.6;}
   .card .skill-tags{
     display:flex;
     flex-wrap:wrap;
@@ -175,7 +200,7 @@
     color:#fff;
     padding:4px 12px;
     border-radius:20px;
-    font-size:0.8rem;
+    font-size:0.78rem;
     border:1px solid rgba(255,255,255,0.1);
   }
   .tools{
@@ -192,7 +217,7 @@
     font-size:0.7rem;
   }
 
-  /* FOOTER */
+  /* ---------- Footer ---------- */
   footer{
     background:rgba(0,0,0,0.85);
     text-align:center;
@@ -201,9 +226,10 @@
     margin-top:2rem;
     position: relative;
     z-index: 1;
+    color:var(--text-dark);
   }
 
-  /* MODAL */
+  /* ---------- Modal ---------- */
   .modal{
     display:none;
     position:fixed;
@@ -224,11 +250,9 @@
     max-width:950px;
     animation:fadeIn .5s;
   }
-  body.dark .modal-content{background:#1e1e2a;color:#eee;}
   @keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
   .modal-content h2{color:var(--accent);margin-bottom:1rem;}
   .modal-content p{line-height:1.6;color:#333;}
-  body.dark .modal-content p{color:#ccc;}
   .modal-gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -245,19 +269,18 @@
     border-radius:8px;
     margin-top:1.5rem;
   }
-  body.dark .project-list{background:#2a2a35;}
   .project-list h4{color:var(--accent);margin-bottom:.5rem;}
   .project-list ul{list-style:none;padding-left:0;}
-  .project-list li{padding:4px 0;border-bottom:1px solid #ddd;}
-  body.dark .project-list li{border-bottom-color:#444;}
+  .project-list li{padding:6px 0;border-bottom:1px solid #ddd;font-size:.92rem;}
   .project-list li:last-child{border-bottom:none;}
+  .project-list a{color:var(--accent);text-decoration:none;font-weight:600;}
+  .project-list a:hover{text-decoration:underline;}
   .close{
     color:#000;float:right;font-size:28px;font-weight:bold;
   }
   .close:hover{color:var(--accent);cursor:pointer;}
-  body.dark .close{color:#aaa;}
 
-  /* Back to Top Button */
+  /* ---------- Back to top ---------- */
   .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -278,19 +301,14 @@
     transition: all 0.3s;
     z-index: 99;
   }
-  .back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-  }
-  .back-to-top:hover {
-    background: var(--accent-hover);
-    transform: translateY(-5px);
-  }
+  .back-to-top.show { opacity: 1; visibility: visible; }
+  .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
 
   @media (max-width: 768px) {
-    header h1 { font-size: 2rem; }
+    header h1 { font-size: 1.8rem; }
     .services { gap: 1rem; padding: 2rem 4%; }
-    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
+    .nav{ padding:12px 16px; }
+    .nav-links a{ font-size:.85rem; padding:6px 9px; }
   }
 </style>
 </head>
@@ -298,32 +316,33 @@
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="brand">Cephas GM</div>
+  <a href="index.html" class="brand">Cephas GM</a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
-    <a href="services.html" class="active">Services</a>
+    <a href="services.html" class="active">Capabilities</a>
     <a href="gallery.html">Gallery</a>
     <a href="impact.html">Impact</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
   </div>
 </nav>
 
 <!-- HEADER -->
 <header>
-  <h1>My Expertise & Capabilities</h1>
-  <p>Full-stack development, enterprise solutions, AI, VPN, IoT, and specialised industry applications</p>
+  <span class="eyebrow">Nine Engineering Capabilities</span>
+  <h1>Built to solve operational problems, not sell services.</h1>
+  <p>Each capability below exists because a real problem needed solving — from fragmented enterprise systems to energy waste in water infrastructure. Every solution is deployed worldwide, in production or active development.</p>
 </header>
 
-<!-- SERVICES/EXPERTISE GRID -->
+<!-- CAPABILITIES GRID -->
 <section class="services">
+
   <div class="card" onclick="openModal('modal1')">
     <div class="card-content">
-      <h3>Enterprise ERP Systems</h3>
-      <p class="skills">Comprehensive business management solutions integrating finance, HR, supply chain, and operations.</p>
+      <span class="problem-label">Problem: fragmented enterprise systems</span>
+      <h3>Enterprise ERP Platforms</h3>
+      <p class="skills">Unified enterprise resource planning — finance, procurement, inventory, manufacturing, HR, and operations in a single control plane across distributed global teams.</p>
       <div class="skill-tags">
         <span class="tag">Module Design</span>
         <span class="tag">Integration</span>
@@ -341,8 +360,9 @@
 
   <div class="card" onclick="openModal('modal2')">
     <div class="card-content">
-      <h3>Progressive Web Apps (PWA)</h3>
-      <p class="skills">Cross-platform applications with offline capability, push notifications, and native-like performance.</p>
+      <span class="problem-label">Problem: unreliable connectivity in the field</span>
+      <h3>Progressive Web Apps</h3>
+      <p class="skills">Cross-platform applications with full offline capability, push notifications, and native-like performance — engineered for environments where connectivity cannot be assumed.</p>
       <div class="skill-tags">
         <span class="tag">Offline-first</span>
         <span class="tag">Service Workers</span>
@@ -360,12 +380,13 @@
 
   <div class="card" onclick="openModal('modal3')">
     <div class="card-content">
-      <h3>Health & Safety Systems</h3>
-      <p class="skills">Specialized applications for incident tracking, compliance management, and safety inspections.</p>
+      <span class="problem-label">Problem: unmanaged workplace risk</span>
+      <h3>OHS Systems</h3>
+      <p class="skills">Occupational Health &amp; Safety platforms for high-risk industrial operations — incident tracking, risk assessment, PPE management, compliance auditing, and emergency response.</p>
       <div class="skill-tags">
         <span class="tag">Incident Tracking</span>
         <span class="tag">Compliance</span>
-        <span class="tag">Checklists</span>
+        <span class="tag">Risk Matrix</span>
         <span class="tag">Reporting</span>
       </div>
       <div class="tools">
@@ -379,12 +400,13 @@
 
   <div class="card" onclick="openModal('modal4')">
     <div class="card-content">
-      <h3>Location Tracking Solutions</h3>
-      <p class="skills">Real-time GPS tracking for assets, vehicles, and personnel with geofencing capabilities.</p>
+      <span class="problem-label">Problem: lost assets &amp; low-connectivity tracking</span>
+      <h3>Location Tracking Systems</h3>
+      <p class="skills">Real-time GPS tracking for assets, vehicles, and personnel — with geofencing, offline queuing, and multi-channel sharing engineered for field operations worldwide.</p>
       <div class="skill-tags">
         <span class="tag">GPS Integration</span>
         <span class="tag">Geofencing</span>
-        <span class="tag">Maps</span>
+        <span class="tag">Offline Queue</span>
         <span class="tag">Real-time</span>
       </div>
       <div class="tools">
@@ -398,8 +420,9 @@
 
   <div class="card" onclick="openModal('modal5')">
     <div class="card-content">
-      <h3>Client & Staff Portals</h3>
-      <p class="skills">Secure, personalized gateways for client access, document management, and service updates.</p>
+      <span class="problem-label">Problem: no single control plane</span>
+      <h3>Client &amp; Staff Portals</h3>
+      <p class="skills">Secure role-based gateways unifying project tracking, document management, accounting, and analytics — replacing fragmented tools with one entry point for clients and staff.</p>
       <div class="skill-tags">
         <span class="tag">Authentication</span>
         <span class="tag">Role-based Access</span>
@@ -417,13 +440,14 @@
 
   <div class="card" onclick="openModal('modal6')">
     <div class="card-content">
+      <span class="problem-label">Problem: legacy processes slowing operations</span>
       <h3>Digital Transformation</h3>
-      <p class="skills">Modernizing business processes through custom software, automation, and cloud integration.</p>
+      <p class="skills">Modernising business operations through custom software, process automation, and cloud integration — turning legacy workflows into data-driven systems.</p>
       <div class="skill-tags">
         <span class="tag">Process Automation</span>
         <span class="tag">Cloud Integration</span>
         <span class="tag">Data Migration</span>
-        <span class="tag">Workflow Optimization</span>
+        <span class="tag">Workflow Optimisation</span>
       </div>
       <div class="tools">
         <span class="tool-badge">Cloud APIs</span>
@@ -436,8 +460,9 @@
 
   <div class="card" onclick="openModal('modal7')">
     <div class="card-content">
+      <span class="problem-label">Problem: AI access &amp; cost barriers</span>
       <h3>Multimodal AI Platforms</h3>
-      <p class="skills">Conversational AI, image/video generation, voice search, text-to-speech, and coding assistants.</p>
+      <p class="skills">Conversational AI, image and video generation, voice search, text-to-speech, and specialised agents — making advanced AI accessible to enterprises of every size and region.</p>
       <div class="skill-tags">
         <span class="tag">LLMs</span>
         <span class="tag">Image/Video Gen</span>
@@ -456,13 +481,14 @@
 
   <div class="card" onclick="openModal('modal8')">
     <div class="card-content">
-      <h3>VPN & Network Security</h3>
-      <p class="skills">Next‑gen WireGuard, anti‑DPI technology, traffic encryption, and censorship bypass.</p>
+      <span class="problem-label">Problem: censorship &amp; traffic interception</span>
+      <h3>Secure Connectivity &amp; VPN</h3>
+      <p class="skills">Next-generation WireGuard with anti-DPI technology — bypassing censorship, hiding IP addresses, and encrypting traffic for users in restrictive or high-surveillance networks.</p>
       <div class="skill-tags">
         <span class="tag">WireGuard</span>
-        <span class="tag">Anti‑DPI</span>
+        <span class="tag">Anti-DPI</span>
         <span class="tag">Privacy</span>
-        <span class="tag">Multi‑platform</span>
+        <span class="tag">Multi-platform</span>
       </div>
       <div class="tools">
         <span class="tool-badge">WireGuard</span>
@@ -473,11 +499,11 @@
     </div>
   </div>
 
-  <!-- NEW CARD: Water-Energy IoT System -->
   <div class="card" onclick="openModal('modal9')">
     <div class="card-content">
-      <h3>Water‑Energy IoT System</h3>
-      <p class="skills">Real‑time water pumping optimisation, tariff‑aware control, leak detection, and energy monitoring.</p>
+      <span class="problem-label">Problem: energy waste in water systems</span>
+      <h3>Water-Energy IoT Systems</h3>
+      <p class="skills">Real-time water pumping optimisation with tariff-aware control, AI leak detection, and energy monitoring — delivering up to 30% energy savings for utilities and industrial facilities worldwide.</p>
       <div class="skill-tags">
         <span class="tag">IoT</span>
         <span class="tag">ESP32</span>
@@ -493,14 +519,16 @@
       </div>
     </div>
   </div>
+
 </section>
 
-<!-- MODALS (existing ones + new) -->
+<!-- ================= MODALS ================= -->
+
 <div id="modal1" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal1')">&times;</span>
-    <h2>Enterprise ERP Systems</h2>
-    <p>I design and develop comprehensive Enterprise Resource Planning (ERP) systems that help businesses manage daily operations, administration, and support services through integrated software modules.</p>
+    <h2>Enterprise ERP Platforms</h2>
+    <p>We design and build comprehensive Enterprise Resource Planning systems that unify daily operations, administration, and support services across distributed global teams — replacing fragmented legacy tools with one integrated platform.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=80" alt="ERP Dashboard" loading="lazy">
       <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Business Analytics" loading="lazy">
@@ -509,9 +537,9 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>CephasGM-ERP</strong> - Comprehensive business management solution</li>
-        <li><strong>Financial Management Module</strong> - Accounting & reporting system</li>
-        <li><strong>HR Administration Suite</strong> - Employee management & payroll</li>
+        <li><strong>Cephas GM ERP</strong> — 31-module enterprise platform · <a href="https://cephasgm.github.io/CephasGM-ERP/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Financial Management Module</strong> — Accounting &amp; reporting system</li>
+        <li><strong>HR Administration Suite</strong> — Employee management &amp; payroll</li>
       </ul>
     </div>
   </div>
@@ -520,8 +548,8 @@
 <div id="modal2" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal2')">&times;</span>
-    <h2>Progressive Web Apps (PWA)</h2>
-    <p>I build Progressive Web Applications that work offline, load instantly, and provide a native app-like experience across all devices and platforms.</p>
+    <h2>Progressive Web Apps</h2>
+    <p>We build Progressive Web Applications that work offline, load instantly, and deliver a native app-like experience across all devices — engineered for field operations where reliable connectivity cannot be assumed.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile App" loading="lazy">
       <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="Responsive Design" loading="lazy">
@@ -530,9 +558,9 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>Health-Safety-PWA</strong> - Occupational health & safety system</li>
-        <li><strong>smart-location-tracker</strong> - Asset tracking PWA</li>
-        <li><strong>cephasgm-portal</strong> - Secure client portal</li>
+        <li><strong>OHS System</strong> — Occupational health &amp; safety PWA · <a href="https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Smart Location Tracker</strong> — Asset tracking PWA · <a href="https://cephasgm.github.io/smart-location-tracker/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Client Portal &amp; Admin Dashboard</strong> — Secure role-based portal · <a href="https://cephasgm.github.io/cephasgm-portal/" target="_blank" rel="noopener">View live</a></li>
       </ul>
     </div>
   </div>
@@ -541,8 +569,8 @@
 <div id="modal3" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal3')">&times;</span>
-    <h2>Health & Safety Systems</h2>
-    <p>Specialized applications for Occupational Health & Safety management, tailored for industrial environments to track incidents, manage safety checklists, and ensure compliance.</p>
+    <h2>OHS Systems</h2>
+    <p>Specialised Occupational Health &amp; Safety platforms built for high-risk industrial environments — tracking incidents, managing risk assessments and PPE, running safety checklists, and ensuring regulatory compliance across global operations.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80" alt="Safety Inspection" loading="lazy">
       <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" alt="Safety Checklist" loading="lazy">
@@ -551,9 +579,9 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>Health-Safety-PWA-for-Metal-Management</strong> - Metal industry safety system</li>
-        <li><strong>Incident Tracking Module</strong> - Safety incident management</li>
-        <li><strong>Compliance Checklist System</strong> - Regulatory compliance tools</li>
+        <li><strong>OHS System</strong> — Industrial safety management PWA · <a href="https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Incident Tracking Module</strong> — Safety incident management</li>
+        <li><strong>Compliance Checklist System</strong> — Regulatory compliance tools</li>
       </ul>
     </div>
   </div>
@@ -562,8 +590,8 @@
 <div id="modal4" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal4')">&times;</span>
-    <h2>Location Tracking Solutions</h2>
-    <p>Advanced location-tracking applications for tracking assets, vehicles, and personnel as part of comprehensive logistics and safety solutions with real-time positioning and geofencing.</p>
+    <h2>Location Tracking Systems</h2>
+    <p>Advanced location-tracking applications for assets, vehicles, and personnel — with real-time positioning, geofencing, offline queuing, and multi-channel sharing built for logistics, field operations, and safety visibility in unreliable networks.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="GPS Tracking" loading="lazy">
       <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Asset Tracking" loading="lazy">
@@ -572,9 +600,9 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>smart-location-tracker</strong> - Asset & vehicle tracking PWA</li>
-        <li><strong>Fleet Management Dashboard</strong> - Real-time fleet monitoring</li>
-        <li><strong>Geofencing Alert System</strong> - Boundary monitoring</li>
+        <li><strong>Smart Location Tracker</strong> — Asset &amp; fleet tracking PWA · <a href="https://cephasgm.github.io/smart-location-tracker/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Fleet Management Dashboard</strong> — Real-time fleet monitoring</li>
+        <li><strong>Geofencing Alert System</strong> — Boundary monitoring</li>
       </ul>
     </div>
   </div>
@@ -583,8 +611,8 @@
 <div id="modal5" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal5')">&times;</span>
-    <h2>Client & Staff Portals</h2>
-    <p>Secure, personalized gateways for clients and staff to access dashboards, downloads, and real-time updates related to services and solutions with role-based access control.</p>
+    <h2>Client &amp; Staff Portals</h2>
+    <p>Secure, role-based gateways unifying client access, document management, project tracking, and analytics — replacing fragmented tools with one control plane for clients and internal staff.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Client Portal" loading="lazy">
       <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard" loading="lazy">
@@ -593,9 +621,9 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>cephasgm-portal</strong> - Secure client and staff portal</li>
-        <li><strong>Document Management System</strong> - File sharing & collaboration</li>
-        <li><strong>Service Update Dashboard</strong> - Real-time notifications</li>
+        <li><strong>Client Portal &amp; Admin Dashboard</strong> — Unified control plane · <a href="https://cephasgm.github.io/cephasgm-portal/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Document Management System</strong> — File sharing &amp; collaboration</li>
+        <li><strong>Service Update Dashboard</strong> — Real-time notifications</li>
       </ul>
     </div>
   </div>
@@ -605,7 +633,7 @@
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal6')">&times;</span>
     <h2>Digital Transformation</h2>
-    <p>Modernizing business processes through custom software solutions, automation, and cloud integration to improve efficiency, reduce costs, and enable data-driven decision making.</p>
+    <p>Modernising business operations through custom software, process automation, and cloud integration — turning legacy workflows into data-driven systems that improve efficiency and reduce operational cost.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Digital Transformation" loading="lazy">
       <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Process Automation" loading="lazy">
@@ -614,9 +642,9 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>cephasgm-site</strong> - Corporate digital presence</li>
-        <li><strong>Workflow Automation Suite</strong> - Process optimization</li>
-        <li><strong>Data Migration Tools</strong> - Legacy system modernization</li>
+        <li><strong>Cephas GM Platform</strong> — Corporate digital presence · <a href="https://cephasgm.org/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Workflow Automation Suite</strong> — Process optimisation</li>
+        <li><strong>Data Migration Tools</strong> — Legacy system modernisation</li>
       </ul>
     </div>
   </div>
@@ -626,7 +654,7 @@
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal7')">&times;</span>
     <h2>Multimodal AI Platforms</h2>
-    <p>I build fully functional multimodal AI platforms that combine conversational AI, image/video generation, voice search, text-to-speech, coding assistance, and specialised agents. These systems are designed for enterprise automation, customer support, and intelligent decision-making.</p>
+    <p>We build fully functional multimodal AI platforms combining conversational AI, image and video generation, voice search, text-to-speech, coding assistance, and specialised agents — designed for enterprise automation, customer support, and intelligent decision-making.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Chat" loading="lazy">
       <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="AI Brain" loading="lazy">
@@ -635,10 +663,10 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>CephasGM-AI</strong> - Multimodal AI platform (<a href="https://ai.cephasgm.org/" target="_blank">ai.cephasgm.org</a>)</li>
-        <li><strong>Conversational AI Agents</strong> - Customer support & automation</li>
-        <li><strong>Voice & Audio Studio</strong> - Speech-to-text & ElevenLabs TTS</li>
-        <li><strong>Coding Assistant</strong> - Read, debug, and assist with programming</li>
+        <li><strong>Multimodal AI Platform</strong> — Live platform · <a href="https://cephasgm-ai.onrender.com" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Conversational AI Agents</strong> — Customer support &amp; automation</li>
+        <li><strong>Voice &amp; Audio Studio</strong> — Speech-to-text &amp; TTS</li>
+        <li><strong>Coding Assistant</strong> — Read, debug, and assist with programming</li>
       </ul>
     </div>
   </div>
@@ -647,8 +675,8 @@
 <div id="modal8" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal8')">&times;</span>
-    <h2>VPN & Network Security</h2>
-    <p>I develop next‑gen VPN solutions using WireGuard and anti‑DPI technology to bypass censorship, hide IP addresses, and encrypt traffic. These enterprise-grade systems ensure privacy, security, and unrestricted access across multiple platforms.</p>
+    <h2>Secure Connectivity &amp; VPN</h2>
+    <p>Next-generation VPN solutions built on WireGuard with anti-DPI technology — engineered to bypass censorship, hide IP addresses, and encrypt traffic. Enterprise-grade privacy and unrestricted global access across multiple platforms.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt="VPN Security" loading="lazy">
       <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Network Encryption" loading="lazy">
@@ -657,20 +685,19 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>CephasGM-VPN</strong> - WireGuard & anti‑DPI VPN (<a href="https://vpn.cephasgm.org/" target="_blank">vpn.cephasgm.org</a>)</li>
-        <li><strong>Multi‑platform VPN clients</strong> - Windows, Mac, Linux, iOS, Android</li>
-        <li><strong>Privacy & no‑logs infrastructure</strong> - Complete anonymity</li>
+        <li><strong>Secure VPN Service</strong> — WireGuard &amp; anti-DPI VPN · <a href="https://vpn.cephasgm.org/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>Multi-platform VPN clients</strong> — Windows, Mac, Linux, iOS, Android</li>
+        <li><strong>Privacy &amp; no-logs infrastructure</strong> — Complete anonymity</li>
       </ul>
     </div>
   </div>
 </div>
 
-<!-- NEW MODAL: Water-Energy IoT System -->
 <div id="modal9" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('modal9')">&times;</span>
-    <h2>Water‑Energy IoT System</h2>
-    <p>I build intelligent IoT systems that optimise water pumping using real‑time electricity tariff data, water levels, and leak detection. The system uses an ESP32 microcontroller with ultrasonic sensor, current/energy sensors, and a cloud backend (Flask, MySQL) to automate pumps during off‑peak hours, saving up to 30% energy and preventing water waste. Includes a reactive dashboard, manual override, email alerts, CSV reports, and PWA.</p>
+    <h2>Water-Energy IoT Systems</h2>
+    <p>We build intelligent IoT systems that optimise water pumping using real-time electricity tariff data, water levels, and leak detection. Using an ESP32 microcontroller with ultrasonic and current/energy sensors, and a cloud backend (Flask, MySQL), the system automates pumps during off-peak hours — saving up to 30% energy and preventing water waste. Includes a reactive dashboard, manual override, email alerts, CSV reports, and PWA.</p>
     <div class="modal-gallery">
       <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="IoT Dashboard" loading="lazy">
       <img src="https://images.unsplash.com/photo-1581092335871-4b6a6d6f6f5a?auto=format&fit=crop&w=800&q=80" alt="ESP32 Hardware" loading="lazy">
@@ -679,9 +706,9 @@
     <div class="project-list">
       <h4>Related Projects:</h4>
       <ul>
-        <li><strong>CephasGM Water‑Energy Management</strong> - Live system at <a href="https://water.cephasgm.org" target="_blank">water.cephasgm.org</a></li>
-        <li><strong>ESP32 firmware & Flask API</strong> - Open source (available on request)</li>
-        <li><strong>Tariff‑aware pump controller</strong> - Up to 30% energy savings</li>
+        <li><strong>Smart Integrated Water-Energy</strong> — Live system · <a href="https://cephasgm.github.io/Smart-Intergrated-Water_Energy/" target="_blank" rel="noopener">View live</a></li>
+        <li><strong>ESP32 firmware &amp; Flask API</strong> — Open source (available on request)</li>
+        <li><strong>Tariff-aware pump controller</strong> — Up to 30% energy savings worldwide</li>
       </ul>
     </div>
   </div>
@@ -692,16 +719,7 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script>
-  // Dark/Light Mode Toggle
-  const themeToggle = document.getElementById('themeToggle');
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'dark') document.body.classList.add('dark');
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-  });
-
-  // Back to Top Button
+  // Back to Top
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) backToTop.classList.add('show');
