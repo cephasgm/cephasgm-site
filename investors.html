@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investors &amp; Partners — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="Cephas GM investor and partner brief — the ask, the traction, the use of funds, and the milestones. Critical infrastructure systems engineering at seed stage.">
+<meta property="og:title" content="Investors &amp; Partners — Cephas GM">
+<meta property="og:description" content="Seed stage. Twelve working systems. Six industry domains. Clear ask, transparent use of funds, milestone-driven roadmap.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org/investors.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM — Investor Brief">
+<meta name="twitter:description" content="Twelve systems. Three live deployments. Clear ask. Milestone-driven engineering.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-overlay-light: rgba(0,0,0,0.55);
+    --card-bg-light: rgba(0,0,0,0.6);
+    --text-light: #fff;
+    --text-dark: #ddd;
+    --text-muted: #999;
+    --accent: #0b7a59;
+    --accent-hover: #099268;
+    --accent-light: #34d399;
+    --gold: #f5c66a;
+    --info: #3498db;
+    --warning: #f39c12;
+    --border: rgba(255,255,255,0.12);
+    --shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:url('https://cloudfront.safaribookings.com/blog/2022/01/00-the-best-east-african-safari-tours-BW-header1200px-723x362.jpg') center/cover fixed no-repeat;
+    color:var(--text-light);
+    position: relative;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Accessibility: Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: #0b7a59;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .9rem;
+    z-index: 9999;
+    transition: top .2s ease;
+  }
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
+  }
+
+  /* ---------- Navigation ---------- */
+  .nav{
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 30px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter: blur(4px);
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-weight:700;
+    font-size:1.2rem;
+    color:#fff;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.15);
+    letter-spacing:.3px;
+    transition:.3s;
+    display:inline-block;
+  }
+  .brand:hover{background:rgba(255,255,255,0.28);}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:.3s;
+    font-size:.95rem;
+  }
+  .nav-links a:hover{background:rgba(255,255,255,0.15);}
+  .nav-links a.active{background:rgba(255,255,255,0.2);}
+  .nav-links .portal-btn{
+    background:var(--accent);
+    padding:8px 16px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+  }
+  .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
+
+  /* ---------- Header ---------- */
+  header{
+    text-align:center;
+    background:var(--bg-overlay-light);
+    padding:4rem 1.5rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  header .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#f5c66a;
+    font-weight:700;
+    margin-bottom:1.1rem;
+    background:rgba(245,198,106,0.15);
+    padding:6px 16px;
+    border-radius:30px;
+    border:1px solid rgba(245,198,106,0.35);
+  }
+  header h1{
+    font-size:2.5rem;
+    margin-bottom:1rem;
+    line-height:1.25;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:700;
+  }
+  header p{
+    color:var(--text-dark);
+    font-size:1.05rem;
+    max-width:780px;
+    margin:0 auto;
+    line-height:1.7;
+  }
+
+  /* ---------- Section shell ---------- */
+  section.block{
+    position:relative;
+    z-index:1;
+    padding:4rem 8%;
+  }
+  .section-head{
+    text-align:center;
+    margin-bottom:2.8rem;
+  }
+  .section-head h2{
+    font-size:2rem;
+    color:#fff;
+    margin-bottom:.7rem;
+  }
+  .section-head h2 span{color:var(--accent-light);}
+  .section-head p{
+    color:var(--text-dark);
+    max-width:720px;
+    margin:0 auto;
+    font-size:1rem;
+    line-height:1.65;
+  }
+
+  /* ---------- The Ask block ---------- */
+  .ask-block{
+    max-width: 960px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(11,122,89,0.15), rgba(52,211,153,0.05));
+    border: 1px solid rgba(52,211,153,0.3);
+    border-radius: 20px;
+    padding: 44px 40px;
+    box-shadow: 0 20px 60px rgba(11,122,89,0.25);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .ask-block::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+  }
+  .ask-label{
+    display: inline-block;
+    font-size: .72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 700;
+    margin-bottom: 14px;
+    background: rgba(52,211,153,0.15);
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(52,211,153,0.35);
+  }
+  .ask-amount{
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+  .ask-amount .currency{
+    color: var(--accent-light);
+  }
+  .ask-subtitle{
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ask-milestones{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+    text-align: left;
+  }
+  .ask-milestone{
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(52,211,153,0.2);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: transform .3s, border-color .3s;
+  }
+  .ask-milestone:hover{
+    transform: translateY(-4px);
+    border-color: var(--accent-light);
+  }
+  .ask-milestone .ms-num{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .ask-milestone h4{
+    font-size: .98rem;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.35;
+  }
+  .ask-milestone p{
+    font-size: .84rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* ---------- Traction grid ---------- */
+  .traction-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .traction-card{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 22px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform .3s, border-color .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .traction-card::after{
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+  .traction-card:hover{
+    transform: translateY(-6px);
+    border-color: var(--accent);
+  }
+  .traction-icon{
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .traction-value{
+    font-size: 2rem;
+    color: var(--accent-light);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+  .traction-label{
+    font-size: .85rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+  }
+  .traction-sub{
+    font-size: .74rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  /* ---------- Use of funds table ---------- */
+  .funds-wrap{
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--card-bg-light);
+    box-shadow: var(--shadow);
+  }
+  table.funds{
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+  }
+  table.funds th,
+  table.funds td{
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: .9rem;
+    color: var(--text-dark);
+  }
+  table.funds thead th{
+    background: rgba(11,122,89,0.15);
+    color: var(--accent-light);
+    font-weight: 700;
+    font-size: .76rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  table.funds thead th:last-child,
+  table.funds tbody td:last-child{
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  table.funds tbody tr:hover{
+    background: rgba(255,255,255,0.03);
+  }
+  table.funds tbody tr:last-child td{
+    border-bottom: none;
+  }
+  table.funds tbody td:first-child{
+    color: #fff;
+    font-weight: 600;
+  }
+  table.funds .funds-total td{
+    background: rgba(11,122,89,0.12);
+    color: var(--accent-light) !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+  }
+  table.funds .funds-purpose{
+    font-size: .84rem;
+    color: var(--text-muted);
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline{
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .timeline::before{
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: linear-gradient(to bottom,
+      rgba(11,122,89,0.7),
+      rgba(52,211,153,0.3) 90%,
+      transparent);
+  }
+  .timeline-item{
+    position: relative;
+    padding-left: 66px;
+    margin-bottom: 22px;
+  }
+  .timeline-item::before{
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 18px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid rgba(11,122,89,0.25);
+    box-shadow: 0 0 0 4px rgba(11,122,89,0.12);
+    z-index: 2;
+  }
+  .timeline-card{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    box-shadow: var(--shadow);
+    transition: transform .3s, border-color .3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .timeline-card:hover{
+    transform: translateX(6px);
+    border-color: var(--accent);
+  }
+  .timeline-quarter{
+    font-size: .72rem;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .timeline-title{
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .timeline-metric{
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .timeline-metric strong{
+    display: block;
+    font-size: 1.2rem;
+    color: var(--accent-light);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .timeline-metric span{
+    font-size: .74rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .8px;
+  }
+
+  /* ---------- Team cards ---------- */
+  .team-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .team-card-inv{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    transition: transform .3s, border-color .3s;
+    text-align: center;
+  }
+  .team-card-inv:hover{
+    transform: translateY(-6px);
+    border-color: var(--accent);
+  }
+  .team-card-inv img{
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    margin-bottom: 14px;
+  }
+  .team-card-inv h3{
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .team-card-inv .inv-role{
+    font-size: .82rem;
+    color: var(--accent-light);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .team-card-inv p{
+    font-size: .85rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* ---------- Documents ---------- */
+  .docs-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .doc-card{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: inherit;
+    transition: transform .3s, border-color .3s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .doc-card:hover{
+    transform: translateY(-5px);
+    border-color: var(--accent);
+  }
+  .doc-card .doc-icon{
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .doc-card h3{
+    font-size: 1rem;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .doc-card p{
+    font-size: .84rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .doc-card .doc-format{
+    margin-top: auto;
+    padding-top: 10px;
+    font-size: .72rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 700;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    text-align: center;
+    background: var(--bg-overlay-light);
+    padding: 3.5rem 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cta h2{
+    font-size: 1.9rem;
+    margin-bottom: .9rem;
+  }
+  .cta p{
+    color: var(--text-dark);
+    max-width: 660px;
+    margin: 0 auto 1.8rem;
+    line-height: 1.65;
+  }
+  .cta-contact{
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+  }
+  .cta-contact:hover{
+    text-decoration: underline;
+  }
+
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:.8rem 2rem;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    font-size:.95rem;
+    margin: 6px;
+  }
+  .btn:hover{
+    background:var(--accent-hover);
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  }
+  .btn.ghost{
+    background:transparent;
+    border:1.5px solid rgba(255,255,255,0.5);
+    box-shadow:none;
+  }
+  .btn.ghost:hover{
+    background:rgba(255,255,255,0.12);
+    border-color:#fff;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: rgba(0,0,0,0.85);
+    text-align: center;
+    padding: 1.2rem;
+    font-size: .9rem;
+    position: relative;
+    z-index: 1;
+    color: var(--text-dark);
+  }
+
+  /* ---------- Back to top ---------- */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show { opacity: 1; visibility: visible; }
+  .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
+
+  @media (max-width: 768px){
+    header h1{ font-size: 1.85rem; }
+    header p{ font-size: .98rem; }
+    .nav{ padding: 12px 16px; }
+    .nav-links a{ font-size: .85rem; padding: 6px 9px; }
+    section.block{ padding: 3rem 5%; }
+    .section-head h2{ font-size: 1.6rem; }
+    .ask-block{ padding: 32px 22px; }
+    .ask-amount{ font-size: 2.5rem; }
+    .timeline-card{ flex-direction: column; align-items: flex-start; }
+    .timeline-metric{ text-align: left; }
+    .cta h2{ font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="nav">
+  <a href="index.html" class="brand">Cephas GM</a>
+  <div class="nav-links">
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Capabilities</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="impact.html">Impact</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="investors.html" class="active">Investors</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
+  </div>
+</nav>
+
+<header id="main-content">
+  <span class="eyebrow">Investor &amp; Partner Brief · Seed Stage</span>
+  <h1>Building the systems that keep critical infrastructure running.</h1>
+  <p>Twelve working systems across six industry domains. Three live deployments. One clear ask. This page explains the opportunity, the traction, and how capital accelerates the mission.</p>
+</header>
+
+<!-- ================= THE ASK ================= -->
+<section class="block">
+  <div class="ask-block">
+    <span class="ask-label">The Ask</span>
+    <div class="ask-amount"><span class="currency">$</span>500,000</div>
+    <div class="ask-subtitle">Seed round — funds 18 months of runway and unlocks three concrete milestones.</div>
+
+    <div class="ask-milestones">
+      <div class="ask-milestone">
+        <span class="ms-num">1</span>
+        <h4>Five enterprise clients under contract</h4>
+        <p>Signed SaaS subscriptions across at least three industry domains.</p>
+      </div>
+      <div class="ask-milestone">
+        <span class="ms-num">2</span>
+        <h4>$250K ARR from subscriptions</h4>
+        <p>Recurring revenue from Basic, Professional, and Enterprise tiers.</p>
+      </div>
+      <div class="ask-milestone">
+        <span class="ms-num">3</span>
+        <h4>Three hardware-AI deployments</h4>
+        <p>EchoShield, SatTrack, and Water-Energy installed in the field.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRACTION ================= -->
+<section class="block">
+  <div class="section-head">
+    <h2>What we've <span>already built</span></h2>
+    <p>Before this raise. Without external capital. Every system below is deployed or in active development.</p>
+  </div>
+
+  <div class="traction-grid">
+    <div class="traction-card">
+      <span class="traction-icon">🛠️</span>
+      <div class="traction-value">12</div>
+      <div class="traction-label">Working Systems</div>
+      <div class="traction-sub">Enterprise · AI · Hardware · IoT</div>
+    </div>
+    <div class="traction-card">
+      <span class="traction-icon">🌍</span>
+      <div class="traction-value">6</div>
+      <div class="traction-label">Industry Domains</div>
+      <div class="traction-sub">Energy · Safety · Defence · Accessibility</div>
+    </div>
+    <div class="traction-card">
+      <span class="traction-icon">🟢</span>
+      <div class="traction-value">3</div>
+      <div class="traction-label">Live Deployments</div>
+      <div class="traction-sub">VPN · Betting · Platform</div>
+    </div>
+    <div class="traction-card">
+      <span class="traction-icon">🔗</span>
+      <div class="traction-value">13</div>
+      <div class="traction-label">Public Repositories</div>
+      <div class="traction-sub">Open, versioned on GitHub</div>
+    </div>
+    <div class="traction-card">
+      <span class="traction-icon">🔧</span>
+      <div class="traction-value">3</div>
+      <div class="traction-label">Hardware-AI Systems</div>
+      <div class="traction-sub">EchoShield · SatTrack · Water-Energy</div>
+    </div>
+    <div class="traction-card">
+      <span class="traction-icon">🤝</span>
+      <div class="traction-value">3</div>
+      <div class="traction-label">Institutional Backers</div>
+      <div class="traction-sub">UNDP · MoE · TIRDO</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= USE OF FUNDS ================= -->
+<section class="block">
+  <div class="section-head">
+    <h2>How the capital is <span>deployed</span></h2>
+    <p>Direct allocation. Every dollar maps to a specific capability the business needs to reach $250K ARR.</p>
+  </div>
+
+  <div class="funds-wrap">
+    <table class="funds">
+      <thead>
+        <tr>
+          <th>Allocation</th>
+          <th>Purpose</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Engineering</td>
+          <td class="funds-purpose">2 senior engineers + 1 hardware engineer</td>
+          <td>$200,000</td>
+        </tr>
+        <tr>
+          <td>Sales</td>
+          <td class="funds-purpose">1 enterprise sales lead + trade shows + travel</td>
+          <td>$120,000</td>
+        </tr>
+        <tr>
+          <td>Compliance</td>
+          <td class="funds-purpose">ISO 27001 and SOC 2 readiness for enterprise clients</td>
+          <td>$80,000</td>
+        </tr>
+        <tr>
+          <td>Infrastructure</td>
+          <td class="funds-purpose">Firebase Blaze, Stripe/Paystack, hosting, tooling</td>
+          <td>$60,000</td>
+        </tr>
+        <tr>
+          <td>Contingency</td>
+          <td class="funds-purpose">8% buffer for unforeseen requirements</td>
+          <td>$40,000</td>
+        </tr>
+        <tr class="funds-total">
+          <td colspan="2">Total</td>
+          <td>$500,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= MILESTONES ================= -->
+<section class="block">
+  <div class="section-head">
+    <h2>Milestone <span>timeline</span></h2>
+    <p>Quarterly progression from seed to a defensible revenue position. No false precision — these are outcomes, not promises.</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div>
+          <div class="timeline-quarter">Q1</div>
+          <div class="timeline-title">First paying SaaS client on board</div>
+        </div>
+        <div class="timeline-metric">
+          <strong>1 client</strong>
+          <span>Signed &amp; active</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div>
+          <div class="timeline-quarter">Q2</div>
+          <div class="timeline-title">Billing module live — self-serve upgrades</div>
+        </div>
+        <div class="timeline-metric">
+          <strong>$50K</strong>
+          <span>ARR</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div>
+          <div class="timeline-quarter">Q3</div>
+          <div class="timeline-title">ISO 27001 certification complete</div>
+        </div>
+        <div class="timeline-metric">
+          <strong>5 clients</strong>
+          <span>Enterprise &amp; Professional</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div>
+          <div class="timeline-quarter">Q4</div>
+          <div class="timeline-title">Hardware-AI field deployments complete</div>
+        </div>
+        <div class="timeline-metric">
+          <strong>$250K</strong>
+          <span>ARR</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="block">
+  <div class="section-head">
+    <h2>The <span>team</span></h2>
+    <p>Engineering-led. Twelve systems shipped before this raise. Deep technical execution across software, hardware, and AI.</p>
+  </div>
+
+  <div class="team-grid">
+
+    <div class="team-card-inv">
+      <img src="https://media.licdn.com/dms/image/v2/D4D03AQE7ou7jbpg75Q/profile-displayphoto-scale_400_400/B4DZlRbBTKGQAg-/0/1758007662531?e=2147483647&v=beta&t=aMUrajwsEVjrlSnvNkYTzqZ9dkM1lzxhM-alMvX0TCo" alt="Cephas Mkama" loading="lazy">
+      <h3>Cephas Mkama</h3>
+      <div class="inv-role">Founder &amp; Lead Engineer</div>
+      <p>Designed, built, and shipped all twelve systems in the portfolio. Full-stack engineering across enterprise platforms, multimodal AI, hardware integration, and infrastructure optimisation.</p>
+    </div>
+
+    <div class="team-card-inv">
+      <img src="https://www.uib.no/sites/w3.uib.no/files/styles/content_main/public/media/bfcb15c6-d582-49f9-9df3-62c934944fe3.jpg?itok=d1tLV4ka&timestamp=1719488225" alt="AI &amp; Security Team" loading="lazy">
+      <h3>AI &amp; Security Team</h3>
+      <div class="inv-role">Machine Learning · VPN · Automation</div>
+      <p>Specialist function covering the multimodal AI platform, the WireGuard VPN stack, and automation pipelines across the enterprise portfolio.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DOCUMENTS ================= -->
+<section class="block">
+  <div class="section-head">
+    <h2>Investor <span>documents</span></h2>
+    <p>Formal materials available for serious enquiries. Full cap table and financial model shared under NDA.</p>
+  </div>
+
+  <div class="docs-grid">
+
+    <a href="contact.html" class="doc-card">
+      <span class="doc-icon">📄</span>
+      <h3>One-Pager</h3>
+      <p>Two-page summary: the problem, the systems, the ask, and the milestones.</p>
+      <div class="doc-format">Request via Email · PDF</div>
+    </a>
+
+    <a href="contact.html" class="doc-card">
+      <span class="doc-icon">📊</span>
+      <h3>Pitch Deck</h3>
+      <p>Full 12-slide deck covering market, product, traction, team, and financials.</p>
+      <div class="doc-format">Request via Email · PDF</div>
+    </a>
+
+    <a href="contact.html" class="doc-card">
+      <span class="doc-icon">🔒</span>
+      <h3>Cap Table &amp; Model</h3>
+      <p>Detailed financial model, cap table, and unit economics.</p>
+      <div class="doc-format">Shared Under NDA</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <h2>Let's talk.</h2>
+  <p>Whether you're evaluating the seed round or exploring a strategic partnership, every conversation starts with a direct email. No gatekeepers, no forms — just a reply from the founder.</p>
+  <a href="mailto:admin@cephasgm.org?subject=Investor%20Inquiry%20%E2%80%94%20Cephas%20GM" class="btn">Email admin@cephasgm.org</a>
+  <a href="architecture.html" class="btn ghost">Review the Stack</a>
+  <div>
+    <a href="contact.html" class="cta-contact">Or use the contact form →</a>
+  </div>
+</section>
+
+<footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
+
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+<script>
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
