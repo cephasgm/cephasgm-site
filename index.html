@@ -6,15 +6,15 @@
 <title>Home — Cephas GM</title>
 
 <!-- SEO & Social Meta Tags -->
-<meta name="description" content="Cephas GM – Enterprise solutions, multimodal AI, VPN, safety systems, IoT water‑energy optimisation, and digital transformation. Built from Tanzania.">
-<meta property="og:title" content="Cephas GM – Innovation for a Smarter Future">
-<meta property="og:description" content="Explore enterprise ERP, AI platform, VPN, safety PWA, asset tracking, and water‑energy IoT. Live impact metrics and real projects.">
+<meta name="description" content="Cephas GM engineers enterprise software, multimodal AI platforms, and hardware-integrated systems for critical infrastructure — deployed worldwide.">
+<meta property="og:title" content="Cephas GM — Engineering Critical Infrastructure Systems">
+<meta property="og:description" content="Enterprise software, AI platforms, and hardware-integrated systems for critical infrastructure — deployed globally.">
 <meta property="og:image" content="https://cephasgm.org/og-image.jpg">
 <meta property="og:url" content="https://cephasgm.org">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cephas GM – Innovation for a Smarter Future">
-<meta name="twitter:description" content="Enterprise solutions, AI, VPN, safety systems, IoT water‑energy, and digital transformation.">
+<meta name="twitter:title" content="Cephas GM — Engineering Critical Infrastructure Systems">
+<meta name="twitter:description" content="Enterprise software, AI platforms, and hardware-integrated systems for critical infrastructure — deployed globally.">
 <meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
 
 <!-- Favicon -->
@@ -22,7 +22,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-  /* CSS Variables for Light/Dark Mode */
+  /* CSS Variables — background & overlay untouched */
   :root {
     --bg-overlay-light: rgba(0,0,0,0.55);
     --card-bg-light: rgba(0,0,0,0.6);
@@ -32,20 +32,17 @@
     --accent-hover: #099268;
     --shadow: 0 6px 20px rgba(0,0,0,0.3);
   }
-  body.dark {
-    --bg-overlay-light: rgba(0,0,0,0.7);
-    --card-bg-light: rgba(0,0,0,0.7);
-    --text-light: #f5f5f5;
-  }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
     font-family:'Poppins',sans-serif;
     background:url('https://images.trailfinders.com/asset/34508f/TF3428494/shutterstock_1766609975_960x960.jpg?width=600') center/cover fixed no-repeat;
     color:var(--text-light);
-    transition: background-color 0.3s, color 0.2s;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
-  /* Liquid crystal overlay */
+  /* Liquid crystal overlay — unchanged */
   body::before {
     content: '';
     position: fixed;
@@ -64,6 +61,8 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
+
+  /* ---------- Navigation ---------- */
   .nav{
     background:rgba(0,0,0,0.6);
     display:flex;
@@ -74,110 +73,183 @@
     top:0;
     z-index:100;
     backdrop-filter: blur(4px);
+    gap:16px;
+    flex-wrap:wrap;
   }
-  .brand{font-weight:700;font-size:1.2rem;}
-  .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .brand{
+    font-weight:700;
+    font-size:1.2rem;
+    color:#fff;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.15);
+    letter-spacing:.3px;
+    transition:.3s;
+    display:inline-block;
+  }
+  .brand:hover{background:rgba(255,255,255,0.28);}
+  .brand.active{background:rgba(255,255,255,0.2);}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
   .nav-links a{
     color:#fff;
     text-decoration:none;
     padding:8px 12px;
     border-radius:6px;
     transition:.3s;
+    font-size:.95rem;
   }
-  .nav-links a:hover,
-  .nav-links a.active{background:rgba(255,255,255,0.15);}
-  .theme-toggle {
-    background: rgba(255,255,255,0.2);
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 30px;
-    transition: 0.3s;
+  .nav-links a:hover{background:rgba(255,255,255,0.15);}
+  .nav-links .portal-btn{
+    background:var(--accent);
+    padding:8px 16px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
   }
-  .theme-toggle:hover {
-    background: rgba(255,255,255,0.4);
-    transform: scale(1.05);
-  }
+  .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
+
+  /* ---------- Hero ---------- */
   header{
     text-align:center;
     background:var(--bg-overlay-light);
-    padding:4rem 1rem;
+    padding:6rem 1.5rem 5rem;
     position: relative;
     z-index: 1;
   }
-  header h1{font-size:2.5rem;margin-bottom:1rem;}
-  header p{color:var(--text-dark);font-size:1rem;max-width:900px;margin:0 auto;}
-
-  /* Impact section */
-  .impact{
-    text-align:center;
-    background:rgba(0,0,0,0.6);
-    padding:3rem 1rem;
-    margin:3rem 0;
-    position: relative;
-    z-index: 1;
+  header .eyebrow{
+    display:inline-block;
+    font-size:.75rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#34d399;
+    font-weight:700;
+    margin-bottom:1.2rem;
+    background:rgba(11,122,89,0.18);
+    padding:6px 18px;
+    border-radius:30px;
+    border:1px solid rgba(52,211,153,0.3);
   }
-  .impact h2{font-size:2rem;color:var(--accent);margin-bottom:2rem;}
-  .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:2rem;
+  header h1{
+    font-size:2.8rem;
+    margin-bottom:1.3rem;
+    line-height:1.22;
+    max-width:920px;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:700;
+  }
+  header p{
+    color:var(--text-dark);
+    font-size:1.08rem;
+    max-width:760px;
+    margin:0 auto 2.4rem;
+    line-height:1.7;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
     justify-content:center;
-    align-items:center;
-    padding:0 10%;
+    flex-wrap:wrap;
   }
-  .stat{
-    background:var(--card-bg-light);
-    border-radius:20px;
-    padding:2rem 1rem;
-    box-shadow:var(--shadow);
-    transition:transform 0.4s ease, box-shadow 0.4s ease, border 0.2s;
-    opacity:0;
-    transform:translateY(40px);
-    animation:fadeUp 1s forwards;
-    border:1px solid rgba(255,255,255,0.1);
-  }
-  .stat:nth-child(1){animation-delay:.2s;}
-  .stat:nth-child(2){animation-delay:.4s;}
-  .stat:nth-child(3){animation-delay:.6s;}
-  .stat:nth-child(4){animation-delay:.8s;}
-  .stat:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 20px 30px rgba(0,0,0,0.5);
-    border-color: var(--accent);
-  }
-  @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-  .stat h3{font-size:2.8rem;color:var(--accent);margin-bottom:.5rem;font-weight:700;}
-  .stat p{color:var(--text-dark);font-size:1rem;font-weight:500;}
 
   .btn{
     display:inline-block;
     background:var(--accent);
     color:#fff;
-    padding:.8rem 2rem;
-    margin-top:2rem;
+    padding:.85rem 2.2rem;
     border-radius:40px;
     text-decoration:none;
     font-weight:600;
     transition:0.3s;
     box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    font-size:.95rem;
   }
   .btn:hover{
     background:var(--accent-hover);
     transform:translateY(-3px);
     box-shadow:0 8px 20px rgba(0,0,0,0.3);
   }
+  .btn.ghost{
+    background:transparent;
+    border:1.5px solid rgba(255,255,255,0.5);
+    box-shadow:none;
+  }
+  .btn.ghost:hover{
+    background:rgba(255,255,255,0.12);
+    border-color:#fff;
+  }
+
+  /* ---------- Section shell ---------- */
+  section.block{
+    position:relative;
+    z-index:1;
+    padding:4.5rem 8%;
+    flex: 1;
+  }
+  .section-head{
+    text-align:center;
+    margin-bottom:3rem;
+  }
+  .section-head h2{
+    font-size:2rem;
+    color:#fff;
+    margin-bottom:.8rem;
+  }
+  .section-head h2 span{color:var(--accent-hover);}
+  .section-head p{
+    color:var(--text-dark);
+    max-width:720px;
+    margin:0 auto;
+    font-size:1rem;
+    line-height:1.6;
+  }
+
+  /* ---------- Capability tiles ---------- */
+  .capabilities{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:1.5rem;
+  }
+  .capability{
+    background:var(--card-bg-light);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:16px;
+    padding:2rem 1.7rem;
+    box-shadow:var(--shadow);
+    transition:transform .35s ease, border-color .3s;
+  }
+  .capability:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+  }
+  .capability .icon{
+    font-size:1.9rem;
+    margin-bottom:.9rem;
+    display:block;
+  }
+  .capability h3{
+    color:#fff;
+    font-size:1.15rem;
+    margin-bottom:.7rem;
+  }
+  .capability p{
+    color:var(--text-dark);
+    font-size:.9rem;
+    line-height:1.65;
+  }
+
+  /* ---------- Footer ---------- */
   footer{
     background:rgba(0,0,0,0.85);
     text-align:center;
-    padding:1rem;
+    padding:1.2rem;
     font-size:.9rem;
-    margin-top:2rem;
     position: relative;
     z-index: 1;
+    color:var(--text-dark);
   }
+
+  /* ---------- Back to top ---------- */
   .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -198,65 +270,72 @@
     transition: all 0.3s;
     z-index: 99;
   }
-  .back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-  }
-  .back-to-top:hover {
-    background: var(--accent-hover);
-    transform: translateY(-5px);
-  }
+  .back-to-top.show { opacity: 1; visibility: visible; }
+  .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
+
   @media (max-width: 768px) {
+    header{ padding:4rem 1.2rem 3.5rem; }
     header h1 { font-size: 2rem; }
-    .stat h3 { font-size: 2rem; }
-    .stats { gap: 1rem; padding: 0 5%; }
-    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
+    header p { font-size: 1rem; }
+    .nav{ padding:12px 16px; }
+    .nav-links a{ font-size:.85rem; padding:6px 9px; }
+    section.block{ padding:3rem 5%; }
+    .section-head h2 { font-size:1.6rem; }
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="brand">Cephas GM</div>
+  <a href="index.html" class="brand active" aria-current="page">Cephas GM</a>
   <div class="nav-links">
-    <a href="index.html" class="active">Home</a>
     <a href="projects.html">Projects</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
     <a href="impact.html">Impact</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
   </div>
 </nav>
 
 <header>
-  <h1>Welcome to Cephas GM</h1>
-  <p>Innovating for a smarter, sustainable and connected future across Enterprise Solutions, Multimodal AI Platforms, VPN Services, Safety Systems, IoT Water‑Energy Optimisation, and Digital Transformation.</p>
+  <span class="eyebrow">Enterprise · AI · Hardware-Integrated</span>
+  <h1>Engineering the systems that keep critical infrastructure running.</h1>
+  <p>
+    Cephas GM designs and builds enterprise software, multimodal AI platforms, and
+    hardware-integrated systems for water-energy optimisation, industrial safety, secure
+    connectivity, and digital transformation — deployed for organisations worldwide.
+  </p>
+  <div class="hero-actions">
+    <a href="projects.html" class="btn">View Our Work</a>
+    <a href="contact.html" class="btn ghost">Start a Conversation</a>
+  </div>
 </header>
 
-<section class="impact">
-  <h2>🌍 Cephas GM Global Impact</h2>
-  <div class="stats">
-    <div class="stat">
-      <h3 class="counter" data-target="7">0</h3>
-      <p>Enterprise Solutions Deployed</p>
+<!-- ---------- Capabilities ---------- -->
+<section class="block">
+  <div class="section-head">
+    <h2>What we <span>build</span></h2>
+    <p>Three engineering disciplines, one integrated approach — from cloud platforms to firmware.</p>
+  </div>
+  <div class="capabilities">
+    <div class="capability">
+      <span class="icon">🏢</span>
+      <h3>Enterprise Platforms</h3>
+      <p>Unified ERP, client portals, and operational dashboards that replace fragmented legacy tools across distributed global teams.</p>
     </div>
-    <div class="stat">
-      <h3 class="counter" data-target="5">0</h3>
-      <p>Industry-Specific PWAs</p>
+    <div class="capability">
+      <span class="icon">🤖</span>
+      <h3>AI &amp; Intelligent Systems</h3>
+      <p>Multimodal AI, computer vision, and edge detection — turning raw sensor and signal data into operational decisions in the cloud or on-device.</p>
     </div>
-    <div class="stat">
-      <h3 class="counter" data-target="1000">0</h3>
-      <p>Safety Incidents Tracked</p>
-    </div>
-    <div class="stat">
-      <h3 class="counter" data-target="500">0</h3>
-      <p>Assets Monitored</p>
+    <div class="capability">
+      <span class="icon">🛡️</span>
+      <h3>Hardware-Integrated Solutions</h3>
+      <p>Sensor arrays, satellite terminals, and secure connectivity systems built to operate reliably in remote, regulated, and contested environments.</p>
     </div>
   </div>
-  <a href="projects.html" class="btn">Explore Our Projects</a>
 </section>
 
 <footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
@@ -264,15 +343,6 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script>
-  // Dark/Light Mode Toggle
-  const themeToggle = document.getElementById('themeToggle');
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'dark') document.body.classList.add('dark');
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-  });
-
   // Back to Top Button
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
@@ -283,34 +353,6 @@
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-
-  // Counter animation logic (updated counters)
-  const counters = document.querySelectorAll('.counter');
-  const options = { threshold: 0.5 };
-  const animate = (counter) => {
-    const target = +counter.getAttribute('data-target');
-    const speed = 200;
-    const update = () => {
-      const val = +counter.innerText;
-      const inc = target / speed;
-      if (val < target) {
-        counter.innerText = Math.ceil(val + inc);
-        setTimeout(update, 20);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    update();
-  };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animate(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, options);
-  counters.forEach(c => observer.observe(c));
 </script>
 </body>
 </html>
