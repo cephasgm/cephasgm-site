@@ -6,15 +6,15 @@
 <title>Impact Dashboard — Cephas GM</title>
 
 <!-- SEO & Social Meta Tags -->
-<meta name="description" content="Live impact metrics from Cephas GM: enterprise solutions, PWAs, safety incidents, assets monitored, portal users, compliance rate, and water‑energy savings.">
+<meta name="description" content="Live impact metrics from Cephas GM: 12 systems deployed, 31 ERP modules, safety incidents tracked, assets monitored, portal users, compliance rate, and water-energy savings — deployed worldwide.">
 <meta property="og:title" content="Impact Dashboard — Cephas GM">
-<meta property="og:description" content="Real-time metrics from our deployed solutions, AI platforms, VPN services, IoT water‑energy, and ongoing projects.">
+<meta property="og:description" content="Real-time metrics from deployed enterprise platforms, AI systems, secure connectivity, hardware-integrated solutions, and infrastructure optimisation.">
 <meta property="og:image" content="https://cephasgm.org/og-image.jpg">
 <meta property="og:url" content="https://cephasgm.org/impact.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cephas GM Impact Dashboard">
-<meta name="twitter:description" content="Live metrics: 6 enterprise solutions, 4 PWAs, 1250+ safety incidents, 850+ assets, 250+ users, 98% compliance, 30% energy savings.">
+<meta name="twitter:description" content="Twelve systems, 31 ERP modules, six industry domains, three hardware-AI integrations — deployed worldwide.">
 <meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
 
 <!-- Favicon -->
@@ -23,7 +23,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 <style>
-  /* CSS Variables for Light/Dark Mode */
   :root {
     --card-bg-light: rgba(0,0,0,0.6);
     --text-light: #fff;
@@ -32,20 +31,15 @@
     --accent-hover: #099268;
     --shadow: 0 8px 20px rgba(0,0,0,0.4);
   }
-  body.dark {
-    --card-bg-light: rgba(0,0,0,0.8);
-    --text-light: #f5f5f5;
-  }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
     font-family:'Poppins',sans-serif;
     background:url('https://i0.wp.com/travelawaits.com/wp-content/uploads/2021/04/aerial-view-of-robben-islandb4f574.jpg?resize=1024%2C657&ssl=1') center/cover fixed no-repeat;
     color:var(--text-light);
-    transition: background-color 0.3s, color 0.2s;
     overflow-x:hidden;
     position: relative;
   }
-  /* Liquid crystal overlay */
+  /* Liquid crystal overlay — unchanged */
   body::before {
     content: '';
     position: fixed;
@@ -64,6 +58,8 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
+
+  /* ---------- Navigation ---------- */
   .nav{
     background:rgba(0,0,0,0.6);
     display:flex;
@@ -74,38 +70,69 @@
     top:0;
     z-index:100;
     backdrop-filter: blur(4px);
+    gap:16px;
+    flex-wrap:wrap;
   }
-  .brand{font-weight:700;font-size:1.2rem;}
-  .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .brand{
+    font-weight:700;
+    font-size:1.2rem;
+    color:#fff;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.15);
+    letter-spacing:.3px;
+    transition:.3s;
+    display:inline-block;
+  }
+  .brand:hover{background:rgba(255,255,255,0.28);}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
   .nav-links a{
     color:#fff;
     text-decoration:none;
     padding:8px 12px;
     border-radius:6px;
     transition:.3s;
+    font-size:.95rem;
   }
-  .nav-links a:hover,
-  .nav-links a.active{background:rgba(255,255,255,0.15);}
-  .theme-toggle {
-    background: rgba(255,255,255,0.2);
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 30px;
-    transition: 0.3s;
+  .nav-links a:hover{background:rgba(255,255,255,0.15);}
+  .nav-links a.active{background:rgba(255,255,255,0.2);}
+  .nav-links .portal-btn{
+    background:var(--accent);
+    padding:8px 16px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
   }
-  .theme-toggle:hover {
-    background: rgba(255,255,255,0.4);
-    transform: scale(1.05);
+  .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
+
+  /* ---------- Header ---------- */
+  header{
+    text-align:center;
+    background:rgba(0,0,0,0.55);
+    padding:3.5rem 1.5rem;
+    position:relative;
+    z-index:1;
   }
-  header{text-align:center;background:rgba(0,0,0,0.55);padding:3rem 1rem;position:relative;z-index:1;}
-  header h1{font-size:2.5rem;margin-bottom:.6rem;}
-  header p{color:var(--text-dark);font-size:1rem;}
+  header .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#34d399;
+    font-weight:700;
+    margin-bottom:1rem;
+    background:rgba(11,122,89,0.18);
+    padding:6px 16px;
+    border-radius:30px;
+    border:1px solid rgba(52,211,153,0.3);
+  }
+  header h1{font-size:2.4rem;margin-bottom:.7rem;line-height:1.25;}
+  header p{color:var(--text-dark);font-size:1rem;max-width:720px;margin:0 auto;line-height:1.65;}
+
+  /* ---------- Dashboard ---------- */
   .dashboard{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:1.5rem;
     padding:3rem 5%;
     position: relative;
@@ -125,22 +152,33 @@
     border:1px solid rgba(255,255,255,0.1);
   }
   @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-  .card:nth-child(1){animation-delay:.2s;}
-  .card:nth-child(2){animation-delay:.4s;}
-  .card:nth-child(3){animation-delay:.6s;}
-  .card:nth-child(4){animation-delay:.8s;}
-  .card:nth-child(5){animation-delay:1.0s;}
-  .card:nth-child(6){animation-delay:1.2s;}
-  .card:nth-child(7){animation-delay:1.4s;}
+  .card:nth-child(1){animation-delay:.15s;}
+  .card:nth-child(2){animation-delay:.25s;}
+  .card:nth-child(3){animation-delay:.35s;}
+  .card:nth-child(4){animation-delay:.45s;}
+  .card:nth-child(5){animation-delay:.55s;}
+  .card:nth-child(6){animation-delay:.65s;}
+  .card:nth-child(7){animation-delay:.75s;}
+  .card:nth-child(8){animation-delay:.85s;}
+  .card:nth-child(9){animation-delay:.95s;}
   .card:hover{
     transform:translateY(-10px) scale(1.02);
     box-shadow:0 20px 30px rgba(0,0,0,0.5);
     border-color: var(--accent);
   }
-  .card h2{font-size:2.5rem;color:var(--accent);margin-bottom:.3rem;}
-  .card p{color:var(--text-dark);font-size:1rem;}
+  .card .metric-label{
+    display:block;
+    font-size:.68rem;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    color:#34d399;
+    font-weight:700;
+    margin-bottom:.5rem;
+  }
+  .card h2{font-size:2.5rem;color:var(--accent);margin-bottom:.4rem;}
+  .card p{color:var(--text-dark);font-size:.98rem;line-height:1.4;}
 
-  /* Modal styles */
+  /* ---------- Modal ---------- */
   .modal{
     display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;
     background:rgba(0,0,0,0.95);overflow-y:auto;padding-top:60px;
@@ -148,21 +186,23 @@
   .modal-content{
     background:#fff;color:#000;margin:auto;padding:20px;border-radius:16px;width:95%;max-width:1200px;animation:fadeIn .5s;
   }
-  body.dark .modal-content{background:#1e1e2a;color:#eee;}
   @keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
   .close{color:#000;float:right;font-size:28px;font-weight:bold;}
   .close:hover{color:var(--accent);cursor:pointer;}
-  body.dark .close{color:#aaa;}
   .modal header{text-align:center;background:none;color:#111;padding:0;margin-bottom:1rem;}
-  body.dark .modal header{color:#eee;}
   .modal header h2{color:var(--accent);margin-bottom:.5rem;}
   .swiper{width:100%;height:450px;border-radius:16px;margin:1rem 0;}
   .swiper-slide img{width:100%;height:100%;object-fit:cover;}
   .swiper-pagination-bullet-active{background:var(--accent);}
   .swiper-button-next,.swiper-button-prev{color:#fff;}
-  footer{background:rgba(0,0,0,0.85);text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;position:relative;z-index:1;}
+  .modal-content p{line-height:1.7;color:#333;}
+  .modal-content a{color:var(--accent);text-decoration:none;font-weight:600;}
+  .modal-content a:hover{text-decoration:underline;}
 
-  /* Back to Top Button */
+  /* ---------- Footer ---------- */
+  footer{background:rgba(0,0,0,0.85);text-align:center;padding:1.2rem;font-size:.9rem;margin-top:2rem;position:relative;z-index:1;color:var(--text-dark);}
+
+  /* ---------- Back to top ---------- */
   .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -183,82 +223,120 @@
     transition: all 0.3s;
     z-index: 99;
   }
-  .back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-  }
-  .back-to-top:hover {
-    background: var(--accent-hover);
-    transform: translateY(-5px);
-  }
+  .back-to-top.show { opacity: 1; visibility: visible; }
+  .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
 
   @media (max-width: 768px) {
-    header h1 { font-size: 2rem; }
+    header h1 { font-size: 1.9rem; }
     .dashboard { gap: 1rem; padding: 2rem 4%; }
-    .theme-toggle { font-size: 1rem; padding: 4px 10px; }
     .card h2 { font-size: 2rem; }
+    .nav{ padding:12px 16px; }
+    .nav-links a{ font-size:.85rem; padding:6px 9px; }
+    .swiper{ height: 300px; }
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="brand">Cephas GM</div>
+  <a href="index.html" class="brand">Cephas GM</a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
-    <a href="services.html">Services</a>
+    <a href="services.html">Capabilities</a>
     <a href="gallery.html">Gallery</a>
     <a href="impact.html" class="active">Impact</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="https://cephasgm.github.io/cephasgm-portal/" class="btn" target="_blank">🔒 Portal Access</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">🌓</button>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
   </div>
 </nav>
 
 <header>
-  <h1>Live Impact Dashboard</h1>
-  <p>Real-time metrics from our deployed solutions, AI platforms, VPN services, IoT water‑energy, and ongoing projects</p>
+  <span class="eyebrow">Live Portfolio Metrics · Global Deployment</span>
+  <h1>Impact Dashboard</h1>
+  <p>Real-time portfolio metrics from our deployed enterprise platforms, AI systems, hardware-integrated solutions, and infrastructure optimisation projects — deployed worldwide.</p>
 </header>
 
 <section class="dashboard">
+
+  <div class="card" onclick="openModal('systems')">
+    <span class="metric-label">Portfolio</span>
+    <h2 class="counter" data-target="12">0</h2>
+    <p>Systems Built</p>
+  </div>
+
   <div class="card" onclick="openModal('erp')">
+    <span class="metric-label">Enterprise</span>
+    <h2 class="counter" data-target="31">0</h2>
+    <p>ERP Modules</p>
+  </div>
+
+  <div class="card" onclick="openModal('domains')">
+    <span class="metric-label">Reach</span>
     <h2 class="counter" data-target="6">0</h2>
-    <p>Enterprise Solutions Deployed</p>
+    <p>Industry Domains</p>
   </div>
-  <div class="card" onclick="openModal('pwa')">
-    <h2 class="counter" data-target="4">0</h2>
-    <p>Industry-Specific PWAs</p>
+
+  <div class="card" onclick="openModal('hwai')">
+    <span class="metric-label">Convergence</span>
+    <h2 class="counter" data-target="3">0</h2>
+    <p>Hardware-AI Integrations</p>
   </div>
+
   <div class="card" onclick="openModal('safety')">
+    <span class="metric-label">Safety</span>
     <h2 class="counter" data-target="1250">0</h2>
     <p>Safety Incidents Tracked</p>
   </div>
+
   <div class="card" onclick="openModal('assets')">
+    <span class="metric-label">Tracking</span>
     <h2 class="counter" data-target="850">0</h2>
     <p>Assets Monitored</p>
   </div>
+
   <div class="card" onclick="openModal('users')">
+    <span class="metric-label">Adoption</span>
     <h2 class="counter" data-target="250">0</h2>
     <p>Active Portal Users</p>
   </div>
+
   <div class="card" onclick="openModal('compliance')">
+    <span class="metric-label">Compliance</span>
     <h2 class="counter" data-target="98">0</h2>
     <p>Compliance Rate (%)</p>
   </div>
-  <!-- NEW: Water-Energy Savings -->
+
   <div class="card" onclick="openModal('energy')">
+    <span class="metric-label">Optimisation</span>
     <h2 class="counter" data-target="30">0</h2>
     <p>Energy Savings (%)</p>
   </div>
+
 </section>
 
-<!-- Existing MODALS (unchanged, but added lazy loading) -->
+<!-- ================= MODALS ================= -->
+
+<div id="systems" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('systems')">&times;</span>
+    <header><h2>Systems Built</h2></header>
+    <div class="swiper systemsSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Enterprise Systems" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI Platform" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="IoT Systems" loading="lazy"></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <p>Cephas GM has built <strong>12 working systems</strong> across enterprise software, AI platforms, secure connectivity, industrial safety, hardware-integrated defence, water-energy optimisation, and accessibility — deployed or in active development for organisations worldwide. Each system is a working product, not a concept.</p>
+  </div>
+</div>
+
 <div id="erp" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('erp')">&times;</span>
-    <header><h2>Enterprise Solutions Deployed</h2></header>
+    <header><h2>ERP Modules</h2></header>
     <div class="swiper erpSwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="ERP Dashboard" loading="lazy"></div>
@@ -267,23 +345,39 @@
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Cephas GM has deployed <strong>6 enterprise solutions</strong> including: CephasGM-ERP, Secure Client Portal, Health & Safety PWA, Smart Location Tracker, CephasGM-AI (multimodal AI platform), and CephasGM-VPN (next‑gen WireGuard & anti‑DPI VPN). These serve businesses across multiple industries with integrated management, AI automation, and secure networking tools.</p>
+    <p>The <strong>Cephas GM ERP</strong> unifies <strong>31 enterprise modules</strong> into a single control plane — spanning finance, procurement, inventory, manufacturing, mining, oil &amp; gas, agriculture, transport, HR, payroll, legal, and safety. Replaces fragmented legacy tools across distributed global teams. <a href="https://cephasgm.github.io/CephasGM-ERP/" target="_blank" rel="noopener">View live demo →</a></p>
   </div>
 </div>
 
-<div id="pwa" class="modal">
+<div id="domains" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('pwa')">&times;</span>
-    <header><h2>Industry-Specific PWAs</h2></header>
-    <div class="swiper pwaSwiper">
+    <span class="close" onclick="closeModal('domains')">&times;</span>
+    <header><h2>Industry Domains</h2></header>
+    <div class="swiper domainsSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" alt="Mobile App" loading="lazy"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt="Responsive Design" loading="lazy"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1200&q=80" alt="Cross Platform" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1504912516456-961ad7e6e5e5?auto=format&fit=crop&w=1200&q=80" alt="Water-Energy" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1200&q=80" alt="Industrial Safety" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1200&q=80" alt="Defence & Aerospace" loading="lazy"></div>
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p><strong>4 specialized Progressive Web Apps</strong> have been developed: Health & Safety PWA for metal management, Smart Location Tracker for asset tracking, Secure Client Portal, and CephasGM-AI (multimodal AI platform with PWA capabilities). These deliver offline-first, app-like experiences across industries.</p>
+    <p>Our work spans <strong>six industry domains</strong> — water &amp; energy optimisation, industrial safety, enterprise operations, AI &amp; intelligent systems, secure connectivity &amp; defence, and accessibility &amp; inclusion — engineered for organisations across global markets.</p>
+  </div>
+</div>
+
+<div id="hwai" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('hwai')">&times;</span>
+    <header><h2>Hardware-AI Integrations</h2></header>
+    <div class="swiper hwaiSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092335871-4b6a6d6f6f5a?auto=format&fit=crop&w=1200&q=80" alt="ESP32 Hardware" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80" alt="Satellite Terminal" loading="lazy"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1200&q=80" alt="Drone Detection" loading="lazy"></div>
+      </div>
+      <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+    </div>
+    <p>Three flagship systems converge hardware and AI: <strong>EchoShield</strong> (AI drone detection &amp; countermeasure), <strong>SatTrack</strong> (satellite ground terminal), and <strong>Smart Integrated Water-Energy</strong> (ESP32-based tariff-optimised water pumping). Each blends physical sensors with cloud intelligence.</p>
   </div>
 </div>
 
@@ -299,7 +393,7 @@
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Our Health & Safety PWA has tracked over <strong>1,250 safety incidents</strong>, enabling proactive prevention, root cause analysis, and comprehensive compliance reporting across industrial operations.</p>
+    <p>The <strong>OHS System</strong> has tracked over <strong>1,250 safety incidents</strong> — enabling proactive prevention, root cause analysis, risk matrix classification, and comprehensive compliance reporting across high-risk industrial operations. <a href="https://cephasgm.github.io/Health-Safety-PWA-for-Metal-Management/" target="_blank" rel="noopener">View live system →</a></p>
   </div>
 </div>
 
@@ -315,7 +409,7 @@
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>The Smart Location Tracker currently monitors <strong>850+ assets</strong> including vehicles, equipment, and personnel across multiple client operations, with real-time geofencing and movement history.</p>
+    <p>The <strong>Smart Location Tracker</strong> monitors <strong>850+ assets</strong> — vehicles, equipment, and personnel — across client operations, with real-time geofencing, offline queuing, and multi-channel sharing (SMS, WhatsApp, QR). <a href="https://cephasgm.github.io/smart-location-tracker/" target="_blank" rel="noopener">View live tracker →</a></p>
   </div>
 </div>
 
@@ -331,7 +425,7 @@
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Our secure client portal serves <strong>250+ active users</strong> including clients and staff, providing personalized access to dashboards, document management, and real‑time service updates with role‑based security.</p>
+    <p>The <strong>Client Portal &amp; Admin Dashboard</strong> serves <strong>250+ active users</strong> — clients and internal staff — providing role-based access to dashboards, project tracking, accounting, and document management in one control plane. <a href="https://cephasgm.github.io/cephasgm-portal/" target="_blank" rel="noopener">View live portal →</a></p>
   </div>
 </div>
 
@@ -347,15 +441,14 @@
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Our safety and compliance systems maintain a <strong>98% regulatory compliance rate</strong> across all monitored facilities and operations, thanks to digital checklists, incident tracking, and automated reporting.</p>
+    <p>Our <strong>OHS System</strong> maintains a <strong>98% regulatory compliance rate</strong> across all monitored facilities and operations — supported by digital checklists, incident tracking, risk matrices, and automated reporting workflows.</p>
   </div>
 </div>
 
-<!-- NEW MODAL: Water-Energy Savings -->
 <div id="energy" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('energy')">&times;</span>
-    <header><h2>Water‑Energy Savings</h2></header>
+    <header><h2>Water-Energy Savings</h2></header>
     <div class="swiper energySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="IoT Dashboard" loading="lazy"></div>
@@ -364,7 +457,7 @@
       </div>
       <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
     </div>
-    <p>Our <strong>CephasGM Water‑Energy Management System</strong> achieves <strong>up to 30% energy savings</strong> by shifting water pumping to off‑peak electricity tariff hours, combined with real‑time water level monitoring and AI‑based leak detection. The system also reduces water waste and extends pump life. <a href="https://water.cephasgm.org" target="_blank" style="color:var(--accent);">Launch live dashboard →</a></p>
+    <p>The <strong>Smart Integrated Water-Energy Management System</strong> achieves <strong>up to 30% energy savings</strong> by shifting water pumping to off-peak electricity tariff hours, combined with real-time water level monitoring and AI-based leak detection. Deployable for utilities and industrial facilities worldwide. <a href="https://cephasgm.github.io/Smart-Intergrated-Water_Energy/" target="_blank" rel="noopener">Launch live dashboard →</a></p>
   </div>
 </div>
 
@@ -374,15 +467,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  // Dark/Light Mode Toggle
-  const themeToggle = document.getElementById('themeToggle');
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'dark') document.body.classList.add('dark');
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-  });
-
   // Back to Top Button
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
@@ -426,14 +510,17 @@
     if (e.key === 'Escape') document.querySelectorAll('.modal').forEach(m => { if (m.style.display === 'block') closeModal(m.id); });
   });
 
-  // Initialize Swipers (including new energySwiper)
-  new Swiper('.erpSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-  new Swiper('.pwaSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-  new Swiper('.safetySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-  new Swiper('.assetSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-  new Swiper('.userSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-  new Swiper('.complianceSwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
-  new Swiper('.energySwiper',{loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}});
+  // Swiper init
+  const swiperOpts = {loop:true,autoplay:{delay:3500},pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}};
+  new Swiper('.systemsSwiper',swiperOpts);
+  new Swiper('.erpSwiper',swiperOpts);
+  new Swiper('.domainsSwiper',swiperOpts);
+  new Swiper('.hwaiSwiper',swiperOpts);
+  new Swiper('.safetySwiper',swiperOpts);
+  new Swiper('.assetSwiper',swiperOpts);
+  new Swiper('.userSwiper',swiperOpts);
+  new Swiper('.complianceSwiper',swiperOpts);
+  new Swiper('.energySwiper',swiperOpts);
 
   // Counter animation
   const counters = document.querySelectorAll('.counter');
