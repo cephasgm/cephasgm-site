@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture — Cephas GM</title>
+
+<!-- SEO & Social Meta Tags -->
+<meta name="description" content="The engineering stack behind Cephas GM — how we build enterprise platforms, multimodal AI systems, PWA applications, and hardware-integrated solutions for critical infrastructure worldwide.">
+<meta property="og:title" content="Architecture — Cephas GM">
+<meta property="og:description" content="Full-stack documentation: frontend, backend, data, hardware, AI, and DevOps. Built for engineers, partners, and technical due diligence.">
+<meta property="og:image" content="https://cephasgm.org/og-image.jpg">
+<meta property="og:url" content="https://cephasgm.org/architecture.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cephas GM Architecture">
+<meta name="twitter:description" content="The stack behind our critical infrastructure systems — documented for engineers and partners.">
+<meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-overlay-light: rgba(0,0,0,0.55);
+    --card-bg-light: rgba(0,0,0,0.6);
+    --text-light: #fff;
+    --text-dark: #ddd;
+    --text-muted: #999;
+    --accent: #0b7a59;
+    --accent-hover: #099268;
+    --accent-light: #34d399;
+    --info: #3498db;
+    --warning: #f39c12;
+    --border: rgba(255,255,255,0.12);
+    --shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:url('https://www.exploretanzaniatours.com/wp-content/uploads/2022/07/masai-mara-wildlife-750x450.jpg') center/cover fixed no-repeat;
+    color:var(--text-light);
+    position: relative;
+    min-height: 100vh;
+  }
+  /* Liquid crystal overlay — consistent with all pages */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, rgba(11,122,89,0.08) 0%, rgba(100,200,255,0.05) 25%, rgba(11,122,89,0.08) 50%, rgba(200,100,255,0.05) 75%, rgba(11,122,89,0.08) 100%);
+    background-size: 300% 300%;
+    animation: liquidCrystal 12s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes liquidCrystal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* ---------- Accessibility: Skip Link ---------- */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: #0b7a59;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .9rem;
+    z-index: 9999;
+    transition: top .2s ease;
+  }
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
+  }
+
+  /* ---------- Navigation ---------- */
+  .nav{
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 30px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter: blur(4px);
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-weight:700;
+    font-size:1.2rem;
+    color:#fff;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.15);
+    letter-spacing:.3px;
+    transition:.3s;
+    display:inline-block;
+  }
+  .brand:hover{background:rgba(255,255,255,0.28);}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:.3s;
+    font-size:.95rem;
+  }
+  .nav-links a:hover{background:rgba(255,255,255,0.15);}
+  .nav-links a.active{background:rgba(255,255,255,0.2);}
+  .nav-links .portal-btn{
+    background:var(--accent);
+    padding:8px 16px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+  }
+  .nav-links .portal-btn:hover{background:var(--accent-hover);transform:translateY(-2px);}
+
+  /* ---------- Header ---------- */
+  header{
+    text-align:center;
+    background:var(--bg-overlay-light);
+    padding:4rem 1.5rem 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  header .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#34d399;
+    font-weight:700;
+    margin-bottom:1.1rem;
+    background:rgba(11,122,89,0.18);
+    padding:6px 16px;
+    border-radius:30px;
+    border:1px solid rgba(52,211,153,0.3);
+  }
+  header h1{
+    font-size:2.5rem;
+    margin-bottom:1rem;
+    line-height:1.25;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:700;
+  }
+  header p{
+    color:var(--text-dark);
+    font-size:1.05rem;
+    max-width:780px;
+    margin:0 auto;
+    line-height:1.7;
+  }
+
+  /* ---------- Section shell ---------- */
+  section.block{
+    position:relative;
+    z-index:1;
+    padding:4rem 8%;
+  }
+  .section-head{
+    text-align:center;
+    margin-bottom:2.5rem;
+  }
+  .section-head h2{
+    font-size:2rem;
+    color:#fff;
+    margin-bottom:.7rem;
+  }
+  .section-head h2 span{color:var(--accent-light);}
+  .section-head p{
+    color:var(--text-dark);
+    max-width:720px;
+    margin:0 auto;
+    font-size:1rem;
+    line-height:1.65;
+  }
+
+  /* ---------- Architecture diagram ---------- */
+  .arch-diagram{
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .arch-layer{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 18px 22px;
+    box-shadow: var(--shadow);
+    transition: transform .3s, border-color .3s;
+  }
+  .arch-layer:hover{
+    transform: translateX(6px);
+    border-color: var(--accent);
+  }
+  .arch-layer h3{
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .arch-layer h3 .layer-num{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .arch-layer p{
+    font-size: .88rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-left: 36px;
+  }
+  .arch-layer .layer-tech{
+    margin-left: 36px;
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .layer-tech span{
+    background: rgba(11,122,89,0.18);
+    color: #34d399;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: .72rem;
+    font-weight: 500;
+    border: 1px solid rgba(52,211,153,0.25);
+  }
+  .arch-arrow{
+    text-align: center;
+    color: var(--accent-light);
+    font-size: 1.4rem;
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  /* ---------- Stack grid ---------- */
+  .stack-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.4rem;
+  }
+  .stack-card{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    transition: transform .3s, border-color .3s;
+  }
+  .stack-card:hover{
+    transform: translateY(-6px);
+    border-color: var(--accent);
+  }
+  .stack-card .stack-icon{
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .stack-card h3{
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .stack-list{
+    list-style: none;
+    padding: 0;
+  }
+  .stack-list li{
+    padding: 6px 0;
+    font-size: .87rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .stack-list li:last-child{ border-bottom: none; }
+  .stack-list li::before{
+    content: '›';
+    color: var(--accent-light);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .stack-list a{
+    color: #ddd;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .stack-list a:hover{
+    color: var(--accent-light);
+    text-decoration: underline;
+  }
+  .stack-list .tech-note{
+    display: block;
+    font-size: .74rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ---------- Engineering principles ---------- */
+  .principles-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.3rem;
+  }
+  .principle-card{
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    transition: transform .3s, border-color .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .principle-card::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+  .principle-card:hover{
+    transform: translateY(-6px);
+    border-color: var(--accent);
+  }
+  .principle-card .principle-num{
+    display: inline-block;
+    font-size: .72rem;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .principle-card h3{
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .principle-card p{
+    font-size: .88rem;
+    color: var(--text-dark);
+    line-height: 1.65;
+  }
+
+  /* ---------- Open source block ---------- */
+  .oss-block{
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--card-bg-light);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 34px 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .oss-block .oss-icon{
+    font-size: 2.4rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .oss-block h2{
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .oss-block p{
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: .96rem;
+    margin-bottom: 20px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .oss-metrics{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 22px 0;
+  }
+  .oss-metric{
+    text-align: center;
+  }
+  .oss-metric strong{
+    display: block;
+    font-size: 1.8rem;
+    color: var(--accent-light);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .oss-metric span{
+    font-size: .8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .8px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:.8rem 2rem;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    font-size:.95rem;
+    margin: 6px;
+  }
+  .btn:hover{
+    background:var(--accent-hover);
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  }
+  .btn.ghost{
+    background:transparent;
+    border:1.5px solid rgba(255,255,255,0.5);
+    box-shadow:none;
+  }
+  .btn.ghost:hover{
+    background:rgba(255,255,255,0.12);
+    border-color:#fff;
+  }
+
+  /* ---------- CTA section ---------- */
+  .cta{
+    text-align: center;
+    background: var(--bg-overlay-light);
+    padding: 3.5rem 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cta h2{
+    font-size: 1.9rem;
+    margin-bottom: .9rem;
+  }
+  .cta p{
+    color: var(--text-dark);
+    max-width: 640px;
+    margin: 0 auto 1.8rem;
+    line-height: 1.65;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: rgba(0,0,0,0.85);
+    text-align: center;
+    padding: 1.2rem;
+    font-size: .9rem;
+    position: relative;
+    z-index: 1;
+    color: var(--text-dark);
+  }
+
+  /* ---------- Back to top ---------- */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .back-to-top.show { opacity: 1; visibility: visible; }
+  .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
+
+  @media (max-width: 768px){
+    header h1{ font-size: 1.85rem; }
+    header p{ font-size: .98rem; }
+    .nav{ padding: 12px 16px; }
+    .nav-links a{ font-size: .85rem; padding: 6px 9px; }
+    section.block{ padding: 3rem 5%; }
+    .section-head h2{ font-size: 1.6rem; }
+    .arch-layer p{ margin-left: 0; margin-top: 6px; }
+    .arch-layer .layer-tech{ margin-left: 0; }
+    .oss-block{ padding: 26px 20px; }
+    .cta h2{ font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="nav">
+  <a href="index.html" class="brand">Cephas GM</a>
+  <div class="nav-links">
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Capabilities</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="impact.html">Impact</a>
+    <a href="architecture.html" class="active">Architecture</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
+  </div>
+</nav>
+
+<header id="main-content">
+  <span class="eyebrow">Engineering Documentation</span>
+  <h1>How we engineer critical infrastructure systems.</h1>
+  <p>A transparent view of the stack behind our enterprise platforms, multimodal AI systems, PWA applications, and hardware-integrated solutions — documented for engineers, technical partners, and due diligence.</p>
+</header>
+
+<!-- ---------- Architecture Diagram ---------- -->
+<section class="block">
+  <div class="section-head">
+    <h2>System <span>architecture</span></h2>
+    <p>Six layers, one integrated stack — from client interface down to physical sensors and back.</p>
+  </div>
+
+  <div class="arch-diagram">
+    <div class="arch-layer">
+      <h3><span class="layer-num">1</span> Client Layer</h3>
+      <p>Web browsers, installable PWAs, and mobile-friendly interfaces. Every system is responsive, offline-capable, and installable where appropriate.</p>
+      <div class="layer-tech">
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>Vanilla JS</span>
+        <span>PWA</span>
+        <span>Responsive</span>
+      </div>
+    </div>
+    <div class="arch-arrow">▼</div>
+
+    <div class="arch-layer">
+      <h3><span class="layer-num">2</span> Presentation Layer</h3>
+      <p>UI components, data visualisation, and interaction patterns. Charts, maps, slideshows, and real-time status indicators.</p>
+      <div class="layer-tech">
+        <span>Chart.js</span>
+        <span>Leaflet</span>
+        <span>Swiper</span>
+        <span>Service Workers</span>
+      </div>
+    </div>
+    <div class="arch-arrow">▼</div>
+
+    <div class="arch-layer">
+      <h3><span class="layer-num">3</span> Application Layer</h3>
+      <p>Authentication, business logic, and role-based access control. Everything validated server-side — never trusted from the client.</p>
+      <div class="layer-tech">
+        <span>Firebase Auth</span>
+        <span>JWT</span>
+        <span>OAuth</span>
+        <span>Role-Based Access</span>
+      </div>
+    </div>
+    <div class="arch-arrow">▼</div>
+
+    <div class="arch-layer">
+      <h3><span class="layer-num">4</span> Data Layer</h3>
+      <p>Real-time NoSQL for operational data, relational databases for structured reporting, and object storage for files and assets.</p>
+      <div class="layer-tech">
+        <span>Firestore</span>
+        <span>MySQL</span>
+        <span>Firebase Storage</span>
+        <span>CSV Export</span>
+      </div>
+    </div>
+    <div class="arch-arrow">▼</div>
+
+    <div class="arch-layer">
+      <h3><span class="layer-num">5</span> Integration Layer</h3>
+      <p>APIs, real-time streams, and bridges between cloud services and physical devices. WebSockets, REST, and device protocols.</p>
+      <div class="layer-tech">
+        <span>REST APIs</span>
+        <span>WebSockets</span>
+        <span>Python Bridge</span>
+        <span>MQTT</span>
+      </div>
+    </div>
+    <div class="arch-arrow">▼</div>
+
+    <div class="arch-layer">
+      <h3><span class="layer-num">6</span> Physical Layer</h3>
+      <p>Microcontrollers, sensors, and edge devices deployed in the field. The physical world feeding intelligence back into the system.</p>
+      <div class="layer-tech">
+        <span>Arduino UNO</span>
+        <span>ESP32</span>
+        <span>Ultrasonic Sensors</span>
+        <span>Current / Flow Meters</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- Stack by category ---------- -->
+<section class="block">
+  <div class="section-head">
+    <h2>Stack <span>by category</span></h2>
+    <p>Every technology we use, documented with links to official documentation.</p>
+  </div>
+
+  <div class="stack-grid">
+
+    <div class="stack-card">
+      <span class="stack-icon">🎨</span>
+      <h3>Frontend &amp; PWA</h3>
+      <ul class="stack-list">
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">HTML5</a> — semantic markup</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">CSS3</a> — responsive layouts, dark overlays</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">Vanilla JavaScript</a> — no framework overhead</li>
+        <li><a href="https://web.dev/progressive-web-apps/" target="_blank" rel="noopener">Progressive Web Apps</a> — installable, offline-first</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank" rel="noopener">Service Workers</a> — caching &amp; background sync</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank" rel="noopener">IndexedDB</a> — structured client-side storage</li>
+      </ul>
+    </div>
+
+    <div class="stack-card">
+      <span class="stack-icon">📊</span>
+      <h3>Visualisation &amp; UI</h3>
+      <ul class="stack-list">
+        <li><a href="https://www.chartjs.org/" target="_blank" rel="noopener">Chart.js</a> — budget &amp; performance charts</li>
+        <li><a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> — interactive maps</li>
+        <li><a href="https://openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> — free map tiles</li>
+        <li><a href="https://swiperjs.com/" target="_blank" rel="noopener">Swiper</a> — modal slideshows</li>
+        <li><a href="https://fonts.google.com/specimen/Poppins" target="_blank" rel="noopener">Poppins</a> — typography system</li>
+      </ul>
+    </div>
+
+    <div class="stack-card">
+      <span class="stack-icon">🔐</span>
+      <h3>Authentication &amp; Security</h3>
+      <ul class="stack-list">
+        <li><a href="https://firebase.google.com/docs/auth" target="_blank" rel="noopener">Firebase Auth</a> — email/password, OAuth</li>
+        <li><a href="https://firebase.google.com/docs/firestore/security/get-started" target="_blank" rel="noopener">Firestore Security Rules</a> — server-side enforcement</li>
+        <li><a href="https://firebase.google.com/docs/storage/security" target="_blank" rel="noopener">Storage Security Rules</a> — file access control</li>
+        <li><a href="https://jwt.io/" target="_blank" rel="noopener">JWT</a> — token-based sessions</li>
+        <li><a href="https://oauth.net/2/" target="_blank" rel="noopener">OAuth 2.0</a> — third-party sign-in</li>
+        <li><a href="https://www.wireguard.com/" target="_blank" rel="noopener">WireGuard</a> — VPN tunnel protocol</li>
+      </ul>
+    </div>
+
+    <div class="stack-card">
+      <span class="stack-icon">🗄️</span>
+      <h3>Data &amp; Backend</h3>
+      <ul class="stack-list">
+        <li><a href="https://firebase.google.com/docs/firestore" target="_blank" rel="noopener">Firestore</a> — real-time NoSQL database</li>
+        <li><a href="https://www.mysql.com/" target="_blank" rel="noopener">MySQL</a> — relational data &amp; reporting</li>
+        <li><a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener">Flask</a> — Python backend APIs</li>
+        <li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> — JavaScript server runtime</li>
+        <li><a href="https://firebase.google.com/docs/storage" target="_blank" rel="noopener">Firebase Storage</a> — file storage &amp; delivery</li>
+        <li><a href="https://firebase.google.com/docs/functions" target="_blank" rel="noopener">Cloud Functions</a> — serverless compute</li>
+      </ul>
+    </div>
+
+    <div class="stack-card">
+      <span class="stack-icon">🔌</span>
+      <h3>Hardware Integration</h3>
+      <ul class="stack-list">
+        <li><a href="https://www.arduino.cc/" target="_blank" rel="noopener">Arduino UNO</a> — sensor controller board</li>
+        <li><a href="https://www.espressif.com/en/products/socs/esp32" target="_blank" rel="noopener">ESP32</a> — WiFi + IoT microcontroller</li>
+        <li><a href="https://www.sparkfun.com/products/15569" target="_blank" rel="noopener">HC-SR04</a> — ultrasonic distance sensor</li>
+        <li><a href="https://www.python.org/" target="_blank" rel="noopener">Python</a> — hardware-to-cloud bridge</li>
+        <li><a href="https://pyserial.readthedocs.io/" target="_blank" rel="noopener">PySerial</a> — serial communication</li>
+        <li><a href="https://mqtt.org/" target="_blank" rel="noopener">MQTT</a> — lightweight IoT messaging</li>
+      </ul>
+    </div>
+
+    <div class="stack-card">
+      <span class="stack-icon">🤖</span>
+      <h3>AI &amp; Intelligence</h3>
+      <ul class="stack-list">
+        <li><a href="https://openai.com/" target="_blank" rel="noopener">OpenAI</a> — GPT models, vision, embeddings</li>
+        <li><a href="https://deepseek.com/" target="_blank" rel="noopener">DeepSeek</a> — reasoning models</li>
+        <li><a href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a> — local model hosting</li>
+        <li><a href="https://elevenlabs.io/" target="_blank" rel="noopener">ElevenLabs</a> — text-to-speech synthesis</li>
+        <li><a href="https://replicate.com/" target="_blank" rel="noopener">Replicate</a> — image / video generation</li>
+        <li><a href="https://opencv.org/" target="_blank" rel="noopener">OpenCV</a> — computer vision (EchoShield roadmap)</li>
+      </ul>
+    </div>
+
+    <div class="stack-card">
+      <span class="stack-icon">⚙️</span>
+      <h3>DevOps &amp; Deployment</h3>
+      <ul class="stack-list">
+        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> — source control &amp; collaboration</li>
+        <li><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> — static site hosting</li>
+        <li><a href="https://firebase.google.com/docs/hosting" target="_blank" rel="noopener">Firebase Hosting</a> — CDN &amp; custom domains</li>
+        <li><a href="https://render.com/" target="_blank" rel="noopener">Render</a> — backend service hosting</li>
+        <li><a href="https://firebase.google.com/docs/cli" target="_blank" rel="noopener">Firebase CLI</a> — automated deployments</li>
+        <li><a href="https://cloud.google.com/" target="_blank" rel="noopener">Google Cloud</a> — infrastructure &amp; APIs</li>
+      </ul>
+    </div>
+
+    <div class="stack-card">
+      <span class="stack-icon">📱</span>
+      <h3>Domain-Specific Tools</h3>
+      <ul class="stack-list">
+        <li>Tariff-aware pump automation algorithms</li>
+        <li>AI-based leak detection pipelines</li>
+        <li>Sign language recognition (SIGNAID)</li>
+        <li>Anti-DPI traffic obfuscation (VPN)</li>
+        <li>Staged threat zone classification (EchoShield)</li>
+        <li>Satellite link diagnostics (SatTrack)</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ---------- Engineering principles ---------- -->
+<section class="block">
+  <div class="section-head">
+    <h2>Engineering <span>principles</span></h2>
+    <p>Six principles that shape every system we build — regardless of technology or domain.</p>
+  </div>
+
+  <div class="principles-grid">
+
+    <div class="principle-card">
+      <span class="principle-num">Principle 01</span>
+      <h3>Offline-first by default</h3>
+      <p>Field operations don't wait for connectivity. Every system that can be designed offline-capable is. Data queues locally, syncs when the network returns, and never loses a transaction.</p>
+    </div>
+
+    <div class="principle-card">
+      <span class="principle-num">Principle 02</span>
+      <h3>Security in the data layer</h3>
+      <p>Client-side checks are for UX, not for security. Every read and write is validated server-side against authenticated identity and role. Firestore and Storage rules enforce this at the source.</p>
+    </div>
+
+    <div class="principle-card">
+      <span class="principle-num">Principle 03</span>
+      <h3>Hardware-software convergence</h3>
+      <p>Physical sensors feed digital intelligence. The boundary between the microcontroller and the cloud is an engineering choice, not an architecture gap. Both ends speak the same language.</p>
+    </div>
+
+    <div class="principle-card">
+      <span class="principle-num">Principle 04</span>
+      <h3>Role-based access everywhere</h3>
+      <p>Not every user should see every system. Admins see the full portfolio; clients see only their own. Data isolation is enforced at the database level, not by UI visibility alone.</p>
+    </div>
+
+    <div class="principle-card">
+      <span class="principle-num">Principle 05</span>
+      <h3>Immutability where it matters</h3>
+      <p>Audit trails must survive scrutiny. Financial records, compliance events, and security-relevant actions are written once and never rewritten. What happened, happened.</p>
+    </div>
+
+    <div class="principle-card">
+      <span class="principle-num">Principle 06</span>
+      <h3>Global from day one</h3>
+      <p>Critical infrastructure has no borders. Systems are designed for worldwide deployment — from language, to units, to time zones, to regulatory contexts. No region is excluded by default.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ---------- Open Source ---------- -->
+<section class="block">
+  <div class="oss-block">
+    <span class="oss-icon">🐙</span>
+    <h2>Built in the open</h2>
+    <p>Every system is publicly versioned on GitHub. Portfolios, prototypes, and production code live side by side — auditable by partners, contributors, and investors.</p>
+
+    <div class="oss-metrics">
+      <div class="oss-metric">
+        <strong>13</strong>
+        <span>Public Repos</span>
+      </div>
+      <div class="oss-metric">
+        <strong>12</strong>
+        <span>Working Systems</span>
+      </div>
+      <div class="oss-metric">
+        <strong>6</strong>
+        <span>Industry Domains</span>
+      </div>
+      <div class="oss-metric">
+        <strong>3</strong>
+        <span>Hardware-AI Systems</span>
+      </div>
+    </div>
+
+    <a href="https://github.com/cephasgm" target="_blank" rel="noopener" class="btn">View GitHub Organization</a>
+    <a href="projects.html" class="btn ghost">Browse Systems</a>
+  </div>
+</section>
+
+<!-- ---------- CTA ---------- -->
+<section class="cta">
+  <h2>Building with this stack?</h2>
+  <p>Whether you're a technical partner, an engineering firm considering white-label, or a developer interested in contributing — we'd like to hear what you're working on.</p>
+  <a href="contact.html" class="btn">Start a Conversation</a>
+  <a href="about.html" class="btn ghost">About Cephas GM</a>
+</section>
+
+<footer>Copyright © 2025 Cephas GM | Innovating for Tomorrow</footer>
+
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+<script>
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
