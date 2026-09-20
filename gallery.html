@@ -57,6 +57,27 @@
     100% { background-position: 0% 50%; }
   }
 
+  /* ---------- Accessibility: Skip Link ---------- */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: #0b7a59;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .9rem;
+    z-index: 9999;
+    transition: top .2s ease;
+  }
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
+  }
+
   /* ---------- Navigation ---------- */
   .nav{
     background: rgba(0,0,0,0.6);
@@ -326,6 +347,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <nav class="nav" role="navigation">
   <a href="index.html" class="brand">Cephas GM</a>
   <div class="nav-links">
@@ -345,7 +368,7 @@
   <p>Visual highlights from every system we build — enterprise platforms, AI, secure connectivity, hardware-integrated solutions, and infrastructure optimisation, deployed worldwide.</p>
 </header>
 
-<div class="gallery-wrap">
+<div class="gallery-wrap" id="main-content">
   <div class="grid">
 
     <!-- 1. Main Site -->
