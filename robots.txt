@@ -1,5 +1,6 @@
 # robots.txt — cephasgm.org
 # Last updated: 2026-09-20
+# Policy: Allow all search engines and AI crawlers full site access.
 
 # --- General crawlers: full site access ---
 User-agent: *
@@ -32,9 +33,6 @@ User-agent: Applebot-Extended
 Allow: /
 
 User-agent: CCBot
-Allow: /
-
-User-agent: Bytespider
 Allow: /
 
 # --- Sitemap ---
