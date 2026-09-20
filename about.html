@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>About — Cephas GM</title>
 
-<!-- SEO & Social Meta Tags -->
 <meta name="description" content="Cephas GM engineers enterprise software, multimodal AI platforms, and hardware-integrated systems for critical infrastructure — water-energy optimisation, industrial safety, secure connectivity, and digital transformation, deployed worldwide.">
 <meta property="og:title" content="About — Cephas GM">
 <meta property="og:description" content="Engineering critical infrastructure systems — enterprise platforms, AI, hardware-integrated defence, secure connectivity, and digital transformation.">
@@ -17,7 +16,6 @@
 <meta name="twitter:description" content="Enterprise software, AI platforms, hardware-integrated systems, and secure connectivity — deployed globally.">
 <meta name="twitter:image" content="https://cephasgm.org/og-image.jpg">
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b7a59'/%3E%3Ctext x='50' y='70' font-size='70' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -40,7 +38,6 @@
     position: relative;
     min-height: 100vh;
   }
-  /* Liquid crystal overlay — unchanged */
   body::before {
     content: '';
     position: fixed;
@@ -59,8 +56,6 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-
-  /* ---------- Accessibility: Skip Link ---------- */
   .skip-link {
     position: absolute;
     top: -100px;
@@ -80,8 +75,6 @@
     outline: 2px solid #34d399;
     outline-offset: 2px;
   }
-
-  /* ---------- Navigation ---------- */
   .nav{
     background: rgba(0,0,0,0.6);
     display:flex;
@@ -126,8 +119,6 @@
     box-shadow:0 4px 10px rgba(0,0,0,0.25);
   }
   .nav-links .portal-btn:hover{ background:var(--accent-hover); transform:translateY(-2px); }
-
-  /* ---------- Header ---------- */
   header{
     text-align:center;
     padding:3rem 1.5rem;
@@ -151,8 +142,6 @@
   }
   header h1{font-size:2.4rem;margin-bottom:.7rem;line-height:1.25;}
   header p{color:#ddd;font-size:1rem;max-width:720px;margin:0 auto;line-height:1.65;}
-
-  /* ---------- Main layout ---------- */
   main{
     max-width:1100px;
     margin:32px auto;
@@ -202,7 +191,6 @@
     font-weight:600;
   }
   a.inline-link:hover{ text-decoration:underline; }
-
   .row{
     display:grid;
     grid-template-columns: 1fr 340px;
@@ -211,8 +199,6 @@
   }
   @media (max-width:900px){ .row{ grid-template-columns:1fr; } }
   .panel{ padding:0; }
-
-  /* Team card */
   .team-card{
     background:#f7f7f7;
     border-radius:10px;
@@ -233,8 +219,6 @@
   .team-card .team-info{ min-width:0; }
   .team-card strong{ display:block; color:#222; }
   .team-card .role{ font-size:.85rem; color:var(--text-muted); }
-
-  /* Expertise list */
   .expertise-list{
     list-style:none;
     padding-left:0;
@@ -255,8 +239,6 @@
     color:var(--accent);
     font-weight:700;
   }
-
-  /* Buttons */
   .btn{
     display:inline-block;
     background:var(--accent);
@@ -283,8 +265,6 @@
     box-shadow:none;
   }
   .btn.ghost:hover{ background:var(--accent); color:#fff; }
-
-  /* ---------- Footer ---------- */
   footer{
     text-align:center;
     padding:1.2rem;
@@ -295,8 +275,6 @@
     position: relative;
     z-index: 1;
   }
-
-  /* Back to top */
   .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -319,7 +297,6 @@
   }
   .back-to-top.show { opacity: 1; visibility: visible; }
   .back-to-top:hover { background: var(--accent-hover); transform: translateY(-5px); }
-
   @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     header p{ font-size:.95rem; }
@@ -343,6 +320,10 @@
     <a href="services.html">Capabilities</a>
     <a href="gallery.html">Gallery</a>
     <a href="impact.html">Impact</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="investors.html">Investors</a>
     <a href="about.html" class="active">About</a>
     <a href="contact.html">Contact</a>
     <a href="https://cephasgm.github.io/cephasgm-portal/" class="portal-btn" target="_blank" rel="noopener">🔒 Portal Access</a>
@@ -358,7 +339,6 @@
 <main id="main-content">
   <div class="row">
 
-    <!-- Left column: Mission, Vision, Projects, Future -->
     <section class="panel">
       <h2>Our Mission</h2>
       <p>To engineer and deploy world-class enterprise platforms, multimodal AI systems, hardware-integrated solutions, and infrastructure optimisation tools — enabling organisations of every size and region to operate more efficiently, safely, and sustainably.</p>
@@ -401,7 +381,6 @@
       <a href="contact.html" class="btn ghost">Contact Us</a>
     </section>
 
-    <!-- Right column: Team + Expertise -->
     <aside class="panel">
       <h2>Meet the Team</h2>
       <div class="team-card">
@@ -442,7 +421,6 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script>
-  // Back to Top Button
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) backToTop.classList.add('show');
